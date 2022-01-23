@@ -4,7 +4,7 @@ import PostIssue from '@/components/post/issue'
 import LayoutBase from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'
 import TypePost from '@/types/Post'
-import PostBody from '@/components/post-body'
+import PostBody from '@/components/post/body'
 type Props = {
   allPosts: TypePost[]
   post: any
@@ -50,7 +50,8 @@ export default Index
 
 export const getStaticProps = async () => {
   const post = getPostBySlug('text', ['title', 'content'], 'mainCopy')
-  const content = await mdToHtml(post['content']! || '')
+  const postContent = post['content'] as string
+  const content = await mdToHtml(postContent || '')
   const allPosts = getAllPosts(['title', 'date', 'slug', 'tags'], 'issues')
 
   return {

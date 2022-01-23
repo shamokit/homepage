@@ -1,13 +1,10 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '@/components/layout/Container'
-import PostBody from '@/components/post-body'
-import Header from '@/components/header'
+import PostBody from '@/components/post/body'
 import Meta from '@/components/seo/meta'
-import PostHeader from '@/components/post-header'
 import LayoutBase from '@/components/layouts/LayoutBase'
 import { getPostBySlug, getAllPosts } from '@/lib/api'
-import PostTitle from '@/components/post-title'
 import mdToHtml from '@/lib/markdownToHtml'
 import TypePost from '@/types/Post'
 import { TagItem } from '@/components/tag/item'
@@ -26,10 +23,7 @@ const Post = ({ post }: Props) => {
   return (
     <LayoutBase>
       <Container>
-        <Header />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
+        {
           <>
             <Meta
               pageTitle={title}
@@ -37,7 +31,6 @@ const Post = ({ post }: Props) => {
               pageUrl={'localhost:3000'}
             />
             <article className="mb-32">
-              <PostHeader title={post.title} date={post.date} />
               {post.tags
                 ? post.tags.map((tag) => {
                     return <TagItem id={tag} dirName="issues" />
@@ -46,7 +39,7 @@ const Post = ({ post }: Props) => {
               <PostBody content={post.content} />
             </article>
           </>
-        )}
+        }
       </Container>
     </LayoutBase>
   )

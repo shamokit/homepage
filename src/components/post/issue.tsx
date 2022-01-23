@@ -1,5 +1,5 @@
-import DateFormatter from '@/components/date-formatter'
 import Link from 'next/link'
+import { DateElem } from "@/components/post/date";
 import { TagItem } from '@/components/tag/item'
 
 type Props = {
@@ -27,7 +27,7 @@ const PostIssue = ({ title, date, slug, tags }: Props) => {
         : null
       }
       <div className="text-sm font-code">
-        <DateFormatter dateString={date} />
+        <DateElem dateString={date} />
       </div>
     </div>
   )
