@@ -1,0 +1,47 @@
+---
+title: 'react-syntax-highlighterでカラーテーマを指定した時にエクスポートされたメンバーがありません。とtsエラーが出る'
+date: '2020-03-16T05:35:07.322Z'
+tags: [0,1]
+ogImage:
+  url: '/assets/blog/hello-world/cover.jpg'
+---
+
+## 環境
+
+- "react-syntax-highlighter": "^15.4.5"
+- "@types/react-syntax-highlighter": "^13.5.2
+
+## コード
+
+```tsx
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+
+<SyntaxHighlighter
+  language="tsx"
+  style={coldarkDark}
+>
+  {code}
+</SyntaxHighlighter>
+
+```
+
+## 対応する
+
+@types/react-syntax-highlighterにcoldarkDarkが描かれていないようなので、型を拡張します。
+
+```ts:src/@types/react-syntax-highlighter.d.ts
+import 'react-syntax-highlighter/dist/cjs/styles/prism';
+
+declare module 'react-syntax-highlighter/dist/cjs/styles/prism' {
+  export { default as coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism/coldark-dark';
+}
+```
+
+tsconfig.tsにtypeRootsを追加する。
+
+```ts:tsconfig.ts
+{
+  "typeRoots": ["./node_modules/@types", "./src/@types"]
+}
+```
