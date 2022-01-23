@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { LinkBase } from '@/types/LinkBase'
-import SnsBtn from '@/components/seo/share'
+import { SnsBtn } from '@/components/seo/share'
 type NavigationItem = LinkBase
 type Props = {
   open: boolean
