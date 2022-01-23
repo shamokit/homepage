@@ -15,7 +15,7 @@ const TagItem = ({
   if (link) {
     return (
       <Link href={`/${dirName}/tag/${slug}/`}>
-        <a className="flex place-items-center px-3 py-2 font-code rounded bg-base-color text-white leading-tight">
+        <a className="flex place-items-center px-3 py-2 font-code rounded bg-base-color text-white leading-tight transition-colors hover:bg-main">
           {name}
         </a>
       </Link>
