@@ -18,7 +18,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta property="og:BLOG_name" content={BLOG_NAME} />
+        <meta property="og:site_name" content={BLOG_NAME} />
         <meta property="og:type" content="website" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

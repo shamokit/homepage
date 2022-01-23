@@ -17,9 +17,9 @@ const Index = ({ allPosts, post }: Props) => {
   return (
     <>
       <Meta
-        pageTitle={'テスト'}
+        pageTitle={''}
         pageDescription={''}
-        pageUrl={'localhost:3000'}
+        pageUrl={''}
         pageImg={''}
       />
       <LayoutBase>
