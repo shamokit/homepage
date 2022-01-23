@@ -5,7 +5,7 @@ type Props = {
   dateString: string
 }
 
-export const DateElem = ({ pageSingle = false, dateString }: Props) => {
+export const PostDate = ({ pageSingle = false, dateString }: Props) => {
   const dateText = DateFormat({dateString})
   return (
     <>
@@ -17,3 +17,5 @@ export const DateElem = ({ pageSingle = false, dateString }: Props) => {
     </>
   )
 }
+
+export default Date
