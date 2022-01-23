@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { SITE_NAME, SITE_DESCRIPTION, DEFAULT_OGP_IMAGE } from '@/lib/constants'
+import { BLOG_NAME, BLOG_DESCRIPTION, DEFAULT_OGP_IMAGE } from '@/lib/constants'
 type TypeMeta = {
   pageTitle: string
   pageDescription: string
@@ -7,8 +7,8 @@ type TypeMeta = {
   pageImg?: string
 }
 const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg }: TypeMeta) => {
-  const defaultTitle = SITE_NAME
-  const defaultDescription = SITE_DESCRIPTION
+  const defaultTitle = BLOG_NAME
+  const defaultDescription = BLOG_DESCRIPTION
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
   const description = pageDescription ? pageDescription : defaultDescription

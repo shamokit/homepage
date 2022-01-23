@@ -3,7 +3,7 @@ import type { ReportHandler } from 'web-vitals'
 import 'modern-css-reset/dist/reset.min.css'
 import '../styles/globals.css';
 import Head from 'next/head';
-import { SITE_NAME } from '@/lib/constants'
+import { BLOG_NAME } from '@/lib/constants'
 /**
 	Next.js-hydration: ページのハイドレーションが開始から終了するまでにかかる時間(ミリ秒)
 	Next.js-route-change-to-render: ルーティング後、ページがレンダリングを開始するのにかかる時間(ミリ秒)
@@ -18,7 +18,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:BLOG_name" content={BLOG_NAME} />
         <meta property="og:type" content="website" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
