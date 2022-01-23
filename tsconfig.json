@@ -25,6 +25,7 @@
     "baseUrl": "src",
 		"paths": {
 			"@/types/*": ["types/*"],
+			"@/functions/*": ["functions/*"],
 			"@/components/*": ["components/*"],
 			"@/lib/*": ["lib/*"],
 			"@/styles/*": ["styles/*"]
