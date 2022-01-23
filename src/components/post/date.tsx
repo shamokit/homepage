@@ -17,5 +17,3 @@ export const DateElem = ({ pageSingle = false, dateString }: Props) => {
     </>
   )
 }
-
-export default Date
