@@ -15,10 +15,16 @@ const TagItem = ({
   if (link) {
     return (
       <Link href={`/${dirName}/tag/${slug}/`}>
-        <a className="flex place-items-center px-3 py-2 font-code rounded bg-base-color text-white leading-tight">{name}</a>
+        <a className="flex place-items-center px-3 py-2 font-code rounded bg-base-color text-white leading-tight">
+          {name}
+        </a>
       </Link>
     )
   }
-  return <span className="flex place-items-center px-3 py-2 font-code rounded bg-base-color text-white leading-tight">{name}</span>
+  return (
+    <span className="flex place-items-center px-3 py-2 font-code rounded bg-base-color text-white leading-tight">
+      {name}
+    </span>
+  )
 }
 export { TagItem }
