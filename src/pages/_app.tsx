@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import type { ReportHandler } from 'web-vitals'
+// import type { ReportHandler } from 'web-vitals'
 import 'modern-css-reset/dist/reset.min.css'
 import '../styles/globals.css';
 import Head from 'next/head';
@@ -9,9 +9,9 @@ import { BLOG_NAME } from '@/lib/constants'
 	Next.js-route-change-to-render: ルーティング後、ページがレンダリングを開始するのにかかる時間(ミリ秒)
 	Next.js-render: ルーティング後、ページのレンダリングが完了するまでにかかる時間(ミリ秒)
  */
-export const reportWebVitals = (metric: ReportHandler) => {
-	console.log(metric)
-}
+// export const reportWebVitals = (metric: ReportHandler) => {
+// 	console.log(metric)
+// }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
