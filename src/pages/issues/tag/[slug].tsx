@@ -3,7 +3,7 @@ import Container from '@/components/layout/Container'
 import LayoutBase from '@/components/layouts/LayoutBase'
 import { getTagPosts } from '@/lib/api'
 import { tags } from '@/lib/tags'
-import TypePost from '@/types/Post'
+import {TypePost} from '@/types/Post'
 import PostIssue from '@/components/post/issue'
 
 type PathParams = {

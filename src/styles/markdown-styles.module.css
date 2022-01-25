@@ -1,12 +1,12 @@
 .znc {
-  @apply text-lg leading-relaxed;
+  @apply leading-relaxed;
 }
 
 .znc p,
 .znc ul,
 .znc ol,
 .znc blockquote {
-  @apply my-6;
+  @apply my-4;
 }
 
 .znc ul {
@@ -17,17 +17,16 @@
 }
 
 .znc h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply text-xl mt-12 mb-4 pt-2 pb-2.5 px-4 leading-snug bg-white text-base-color font-bold;
 }
 
 .znc h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-lg mt-8 mb-4 pb-2 leading-snug border-b-2 border-accent font-bold;
 }
 
+.znc pre {
+  @apply p-4 border-2 border-white;
+}
 .znc pre>code {
-  @apply font-code px-2 py-4 sm:p-4 md:p-6 text-sm md:text-base sm:tracking-tight lg:text-2xl;
-}
-
-.znc *:first-child:last-child {
-  @apply m-0;
+  @apply p-0 font-code text-sm;
 }

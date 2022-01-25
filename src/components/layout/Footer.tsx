@@ -2,7 +2,7 @@ import Container from '@/components/layout/Container'
 
 const Footer = () => {
   return (
-    <footer className="bg-sub">
+    <footer className="bg-base-color">
       <Container>
         <p className="flex justify-center items-center pt-0.5">
           <small className="text-white leading-none tracking-widest">

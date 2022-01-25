@@ -6,9 +6,8 @@ import Meta from '@/components/seo/meta'
 import LayoutBase from '@/components/layouts/LayoutBase'
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import mdToHtml from '@/lib/markdownToHtml'
-import TypePost from '@/types/Post'
-import { TagItem } from '@/components/tag/item'
-
+import { TypePost } from '@/types/Post'
+import { PostHeader } from '@/components/post/header'
 type Props = {
   post: TypePost
 }
@@ -20,6 +19,7 @@ const Post = ({ post }: Props) => {
   }
   const title = `${post.title} | Issues`
   const description = `${post.description}`
+  const url = `/issues/${post.slug}/`
   return (
     <LayoutBase>
       <Container>
@@ -28,14 +28,10 @@ const Post = ({ post }: Props) => {
             <Meta
               pageTitle={title}
               pageDescription={description}
-              pageUrl={'localhost:3000'}
+              pageUrl={url}
             />
-            <article className="mb-32">
-              {post.tags
-                ? post.tags.map((tag) => {
-                    return <TagItem id={tag} dirName="issues" />
-                  })
-                : ''}
+            <article>
+              <PostHeader post={post} className='mb-10' />
               <PostBody content={post.content} />
             </article>
           </>
@@ -78,10 +74,10 @@ export async function getStaticPaths() {
   return {
     paths: posts.map((post) => {
       return {
-				params: {
-					slug: post['slug']!,
-				},
-			};
+        params: {
+          slug: post['slug']!,
+        },
+      }
     }),
     fallback: false,
   }

@@ -1,4 +1,4 @@
-type TypePost = {
+export type TypePost = {
   slug: string
   title: string
   description?: string
@@ -10,5 +10,3 @@ type TypePost = {
   tags?: number[]
   content: string
 }
-
-export default TypePost

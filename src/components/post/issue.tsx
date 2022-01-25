@@ -13,13 +13,13 @@ type Props = {
 const PostIssue = ({ title, date, slug, tags }: Props) => {
   const tagList = tags?.map((tagId) => {
     return (
-      <li>
+      <li key={tagId}>
         <TagItem dirName="issue" id={tagId} />
       </li>
     )
   })
   return (
-    <li className="relative grid gap-4 px-4 pb-4 shadow-md rounded overflow-hidden bg-main-bg bg-opacity-10">
+    <li className="relative grid gap-4 px-4 pb-4 rounded overflow-hidden bg-white bg-opacity-10 transition-shadow hover:shadow-md">
       <Link href={`/issues/${slug}`}>
         <a className="relative block -mx-4 hover:group">
           <DesignedDate dateString={date} className='absolute top-2 left-2 text-white' />
@@ -28,7 +28,7 @@ const PostIssue = ({ title, date, slug, tags }: Props) => {
       </Link>
       <div className="flex">
         <Link href={`/issues/${slug}`}>
-          <a className="block hover:group">
+          <a className="block transition-colors hover:text-main">
             <p className="text-base leading-snug font-bold">{title}</p>
           </a>
         </Link>

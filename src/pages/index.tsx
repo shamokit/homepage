@@ -4,7 +4,7 @@ import PostIssue from '@/components/post/issue'
 import LayoutBase from '@/components/layouts/LayoutBase'
 import { Head01 } from '@/components/head/section-head01'
 import { getAllPosts } from '@/lib/api'
-import TypePost from '@/types/Post'
+import { TypePost } from '@/types/Post'
 import PostBody from '@/components/post/body'
 type Props = {
   bookPosts: TypePost[]

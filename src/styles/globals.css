@@ -5,11 +5,8 @@
   font-feature-settings: "calt";
   font-variant-ligatures: contextual;
 }
-.gradation {
-  background: linear-gradient(180deg, #525880, #64557f, #884f6e, #99534a, #8c6430, #806c2b);
-}
 .glass {
-  @apply text-white bg-white bg-opacity-5;
+  @apply bg-white bg-opacity-10;
   backdrop-filter: blur(1px);
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 0;
   border-bottom: 1px rgba(40,40,40,0.35) solid;
@@ -21,4 +18,7 @@
   border: 1px rgba(255,255,255,0.4) solid;
   border-bottom: 1px rgba(40,40,40,0.35) solid;
   border-right: 1px rgba(40,40,40,0.35) solid;
+}
+.gradation {
+  @apply bg-gradient-to-b from-base-color to-main-bg;
 }
