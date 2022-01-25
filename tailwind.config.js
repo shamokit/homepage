@@ -11,6 +11,7 @@ module.exports = {
       'main-bg': '#525880',
       sub: '#332E1C',
       accent: '#fbcb5f',
+      'glass-blue': '#38c7ff',
       white: '#fff',
     },
     extend: {

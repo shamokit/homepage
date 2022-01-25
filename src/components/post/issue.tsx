@@ -19,21 +19,20 @@ const PostIssue = ({ title, date, slug, tags }: Props) => {
     )
   })
   return (
-    <li className="relative grid gap-4 px-4 pb-4 rounded overflow-hidden bg-white bg-opacity-10 transition-shadow hover:shadow-md">
+    <li className="grid gap-4">
       <Link href={`/issues/${slug}`}>
-        <a className="relative block -mx-4 hover:group">
-          <DesignedDate dateString={date} className='absolute top-2 left-2 text-white' />
-          <div className="pt-[46%] bg-main"></div>
+        <a className="group relative block max-w-full overflow-hidden">
+          <div className="absolute inset-0 scale-75 opacity-0 glass transition-all group-hover:opacity-100 group-hover:scale-100"></div>
+          <div className="pt-[46%] glass rounded-md"></div>
+          <DesignedDate dateString={date} className='absolute top-4 left-4' />
         </a>
       </Link>
-      <div className="flex">
-        <Link href={`/issues/${slug}`}>
-          <a className="block transition-colors hover:text-main">
-            <p className="text-base leading-snug font-bold">{title}</p>
-          </a>
-        </Link>
-      </div>
-      {tagList && <ul className="flex gap-2 text-xs">{tagList}</ul>}
+      {tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}
+      <Link href={`/issues/${slug}`}>
+        <a className="block">
+          <p className="text-base leading-snug font-bold">{title}</p>
+        </a>
+      </Link>
     </li>
   )
 }

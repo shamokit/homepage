@@ -25,9 +25,9 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
         </div>
         <h1 className="flex justify-center mt-8 tracking-widest text-lg font-bold">
           <span>
-            めんどくさいを<span className="text-main">楽ちん</span>に。
+            めんどくさいを<span className="text-glass-blue">楽ちん</span>に。
             <br />
-            コーディングを<span className="text-main">楽しい</span>に。
+            コーディングを<span className="text-glass-blue">楽しい</span>に。
           </span>
         </h1>
         <div className="mt-16">
@@ -36,7 +36,7 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
               <section className="grid gap-4">
                 <Head01 text="Issue Posts" />
                 {issuePosts.length > 0 && (
-                  <ul className="grid md:grid-cols-2 gap-2">
+                  <ul className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 lg:gap-8">
                     {issuePosts.map((post) => {
                       return <PostIssue {...post} key={post.slug} />
                     })}

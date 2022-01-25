@@ -6,7 +6,7 @@
   font-variant-ligatures: contextual;
 }
 .glass {
-  @apply bg-white bg-opacity-10;
+  @apply bg-glass-blue bg-opacity-5;
   backdrop-filter: blur(1px);
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 0;
   border-bottom: 1px rgba(40,40,40,0.35) solid;
@@ -22,3 +22,6 @@
 .gradation {
   @apply bg-gradient-to-b from-base-color to-main-bg;
 }
+/* .gradation-dark {
+  @apply bg-gradient-to-b from-base-color to-main;
+} */
