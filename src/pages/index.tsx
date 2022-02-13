@@ -58,7 +58,7 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
 										})}
 									</ul>
 								)}
-								<Btn01 href="/issue/" text="Issue一覧" />
+								<Btn01 href="/issues/" text="Issue一覧" />
 							</section>
 							<section className="grid gap-4 md:gap-8 lg:gap-12">
 								<Head01 text="Book Posts" />
@@ -69,7 +69,7 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
 										})}
 									</ul>
 								)}
-								<Btn01 href="/book/" text="Book一覧" />
+								<Btn01 href="/books/" text="Book一覧" />
 							</section>
 						</div>
 					</Container>

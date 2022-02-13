@@ -14,7 +14,7 @@ const PostIssue = ({ title, date, slug, tags }: Props) => {
   const tagList = tags?.map((tagId) => {
     return (
       <li key={tagId}>
-        <TagItem dirName="issue" id={tagId} />
+        <TagItem dirName="issues" id={tagId} />
       </li>
     )
   })
