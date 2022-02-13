@@ -21,9 +21,9 @@ const PostIssue = ({ title, date, slug, tags }: Props) => {
   return (
     <li className="grid gap-4">
       <Link href={`/issues/${slug}`}>
-        <a className="group relative block max-w-full overflow-hidden">
+        <a className="group relative block max-w-full bg-base-color rounded text-white overflow-hidden">
           <div className="absolute inset-0 scale-75 opacity-0 glass transition-all group-hover:opacity-100 group-hover:scale-100"></div>
-          <div className="pt-[46%] glass rounded-md"></div>
+          <div className="pt-[46%]"></div>
           <DesignedDate dateString={date} className='absolute top-4 left-4' />
         </a>
       </Link>

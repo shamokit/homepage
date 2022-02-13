@@ -28,5 +28,5 @@
   @apply p-4 border-2 border-white;
 }
 .znc pre>code {
-  @apply p-0 font-code text-sm;
+  @apply p-0 font-code text-sm md:text-base lg:text-lg;
 }

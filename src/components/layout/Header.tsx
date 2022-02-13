@@ -41,7 +41,7 @@ const Header = ({ className }: Props) => {
   const CloseButton = () => {
     return (
       <button
-        className={`flex justify-between items-center w-14 h-14 mt-auto ml-auto px-2 leading-none text-bold `}
+        className={`flex justify-between items-center w-14 h-14 mt-auto ml-auto px-2 leading-none text-bold font-bold`}
         onClick={close}
         type="button"
       >
@@ -54,7 +54,7 @@ const Header = ({ className }: Props) => {
   return (
     <>
       <header
-        className={`fixed top-0 right-0 left-0 z-30 flex justify-start py-3 px-4 md:px-6 lg:px-8 glass !border-0 ${
+        className={`fixed top-0 right-0 left-0 z-30 flex justify-start py-3 px-4 md:px-6 lg:px-8 gradation-dark !border-0 ${
           className ? className : ''
         }`}
       >
@@ -72,7 +72,7 @@ const Header = ({ className }: Props) => {
           </Link>
         </p>
         <button
-          className="absolute top-0 right-0 z-10 flex md:hidden flex-col justify-center items-center gap-1 w-14 h-14 text-center leading-tight font-code overflow-hidden"
+          className="absolute top-0 right-0 z-10 flex md:hidden flex-col justify-center items-center gap-1 w-14 h-14 text-center leading-tight font-code font-bold overflow-hidden"
           onClick={toggleOpen}
           type="button"
         >

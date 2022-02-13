@@ -2,10 +2,10 @@ import Container from '@/components/layout/Container'
 
 const Footer = () => {
   return (
-    <footer className="mt-16 bg-base-color">
+    <footer className="mt-16 bg-base-color text-white">
       <Container>
-        <p className="flex justify-center items-center pt-0.5">
-          <small className="text-white leading-none tracking-widest">
+        <p className="grid place-items-center py-10">
+          <small className="leading-none tracking-widest">
             ©️2022 shamokit
           </small>
         </p>

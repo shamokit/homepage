@@ -15,7 +15,7 @@ const TagItem = ({
   if (link) {
     return (
       <Link href={`/${dirName}/tag/${slug}/`}>
-        <a className="relative group flex place-items-center px-3 py-2 font-code rounded gradation text-xs text-white leading-tight overflow-hidden shadow-sm">
+        <a className="relative group flex place-items-center px-3 py-2 font-code rounded gradation-r text-xs text-white leading-tight overflow-hidden shadow-sm">
           <div className="absolute inset-0 bg-base-color opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
           <span className='relative'>{name}</span>
         </a>

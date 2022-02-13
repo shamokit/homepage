@@ -5,6 +5,12 @@ module.exports = {
     "src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+    },
     colors: {
       'base-color': '#1b1e32',
       main: '#384280',
@@ -17,7 +23,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Zen Kaku Gothic New', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', 'sans-serif'],
-        code: ['Fira Code',  'monospace'],
+        code: ['Fira Code', 'monospace'],
       },
     },
   },

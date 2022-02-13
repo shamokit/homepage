@@ -1,5 +1,6 @@
 module.exports = {
+  bracketLine: true,
+  useTabs: true,
   semi: false,
-  arrowParens: 'always',
   singleQuote: true
 }

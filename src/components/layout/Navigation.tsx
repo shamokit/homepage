@@ -15,11 +15,11 @@ const Navigation = ({ list, open, closeButton }: Props) => {
 			${open ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
 			  `}
       >
-        <div className="flex flex-col md:flex-row md:items-center px-6">
+        <div className="flex flex-col md:flex-row md:items-center px-6 md:py-2">
           <div className="order-1 md:order-none mt-6 md:mt-0 md:mr-6">
             <SnsBtn />
           </div>
-          <ul className="flex flex-col md:flex-row md:justify-end gap-4 py-2 font-medium">
+          <ul className="flex flex-col md:flex-row md:justify-end gap-4 py-2 md:py-0 font-medium">
             {list.map((item) => {
               return (
                 <li className="flex" key={item.name}>

@@ -14,11 +14,11 @@ export const DesignedDate = ({ dateString, className }: Props) => {
   const day = splitDate[2]
   return (
     <p
-      className={classNames('inline-grid font-code leading-none', {
+      className={classNames('inline-grid font-code leading-none font-bold', {
         [`${className}`]: className,
       })}
     >
-      <span className='text-sm'>{year}</span> <span className='text-xl'>{month}/{day}</span>
+      <span className='text-xs'>{year}</span> <span className='text-base'>{month}/{day}</span>
     </p>
   )
 }
