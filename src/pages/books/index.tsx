@@ -1,4 +1,5 @@
 import { Container } from '@/components/layout/Container'
+import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'
 import { TypePost } from '@/types/Post'
@@ -11,6 +12,11 @@ type TypeProps = {
 const Cat = ({ allPosts }: TypeProps) => {
 	return (
 		<>
+			<Meta
+				pageTitle={'Book一覧'}
+				pageDescription={'読んだ本のアウトプットや感想やメモなどを残しています。'}
+				pageUrl={'/books/'}
+			/>
 			<LayoutBase>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">

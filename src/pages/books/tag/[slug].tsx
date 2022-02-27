@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { Container } from '@/components/layout/Container'
+import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getTagPosts } from '@/lib/api'
 import { tags, getTagBySlug } from '@/lib/tags'
@@ -14,11 +15,17 @@ type PathParams = {
 type TypeProps = {
 	tag: TagType
 	allPosts: TypePost[] | []
+	slug: string
 }
-
-const Tag = ({ allPosts, tag }: TypeProps) => {
+const Tag = ({ allPosts, tag, slug }: TypeProps) => {
+	const url = `/books/tag/${slug}/`
 	return (
 		<>
+			<Meta
+				pageTitle={`${tag.name}関連 | Book一覧`}
+				pageDescription={`${tag.name}関連で読んだ本のアウトプットや感想やメモなどを残しています。`}
+				pageUrl={`${url}`}
+			/>
 			<LayoutBase>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
@@ -49,7 +56,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	)
 
 	return {
-		props: { allPosts, tag },
+		props: { allPosts, tag, slug },
 	}
 }
 export const getStaticPaths: GetStaticPaths = async () => {

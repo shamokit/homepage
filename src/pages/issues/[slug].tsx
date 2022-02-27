@@ -17,7 +17,7 @@ const Post = ({ post }: TypeProps) => {
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />
 	}
-	const title = `${post.title} | Issues`
+	const title = `${post.title}`
 	const description = `${post.description}`
 	const url = `/issues/${post.slug}/`
 	return (
@@ -52,7 +52,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
 	const post = getPostBySlug(
 		params.slug,
-		['title', 'date', 'slug', 'tags', 'content'],
+		['title', 'description', 'date', 'slug', 'tags', 'content'],
 		'issues'
 	)
 	const postContent = post['content'] as string
