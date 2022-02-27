@@ -35,3 +35,6 @@ a:not([class]) {
 a:not([class]):hover {
 	@apply no-underline;
 }
+.znc .code-block-container {
+	margin: 0 !important;
+}

@@ -1,18 +1,35 @@
 import classNames from 'classnames'
-type Props = {
+const allowElem = ['h1', 'h2', 'h3', 'h4'] as const
+type AllowElem = typeof allowElem[number]
+type OwnProps<E extends AllowElem> = {
 	className?: string
-	as?: React.ElementType
-	text: string
+	as?: E
+	text: React.ReactNode
 }
-export const Head01 = ({ className, as: TagName = 'h2', text }: Props) => {
+
+type TypeProps<E extends AllowElem> = OwnProps<E> &
+	Omit<React.ComponentProps<E>, keyof OwnProps<E>>
+export const Head01 = <E extends AllowElem>({
+	className,
+	as,
+	text,
+}: TypeProps<E>) => {
+	const TagName = as || 'h2'
 	return (
-		<header>
-			<div className="w-10 mb-3 md:mb-4 border-b-4 border-main"></div>
+		<header className={className}>
+			<div
+				className={classNames([
+					'w-10',
+					'mb-3 md:mb-4',
+					'border-b-4 border-main',
+				])}
+			></div>
 			<TagName
-				className={classNames(
-					'text-xl md:text-2xl lg:text-3xl font-bold leading-tight',
-					{ [`${className}`]: className }
-				)}
+				className={classNames([
+					'text-2xl md:text-3xl lg:text-4xl',
+					'font-bold leading-tight font-code',
+					'',
+				])}
 			>
 				{text}
 			</TagName>

@@ -1,17 +1,16 @@
-import 'zenn-content-css/lib/index.css'
 import style from '@/styles/markdown-styles.module.css'
-type Props = {
-  content: string
-  className?: string
+import 'zenn-content-css';
+import classNames from 'classnames'
+type TypeProps = {
+	content: string
+	className?: string
 }
 
-const PostBody = ({ content, className }: Props) => {
-  return (
-    <div
-      className={`znc ${style['znc']} ${className}`}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
-  )
+export const PostBody = ({ content, className }: TypeProps) => {
+	return (
+		<div
+			className={classNames('znc', style['znc'], { className: className })}
+			dangerouslySetInnerHTML={{ __html: content }}
+		/>
+	)
 }
-
-export default PostBody

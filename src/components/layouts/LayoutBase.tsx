@@ -1,18 +1,20 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-type Props = {
-  children: React.ReactNode
+type TypeProps = {
+	children: React.ReactNode
 }
 
-const LayoutBase = ({ children }: Props) => {
-  return (
-    <>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </>
-  )
+export const LayoutBase = ({ children }: TypeProps) => {
+	return (
+		<>
+			<Header />
+			<div className="flex flex-col min-h-screen pt-14 md:pt-20">
+				<div className="flex-1 py-14 md:py-20 lg:py-32">
+					<main>{children}</main>
+				</div>
+				<Footer />
+			</div>
+		</>
+	)
 }
-
-export default LayoutBase

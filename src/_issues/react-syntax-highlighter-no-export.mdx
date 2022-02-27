@@ -11,6 +11,7 @@ ogImage:
 - "react-syntax-highlighter": "^15.4.5"
 - "@types/react-syntax-highlighter": "^13.5.2
 
+___
 ## コード
 
 ```tsx
@@ -23,12 +24,11 @@ import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 >
   {code}
 </SyntaxHighlighter>
-
 ```
-
+___
 ## 対応する
 
-@types/react-syntax-highlighterにcoldarkDarkが描かれていないようなので、型を拡張します。
+@types/react-syntax-highlighterにcoldarkDarkが書かれていないようなので、型を拡張します。
 
 ```ts:src/@types/react-syntax-highlighter.d.ts
 import 'react-syntax-highlighter/dist/cjs/styles/prism';

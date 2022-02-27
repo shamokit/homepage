@@ -1,13 +1,14 @@
-import Container from '@/components/layout/Container'
-import Meta from '@/components/seo/meta'
+import { Container } from '@/components/layout/Container'
+import { Meta } from '@/components/seo/meta'
 import PostIssue from '@/components/post/issue'
-import LayoutBase from '@/components/layouts/LayoutBase'
+import PostBook from '@/components/post/book'
+import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { Head01 } from '@/components/head/section-head01'
 import { getAllPosts } from '@/lib/api'
 import { TypePost } from '@/types/Post'
-import PostBody from '@/components/post/body'
+import { PostBody } from '@/components/post/body'
 import { Btn01 } from '@/components/button/app-btn01'
-type Props = {
+type TypeProps = {
 	bookPosts: TypePost[]
 	issuePosts: TypePost[]
 	mainCopyContentHtml: any
@@ -16,16 +17,16 @@ type Props = {
 import mdToHtml from '@/lib/markdownToHtml'
 import { getPostBySlug } from '@/lib/api'
 
-const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
+const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 	return (
 		<>
 			<Meta pageTitle={''} pageDescription={''} pageUrl={''} pageImg={''} />
 			<LayoutBase>
-				<Container className="md:flex items-center justify-center gap-4 lg:gap-10 px-0 lg:py-10">
+				<div className="md:flex items-center justify-center gap-4 md:gap-8 lg:gap-16 lg:py-10">
 					<div className="grid place-items-center pt-14 lg:pt-0">
 						<PostBody
 							content={mainCopyContentHtml}
-							className="tracking-normal"
+							className="tracking-normal !leading-normal"
 						/>
 					</div>
 					<h1 className="flex justify-center mt-8 tracking-widest text-lg md:text-xl lg:text-2xl font-bold lg:mt-0">
@@ -35,21 +36,21 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
 							コーディングを<span className="text-glass-blue">楽しい</span>に。
 						</span>
 					</h1>
-				</Container>
+				</div>
 				<div className="mt-16">
 					<Container>
-						<div className="grid gap-10 md:gap-20 lg:gap-32">
-							<section className="grid gap-4 md:gap-8 lg:gap-12">
+						<div className="grid gap-28 md:gap-40 lg:gap-60">
+							<section className="grid gap-8 md:gap-12 lg:gap-20">
 								<Head01 text="About" />
 								<p>
 									このサイトはしゃもきっとが運営しているブログサイトです。
-									<br />
+									{/* <br />
 									しゃもきっとに関して気になった人は
-									Profileページを見てみてください。
+									Profileページを見てみてください。 */}
 								</p>
-								<Btn01 href="/profile/" text="Profile" />
+								{/* <Btn01 href="/profile/" text="Profile" /> */}
 							</section>
-							<section className="grid gap-4 md:gap-8 lg:gap-12">
+							<section className="grid gap-8 md:gap-12 lg:gap-20">
 								<Head01 text="Issue Posts" />
 								{issuePosts.length > 0 && (
 									<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
@@ -58,18 +59,18 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: Props) => {
 										})}
 									</ul>
 								)}
-								<Btn01 href="/issues/" text="Issue一覧" />
+								<Btn01 href="/issues/" text="Issues" />
 							</section>
-							<section className="grid gap-4 md:gap-8 lg:gap-12">
+							<section className="grid gap-8 md:gap-12 lg:gap-20">
 								<Head01 text="Book Posts" />
 								{bookPosts.length > 0 && (
 									<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
 										{bookPosts.map((post) => {
-											return <PostIssue {...post} key={post.slug} />
+											return <PostBook {...post} key={post.slug} />
 										})}
 									</ul>
 								)}
-								<Btn01 href="/books/" text="Book一覧" />
+								<Btn01 href="/books/" text="Books" />
 							</section>
 						</div>
 					</Container>

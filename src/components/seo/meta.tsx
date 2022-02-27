@@ -1,33 +1,38 @@
 import Head from 'next/head'
-import { BLOG_DOMAIN,BLOG_NAME, BLOG_DESCRIPTION, DEFAULT_OGP_IMAGE } from '@/lib/constants'
+import {
+	BLOG_DOMAIN,
+	BLOG_NAME,
+	BLOG_DESCRIPTION,
+	DEFAULT_OGP_IMAGE,
+} from '@/lib/constants'
 type TypeMeta = {
-  pageTitle: string
-  pageDescription: string
-  pageUrl?: string
-  pageImg?: string
+	pageTitle: string
+	pageDescription: string
+	pageUrl?: string
+	pageImg?: string
 }
-const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg }: TypeMeta) => {
-  const defaultTitle = BLOG_NAME
-  const defaultDescription = BLOG_DESCRIPTION
+export const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg }: TypeMeta) => {
+	const defaultTitle = BLOG_NAME
+	const defaultDescription = BLOG_DESCRIPTION
 
-  const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
-  const description = pageDescription ? pageDescription : defaultDescription
-  const url = pageUrl ? BLOG_DOMAIN+pageUrl : BLOG_DOMAIN
-  const imgUrl = pageImg ? BLOG_DOMAIN+pageImg : BLOG_DOMAIN+DEFAULT_OGP_IMAGE
-  return (
-    <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
+	const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
+	const description = pageDescription ? pageDescription : defaultDescription
+	const url = pageUrl ? BLOG_DOMAIN + pageUrl : BLOG_DOMAIN
+	const imgUrl = pageImg
+		? BLOG_DOMAIN + pageImg
+		: BLOG_DOMAIN + DEFAULT_OGP_IMAGE
+	return (
+		<Head>
+			<title>{title}</title>
+			<meta name="description" content={description} />
+			<meta property="og:url" content={url} />
+			<meta property="og:title" content={title} />
 
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={imgUrl} />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@shamokit_11" />
-      <link rel="canonical" href={url} />
-    </Head>
-  )
+			<meta property="og:description" content={description} />
+			<meta property="og:image" content={imgUrl} />
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@shamokit_y2323" />
+			<link rel="canonical" href={url} />
+		</Head>
+	)
 }
-
-export default Meta

@@ -1,4 +1,4 @@
 export type LinkBase = {
-	name: string;
-	href: string;
+	name: string
+	href: string
 }

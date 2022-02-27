@@ -1,22 +1,31 @@
 import classNames from 'classnames'
 import { AppArrow01 } from '@/components/ico/arrow01'
 import Link from 'next/link'
-type Props = {
+type TypeProps = {
 	className?: string
 	href: string
 	text: string
 }
-export const Btn01 = ({ className, href, text }: Props) => {
+export const Btn01 = ({ className, href, text }: TypeProps) => {
 	return (
 		<Link href={href}>
 			<a
-				className={classNames(
-					'relative flex items-center max-w-xs pt-2 pb-2.5 px-4 rounded leading-normal text-center border-2 border-base-color bg-base-color text-white transition-colors ease-out hover:bg-white hover:text-base-color',
-					{ [`${className}`]: className }
-				)}
+				className={classNames([
+					className,
+					'group relative overflow-hidden',
+					'flex items-center',
+					'max-w-xs',
+					'py-4 px-6',
+					'rounded-full',
+					'font-code leading-normal text-center',
+					'transition-colors ease-out',
+					'text-white',
+					'gradation-r',
+				])}
 			>
-				{text}
-				<AppArrow01 className="absolute top-1/2 -translate-y-1/2 right-2" />
+				<div className="absolute inset-0 bg-base-color opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+				<span className="relative">{text}</span>
+				<AppArrow01 className="absolute top-1/2 -translate-y-1/2 right-5" />
 			</a>
 		</Link>
 	)
