@@ -20,7 +20,7 @@ import { getPostBySlug } from '@/lib/api'
 const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 	return (
 		<>
-			<Meta pageTitle={''} pageDescription={''} pageUrl={''} pageImg={''} />
+			<Meta pageTitle={'しゃもきっとの技術ブログ'} pageDescription={''} pageUrl={''} pageImg={''} />
 			<LayoutBase>
 				<div className="md:flex items-center justify-center gap-4 md:gap-8 lg:gap-16 lg:py-10">
 					<div className="grid place-items-center pt-14 lg:pt-0">
@@ -39,8 +39,8 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 				</div>
 				<div className="mt-16">
 					<Container>
-						<div className="grid gap-28 md:gap-40 lg:gap-60">
-							<section className="grid gap-8 md:gap-12 lg:gap-20">
+						<div className="grid gap-28 md:gap-32 lg:gap-40">
+							<section className="grid gap-8 md:gap-12 lg:gap-16">
 								<Head01 text="About" />
 								<p>
 									このサイトはしゃもきっとが運営しているブログサイトです。

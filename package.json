@@ -1,8 +1,8 @@
 {
 	"private": true,
 	"scripts": {
-		"dev": "next",
-		"build": "next build",
+		"dev": "(if exist .next rd /s /q .next 2>nul) && next",
+		"build": "next build && next export",
 		"start": "next start",
 		"type_check": "tsc",
 		"format": "prettier --write --ignore-path .gitignore \"./src/**/*.{js,jsx,ts,tsx,json,css}\""
@@ -11,6 +11,7 @@
 		"@types/react-syntax-highlighter": "^13.5.2",
 		"classnames": "2.3.1",
 		"date-fns": "2.21.3",
+		"eslint-config-next": "^12.1.0",
 		"eslint-config-prettier": "^8.4.0",
 		"gray-matter": "4.0.3",
 		"modern-css-reset": "^1.4.0",
@@ -33,6 +34,7 @@
 		"@types/react": "^17.0.6",
 		"@types/react-dom": "^17.0.5",
 		"autoprefixer": "10.4.0",
+		"eslint": "^8.10.0",
 		"postcss": "8.4.5",
 		"tailwindcss": "3.0.5"
 	},

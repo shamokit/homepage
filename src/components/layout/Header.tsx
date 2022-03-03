@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Navigation from '@/components/layout/Navigation'
 import { LinkBase } from '@/types/LinkBase'
+import { BLOG_DOMAIN } from '@/lib/constants'
 type TypeProps = {
 	className?: string
 }
@@ -11,7 +12,7 @@ type TypeProps = {
 const cats = ['issues', 'books']
 const list:LinkBase[] = cats.map((cat) => ({
   name: cat,
-  href: `/${cat}/`,
+  href: `${BLOG_DOMAIN}/${cat}/`,
 }))
 const Header = ({ className }: TypeProps) => {
 	const [open, setOpen] = useState(false)
