@@ -29,7 +29,7 @@ const PostIssue = ({ title, date, slug, tags }: TypeProps) => {
 			{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}
 			<Link href={`/issues/${slug}`}>
 				<a className="block">
-					<p className="font-bold">{title}</p>
+					<p className="font-semibold leading-normal tracking-wide">{title}</p>
 				</a>
 			</Link>
 		</li>

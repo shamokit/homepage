@@ -8,6 +8,7 @@ import { getAllPosts } from '@/lib/api'
 import { TypePost } from '@/types/Post'
 import { PostBody } from '@/components/post/body'
 import { Btn01 } from '@/components/button/app-btn01'
+import { BLOG_DOMAIN } from '@/lib/constants'
 type TypeProps = {
 	bookPosts: TypePost[]
 	issuePosts: TypePost[]
@@ -20,24 +21,27 @@ import { getPostBySlug } from '@/lib/api'
 const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 	return (
 		<>
-			<Meta pageTitle={'しゃもきっとの技術ブログ'} pageDescription={''} pageUrl={''} pageImg={''} />
+			<Meta pageTitle={'しゃもきっとの技術ブログ'} pageDescription={''} pageUrl={''} pageImg={''} breadcrumb={[{
+				name: 'TOPページ',
+				url: `${BLOG_DOMAIN}/`
+			}]} />
 			<LayoutBase>
-				<div className="md:flex items-center justify-center gap-4 md:gap-8 lg:gap-16 lg:py-10">
-					<div className="grid place-items-center pt-14 lg:pt-0">
+				<Container className="md:flex items-center justify-center gap-4 md:gap-8 lg:gap-16">
+					<div className="grid place-items-center pt-8 md:pt-14 lg:pt-0">
 						<PostBody
 							content={mainCopyContentHtml}
 							className="tracking-normal !leading-normal"
 						/>
 					</div>
-					<h1 className="flex justify-center mt-8 tracking-widest text-lg md:text-xl lg:text-2xl font-bold lg:mt-0">
+					<h1 className="flex justify-center mt-8 lg:mt-0 tracking-wider text-lg md:text-xl lg:text-2xl font-medium">
 						<span>
-							めんどくさいを<span className="text-glass-blue">楽ちん</span>に。
+							めんどくさいを<span className="ml-2 mr-1 text-sub text-2xl md:text-3xl lg:text-4xl font-semibold tracking-widest">楽ちん</span>に。
 							<br />
-							コーディングを<span className="text-glass-blue">楽しい</span>に。
+							コーディングを<span className="ml-2 mr-1 text-sub text-2xl md:text-3xl lg:text-4xl font-semibold tracking-widest">楽しい</span>に。
 						</span>
 					</h1>
-				</div>
-				<div className="mt-16">
+				</Container>
+				<div className="mt-16 md:mt-20 lg:mt-32">
 					<Container>
 						<div className="grid gap-28 md:gap-32 lg:gap-40">
 							<section className="grid gap-8 md:gap-12 lg:gap-16">

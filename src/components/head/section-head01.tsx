@@ -26,9 +26,10 @@ export const Head01 = <E extends AllowElem>({
 			></div>
 			<TagName
 				className={classNames([
-					'text-2xl md:text-3xl lg:text-4xl',
-					'font-bold leading-tight font-code',
-					'',
+					'inline-block',
+					'gradation-text text-2xl md:text-3xl lg:text-4xl',
+					'font-medium leading-tight font-code',
+					'tracking-widest',
 				])}
 			>
 				{text}

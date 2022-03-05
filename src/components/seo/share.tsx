@@ -10,7 +10,7 @@ export const SnsBtn = () => {
 					rel="noopener noreferrer"
 					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
 				>
-					<Image src="/logo/twitter.svg" layout="fill" objectFit="contain" />
+					<Image src="/logo/twitter.svg" layout="fill" objectFit="contain" alt="しゃもキットのtwitterアカウント" />
 				</a>
 			</li>
 			<li>
@@ -20,7 +20,7 @@ export const SnsBtn = () => {
 					rel="noopener noreferrer"
 					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
 				>
-					<Image src="/logo/gitHub.png" layout="fill" objectFit="contain" />
+					<Image src="/logo/gitHub.png" layout="fill" objectFit="contain"alt="しゃもキットのgitHubアカウント" />
 				</a>
 			</li>
 		</ul>

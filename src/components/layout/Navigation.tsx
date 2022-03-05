@@ -26,7 +26,7 @@ const Navigation = ({ list, open, closeButton }: TypeProps) => {
 					<div className="order-1 md:order-none mt-6 md:mt-0 md:mr-6">
 						<SnsBtn />
 					</div>
-					<ul className="flex flex-col md:flex-row md:justify-end gap-4 py-2 md:py-0 text-base">
+					<ul className="flex flex-col md:flex-row md:justify-end gap-x-4 py-2 md:py-0 text-base">
 						{list.map((item) => {
 							return (
 								<li className="flex" key={item.name} itemProp="hasPart" itemScope itemType="http://schema.org/WebPage">

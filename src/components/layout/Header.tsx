@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -45,9 +46,14 @@ const Header = ({ className }: TypeProps) => {
 	return (
 		<>
 			<header
-				className={`fixed top-0 right-0 left-0 z-30 flex justify-start py-3 px-4 md:px-6 lg:px-8 gradation-dark !border-0 ${
-					className ? className : ''
-				}`}
+				className={classNames([
+					'fixed top-0 right-0 left-0 z-30',
+					'flex justify-start',
+					'py-3 px-4 md:px-6 lg:px-8',
+					'!border-0',
+					'gradation-dark',
+					className
+				])}
 			>
 				<p className="self-center w-8 md:w-10 lg:w-14">
 					<Link href="/">
@@ -104,11 +110,13 @@ const Header = ({ className }: TypeProps) => {
 				<Navigation list={list} open={open} closeButton={<CloseButton />} />
 			</header>
 			<div
-				className={`fixed top-0 right-0 z-20 h-screen w-full bg-main-bg bg-opacity-20 backdrop-blur-sm transition-opacity ${
-					open ? 'opacity-100' : 'opacity-0 pointer-events-none'
-				}
-					md:hidden
-				`}
+				className={classNames([
+					'fixed top-0 right-0 z-20',
+					'md:hidden',
+					'w-full h-screen',
+					'transition-opacity bg-main-bg bg-opacity-20 backdrop-blur-sm',
+					open ? 'opacity-100' : 'opacity-0 pointer-events-none',
+				])}
 				onClick={close}
 			></div>
 		</>

@@ -6,7 +6,7 @@
 	font-variant-ligatures: contextual;
 }
 .glass {
-	@apply bg-glass-blue bg-opacity-5;
+	@apply bg-main bg-opacity-5;
 	backdrop-filter: blur(1px);
 	box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 0;
 	border-bottom: 1px rgba(40, 40, 40, 0.35) solid;
@@ -19,11 +19,14 @@
 	border-bottom: 1px rgba(40, 40, 40, 0.35) solid;
 	border-right: 1px rgba(40, 40, 40, 0.35) solid;
 }
+.gradation-text {
+	@apply bg-clip-text text-transparent bg-gradient-to-r from-base-color to-main;
+}
 .gradation {
-	@apply bg-gradient-to-b from-base-color to-main-bg;
+	@apply bg-gradient-to-b from-base-color to-main;
 }
 .gradation-r {
-	@apply bg-gradient-to-r from-base-color to-main-bg;
+	@apply bg-gradient-to-r from-base-color to-main;
 }
 .gradation-dark {
 	/* backdrop-filter: blur(1px); */

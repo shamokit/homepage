@@ -22,10 +22,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 				<meta property="og:type" content="website" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
 				<link
-					rel="stylesheet"
-					href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
-				/>
-				<link
 					rel="apple-touch-icon"
 					sizes="180x180"
 					href="/favicon/apple-touch-icon.png"

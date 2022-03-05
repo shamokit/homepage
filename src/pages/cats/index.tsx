@@ -3,6 +3,8 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import {
 	BLOG_DOMAIN,
 } from '@/lib/constants'
+import { getAllPosts } from '@/lib/api'
+
 import { TypePost } from '@/types/Post'
 import PostCat from '@/components/post/cat'
 import { Head01 } from '@/components/head/section-head01'
@@ -34,8 +36,7 @@ const Cat = ({ allPosts }: TypeProps) => {
 export default Cat
 
 export const getStaticProps = async () => {
-	const res = await fetch(`${BLOG_DOMAIN}/api/post/?cat=cats`)
-  const allPosts = await res.json()
+	const allPosts = getAllPosts(['title', 'date', 'slug', 'tags'], 'cats')
 	return {
 		props: { allPosts },
 	}
