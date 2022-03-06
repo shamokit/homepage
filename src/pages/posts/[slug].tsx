@@ -17,9 +17,9 @@ const Post = ({ post }: TypeProps) => {
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />
 	}
-	const title = `${post.title}`
+	const title = `${post.title} | Posts`
 	const description = `${post.description}`
-	const url = `/issues/${post.slug}/`
+	const url = `/posts/${post.slug}/`
 	return (
 		<LayoutBase>
 			<Container>
@@ -31,7 +31,7 @@ const Post = ({ post }: TypeProps) => {
 							pageUrl={url}
 						/>
 						<article>
-							<PostHeader post={post} dir={'issues'} className="mb-12" />
+							<PostHeader post={post} dir={'posts'} className="mb-12" />
 							<PostBody content={post.content} />
 						</article>
 					</>
@@ -53,7 +53,7 @@ export async function getStaticProps({ params }: Params) {
 	const post = getPostBySlug(
 		params.slug,
 		['title', 'description', 'date', 'slug', 'tags', 'content'],
-		'issues'
+		'posts'
 	)
 	const postContent = post['content'] as string
 	const content = await mdToHtml(postContent! || '')
@@ -69,7 +69,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-	const posts = getAllPosts(['slug'], 'issues')
+	const posts = getAllPosts(['slug'], 'posts')
 
 	return {
 		paths: posts.map((post) => {

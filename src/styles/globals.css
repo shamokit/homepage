@@ -1,7 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.font-code {
+.theme-engineer {
+  --color-base-color: 12 34 51;
+  --color-main: 6 84 113;
+  --color-sub: 10 145 171;
+  --color-accent: 255 192 69;
+  --color-white: 255 255 255;
+  --color-transparent: 'transparent';
+}
+
+.setting {
 	font-feature-settings: 'calt';
 	font-variant-ligatures: contextual;
 }

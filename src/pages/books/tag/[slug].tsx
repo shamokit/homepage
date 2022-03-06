@@ -5,7 +5,7 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getTagPosts } from '@/lib/api'
 import { tags, getTagBySlug } from '@/lib/tags'
 import { TypePost } from '@/types/Post'
-import PostBook from '@/components/post/book'
+import PostCard from '@/components/post/card'
 import { Head01 } from '@/components/head/section-head01'
 import { TagType } from '@/types/Tag'
 
@@ -22,18 +22,18 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 	return (
 		<>
 			<Meta
-				pageTitle={`${tag.name}関連 | Book一覧`}
+				pageTitle={`${tag.name}タグ | Books`}
 				pageDescription={`${tag.name}関連で読んだ本のアウトプットや感想やメモなどを残しています。`}
 				pageUrl={`${url}`}
 			/>
 			<LayoutBase>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`${tag.name}一覧`} />
+						<Head01 as="h1" text={`#${tag.name}`} />
 						{allPosts.length > 0 ? (
 							<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
 								{allPosts.map((post) => {
-									return <PostBook {...post} key={post.slug} />
+									return <PostCard {...post} key={post.slug} dir="books" />
 								})}
 							</ul>
 						): '記事はありません'}

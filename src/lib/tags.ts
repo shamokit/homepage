@@ -34,6 +34,11 @@ export const tags = [
 		name: 'SvelteKit',
 		slug: 'svelte-kit',
 	},
+	{
+		id: 7,
+		name: '途中',
+		slug: 'wip',
+	},
 ] as const
 
 /**

@@ -5,7 +5,7 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getTagPosts } from '@/lib/api'
 import { tags, getTagBySlug } from '@/lib/tags'
 import { TypePost } from '@/types/Post'
-import PostIssue from '@/components/post/issue'
+import PostCard from '@/components/post/card'
 import { Head01 } from '@/components/head/section-head01'
 import { TagType } from '@/types/Tag'
 
@@ -19,27 +19,25 @@ type TypeProps = {
 }
 
 const Tag = ({ allPosts, tag, slug }: TypeProps) => {
-	const url = `/issues/tag/${slug}/`
+	const url = `/posts/tag/${slug}/`
 	return (
 		<>
 			<Meta
-				pageTitle={`${tag.name}関連 | Issue一覧`}
+				pageTitle={`${tag.name}タグ | Posts`}
 				pageDescription={`${tag.name}関連で詰まったことなどの解決方法をメモしています。`}
 				pageUrl={`${url}`}
 			/>
 			<LayoutBase>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`${tag.name}一覧`} />
+						<Head01 as="h1" text={`#${tag.name}`} />
 						{allPosts.length > 0 ? (
 							<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
 								{allPosts.map((post) => {
-									return <PostIssue {...post} key={post.slug} />
+									return <PostCard {...post} key={post.slug} dir="posts" />
 								})}
 							</ul>
-						) : (
-							'記事はありません'
-						)}
+						): '記事はありません'}
 					</section>
 				</Container>
 			</LayoutBase>
@@ -54,7 +52,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	const tag = getTagBySlug(slug)
 	const allPosts = getTagPosts(
 		['title', 'date', 'slug', 'tags'],
-		'issues',
+		'posts',
 		slug
 	)
 

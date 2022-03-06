@@ -17,7 +17,7 @@ export const PostDate = ({
 			{pageSingle ? (
 				<time
 					dateTime={dateText}
-					className={classnames('font-code font-bold', className)}
+					className={classnames('font-semibold', className)}
 				>
 					{dateText}
 				</time>

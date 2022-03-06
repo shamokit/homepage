@@ -17,7 +17,7 @@ export const Btn01 = ({ className, href, text }: TypeProps) => {
 					'max-w-xs',
 					'py-4 px-6',
 					'rounded-full',
-					'font-code leading-normal text-center',
+					' leading-normal text-center',
 					'transition-colors ease-out',
 					'text-white',
 					'gradation-r',

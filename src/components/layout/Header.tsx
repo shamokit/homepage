@@ -9,8 +9,8 @@ import { BLOG_DOMAIN } from '@/lib/constants'
 type TypeProps = {
 	className?: string
 }
-// const cats = ['issues', 'books', 'items', 'cats']
-const cats = ['issues', 'books']
+// const cats = ['posts', 'books', 'items', 'cats']
+const cats = ['posts', 'books']
 const list:LinkBase[] = cats.map((cat) => ({
   name: cat,
   href: `${BLOG_DOMAIN}/${cat}/`,
@@ -33,7 +33,7 @@ const Header = ({ className }: TypeProps) => {
 	const CloseButton = () => {
 		return (
 			<button
-				className={`flex justify-between items-center w-14 h-14 mt-auto ml-auto px-2 leading-none text-bold font-bold`}
+				className={`flex justify-between items-center w-14 h-14 mt-auto ml-auto px-2 leading-none font-semibold text-accent`}
 				onClick={close}
 				type="button"
 			>
@@ -69,12 +69,12 @@ const Header = ({ className }: TypeProps) => {
 					</Link>
 				</p>
 				<button
-					className="absolute top-0 right-0 z-10 flex md:hidden flex-col justify-center items-center gap-1 w-14 h-14 text-center leading-tight font-code font-bold overflow-hidden"
+					className="absolute top-0 right-0 z-10 flex md:hidden flex-col justify-center items-center w-14 h-14 text-center leading-tight font-semibold overflow-hidden"
 					onClick={toggleOpen}
 					type="button"
 				>
 					<span
-						className={`absolute inset-y-0 flex justify-between items-center w-full px-2 leading-none text-bold`}
+						className={`absolute inset-y-0 flex justify-between items-center w-full px-2 leading-none text-bold text-accent`}
 					>
 						<span
 							className={`relative flex transition-transform ${
@@ -92,17 +92,17 @@ const Header = ({ className }: TypeProps) => {
 						</span>
 					</span>
 					<span
-						className={`block w-5 border  transition-transform relative shadow-inner ${
+						className={`block w-5 mb-0.5 border  transition-transform relative shadow-inner border-accent ${
 							open
-								? 'rotate-45 top-[3px] border-white'
-								: 'rotate-0 border-accent'
+								? 'rotate-45 top-[3px]'
+								: 'rotate-0'
 						}`}
 					></span>
 					<span
-						className={`block w-5 border  transition-transform relative shadow-inner ${
+						className={`block w-5 mt-0.5 border  transition-transform relative shadow-inner border-accent ${
 							open
-								? '-rotate-45 -top-[3px] border-white'
-								: 'rotate-0 border-accent'
+								? '-rotate-45 -top-[3px]'
+								: 'rotate-0'
 						}`}
 					></span>
 					<div className="sr-only">menu</div>

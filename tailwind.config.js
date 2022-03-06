@@ -1,3 +1,11 @@
+function withOpacityValue(variable) {
+	return ({ opacityValue }) => {
+		if (opacityValue === undefined) {
+			return `rgb(var(${variable}))`
+		}
+		return `rgb(var(${variable}) / ${opacityValue})`
+	}
+}
 module.exports = {
 	mode: 'jit',
 	content: [
@@ -23,11 +31,11 @@ module.exports = {
 		},
 		colors: {
 			//color8
-			'base-color': '#0C2233',
-			main: '#065471',
-			sub: '#0A91AB',
-			accent: '#FFC045',
-			white: '#fff',
+			'base-color': withOpacityValue('--color-base-color'),
+			'main': withOpacityValue('--color-main'),
+			'sub': withOpacityValue('--color-sub'),
+			'accent': withOpacityValue('--color-accent'),
+			'white': withOpacityValue('--color-white'),
 			transparent: 'transparent',
 			//color7
 			// 'base-color': '#001F3F',
@@ -75,20 +83,13 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: [
+					'Fira Code',
 					'Zen Kaku Gothic New',
 					'Hiragino Sans',
 					'Hiragino Kaku Gothic ProN',
 					'Meiryo',
 					'sans-serif',
 				],
-				code: [
-					'Fira Code',
-					'monospace',
-					'Zen Kaku Gothic New',
-					'Hiragino Sans',
-					'Hiragino Kaku Gothic ProN',
-					'Meiryo',
-					'sans-serif',],
 			},
 		},
 	},

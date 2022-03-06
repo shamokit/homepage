@@ -3,6 +3,7 @@ import classNames from 'classnames'
 
 import { LinkBase } from '@/types/LinkBase'
 import { SnsBtn } from '@/components/seo/share'
+import { BLOG_DOMAIN } from '@/lib/constants'
 type NavigationItem = LinkBase
 type TypeProps = {
 	open: boolean
@@ -30,10 +31,10 @@ const Navigation = ({ list, open, closeButton }: TypeProps) => {
 						{list.map((item) => {
 							return (
 								<li className="flex" key={item.name} itemProp="hasPart" itemScope itemType="http://schema.org/WebPage">
-									<Link href={item.href}>
-										<a className="group relative flex items-center py-2 transition-all uppercase overflow-hidden" itemProp="url">
+									<Link href={`${item.href}`}>
+										<a className="group relative flex items-center py-2 transition-all capitalize overflow-hidden" itemProp="url">
 											<span itemProp="name">{item.name}</span>
-											<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-white scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
+											<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
 										</a>
 									</Link>
 								</li>

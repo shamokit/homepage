@@ -14,7 +14,7 @@ export const DesignedDate = ({ dateString, className }: TypeProps) => {
 	const day = splitDate[2]
 	return (
 		<p
-			className={classNames('inline-grid gap-2 font-code leading-none font-bold', {
+			className={classNames('inline-grid gap-2  leading-none font-semibold', {
 				[`${className}`]: className,
 			})}
 		>

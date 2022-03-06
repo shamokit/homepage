@@ -26,7 +26,7 @@ const Post = ({ post }: TypeProps) => {
 				{
 					<>
 						<Meta
-							pageTitle={title}
+							pageTitle={`${title} | Books`}
 							pageDescription={description}
 							pageUrl={url}
 						/>
