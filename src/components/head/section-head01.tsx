@@ -1,15 +1,15 @@
 import classNames from 'classnames'
 const allowElem = ['h1', 'h2', 'h3', 'h4'] as const
-type ListowElem = typeof allowElem[number]
-type OwnProps<E extends ListowElem> = {
+type ListAllowElem = typeof allowElem[number]
+type OwnProps<E extends ListAllowElem> = {
 	className?: string
 	as?: E
 	text: React.ReactNode
 }
 
-type TypeProps<E extends ListowElem> = OwnProps<E> &
+type TypeProps<E extends ListAllowElem> = OwnProps<E> &
 	Omit<React.ComponentProps<E>, keyof OwnProps<E>>
-export const Head01 = <E extends ListowElem>({
+export const Head01 = <E extends ListAllowElem>({
 	className,
 	as,
 	text,
@@ -19,9 +19,9 @@ export const Head01 = <E extends ListowElem>({
 		<header className={className}>
 			<div
 				className={classNames([
-					'w-10',
+					'w-10 h-1',
 					'mb-3 md:mb-4',
-					'border-b-4 border-main',
+					'gradation-r',
 				])}
 			></div>
 			<TagName

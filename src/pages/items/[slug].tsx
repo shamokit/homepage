@@ -52,8 +52,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
 	const post = getPostBySlug(
 		params.slug,
-		['title', 'date', 'slug', 'tags', 'content'],
-		'items'
+		['title', 'date', 'slug', 'tags', 'content']
 	)
 	const postContent = post['content'] as string
 	const content = await mdToHtml(postContent! || '')

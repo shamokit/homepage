@@ -50,9 +50,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	const { slug } = context.params as PathParams
 	const tag = getTagBySlug(slug)
 	const allPosts = getTagPosts(
-		['title', 'date', 'slug', 'tags'],
+		['title', 'date', 'slug', 'category', 'tags'],
+		slug,
 		'books',
-		slug
 	)
 
 	return {

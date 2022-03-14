@@ -52,8 +52,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	const tag = getTagBySlug(slug)
 	const allPosts = getTagPosts(
 		['title', 'date', 'slug', 'tags'],
+		slug,
 		'items',
-		slug
 	)
 
 	return {

@@ -2,7 +2,7 @@ import { DateFormat } from '@/functions/common/date-format'
 import classNames from 'classnames'
 
 type TypeProps = {
-	dateString: string
+	dateString: string | Date
 	className?: string
 }
 

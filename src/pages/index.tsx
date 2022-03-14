@@ -1,29 +1,46 @@
 import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import PostCard from '@/components/post/card'
+import { TagItem } from '@/components/tag/item'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { Head01 } from '@/components/head/section-head01'
 import { getAllPosts } from '@/lib/api'
+import { getTagsWithCount } from '@/lib/tags'
 import { TypePost } from '@/types/Post'
 import { PostBody } from '@/components/post/body'
 import { Btn01 } from '@/components/button/app-btn01'
 import { BLOG_DOMAIN } from '@/lib/constants'
 type TypeProps = {
+	posts: TypePost[]
 	bookPosts: TypePost[]
-	issuePosts: TypePost[]
 	mainCopyContentHtml: any
+	tags: (TagType & { count: number })[]
 }
 
 import mdToHtml from '@/lib/markdownToHtml'
 import { getPostBySlug } from '@/lib/api'
+import { TagType } from '@/types/Tag'
 
-const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
+const Index = ({
+	posts,
+	bookPosts,
+	mainCopyContentHtml,
+	tags,
+}: TypeProps) => {
 	return (
 		<>
-			<Meta pageTitle={'しゃもきっとの技術ブログ'} pageDescription={''} pageUrl={''} pageImg={''} breadcrumb={[{
-				name: 'TOPページ',
-				url: `${BLOG_DOMAIN}/`
-			}]} />
+			<Meta
+				pageTitle={'しゃもきっとの技術ブログ'}
+				pageDescription={''}
+				pageUrl={''}
+				pageImg={''}
+				breadcrumb={[
+					{
+						name: 'TOPページ',
+						url: `${BLOG_DOMAIN}/`,
+					},
+				]}
+			/>
 			<LayoutBase>
 				<Container className="md:flex items-center md:gap-8 lg:gap-16 pt-8 md:pt-14 lg:pt-0">
 					<div className="grid place-items-center">
@@ -34,9 +51,17 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 					</div>
 					<h1 className="flex justify-center mt-8 md:mt-0 tracking-wider text-lg md:text-xl lg:text-2xl font-medium">
 						<span>
-							めんどくさいを<span className="ml-2 mr-1 text-sub text-2xl md:text-3xl lg:text-4xl tracking-widest">楽ちん</span>に。
+							めんどくさいを
+							<span className="ml-2 mr-1 text-sub text-2xl md:text-3xl lg:text-4xl tracking-widest">
+								楽ちん
+							</span>
+							に。
 							<br />
-							コーディングを<span className="ml-2 mr-1 text-sub text-2xl md:text-3xl lg:text-4xl tracking-widest">楽しい</span>に。
+							コーディングを
+							<span className="ml-2 mr-1 text-sub text-2xl md:text-3xl lg:text-4xl tracking-widest">
+								楽しい
+							</span>
+							に。
 						</span>
 					</h1>
 				</Container>
@@ -55,9 +80,9 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
 								<Head01 text="Posts" />
-								{issuePosts.length > 0 && (
+								{posts.length > 0 && (
 									<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
-										{issuePosts.map((post) => {
+										{posts.map((post) => {
 											return <PostCard {...post} key={post.slug} dir="posts" />
 										})}
 									</ul>
@@ -75,6 +100,21 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 								)}
 								<Btn01 href="/books/" text="Books" />
 							</section>
+							<section className="grid gap-8 md:gap-12 lg:gap-20">
+								<Head01 text="Tags" />
+								{tags.length > 0 && (
+									<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
+										{tags.map((tag) => {
+											return (
+												<li key={tag.id}>
+													<TagItem id={tag.id} count={tag.count} />
+												</li>
+											)
+										})}
+									</ul>
+								)}
+								<Btn01 href="/books/" text="Books" />
+							</section>
 						</div>
 					</Container>
 				</div>
@@ -84,19 +124,28 @@ const Index = ({ bookPosts, issuePosts, mainCopyContentHtml }: TypeProps) => {
 }
 
 export default Index
-
+import {getPostSlugs} from '@/lib/api'
 export const getStaticProps = async () => {
-	const mainCopy = getPostBySlug('text', ['title', 'content'], 'mainCopy')
+	const mainCopy = getPostBySlug('text', ['content'])
 	const mainCopyContent = mainCopy['content'] as string
 	const mainCopyContentHtml = await mdToHtml(mainCopyContent || '')
-	const issuePosts = getAllPosts(['title', 'date', 'slug', 'tags'], 'posts')
-	const bookPosts = getAllPosts(['title', 'date', 'slug', 'tags'], 'books')
+	const posts = getAllPosts(['title', 'date', 'slug', 'tags', 'category'], 'posts')
+	const bookPosts = getAllPosts(['title', 'date', 'slug', 'tags', 'category'], 'books')
+
+	const allPostSlugs = getPostSlugs()
+	const postsForTags = allPostSlugs
+		.map((slug) => getPostBySlug(slug, ['tags']))
+		.filter((post) => {
+			return post['private'] !== true
+		})
+	const tags = getTagsWithCount(postsForTags)
 
 	return {
 		props: {
+			posts,
 			bookPosts,
-			issuePosts,
 			mainCopyContentHtml,
+			tags,
 		},
 	}
 }

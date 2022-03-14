@@ -2,34 +2,19 @@ import Link from 'next/link'
 import { DesignedDate } from '@/components/post/designed-date'
 import { TagItem } from '@/components/tag/item'
 
-type TypeProps = {
-	title: string
-	date: string
-	slug: string
-	dir: string
-	category?: string
-	tags?: number[]
-}
+import {TypeDiary} from '@/types/Diary'
 
-const PostCard = ({ title, date, slug, dir, category, tags }: TypeProps) => {
-	const tagList = tags?.map((tagId) => {
-		return (
-			<li key={tagId}>
-				<TagItem dirName={dir} id={tagId} />
-			</li>
-		)
-	})
+const PostDiary = ({ title, body, _id, slug, day, _sys }: TypeDiary) => {
 	return (
 		<li className="grid gap-4">
-			<Link href={`/${dir}/${slug}`}>
+			<Link href={`/diaries/${slug}/`}>
 				<a className="group relative block max-w-full bg-base-color rounded text-white overflow-hidden">
 					<div className="absolute inset-0 scale-75 opacity-0 glass transition-all group-hover:opacity-100 group-hover:scale-100"></div>
 					<div className="pt-[46%]"></div>
-					<DesignedDate dateString={date} className="absolute top-4 left-4" />
+					{ <DesignedDate dateString={day} className="absolute top-4 left-4" /> }
 				</a>
 			</Link>
-			{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}
-			<Link href={`/${dir}/${slug}`}>
+			<Link href={`/diaries/${slug}/`}>
 				<a className="block">
 					<p className="font-semibold leading-normal tracking-wide">{title}</p>
 				</a>
@@ -38,4 +23,4 @@ const PostCard = ({ title, date, slug, dir, category, tags }: TypeProps) => {
 	)
 }
 
-export default PostCard
+export default PostDiary

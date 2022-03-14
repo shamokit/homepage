@@ -52,8 +52,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
 	const post = getPostBySlug(
 		params.slug,
-		['title', 'date', 'slug', 'tags', 'content'],
-		'books'
+		['title', 'date', 'slug', 'tags', 'category', 'content']
 	)
 	const postContent = post['content'] as string
 	const content = await mdToHtml(postContent! || '')
@@ -69,8 +68,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-	const posts = getAllPosts(['slug'], 'books')
-
+	const posts = getAllPosts(['slug', 'category'], 'books')
 	return {
 		paths: posts.map((post) => {
 			return {

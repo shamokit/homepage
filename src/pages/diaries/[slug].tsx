@@ -1,0 +1,97 @@
+import { useRouter } from 'next/router'
+import ErrorPage from 'next/error'
+import { Container } from '@/components/layout/Container'
+import { PostBody } from '@/components/post/body'
+import { Meta } from '@/components/seo/meta'
+import { LayoutBase } from '@/components/layouts/LayoutBase'
+import { TypeDiary } from '@/types/Diary'
+
+import { PostHeader } from '@/components/post/header'
+type TypeProps = {
+	post: TypeDiary
+}
+
+const Post = ({ post }: TypeProps) => {
+	const router = useRouter()
+	if (!router.isFallback && !post?.slug) {
+		return <ErrorPage statusCode={404} />
+	}
+	const title = `${post.title} | Diaries`
+	const url = `/diaries/${post.slug}/`
+	return (
+		<LayoutBase>
+			<Container>
+				{
+					<>
+						<Meta pageTitle={title} pageDescription={''} pageUrl={url} />
+						<article>
+							{/* <PostHeader post={post} dir={'diaries'} className="mb-12" /> */}
+							<PostBody content={post.body} />
+						</article>
+					</>
+				}
+			</Container>
+		</LayoutBase>
+	)
+}
+
+export default Post
+
+import { createClient } from 'newt-client-js'
+const client = createClient({
+	spaceUid: 'shamokit',
+	token: 'pvFwQWwMw8VZi2lwuG5can3yhaLKW23nssvOLk6NEyc',
+	apiType: 'cdn',
+})
+type Params = {
+	params: {
+		slug: string
+	}
+}
+
+export async function getStaticProps({ params }: Params) {
+	const post = await client
+		.getContents<TypeDiary>({
+			appUid: 'diary',
+			modelUid: 'article',
+			query: {
+				depth: 2,
+				limit: 1,
+				slug: params.slug,
+			},
+		})
+		.then((content) => {
+			return content.items[0] || null
+		})
+		.catch((err) => console.log(err))
+
+	return {
+		props: {
+			post: {
+				...post,
+			},
+		},
+	}
+}
+
+export async function getStaticPaths() {
+	const allPosts = await client
+		.getContents<TypeDiary>({
+			appUid: 'diary',
+			modelUid: 'article',
+		})
+		.then((contents) => {
+			return contents.items
+		})
+		.catch((err) => console.log(err))
+	return {
+		paths: allPosts?.map((post) => {
+			return {
+				params: {
+					slug: post.slug,
+				},
+			}
+		}),
+		fallback: false,
+	}
+}

@@ -1,7 +1,7 @@
 import { parseISO, format } from 'date-fns'
 
 type TypeProps = {
-	dateString: string
+	dateString: string | Date
 }
 
 export const DateFormat = ({ dateString }: TypeProps) => {

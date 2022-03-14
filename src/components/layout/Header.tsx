@@ -10,7 +10,7 @@ type TypeProps = {
 	className?: string
 }
 // const cats = ['posts', 'books', 'items', 'cats']
-const cats = ['posts', 'books']
+const cats = ['posts', 'books', 'diaries']
 const list:LinkBase[] = cats.map((cat) => ({
   name: cat,
   href: `${BLOG_DOMAIN}/${cat}/`,

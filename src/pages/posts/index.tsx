@@ -40,8 +40,7 @@ const Cat = ({ allPosts }: TypeProps) => {
 export default Cat
 
 export const getStaticProps = async () => {
-	const allPosts = getAllPosts(['title', 'date', 'slug', 'tags'], 'posts')
-
+	const allPosts = getAllPosts(['title', 'date', 'slug', 'tags', 'category'], 'posts')
 	return {
 		props: { allPosts },
 	}
