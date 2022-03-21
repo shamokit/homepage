@@ -4,8 +4,8 @@ import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getTagPosts } from '@/lib/api'
 import { tags, getTagBySlug } from '@/lib/tags'
-import { TypePost } from '@/types/Post'
-import PostCard from '@/components/post/card'
+import { TypeBook } from '@/types/Book'
+import PostBook from '@/components/post/book'
 import { Head01 } from '@/components/head/section-head01'
 import { TagType } from '@/types/Tag'
 
@@ -14,26 +14,26 @@ type PathParams = {
 }
 type TypeProps = {
 	tag: TagType
-	allPosts: TypePost[] | []
+	allBooks: TypeBook[] | []
 	slug: string
 }
-const Tag = ({ allPosts, tag, slug }: TypeProps) => {
+const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 	const url = `/books/tag/${slug}/`
 	return (
 		<>
 			<Meta
 				pageTitle={`${tag.name}タグ | Books`}
-				pageDescription={`${tag.name}関連で読んだ本のアウトプットや感想やメモなどを残しています。`}
+				pageDescription={`${tag.name}関連で読んだ本の感想やメモなどを残しています。`}
 				pageUrl={`${url}`}
 			/>
 			<LayoutBase>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`#${tag.name}`} />
-						{allPosts.length > 0 ? (
-							<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
-								{allPosts.map((post) => {
-									return <PostCard {...post} key={post.slug} dir="books" />
+						<Head01 as="h1" text={`#${tag.name}`} lead={<p>読んだ本の感想やメモなどを残しています。<br />読んでいる途中の本には途中タグをつけています。</p>} />
+						{allBooks.length > 0 ? (
+							<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
+								{allBooks.map((post) => {
+									return <PostBook {...post} key={post.slug} />
 								})}
 							</ul>
 						): '記事はありません'}
@@ -45,18 +45,34 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 }
 
 export default Tag
-
+import {BOOK_API_URL} from '@/lib/constants'
+const getBookData = async (isbn: string) => {
+	return await fetch(`${BOOK_API_URL}${isbn}`)
+}
 export const getStaticProps: GetStaticProps = async (context) => {
 	const { slug } = context.params as PathParams
 	const tag = getTagBySlug(slug)
-	const allPosts = getTagPosts(
-		['title', 'date', 'slug', 'category', 'tags'],
+	const allPosts: TypeBook[] = getTagPosts(
+		['title', 'date', 'slug', 'category', 'tags', 'isbn'],
 		slug,
 		'books',
 	)
-
+	const bookPromises = allPosts.map(async (book) => {
+		if(!book.isbn) return book
+		let bookData = Object.assign({}, book)
+		const thumbnailUrl = await getBookData(book.isbn).then(async (response) => {
+			const data = await response.json()
+			const thumbnail = data[0]['summary']['cover']
+			return thumbnail
+		})
+		bookData['thumbnail'] = thumbnailUrl
+		return bookData
+	})
+	const allBooks = await Promise.all(bookPromises).then((response) => {
+		return response
+	})
 	return {
-		props: { allPosts, tag, slug },
+		props: { allBooks, tag, slug },
 	}
 }
 export const getStaticPaths: GetStaticPaths = async () => {

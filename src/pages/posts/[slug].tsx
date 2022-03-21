@@ -11,8 +11,10 @@ import { PostHeader } from '@/components/post/header'
 type TypeProps = {
 	post: TypePost
 }
+import { BLOG_DOMAIN } from '@/lib/constants'
 
 const Post = ({ post }: TypeProps) => {
+
 	const router = useRouter()
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />
@@ -20,8 +22,22 @@ const Post = ({ post }: TypeProps) => {
 	const title = `${post.title} | Posts`
 	const description = `${post.description}`
 	const url = `/posts/${post.slug}/`
+	const breadcrumb = [
+		{
+			name: 'TOP',
+			url: `${BLOG_DOMAIN}/`,
+		},
+		{
+			name: 'Posts',
+			url: `${BLOG_DOMAIN}/posts`,
+		},
+		{
+			name: post.title,
+			url: `${BLOG_DOMAIN}${url}`,
+		},
+	]
 	return (
-		<LayoutBase>
+		<LayoutBase breadcrumb={breadcrumb}>
 			<Container>
 				{
 					<>
@@ -29,6 +45,7 @@ const Post = ({ post }: TypeProps) => {
 							pageTitle={title}
 							pageDescription={description}
 							pageUrl={url}
+							breadcrumb={breadcrumb}
 						/>
 						<article>
 							<PostHeader post={post} dir={'posts'} className="mb-12" />

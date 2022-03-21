@@ -6,20 +6,22 @@ import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import mdToHtml from '@/lib/markdownToHtml'
-import { TypePost } from '@/types/Post'
+import { TypeBook } from '@/types/Book'
 import { PostHeader } from '@/components/post/header'
+import Image from 'next/image'
+
 type TypeProps = {
-	post: TypePost
+	book: TypeBook
 }
 
-const Post = ({ post }: TypeProps) => {
+const Post = ({ book }: TypeProps) => {
 	const router = useRouter()
-	if (!router.isFallback && !post?.slug) {
+	if (!router.isFallback && !book?.slug) {
 		return <ErrorPage statusCode={404} />
 	}
-	const title = `${post.title}`
-	const description = `${post.description}`
-	const url = `/books/${post.slug}/`
+	const title = `${book.title}`
+	const description = `${book.description}`
+	const url = `/books/${book.slug}/`
 	return (
 		<LayoutBase>
 			<Container>
@@ -31,8 +33,21 @@ const Post = ({ post }: TypeProps) => {
 							pageUrl={url}
 						/>
 						<article>
-							<PostHeader post={post} dir={'books'} className="mb-12" />
-							<PostBody content={post.content} />
+							<div className="flex items-start mb-12">
+								{book.thumbnail && (
+									<div className="relative w-32 min-h-[160px] flex-shrink-0 mr-10">
+										<Image
+											src={book.thumbnail}
+											alt=""
+											layout="fill"
+											objectFit="contain"
+											className="transition-opacity group-hover:opacity-90"
+										/>
+									</div>
+								)}
+								<PostHeader post={book} dir={'books'} />
+							</div>
+							<PostBody content={book.content} />
 						</article>
 					</>
 				}
@@ -48,19 +63,38 @@ type Params = {
 		slug: string
 	}
 }
-
+import {BOOK_API_URL} from '@/lib/constants'
+const getBookData = async (isbn: string) => {
+	return await fetch(`${BOOK_API_URL}${isbn}`)
+}
 export async function getStaticProps({ params }: Params) {
-	const post = getPostBySlug(
-		params.slug,
-		['title', 'date', 'slug', 'tags', 'category', 'content']
-	)
-	const postContent = post['content'] as string
+	const post = getPostBySlug(params.slug, [
+		'title',
+		'date',
+		'slug',
+		'tags',
+		'category',
+		'content',
+		'isbn',
+	]) as TypeBook
+	const postContent = post.content
 	const content = await mdToHtml(postContent! || '')
-
+	const bookDataPromise = async () => {
+		if(!post.isbn) return post
+		const thumbnailUrl = await getBookData(post.isbn).then(async (response) => {
+			const data = await response.json()
+			const thumbnail = data[0]['summary']['cover']
+			return thumbnail
+		})
+		let bookData = Object.assign({}, post)
+		bookData['thumbnail'] = thumbnailUrl
+		return bookData
+	}
+	const book = await bookDataPromise()
 	return {
 		props: {
-			post: {
-				...post,
+			book: {
+				...book,
 				content,
 			},
 		},

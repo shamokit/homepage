@@ -1,22 +1,18 @@
 import Link from 'next/link'
-import { DesignedDate } from '@/components/post/designed-date'
+import { PostDate } from '@/components/post/date'
 import { TagItem } from '@/components/tag/item'
 
 import {TypeDiary} from '@/types/Diary'
 
-const PostDiary = ({ title, body, _id, slug, day, _sys }: TypeDiary) => {
+const PostDiary = ({ title, slug, date }: TypeDiary) => {
 	return (
-		<li className="grid gap-4">
+		<li>
 			<Link href={`/diaries/${slug}/`}>
-				<a className="group relative block max-w-full bg-base-color rounded text-white overflow-hidden">
-					<div className="absolute inset-0 scale-75 opacity-0 glass transition-all group-hover:opacity-100 group-hover:scale-100"></div>
-					<div className="pt-[46%]"></div>
-					{ <DesignedDate dateString={day} className="absolute top-4 left-4" /> }
-				</a>
-			</Link>
-			<Link href={`/diaries/${slug}/`}>
-				<a className="block">
-					<p className="font-semibold leading-normal tracking-wide">{title}</p>
+				<a className="block md:flex py-5 border-b transition-colors hover:text-main">
+					<div className="flex-shrink-0 mr-10 font-semibold gradation-text">
+						<PostDate dateString={date} />
+					</div>
+					<p className="leading-normal tracking-wide">{title}</p>
 				</a>
 			</Link>
 		</li>

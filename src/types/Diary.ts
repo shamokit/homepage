@@ -3,6 +3,6 @@ export type TypeDiary = Content & {
 	title: string
 	slug: string
 	body: string
-	day: Date
-	tags: string[]
+	date: Date | string
+	content: string
 }

@@ -5,6 +5,7 @@ import PostDiary from '@/components/post/diary'
 import { Head01 } from '@/components/head/section-head01'
 import {createClient} from 'newt-client-js'
 import {TypeDiary} from '@/types/Diary'
+import { Sidebar } from '@/components/model/diaries/Sidebar'
 
 type TypeProps = {
 	year: number
@@ -13,19 +14,20 @@ type TypeProps = {
 }
 
 const Diary = ({ allPosts, year, month }: TypeProps) => {
+	const current = `${year}/${month}`
 	return (
 		<>
 			<Meta
-				pageTitle={'Diaries'}
-				pageDescription={'日記です。'}
-				pageUrl={'/diaries/'}
+				pageTitle={`Diaries/${current}`}
+				pageDescription={`${current}の日記です。`}
+				pageUrl={`/diaries/archive/${current}`}
 			/>
-			<LayoutBase>
+			<LayoutBase sidebar={<Sidebar current={current}/>}>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`Diaries/${year}/${month}`} />
+						<Head01 as="h1" text={`Diaries/${year}/${month}`} lead={<p>{year}年{month}月の日記です。</p>} />
 						{allPosts.length > 0 ? (
-							<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
+							<ul className="grid">
 								{allPosts.map((post) => {
 									return <PostDiary {...post} key={post.slug} />
 								})}
@@ -50,7 +52,7 @@ type Params = {
 }
 const client = createClient({
 	spaceUid: 'shamokit',
-	token: 'pvFwQWwMw8VZi2lwuG5can3yhaLKW23nssvOLk6NEyc',
+	token: process.env.NODE_ENV,
 	apiType: 'cdn'
 });
 export const getStaticProps = async ({ params }: Params) => {
@@ -62,8 +64,8 @@ export const getStaticProps = async ({ params }: Params) => {
 			modelUid: 'article',
 			query: {
 				depth: 2,
-				limit: 100,
-				day: {
+				limit: 62,
+				date: {
 					gte: new Date(`${year.toString()}-${month.toString()}`).toISOString(),
 					lt: new Date((`${year.toString()}-${(month + 1).toString()}`).toString()).toISOString(),
 				}
@@ -81,9 +83,6 @@ export async function getStaticPaths() {
 	const firstYear = 2022
 	const currentTime = new Date();
 	const thisYear = currentTime.getFullYear()
-	const yearListLength = thisYear - firstYear + 1
-
-	let yearList = []
 	const allPosts = await client
 		.getContents<TypeDiary>({
 			appUid: 'diary',
@@ -91,7 +90,7 @@ export async function getStaticPaths() {
 			query: {
 				depth: 2,
 				limit: 100,
-				day: {
+				date: {
 					gte: new Date(`${firstYear}`).toISOString(),
 					lt: new Date((`${(firstYear + 1).toString()}`).toString()).toISOString(),
 				}
@@ -102,7 +101,7 @@ export async function getStaticPaths() {
 		})
 		.catch((err) => console.log(err));
 	let monthList = allPosts?.map((post) => {
-		const postMonth = new Date(post.day).getMonth() + 1
+		const postMonth = new Date(post.date).getMonth() + 1
 		return postMonth
 	})
 	monthList = [...new Set(monthList)]

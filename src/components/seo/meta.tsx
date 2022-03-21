@@ -32,6 +32,7 @@ export const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg, breadcrumb 
 			"position": index+1,
 			"item": {
 				"@id": item.url,
+				"@type": 'WebPage',
 				"name": item.name,
 			}
 		}
@@ -48,7 +49,7 @@ export const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg, breadcrumb 
 			<meta name="description" content={description} />
 			<meta property="og:url" content={url} />
 			<meta property="og:title" content={title} />
-
+			<meta property="og:type" content="website" />
 			<meta property="og:description" content={description} />
 			<meta property="og:image" content={imgUrl} />
 			<meta name="twitter:card" content="summary" />

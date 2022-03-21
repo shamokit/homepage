@@ -11,4 +11,7 @@ module.exports = {
 		esmExternals: true,
 		swcLoader: true,
 	},
+	images: {
+    domains: ['cover.openbd.jp'],
+  },
 }

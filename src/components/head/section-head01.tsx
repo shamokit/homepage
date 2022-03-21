@@ -5,6 +5,7 @@ type OwnProps<E extends ListAllowElem> = {
 	className?: string
 	as?: E
 	text: React.ReactNode
+	lead?: string | JSX.Element
 }
 
 type TypeProps<E extends ListAllowElem> = OwnProps<E> &
@@ -13,14 +14,14 @@ export const Head01 = <E extends ListAllowElem>({
 	className,
 	as,
 	text,
+	lead,
 }: TypeProps<E>) => {
 	const TagName = as || 'h2'
 	return (
-		<header className={className}>
+		<header className={classNames(['grid gap-4',className])}>
 			<div
 				className={classNames([
 					'w-10 h-1',
-					'mb-3 md:mb-4',
 					'gradation-r',
 				])}
 			></div>
@@ -34,6 +35,7 @@ export const Head01 = <E extends ListAllowElem>({
 			>
 				{text}
 			</TagName>
+			{lead && lead}
 		</header>
 	)
 }

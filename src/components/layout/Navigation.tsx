@@ -3,7 +3,6 @@ import classNames from 'classnames'
 
 import { LinkBase } from '@/types/LinkBase'
 import { SnsBtn } from '@/components/seo/share'
-import { BLOG_DOMAIN } from '@/lib/constants'
 type NavigationItem = LinkBase
 type TypeProps = {
 	open: boolean

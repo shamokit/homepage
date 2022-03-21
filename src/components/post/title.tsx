@@ -7,7 +7,7 @@ export const PostTitle = ({ title, className }: PropTypes) => {
 	return (
 		<h1
 			className={classnames(
-				'text-2xl md:text-3xl lg:text-4xl font-medium leading-normal tracking-wide',
+				'text-2xl md:text-3xl lg:text-4xl tracking-wide',
 				className
 			)}
 		>

@@ -61,8 +61,11 @@ export const getTagBySlug = (slug: string) => {
 	})
 }
 
+/**
+ * タグに紐づく記事の件数も含めたタグデータを返す
+ */
 import {TypePost} from '@/types/Post'
-export function getTagsWithCount(posts: TypePost[]) {
+export function getTagsWithCount(posts: TypePost[], category: string) {
 	let tagDataWithCount = tags.map((tag) => {
 		return { ...tag, count: 0 }
 	})
@@ -71,6 +74,8 @@ export function getTagsWithCount(posts: TypePost[]) {
 		const post = posts[postIndex]
 		if (!post) return
 		const postTags = post['tags']
+		const postCategory = post['category']
+		if(postCategory && postCategory !== category) continue
 		if (Array.isArray(postTags)) {
 			const postTagsLength = postTags.length
 			for (let tagIndex = 0; tagIndex < postTagsLength; tagIndex++) {

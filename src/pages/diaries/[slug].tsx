@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container } from '@/components/layout/Container'
-import { PostBody } from '@/components/post/body'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { TypeDiary } from '@/types/Diary'
+import mdToHtml from '@/lib/markdownToHtml'
+import style from '@/styles/markdown-styles.module.css'
+import 'zenn-content-css';
+import classNames from 'classnames'
 
 import { PostHeader } from '@/components/post/header'
 type TypeProps = {
@@ -25,8 +28,11 @@ const Post = ({ post }: TypeProps) => {
 					<>
 						<Meta pageTitle={title} pageDescription={''} pageUrl={url} />
 						<article>
-							{/* <PostHeader post={post} dir={'diaries'} className="mb-12" /> */}
-							<PostBody content={post.body} />
+							<PostHeader post={post} dir={'diaries'} className="mb-12" />
+							<div
+								className={classNames('znc', style['znc'])}
+								dangerouslySetInnerHTML={{ __html: post.content }}
+							/>
 						</article>
 					</>
 				}
@@ -58,13 +64,18 @@ export async function getStaticProps({ params }: Params) {
 				depth: 2,
 				limit: 1,
 				slug: params.slug,
+				body: {
+					fmt: "text"
+				}
 			},
 		})
-		.then((content) => {
-			return content.items[0] || null
+		.then(async (content) => {
+			let data = content.items[0]
+			const postContent = await mdToHtml(data?.body! || '')
+
+			return { ...data, content: postContent } || null
 		})
 		.catch((err) => console.log(err))
-
 	return {
 		props: {
 			post: {

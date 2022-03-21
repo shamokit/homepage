@@ -26,7 +26,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 					sizes="180x180"
 					href="/favicon/apple-touch-icon.png"
 				/>
-				<link rel="manifest" href="/favicon/site.webmanifest" />
 				<link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
 				<meta name="theme-color" content="#1b1e32" />
 			</Head>

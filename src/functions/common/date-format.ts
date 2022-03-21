@@ -5,7 +5,7 @@ type TypeProps = {
 }
 
 export const DateFormat = ({ dateString }: TypeProps) => {
-	const date = parseISO(dateString)
+	const date = typeof dateString === 'string' ? parseISO(dateString) : dateString
 	const dateText = format(date, 'YYY-MM-dd')
 	return dateText
 }

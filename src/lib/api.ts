@@ -16,9 +16,10 @@ export function getPostSlugs() {
 }
 
 import {TypePost, TypePostFieldKey} from '@/types/Post'
+import {TypeBook, TypeBookFieldKey} from '@/types/Book'
 export function getPostBySlug(
 	slug: string,
-	fields: TypePostFieldKey[]
+	fields: (TypePostFieldKey | TypeBookFieldKey)[]
 ) {
 	let activeFields = fields
 	const fileSlug = slug.replace(/\.mdx$/, '')
@@ -26,7 +27,7 @@ export function getPostBySlug(
 	const fileContents = fs.readFileSync(fullPath, 'utf8')
 	const { data, content } = matter(fileContents)
 
-	let item: TypePost = {
+	let item: TypePost | TypeBook = {
 		slug: '',
 		title: '',
 		date: '',
@@ -51,7 +52,7 @@ export function getPostBySlug(
 	return item
 }
 
-export function getAllPosts(fields: TypePostFieldKey[], dirName?: string) {
+export function getAllPosts(fields: (TypePostFieldKey | TypeBookFieldKey)[], dirName?: string) {
 	const slugs = getPostSlugs()
 	let posts = slugs
 		.map((slug) => getPostBySlug(slug, fields))
@@ -68,7 +69,7 @@ export function getAllPosts(fields: TypePostFieldKey[], dirName?: string) {
 }
 
 export function getTagPosts(
-	fields: TypePostFieldKey[] = [],
+	fields: (TypePostFieldKey | TypeBookFieldKey)[] = [],
 	tagSlug: string,
 	category?: string,
 ) {
@@ -95,43 +96,4 @@ export function getTagPosts(
 		})
 	}
 	return posts
-}
-
-/**
- * タグに紐づく記事の件数も含めたタグデータを返す
- */
-import {tags} from '@/lib/tags'
-export function getTagsWithCount() {
-	const slugs = getPostSlugs()
-	const posts = slugs
-		.map((slug) => getPostBySlug(slug, ['tags']))
-		.filter((post) => {
-			return post['private'] !== true
-		})
-	let tagDataWithCount = tags.map((tag) => {
-		return { ...tag, count: 0 }
-	})
-	const postsLength = posts.length
-	for (let postIndex = 0; postIndex < postsLength; postIndex++) {
-		const post = posts[postIndex]
-		if (!post) return
-		const postTags = post['tags']
-		if (Array.isArray(postTags)) {
-			const postTagsLength = postTags.length
-			for (let tagIndex = 0; tagIndex < postTagsLength; tagIndex++) {
-				const loopTag = postTags[tagIndex]
-				const target = tagDataWithCount.find((tag) => {
-					return loopTag === tag.id
-				})
-				if (target) target.count += 1
-			}
-		} else {
-			const target = tagDataWithCount.find((tag) => postTags === tag.id)
-			if (target) target.count += 1
-		}
-	}
-	tagDataWithCount = tagDataWithCount.filter((tag) => {
-		return tag.count > 0
-	})
-	return tagDataWithCount
 }

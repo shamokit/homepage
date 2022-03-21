@@ -3,11 +3,12 @@ import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import PostDiary from '@/components/post/diary'
 import { Head01 } from '@/components/head/section-head01'
+import { Sidebar } from '@/components/model/diaries/Sidebar'
 import {createClient} from 'newt-client-js'
 import {TypeDiary} from '@/types/Diary'
 
 type TypeProps = {
-	allPosts: TypeDiary[]
+	allPosts: TypeDiary[],
 }
 
 const Diary = ({ allPosts }: TypeProps) => {
@@ -18,12 +19,12 @@ const Diary = ({ allPosts }: TypeProps) => {
 				pageDescription={'日記です。'}
 				pageUrl={'/diaries/'}
 			/>
-			<LayoutBase>
+			<LayoutBase sidebar={<Sidebar />}>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={'Diaries'} />
+						<Head01 as="h1" text={'Diaries'}lead={<p>日記です。</p>}  />
 						{allPosts.length > 0 ? (
-							<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
+							<ul className="grid">
 								{allPosts.map((post) => {
 									return <PostDiary {...post} key={post.slug} />
 								})}
@@ -40,17 +41,19 @@ const Diary = ({ allPosts }: TypeProps) => {
 
 export default Diary
 
-
 export const getStaticProps = async () => {
 	const client = createClient({
 		spaceUid: 'shamokit',
-		token: 'pvFwQWwMw8VZi2lwuG5can3yhaLKW23nssvOLk6NEyc',
+		token: process.env.NODE_ENV,
 		apiType: 'cdn'
 	});
 	const allPosts = await client
 		.getContents<TypeDiary>({
 			appUid: 'diary',
 			modelUid: 'article',
+			query: {
+				limit: 10,
+			}
 		})
 		.then((contents) => {
 			return contents.items
