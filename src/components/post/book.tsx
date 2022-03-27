@@ -21,30 +21,32 @@ const PostBook = ({ title, date, slug, tags, thumbnail }: TypeProps) => {
 		)
 	})
 	return (
-		<li className="flex items-center p-5 gradation-dark text-white rounded-lg shadow">
-			{thumbnail && (
-				<Link href={`/books/${slug}`}>
-					<a className="group relative w-32 min-h-[160px] flex-shrink-0 mr-5">
-						<Image
-							src={thumbnail}
-							alt=""
-							layout="fill"
-							objectFit="contain"
-							className="transition-opacity group-hover:opacity-90"
-						/>
-					</a>
-				</Link>
-			)}
-			<div className="grid gap-4">
-				<p className="font-semibold leading-normal tracking-wide">
+		<li className="flex p-2 gradation-r rounded-lg shadow">
+			<div className="flex items-center flex-grow flex-shrink p-5 bg-white rounded">
+				{thumbnail && (
 					<Link href={`/books/${slug}`}>
-						<a className="group relative overflow-hidden inline-block pb-2">
-							{title}
-							<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
+						<a className="group relative w-32 min-h-[160px] flex-shrink-0 mr-5">
+							<Image
+								src={thumbnail}
+								alt=""
+								layout="fill"
+								objectFit="contain"
+								className="transition-opacity group-hover:opacity-90"
+							/>
 						</a>
 					</Link>
-				</p>
-				{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}
+				)}
+				<div className="grid gap-3">
+					<p className="font-semibold leading-normal tracking-wide">
+						<Link href={`/books/${slug}`}>
+							<a className="group relative overflow-hidden inline-block pb-2 tracking-widest">
+								{title}
+								<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
+							</a>
+						</Link>
+					</p>
+					{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}
+				</div>
 			</div>
 		</li>
 	)

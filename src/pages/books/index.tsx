@@ -4,11 +4,21 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'
 import { TypeBook } from '@/types/Book'
 import PostBook from '@/components/post/book'
-import { Head01 } from '@/components/head/section-head01'
+import { AppHead01 } from '@/components/head/AppHead01'
 type TypeProps = {
 	books: TypeBook[]
 }
-
+import { BLOG_DOMAIN } from "@/lib/constants";
+const breadcrumb = [
+	{
+		name: 'TOP',
+		url: `${BLOG_DOMAIN}/`,
+	},
+	{
+		name: 'Books',
+		url: `${BLOG_DOMAIN}/books`,
+	},
+]
 const Book = ({ books }: TypeProps) => {
 	return (
 		<>
@@ -16,11 +26,12 @@ const Book = ({ books }: TypeProps) => {
 				pageTitle={'Books'}
 				pageDescription={'読んだ本の感想やメモなどを残しています。'}
 				pageUrl={'/books/'}
+				breadcrumb={breadcrumb}
 			/>
-			<LayoutBase>
+			<LayoutBase breadcrumb={breadcrumb}>
 				<Container>
 					<section className="grid gap-10 md:gap-12 lg:gap-16">
-						<Head01 as="h1" text="Books" lead={<p>読んだ本の感想やメモなどを残しています。<br />読んでいる途中の本には途中タグをつけています。</p>} />
+						<AppHead01 as="h1" text="Books" lead={<p>読んだ本の感想やメモなどを残しています。<br />読んでいる途中の本には途中タグをつけています。</p>} />
 						{books && books.length > 0 ? (
 							<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
 								{books.map((book) => {

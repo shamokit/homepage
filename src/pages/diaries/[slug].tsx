@@ -6,27 +6,42 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { TypeDiary } from '@/types/Diary'
 import mdToHtml from '@/lib/markdownToHtml'
 import style from '@/styles/markdown-styles.module.css'
-import 'zenn-content-css';
+import 'zenn-content-css'
 import classNames from 'classnames'
 
 import { PostHeader } from '@/components/post/header'
 type TypeProps = {
 	post: TypeDiary
 }
+import { BLOG_DOMAIN } from '@/lib/constants'
 
 const Post = ({ post }: TypeProps) => {
 	const router = useRouter()
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />
 	}
-	const title = `${post.title} | Diaries`
+	const title = `${post.title}`
 	const url = `/diaries/${post.slug}/`
+	const breadcrumb = [
+		{
+			name: 'TOP',
+			url: "/",
+		},
+		{
+			name: 'Diaries',
+			url: `/diaries/`,
+		},
+		{
+			name: `${title}`,
+			url: `${url}`,
+		},
+	]
 	return (
-		<LayoutBase>
-			<Container>
-				{
-					<>
-						<Meta pageTitle={title} pageDescription={''} pageUrl={url} />
+		<>
+			<Meta pageTitle={title} pageDescription={''} pageUrl={`${url}`} isSingle={true} datePublished={post._sys.createdAt} dateModified={post._sys.updatedAt} />
+			<LayoutBase breadcrumb={breadcrumb}>
+				<Container>
+					{
 						<article>
 							<PostHeader post={post} dir={'diaries'} className="mb-12" />
 							<div
@@ -34,10 +49,10 @@ const Post = ({ post }: TypeProps) => {
 								dangerouslySetInnerHTML={{ __html: post.content }}
 							/>
 						</article>
-					</>
-				}
-			</Container>
-		</LayoutBase>
+					}
+				</Container>
+			</LayoutBase>
+		</>
 	)
 }
 
@@ -65,8 +80,8 @@ export async function getStaticProps({ params }: Params) {
 				limit: 1,
 				slug: params.slug,
 				body: {
-					fmt: "text"
-				}
+					fmt: 'text',
+				},
 			},
 		})
 		.then(async (content) => {

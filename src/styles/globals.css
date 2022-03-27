@@ -51,5 +51,5 @@ a:not([class]):hover {
 	margin: 0 !important;
 }
 h1,h2,h3,h4,h5 {
-	@apply font-medium leading-tight;
+	@apply font-medium leading-tight tracking-normal;
 }

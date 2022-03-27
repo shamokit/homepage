@@ -3,17 +3,18 @@ import { Meta } from '@/components/seo/meta'
 import PostCard from '@/components/post/card'
 import { TagItem } from '@/components/tag/item'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
-import { Head01 } from '@/components/head/section-head01'
+import { AppHead01 } from '@/components/head/AppHead01'
 import { Head02 } from '@/components/head/section-head02'
 import { getAllPosts } from '@/lib/api'
 import { getTagsWithCount } from '@/lib/tags'
 import { TypePost } from '@/types/Post'
 import { PostBody } from '@/components/post/body'
-import { Btn01 } from '@/components/button/app-btn01'
+import PostBook from '@/components/post/book'
+import { AppBtn01 } from '@/components/button/AppBtn01'
 import { BLOG_DOMAIN } from '@/lib/constants'
 type TypeProps = {
 	posts: TypePost[]
-	bookPosts: TypePost[]
+	books: TypePost[]
 	allDiaries: TypeDiary[]
 	mainCopyContentHtml: any
 	tagsInPosts: (TagType & { count: number })[]
@@ -31,7 +32,7 @@ const breadcrumb = [
 ]
 const Index = ({
 	posts,
-	bookPosts,
+	books,
 	allDiaries,
 	mainCopyContentHtml,
 	tagsInPosts,
@@ -74,17 +75,17 @@ const Index = ({
 					<Container>
 						<div className="grid gap-28 md:gap-32 lg:gap-40">
 							<section className="grid gap-8 md:gap-12 lg:gap-16">
-								<Head01 text="About" />
+								<AppHead01 text="About" />
 								<p>
 									このサイトはしゃもきっとが運営しているブログサイトです。
 									{/* <br />
 									しゃもきっとに関して気になった人は
 									Profileページを見てみてください。 */}
 								</p>
-								{/* <Btn01 href="/profile/" text="Profile" /> */}
+								{/* <AppBtn01 href="/profile/" text="Profile" /> */}
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
-								<Head01 text="Posts" />
+								<AppHead01 text="Posts" />
 								{posts.length > 0 && (
 									<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
 										{posts.map((post) => {
@@ -96,10 +97,10 @@ const Index = ({
 									<section>
 										<Head02 text="Tag" />
 										{tagsInPosts.length > 0 && (
-											<ul className="flex mt-8 -mr-2">
+											<ul className="flex flex-wrap mt-6 -mr-2 -mb-2">
 												{tagsInPosts.map((tag) => {
 													return (
-														<li key={tag.id} className="mr-2">
+														<li key={tag.id} className="mr-2 mb-2">
 															<TagItem
 																id={tag.id}
 																dirName="posts"
@@ -112,36 +113,39 @@ const Index = ({
 										)}
 									</section>
 								)}
-								<Btn01 href="/posts/" text="Posts" />
+								<AppBtn01 href="/posts/">Posts</AppBtn01>
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
-								<Head01 text="Books" />
-								{bookPosts.length > 0 && (
-									<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
-										{bookPosts.map((post) => {
-											return <PostCard {...post} key={post.slug} dir="books" />
-										})}
-									</ul>
+								<AppHead01 text="Books" />
+								{books.length > 0 && (
+									<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
+									{books.map((book) => {
+										return <PostBook {...book} key={book.slug} />
+									})}
+								</ul>
 								)}
-								{tagsInBooks && tagsInBooks.length > 0 && (
-									<ul className="flex -mr-2">
-										{tagsInBooks.map((tag) => {
-											return (
-												<li key={tag.id} className="mr-2">
-													<TagItem
-														id={tag.id}
-														dirName="books"
-														count={tag.count}
-													/>
-												</li>
-											)
-										})}
-									</ul>
-								)}
-								<Btn01 href="/books/" text="Books" />
+								<section>
+									<Head02 text="Tag" />
+									{tagsInBooks && tagsInBooks.length > 0 && (
+										<ul className="flex flex-wrap mt-6 -mr-2 -mb-2">
+											{tagsInBooks.map((tag) => {
+												return (
+													<li key={tag.id} className="mr-2 mb-2">
+														<TagItem
+															id={tag.id}
+															dirName="books"
+															count={tag.count}
+														/>
+													</li>
+												)
+											})}
+										</ul>
+									)}
+								</section>
+								<AppBtn01 href="/books/">Books</AppBtn01>
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
-								<Head01 text="Diaries" />
+								<AppHead01 text="Diaries" />
 								{allDiaries.length > 0 && (
 									<ul className="grid">
 										{allDiaries.map((post) => {
@@ -149,7 +153,7 @@ const Index = ({
 										})}
 									</ul>
 								)}
-								<Btn01 href="/diaries/" text="Diaries" />
+								<AppBtn01 href="/diaries/">Diaries</AppBtn01>
 							</section>
 						</div>
 					</Container>
@@ -163,7 +167,12 @@ export default Index
 import { getPostSlugs } from '@/lib/api'
 import { createClient } from 'newt-client-js'
 import { TypeDiary } from '@/types/Diary'
+import { TypeBook } from '@/types/Book'
 import PostDiary from '@/components/post/diary'
+import {BOOK_API_URL} from '@/lib/constants'
+const getBookData = async (isbn: string) => {
+	return await fetch(`${BOOK_API_URL}${isbn}`)
+}
 export const getStaticProps = async () => {
 	const mainCopy = getPostBySlug('text', ['content'])
 	const mainCopyContent = mainCopy['content'] as string
@@ -173,10 +182,25 @@ export const getStaticProps = async () => {
 		['title', 'date', 'slug', 'tags', 'category'],
 		'posts'
 	)
-	const bookPosts = getAllPosts(
-		['title', 'date', 'slug', 'tags', 'category'],
+	let bookPosts: TypeBook[] = getAllPosts(
+		['title', 'date', 'slug', 'tags', 'category','isbn'],
 		'books'
 	)
+	bookPosts = bookPosts.slice(0,6)
+	const bookPromises = bookPosts.map(async (book) => {
+		if(!book.isbn) return book
+		let bookData = Object.assign({}, book)
+		const thumbnailUrl = await getBookData(book.isbn).then(async (response) => {
+			const data = await response.json()
+			const thumbnail = data[0]['summary']['cover']
+			return thumbnail
+		})
+		bookData['thumbnail'] = thumbnailUrl
+		return bookData
+	})
+	const books = await Promise.all(bookPromises).then((response) => {
+		return response
+	})
 
 	const allPostSlugs = getPostSlugs()
 	const postsForTags = allPostSlugs
@@ -189,7 +213,7 @@ export const getStaticProps = async () => {
 
 	const client = createClient({
 		spaceUid: 'shamokit',
-		token: process.env.NODE_ENV,
+		token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '' ,
 		apiType: 'cdn',
 	})
 	const allDiaries = await client
@@ -208,7 +232,7 @@ export const getStaticProps = async () => {
 	return {
 		props: {
 			posts,
-			bookPosts,
+			books,
 			allDiaries,
 			mainCopyContentHtml,
 			tagsInPosts,

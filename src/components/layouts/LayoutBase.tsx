@@ -1,11 +1,7 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import {Breadcrumb} from '@/components/breadcrumbs/'
+import { Breadcrumb, TypeBreadcrumb } from '@/components/breadcrumb/Breadcrumb'
 import classNames from 'classnames'
-type TypeBreadcrumb = {
-	name: string
-	url: string
-}
 type TypeProps = {
 	children: React.ReactNode
 	sidebar?: React.ReactNode
@@ -23,15 +19,20 @@ export const LayoutBase = ({
 		<>
 			<Header />
 			<div className="flex flex-col min-h-screen pt-14 md:pt-20">
-				{breadcrumb && <Breadcrumb breadcrumb={breadcrumb} />}
+				{breadcrumb && <Breadcrumb items={breadcrumb} />}
 				<div
-					className={classNames('flex-1 py-14 md:py-20 lg:py-32',
-					sidebar ? 'container md:flex mx-auto' : '',
-					{ containerClassName: containerClassName }
+					className={classNames(
+						'flex-1 py-14 md:py-20 lg:py-32',
+						sidebar ? 'container md:flex mx-auto' : '',
+						{ containerClassName: containerClassName }
 					)}
 				>
-					{sidebar && <div className='md:order-1 md:w-60 px-4 md:pl-0 md:pr-6 lg:pr-8 mb-10 lg:mb-0'>{sidebar}</div>}
-					<main className='flex-1'>{children}</main>
+					{sidebar && (
+						<div className="md:order-1 md:w-60 px-4 md:pl-0 md:pr-6 lg:pr-8 mb-10 lg:mb-0">
+							{sidebar}
+						</div>
+					)}
+					<main className="flex-1">{children}</main>
 				</div>
 				<Footer />
 			</div>

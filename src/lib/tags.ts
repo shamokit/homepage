@@ -41,6 +41,36 @@ export const tags = [
 		name: '途中',
 		slug: 'wip',
 	},
+	{
+		id: 8,
+		name: 'CircleCI',
+		slug: 'circle-ci',
+	},
+	{
+		id: 9,
+		name: 'CI/CD',
+		slug: 'ci-cd',
+	},
+	{
+		id: 10,
+		name: 'デザイン',
+		slug: 'design',
+	},
+	{
+		id: 11,
+		name: 'TypeScript',
+		slug: 'typescript',
+	},
+	{
+		id: 12,
+		name: 'WebGL',
+		slug: 'webgl',
+	},
+	{
+		id: 13,
+		name: '数学',
+		slug: 'math',
+	},
 ] as const
 
 /**

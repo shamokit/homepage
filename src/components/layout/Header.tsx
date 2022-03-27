@@ -13,7 +13,7 @@ type TypeProps = {
 const cats = ['posts', 'books', 'diaries']
 const list:LinkBase[] = cats.map((cat) => ({
   name: cat,
-  href: `${BLOG_DOMAIN}/${cat}/`,
+  href: `/${cat}/`,//`${BLOG_DOMAIN}/${cat}/`,
 }))
 const Header = ({ className }: TypeProps) => {
 	const [open, setOpen] = useState(false)

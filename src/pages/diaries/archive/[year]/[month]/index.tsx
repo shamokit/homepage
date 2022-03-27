@@ -2,7 +2,7 @@ import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import PostDiary from '@/components/post/diary'
-import { Head01 } from '@/components/head/section-head01'
+import { AppHead01 } from '@/components/head/AppHead01'
 import {createClient} from 'newt-client-js'
 import {TypeDiary} from '@/types/Diary'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
@@ -12,20 +12,40 @@ type TypeProps = {
 	month: number
 	allPosts: TypeDiary[]
 }
+import { BLOG_DOMAIN } from "@/lib/constants";
 
 const Diary = ({ allPosts, year, month }: TypeProps) => {
 	const current = `${year}/${month}`
+	const breadcrumb = [
+		{
+			name: 'TOP',
+			url: `${BLOG_DOMAIN}/`,
+		},
+		{
+			name: 'Diaries',
+			url: `${BLOG_DOMAIN}/diaries`,
+		},
+		{
+			name: `${year}`,
+			url: `${BLOG_DOMAIN}/diaries/archive/${year}`,
+		},
+		{
+			name: `${month}`,
+			url: `${BLOG_DOMAIN}/diaries/archive/${current}`,
+		},
+	]
 	return (
 		<>
 			<Meta
 				pageTitle={`Diaries/${current}`}
 				pageDescription={`${current}の日記です。`}
 				pageUrl={`/diaries/archive/${current}`}
+				breadcrumb={breadcrumb}
 			/>
-			<LayoutBase sidebar={<Sidebar current={current}/>}>
+			<LayoutBase sidebar={<Sidebar current={current}/>} breadcrumb={breadcrumb}>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`Diaries/${year}/${month}`} lead={<p>{year}年{month}月の日記です。</p>} />
+						<AppHead01 as="h1" text={`Diaries/${year}/${month}`} lead={<p>{year}年{month}月の日記です。</p>} />
 						{allPosts.length > 0 ? (
 							<ul className="grid">
 								{allPosts.map((post) => {
@@ -52,7 +72,7 @@ type Params = {
 }
 const client = createClient({
 	spaceUid: 'shamokit',
-	token: process.env.NODE_ENV,
+	token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '',
 	apiType: 'cdn'
 });
 export const getStaticProps = async ({ params }: Params) => {

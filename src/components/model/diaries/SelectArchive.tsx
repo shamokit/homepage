@@ -18,10 +18,10 @@ export const SelectArchive = ({ current }: TypeProps) => {
 	const thisYear = currentTime.getFullYear()
 	const thisMonth = currentTime.getMonth() + 1
 	const yearList = [...generateIntegerArray(firstYear, thisYear)]
-	const monthList = [...generateIntegerArray(1, 12)]
+	const monthList = [...generateIntegerArray(0, 12)]
 	const archiveList = yearList.map((year) => {
 		if (year === thisYear) {
-			let thisYearMonthList = [...generateIntegerArray(1, thisMonth)]
+			let thisYearMonthList = [...generateIntegerArray(0, thisMonth)]
 			if(thisYear === firstYear) {
 				thisYearMonthList = [...generateIntegerArray(firstYearFirstMonth, thisMonth)]
 			}
@@ -44,9 +44,12 @@ export const SelectArchive = ({ current }: TypeProps) => {
 			}
 		}
 	})
-	const archiveListEl = archiveList.map((archive) => {
+	let archiveListEl = archiveList.map((archive) => {
 		return archive.month.map((month) => {
-			const optionValue = `${archive.year}/${month}`
+			let optionValue = `${archive.year}/${month}`
+			if(month === 0) {
+				optionValue = `${archive.year}`
+			}
 			return (
 				<option value={optionValue} key={optionValue}>
 					{optionValue}
@@ -61,6 +64,7 @@ export const SelectArchive = ({ current }: TypeProps) => {
 			className="w-full max-w-full h-10 px-4 border rounded text-base"
 		>
 			<option value="">最新一覧</option>
+			<option value="2022">2022</option>
 			{archiveListEl}
 		</select>
 	)

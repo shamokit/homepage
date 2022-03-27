@@ -1,32 +1,34 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import classNames from 'classnames'
-import { Container } from '@/components/layout/Container'
 
-type Breadcrumb = {
+import classNames from 'classnames'
+
+import { Container } from '@/components/layout/Container'
+export type TypeBreadcrumb = {
 	name: string
 	url: string
 }
 type TypeProps = {
-	className?: string
-	breadcrumb: Breadcrumb[]
+	items: TypeBreadcrumb[]
 }
-export const Breadcrumb = ({ className, breadcrumb }: TypeProps) => {
-	const breadcrumbList = breadcrumb?.map((item, index) => {
+export const Breadcrumb = ({ items }: TypeProps) => {
+	const breadcrumbList = items?.map((item, index) => {
 		return (
 			<li
-				key={item.name}
+				key={item.url}
 				className="flex my-1 mr-3 before:content-['\>'] before:mr-3 first-of-type:before:hidden"
 			>
-				<span className="inline-block first-of-type:hidden">&gt;</span>
 				<Link href={item.url}>
-					<a className={classNames(['inline-block',
-					breadcrumb.length === index + 1 && 'text-sub'
-				])}>
+					<a
+						className={classNames([
+							'inline-block',
+							items.length === index + 1 && 'text-sub',
+						])}
+					>
 						{index === 0 ? (
 							<Image
 								src="/logo/icon_fill.svg"
-								alt="しゃもキット"
+								alt="TOPページ"
 								width={30}
 								height={30}
 								objectFit="contain"
@@ -44,8 +46,7 @@ export const Breadcrumb = ({ className, breadcrumb }: TypeProps) => {
 			<Container>
 				<ol
 					className={classNames([
-						'flex items-center flex-wrap -mr-3 py-2 md:py-4 text-xs leading-tight',
-						className,
+						'flex items-center flex-wrap -mr-3 py-2 md:py-4 text-xs leading-tight'
 					])}
 				>
 					{breadcrumbList}

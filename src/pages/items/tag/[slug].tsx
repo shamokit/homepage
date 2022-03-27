@@ -6,7 +6,7 @@ import { getTagPosts } from '@/lib/api'
 import { tags, getTagBySlug } from '@/lib/tags'
 import { TypePost } from '@/types/Post'
 import PostItem from '@/components/post/item'
-import { Head01 } from '@/components/head/section-head01'
+import { AppHead01 } from '@/components/head/AppHead01'
 import { TagType } from '@/types/Tag'
 
 type PathParams = {
@@ -30,7 +30,7 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 			<LayoutBase>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`#${tag.name}`} />
+						<AppHead01 as="h1" text={`#${tag.name}`} />
 						{allPosts.length > 0 ? (
 							<ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
 								{allPosts.map((post) => {

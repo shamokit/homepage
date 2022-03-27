@@ -2,34 +2,55 @@ import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import PostDiary from '@/components/post/diary'
-import { Head01 } from '@/components/head/section-head01'
+import { AppHead01 } from '@/components/head/AppHead01'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
 import {createClient} from 'newt-client-js'
 import {TypeDiary} from '@/types/Diary'
 
 type TypeProps = {
-	year: number
+	year: string
 	allPosts: TypeDiary[]
+	page_array: number[]
 }
+import { BLOG_DOMAIN } from "@/lib/constants";
+import { PagerList } from '@/components/pager/List'
 
-const Diary = ({ allPosts, year }: TypeProps) => {
+const Diary = ({ allPosts, year, page_array }: TypeProps) => {
+	const breadcrumb = [
+		{
+			name: 'TOP',
+			url: `${BLOG_DOMAIN}/`,
+		},
+		{
+			name: 'Diaries',
+			url: `${BLOG_DOMAIN}/diaries`,
+		},
+		{
+			name: `${year}`,
+			url: `${BLOG_DOMAIN}/diaries/archive/${year}`,
+		},
+	]
 	return (
 		<>
 			<Meta
-				pageTitle={'Diaries'}
-				pageDescription={'日記です。'}
-				pageUrl={'/diaries/'}
+				pageTitle={`Diaries/${year}`}
+				pageDescription={`${year}の日記です。`}
+				pageUrl={`/diaries/archive/${year}/`}
+				breadcrumb={breadcrumb}
 			/>
-			<LayoutBase sidebar={<Sidebar />}>
+			<LayoutBase sidebar={<Sidebar current={`${year}`} />} breadcrumb={breadcrumb}>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<Head01 as="h1" text={`Diaries/${year}`} />
+						<AppHead01 as="h1" text={`Diaries/${year}`} />
 						{allPosts.length > 0 ? (
-							<ul className="grid">
-								{allPosts.map((post) => {
-									return <PostDiary {...post} key={post.slug} />
-								})}
-							</ul>
+							<>
+								<ul className="grid">
+									{allPosts.map((post) => {
+										return <PostDiary {...post} key={post.slug} />
+									})}
+								</ul>
+								<PagerList dir={`/diaries/archive/${year}`} pager={{pages: [1, ...page_array], current: 1}} />
+							</>
 						) : (
 							'記事はありません'
 						)}
@@ -49,9 +70,11 @@ type Params = {
 }
 const client = createClient({
 	spaceUid: 'shamokit',
-	token: process.env.NODE_ENV,
+	token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '',
 	apiType: 'cdn'
 });
+let postCount = 0
+const posts_per_page = 10
 export const getStaticProps = async ({ params }: Params) => {
 	let year = Number(params.year)
 	const allPosts = await client
@@ -60,19 +83,22 @@ export const getStaticProps = async ({ params }: Params) => {
 			modelUid: 'article',
 			query: {
 				depth: 2,
-				limit: 100,
-				day: {
-					gte: new Date(year.toString()).toISOString(),
-					lt: new Date((year + 1).toString()).toISOString(),
+				limit: 10,
+				date: {
+					gte: new Date(`${year.toString()}-1`).toISOString(),
+					lt: new Date(`${(year + 1).toString()}-1`).toISOString(),
 				}
 			},
 		})
 		.then((contents) => {
+			postCount = contents.total
 			return contents.items
 		})
 		.catch((err) => console.log(err));
+		const page_number = (postCount % posts_per_page == 0) ? (postCount / posts_per_page) : (Math.floor(postCount / posts_per_page) + 1)
+		const page_array = [...generateIntegerArray(2, page_number)]
 	return {
-		props: { allPosts, year: params.year },
+		props: { allPosts, year: params.year, page_array },
 	}
 }
 

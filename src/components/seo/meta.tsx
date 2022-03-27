@@ -10,13 +10,17 @@ type Breadcrumb = {
 	url: string
 }
 type TypeMeta = {
+	isSingle?: boolean
 	pageTitle: string
 	pageDescription: string
 	pageUrl?: string
 	pageImg?: string
 	breadcrumb?: Breadcrumb[]
+	datePublished?: string
+	dateModified?: string
 }
-export const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg, breadcrumb }: TypeMeta) => {
+export const Meta = ({ isSingle = false, pageTitle, pageDescription, pageUrl, pageImg, breadcrumb,datePublished
+ ,dateModified }: TypeMeta) => {
 	const defaultTitle = BLOG_NAME
 	const defaultDescription = BLOG_DESCRIPTION
 
@@ -43,6 +47,29 @@ export const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg, breadcrumb 
 		"name": "パンくずリスト",
 		"itemListElement": jsonLdList
 	})
+	let blogPosting = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": `${pageTitle}`,
+		"image": [
+			`${imgUrl}`,
+		],
+		"author": [{
+			"@type": "Person",
+			"name": "Shamokit",
+			"url": `${BLOG_DOMAIN}/profile/`
+		}],
+		"datePublished": undefined as unknown,
+		"dateModified": undefined as unknown,
+	}
+	if(datePublished) {
+		blogPosting.datePublished = datePublished
+	}
+	if(dateModified) {
+		blogPosting.dateModified = dateModified
+	}
+	const blogPostingJsonLd = JSON.stringify(blogPosting)
+
 	return (
 		<Head>
 			<title>{title}</title>
@@ -57,6 +84,9 @@ export const Meta = ({ pageTitle, pageDescription, pageUrl, pageImg, breadcrumb 
 			<link rel="canonical" href={url} />
 			{(breadcrumb && breadcrumb.length > 0) &&
 				<script type="application/ld+json" dangerouslySetInnerHTML={{__html: jsonLd}}></script>
+			}
+			{isSingle &&
+			    <script type="application/ld+json" dangerouslySetInnerHTML={{__html: blogPostingJsonLd}}></script>
 			}
 		</Head>
 	)

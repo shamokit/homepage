@@ -13,6 +13,7 @@ import Image from 'next/image'
 type TypeProps = {
 	book: TypeBook
 }
+import { BLOG_DOMAIN } from "@/lib/constants";
 
 const Post = ({ book }: TypeProps) => {
 	const router = useRouter()
@@ -22,16 +23,32 @@ const Post = ({ book }: TypeProps) => {
 	const title = `${book.title}`
 	const description = `${book.description}`
 	const url = `/books/${book.slug}/`
+
+	const breadcrumb = [
+		{
+			name: 'TOP',
+			url: `${BLOG_DOMAIN}/`,
+		},
+		{
+			name: 'Books',
+			url: `${BLOG_DOMAIN}/books`,
+		},
+		{
+			name: `${title}`,
+			url: `${BLOG_DOMAIN}${url}`,
+		},
+	]
 	return (
-		<LayoutBase>
-			<Container>
-				{
-					<>
-						<Meta
-							pageTitle={`${title} | Books`}
-							pageDescription={description}
-							pageUrl={url}
-						/>
+		<>
+			<Meta
+				pageTitle={`${title} | Books`}
+				pageDescription={description}
+				pageUrl={url}
+				breadcrumb={breadcrumb}
+			/>
+			<LayoutBase breadcrumb={breadcrumb}>
+				<Container>
+					{
 						<article>
 							<div className="flex items-start mb-12">
 								{book.thumbnail && (
@@ -49,10 +66,10 @@ const Post = ({ book }: TypeProps) => {
 							</div>
 							<PostBody content={book.content} />
 						</article>
-					</>
-				}
-			</Container>
-		</LayoutBase>
+					}
+				</Container>
+			</LayoutBase>
+		</>
 	)
 }
 
