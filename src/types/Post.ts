@@ -3,6 +3,7 @@ export type TypePost = {
 	title: string
 	description?: string
 	date: string
+	dateModified?: string
 	coverImage?: string
 	ogImage?: {
 		url?: string

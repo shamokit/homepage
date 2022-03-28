@@ -23,6 +23,7 @@ const Post = ({ book }: TypeProps) => {
 	const title = `${book.title}`
 	const description = `${book.description}`
 	const url = `/books/${book.slug}/`
+	const date = `${book.date}/`
 
 	const breadcrumb = [
 		{
@@ -45,6 +46,8 @@ const Post = ({ book }: TypeProps) => {
 				pageDescription={description}
 				pageUrl={url}
 				breadcrumb={breadcrumb}
+				isSingle={true}
+				datePublished={date}
 			/>
 			<LayoutBase breadcrumb={breadcrumb}>
 				<Container>

@@ -19,8 +19,16 @@ type TypeMeta = {
 	datePublished?: string
 	dateModified?: string
 }
-export const Meta = ({ isSingle = false, pageTitle, pageDescription, pageUrl, pageImg, breadcrumb,datePublished
- ,dateModified }: TypeMeta) => {
+export const Meta = ({
+	isSingle = false,
+	pageTitle,
+	pageDescription,
+	pageUrl,
+	pageImg,
+	breadcrumb,
+	datePublished,
+	dateModified,
+}: TypeMeta) => {
 	const defaultTitle = BLOG_NAME
 	const defaultDescription = BLOG_DESCRIPTION
 
@@ -32,40 +40,40 @@ export const Meta = ({ isSingle = false, pageTitle, pageDescription, pageUrl, pa
 		: BLOG_DOMAIN + DEFAULT_OGP_IMAGE
 	let jsonLdList = breadcrumb?.map((item, index) => {
 		return {
-			"@type": "ListItem",
-			"position": index+1,
-			"item": {
-				"@id": item.url,
-				"@type": 'WebPage',
-				"name": item.name,
-			}
+			'@type': 'ListItem',
+			position: index + 1,
+			item: {
+				'@id': item.url,
+				'@type': 'WebPage',
+				name: item.name,
+			},
 		}
 	})
 	const jsonLd = JSON.stringify({
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"name": "パンくずリスト",
-		"itemListElement": jsonLdList
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		name: 'パンくずリスト',
+		itemListElement: jsonLdList,
 	})
 	let blogPosting = {
-		"@context": "https://schema.org",
-		"@type": "BlogPosting",
-		"headline": `${pageTitle}`,
-		"image": [
-			`${imgUrl}`,
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: `${pageTitle}`,
+		image: [`${imgUrl}`],
+		author: [
+			{
+				'@type': 'Person',
+				name: 'Shamokit',
+				url: `${BLOG_DOMAIN}/profile/`,
+			},
 		],
-		"author": [{
-			"@type": "Person",
-			"name": "Shamokit",
-			"url": `${BLOG_DOMAIN}/profile/`
-		}],
-		"datePublished": undefined as unknown,
-		"dateModified": undefined as unknown,
+		datePublished: undefined as unknown,
+		dateModified: undefined as unknown,
 	}
-	if(datePublished) {
+	if (datePublished) {
 		blogPosting.datePublished = datePublished
 	}
-	if(dateModified) {
+	if (dateModified) {
 		blogPosting.dateModified = dateModified
 	}
 	const blogPostingJsonLd = JSON.stringify(blogPosting)
@@ -76,18 +84,23 @@ export const Meta = ({ isSingle = false, pageTitle, pageDescription, pageUrl, pa
 			<meta name="description" content={description} />
 			<meta property="og:url" content={url} />
 			<meta property="og:title" content={title} />
-			<meta property="og:type" content="website" />
+			<meta property="og:type" content={isSingle ? 'article' : 'website'} />
 			<meta property="og:description" content={description} />
 			<meta property="og:image" content={imgUrl} />
-			<meta name="twitter:card" content="summary" />
-			<meta name="twitter:site" content="@shamokit_y2323" />
+
 			<link rel="canonical" href={url} />
-			{(breadcrumb && breadcrumb.length > 0) &&
-				<script type="application/ld+json" dangerouslySetInnerHTML={{__html: jsonLd}}></script>
-			}
-			{isSingle &&
-			    <script type="application/ld+json" dangerouslySetInnerHTML={{__html: blogPostingJsonLd}}></script>
-			}
+			{breadcrumb && breadcrumb.length > 0 && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: jsonLd }}
+				></script>
+			)}
+			{isSingle && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: blogPostingJsonLd }}
+				></script>
+			)}
 		</Head>
 	)
 }

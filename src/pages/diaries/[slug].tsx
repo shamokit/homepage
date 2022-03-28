@@ -13,7 +13,6 @@ import { PostHeader } from '@/components/post/header'
 type TypeProps = {
 	post: TypeDiary
 }
-import { BLOG_DOMAIN } from '@/lib/constants'
 
 const Post = ({ post }: TypeProps) => {
 	const router = useRouter()
@@ -22,10 +21,11 @@ const Post = ({ post }: TypeProps) => {
 	}
 	const title = `${post.title}`
 	const url = `/diaries/${post.slug}/`
+	const date = `${post.date}/`
 	const breadcrumb = [
 		{
 			name: 'TOP',
-			url: "/",
+			url: '/',
 		},
 		{
 			name: 'Diaries',
@@ -38,7 +38,13 @@ const Post = ({ post }: TypeProps) => {
 	]
 	return (
 		<>
-			<Meta pageTitle={title} pageDescription={''} pageUrl={`${url}`} isSingle={true} datePublished={post._sys.createdAt} dateModified={post._sys.updatedAt} />
+			<Meta
+				pageTitle={title}
+				pageDescription={''}
+				pageUrl={`${url}`}
+				isSingle={true}
+				datePublished={date}
+			/>
 			<LayoutBase breadcrumb={breadcrumb}>
 				<Container>
 					{

@@ -14,7 +14,6 @@ type TypeProps = {
 import { BLOG_DOMAIN } from '@/lib/constants'
 
 const Post = ({ post }: TypeProps) => {
-
 	const router = useRouter()
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />
@@ -22,6 +21,8 @@ const Post = ({ post }: TypeProps) => {
 	const title = `${post.title} | Posts`
 	const description = `${post.description}`
 	const url = `/posts/${post.slug}/`
+	const datePublished = `${post.date}`
+	const dateModified = `${post.dateModified}` || `${post.date}`
 	const breadcrumb = [
 		{
 			name: 'TOP',
@@ -37,24 +38,27 @@ const Post = ({ post }: TypeProps) => {
 		},
 	]
 	return (
-		<LayoutBase breadcrumb={breadcrumb}>
-			<Container>
-				{
-					<>
-						<Meta
-							pageTitle={title}
-							pageDescription={description}
-							pageUrl={url}
-							breadcrumb={breadcrumb}
-						/>
+		<>
+			<Meta
+				pageTitle={title}
+				pageDescription={description}
+				pageUrl={url}
+				breadcrumb={breadcrumb}
+				isSingle={true}
+				datePublished={datePublished}
+				dateModified={dateModified}
+			/>
+			<LayoutBase breadcrumb={breadcrumb}>
+				<Container>
+					{
 						<article>
 							<PostHeader post={post} dir={'posts'} className="mb-12" />
 							<PostBody content={post.content} />
 						</article>
-					</>
-				}
-			</Container>
-		</LayoutBase>
+					}
+				</Container>
+			</LayoutBase>
+		</>
 	)
 }
 
@@ -67,10 +71,16 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-	const post = getPostBySlug(
-		params.slug,
-		['title', 'description', 'date', 'slug', 'tags', 'category', 'content']
-	)
+	const post = getPostBySlug(params.slug, [
+		'title',
+		'description',
+		'date',
+		'dateModified',
+		'slug',
+		'tags',
+		'category',
+		'content',
+	])
 	const postContent = post['content'] as string
 	const content = await mdToHtml(postContent! || '')
 

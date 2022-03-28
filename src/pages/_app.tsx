@@ -17,9 +17,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<>
 			<Head>
+				<meta charSet="UTF-8" />
 				<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+			<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+			<meta property="og:locale" content="ja_JP" />
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@shamokit_y2323" />
 				<meta property="og:site_name" content={BLOG_NAME} />
-				<meta property="og:type" content="website" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
 				<link
 					rel="apple-touch-icon"
