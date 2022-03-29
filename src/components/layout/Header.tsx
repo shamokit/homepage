@@ -105,7 +105,7 @@ const Header = ({ className }: TypeProps) => {
 								: 'rotate-0'
 						}`}
 					></span>
-					<div className="sr-only">menu</div>
+					<span className="sr-only">menu</span>
 				</button>
 				<Navigation list={list} open={open} closeButton={<CloseButton />} />
 			</header>
