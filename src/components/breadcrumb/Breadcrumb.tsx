@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 import classNames from 'classnames'
 
@@ -26,12 +25,13 @@ export const Breadcrumb = ({ items }: TypeProps) => {
 						])}
 					>
 						{index === 0 ? (
-							<Image
+							<img
 								src="/logo/icon_fill.svg"
 								alt="TOPページ"
 								width={30}
 								height={30}
-								objectFit="contain"
+								className='object-contain'
+								loading='lazy'
 							/>
 						) : (
 							item.name

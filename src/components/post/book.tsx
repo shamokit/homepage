@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { DesignedDate } from '@/components/post/designed-date'
 import { TagItem } from '@/components/tag/item'
-import Image from 'next/image'
 
 type TypeProps = {
 	title: string
@@ -26,12 +25,11 @@ const PostBook = ({ title, date, slug, tags, thumbnail }: TypeProps) => {
 				{thumbnail && (
 					<Link href={`/books/${slug}`}>
 						<a className="group relative w-32 min-h-[160px] flex-shrink-0 mr-5">
-							<Image
+							<img
 								src={thumbnail}
 								alt=""
-								layout="fill"
-								objectFit="contain"
 								className="transition-opacity group-hover:opacity-90"
+								loading='lazy'
 							/>
 						</a>
 					</Link>

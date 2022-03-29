@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export const SnsBtn = () => {
 	return (
 		<ul className="flex items-center gap-4">
@@ -10,7 +8,11 @@ export const SnsBtn = () => {
 					rel="noopener noreferrer"
 					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
 				>
-					<Image src="/logo/twitter.svg" layout="fill" objectFit="contain" alt="しゃもキットのtwitterアカウント" />
+					<img
+						src="/logo/twitter.svg"
+						className="absolute inset-0 w-full h-full object-contain"
+						alt="しゃもキットのtwitterアカウント"
+					/>
 				</a>
 			</li>
 			<li>
@@ -20,7 +22,11 @@ export const SnsBtn = () => {
 					rel="noopener noreferrer"
 					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
 				>
-					<Image src="/logo/gitHub.png" layout="fill" objectFit="contain"alt="しゃもキットのgitHubアカウント" />
+					<img
+						src="/logo/gitHub.png"
+						className="absolute inset-0 w-full h-full object-contain"
+						alt="しゃもキットのgitHubアカウント"
+					/>
 				</a>
 			</li>
 		</ul>

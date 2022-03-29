@@ -8,7 +8,6 @@ import { getPostBySlug, getAllPosts } from '@/lib/api'
 import mdToHtml from '@/lib/markdownToHtml'
 import { TypeBook } from '@/types/Book'
 import { PostHeader } from '@/components/post/header'
-import Image from 'next/image'
 
 type TypeProps = {
 	book: TypeBook
@@ -56,12 +55,11 @@ const Post = ({ book }: TypeProps) => {
 							<div className="flex items-start mb-12">
 								{book.thumbnail && (
 									<div className="relative w-32 min-h-[160px] flex-shrink-0 mr-10">
-										<Image
+										<img
 											src={book.thumbnail}
+											className="absolute inset-0 w-full h-full object-contain transition-opacity group-hover:opacity-90"
 											alt=""
-											layout="fill"
-											objectFit="contain"
-											className="transition-opacity group-hover:opacity-90"
+											loading='lazy'
 										/>
 									</div>
 								)}

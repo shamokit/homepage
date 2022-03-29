@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames'
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Navigation from '@/components/layout/Navigation'
 import { LinkBase } from '@/types/LinkBase'
 import { BLOG_DOMAIN } from '@/lib/constants'
@@ -58,12 +57,13 @@ const Header = ({ className }: TypeProps) => {
 				<p className="self-center w-8 md:w-10 lg:w-14">
 					<Link href="/">
 						<a className="grid place-items-center bg-white rounded-full p-1 lg:p-2 leading-none transition-opacity hover:opacity-80">
-							<Image
+							<img
 								src="/logo/icon_fill.svg"
 								alt="しゃもキット"
 								width={40}
 								height={40}
-								objectFit="contain"
+								className="object-contain"
+								loading='lazy'
 							/>
 						</a>
 					</Link>
