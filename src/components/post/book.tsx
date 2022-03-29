@@ -27,7 +27,7 @@ const PostBook = ({ title, date, slug, tags, thumbnail }: TypeProps) => {
 						<a className="group relative w-32 min-h-[160px] flex-shrink-0 mr-5">
 							<img
 								src={thumbnail}
-								alt=""
+								alt={`${title} サムネイル画像`}
 								className="transition-opacity group-hover:opacity-90"
 								loading='lazy'
 							/>
