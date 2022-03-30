@@ -71,6 +71,26 @@ export const tags = [
 		name: '数学',
 		slug: 'math',
 	},
+	{
+		id: 14,
+		name: 'Laravel',
+		slug: 'laravel',
+	},
+	{
+		id: 15,
+		name: 'JavaScript',
+		slug: 'javascript',
+	},
+	{
+		id: 16,
+		name: 'microCMS',
+		slug: 'microcms',
+	},
+	{
+		id: 17,
+		name: 'CSS',
+		slug: 'css',
+	},
 ] as const
 
 /**
