@@ -41,9 +41,10 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 	return (
 		<>
 			<Meta
-				pageTitle={`Diaries Page${params.number}`}
+				pageTitle={`Diaries ${params.year}/Page${params.number}`}
 				pageDescription={'日記です。'}
-				pageUrl={`/diaries/page/${params.number}/`}
+				pageUrl={`/diaries/${params.year}/page/${params.number}/`}
+				pageImg={`/assets/diary/ogp_${params.year}.png`}
 				breadcrumb={breadcrumb}
 			/>
 			<LayoutBase sidebar={<Sidebar />} breadcrumb={breadcrumb}>

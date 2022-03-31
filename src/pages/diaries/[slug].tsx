@@ -11,7 +11,7 @@ import classNames from 'classnames'
 
 import { PostHeader } from '@/components/post/header'
 type TypeProps = {
-	post: TypeDiary
+	post: TypeDiary & {formatDate: string}
 }
 
 const Post = ({ post }: TypeProps) => {
@@ -41,6 +41,7 @@ const Post = ({ post }: TypeProps) => {
 			<Meta
 				pageTitle={title}
 				pageDescription={''}
+				pageImg={`/assets/diary/ogp_${post.formatDate.replaceAll('-', '')}.png`}
 				pageUrl={`${url}`}
 				isSingle={true}
 				datePublished={date}
@@ -75,7 +76,7 @@ type Params = {
 		slug: string
 	}
 }
-
+import { DateFormat } from '@/functions/common/date-format'
 export async function getStaticProps({ params }: Params) {
 	const post = await client
 		.getContents<TypeDiary>({
@@ -92,9 +93,13 @@ export async function getStaticProps({ params }: Params) {
 		})
 		.then(async (content) => {
 			let data = content.items[0]
+			let dateText = ''
 			const postContent = await mdToHtml(data?.body! || '')
+			if(data) {
+				dateText = DateFormat({dateString: data.date})
+			}
 
-			return { ...data, content: postContent } || null
+			return { ...data, content: postContent, formatDate: dateText } || null
 		})
 		.catch((err) => console.log(err))
 	return {
