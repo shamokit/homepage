@@ -19,10 +19,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 			<Head>
 				<meta charSet="UTF-8" />
 				<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-			<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-			<meta property="og:locale" content="ja_JP" />
-			<meta name="twitter:card" content="summary" />
-			<meta name="twitter:site" content="@shamokit_y2323" />
+				<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+				<meta property="og:locale" content="ja_JP" />
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:site" content="@shamokit_y2323" />
+				<meta name="twitter:creator" content="@shamokit_y2323" />
 				<meta property="og:site_name" content={BLOG_NAME} />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
 				<link
@@ -30,7 +31,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 					sizes="180x180"
 					href="/favicon/apple-touch-icon.png"
 				/>
-				<link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+				<link rel="icon" href="/favicon/favicon.svg" sizes="any" type="image/svg+xml" />
+				<link rel="icon" href="/favicon/favicon.png" />
+				<link rel="icon" href="/favicon/favicon.ico" />
 				<meta name="theme-color" content="#1b1e32" />
 			</Head>
 			<Component {...pageProps} />
