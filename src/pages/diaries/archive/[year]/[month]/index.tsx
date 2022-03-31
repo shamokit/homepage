@@ -39,7 +39,8 @@ const Diary = ({ allPosts, year, month }: TypeProps) => {
 			<Meta
 				pageTitle={`Diaries/${current}`}
 				pageDescription={`${current}の日記です。`}
-				pageUrl={`/diaries/archive/${current}`}
+				pageUrl={`/diaries/archive/${year}/${month}/`}
+				pageImg={`/assets/diary/ogp_${year}${month < 10 ? '0'+month : month}.png`}
 				breadcrumb={breadcrumb}
 			/>
 			<LayoutBase sidebar={<Sidebar current={current}/>} breadcrumb={breadcrumb}>
@@ -99,41 +100,36 @@ export const getStaticProps = async ({ params }: Params) => {
 		props: { allPosts, year: params.year, month: params.month },
 	}
 }
+import { generateIntegerArray } from '@/functions/generateIntegerArray'
 export async function getStaticPaths() {
 	const firstYear = 2022
+	const firstYearMonth = 3
 	const currentTime = new Date();
 	const thisYear = currentTime.getFullYear()
-	const allPosts = await client
-		.getContents<TypeDiary>({
-			appUid: 'diary',
-			modelUid: 'article',
-			query: {
-				depth: 2,
-				limit: 100,
-				date: {
-					gte: new Date(`${firstYear}`).toISOString(),
-					lt: new Date((`${(firstYear + 1).toString()}`).toString()).toISOString(),
-				}
-			},
-		})
-		.then((contents) => {
-			return contents.items
-		})
-		.catch((err) => console.log(err));
-	let monthList = allPosts?.map((post) => {
-		const postMonth = new Date(post.date).getMonth() + 1
-		return postMonth
-	})
-	monthList = [...new Set(monthList)]
-	return {
-		paths: monthList?.map((month) => {
+	let yearList = [...generateIntegerArray(firstYear, thisYear)]
+	const thisYearMonth = currentTime.getMonth() + 1
+	let monthList:number[] = []
+
+	const paths = []
+
+	if(firstYear === thisYear) {
+		monthList = [...generateIntegerArray(firstYearMonth, thisYearMonth)]
+	} else {
+		monthList = [...generateIntegerArray(1, thisYearMonth)]
+	}
+	for (let index = 0; index < yearList.length; index++) {
+		const year = yearList[index];
+		paths.push(...monthList.map((month) => {
 			return {
 				params: {
-					year: `${firstYear}`,
+					year: `${year}`,
 					month: `${month}`,
 				},
 			}
-		}),
+		}))
+	}
+	return {
+		paths: [...paths],
 		fallback: false,
 	}
 }
