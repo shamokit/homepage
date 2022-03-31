@@ -91,6 +91,11 @@ export const tags = [
 		name: 'CSS',
 		slug: 'css',
 	},
+	{
+		id: 18,
+		name: 'まだ読んでない',
+		slug: 'unread',
+	},
 ] as const
 
 /**
