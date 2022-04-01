@@ -81,7 +81,7 @@ const Index = ({
 									作っている途中なのでコンテンツはほとんどないです。日記は毎日書いてます。
 								</p>
 								<p>
-									Next.js(SG)/CloudFlarePages/TypeScriptを使ってます。<br />CMSにはNewtを使っていて、記事作成時WebhookでCloudFlarePagesにデプロイが走ります。便利。
+									Next.js(SG)/Cloudflare Pages/TypeScriptを使ってます。<br />CMSにはNewtを使っていて、記事作成時WebhookでCloudflare Pagesにデプロイが走ります。便利。
 									{/* <br />
 									しゃもきっとに関して気になった人は
 									Profileページを見てみてください。 */}
