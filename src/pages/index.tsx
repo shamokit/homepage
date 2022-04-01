@@ -79,6 +79,9 @@ const Index = ({
 								<p>
 									このサイトはしゃもきっとが運営しているブログサイトです。<br />
 									作っている途中なのでコンテンツはほとんどないです。日記は毎日書いてます。
+								</p>
+								<p>
+									Next.js(SG)/CloudFlarePages/TypeScriptを使ってます。<br />CMSにはNewtを使っていて、記事作成時WebhookでCloudFlarePagesにデプロイが走ります。便利。
 									{/* <br />
 									しゃもきっとに関して気になった人は
 									Profileページを見てみてください。 */}
