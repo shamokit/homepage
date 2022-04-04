@@ -34,7 +34,7 @@ const PostBook = ({ title, date, slug, tags, thumbnail }: TypeProps) => {
 						</a>
 					</Link>
 				)}
-				<div className="grid gap-3">
+				<div className="grid gap-1">
 					<p className="font-semibold leading-normal tracking-wide">
 						<Link href={`/books/${slug}`}>
 							<a className="group relative overflow-hidden inline-block pb-2 tracking-widest">
