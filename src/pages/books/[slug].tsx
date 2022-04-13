@@ -1,18 +1,18 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container } from '@/components/layout/Container'
-import { PostBody } from '@/components/post/body'
+import { PostBody } from '@/components/ui/content/AppContentBody'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import mdToHtml from '@/lib/markdownToHtml'
-import { TypeBook } from '@/types/Book'
-import { PostHeader } from '@/components/post/header'
+import { TypeBook } from '@/components/model/books/type'
+import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 
 type TypeProps = {
 	book: TypeBook
 }
-import { BLOG_DOMAIN } from "@/lib/constants";
+import { BLOG_DOMAIN } from "config/constants";
 
 const Post = ({ book }: TypeProps) => {
 	const router = useRouter()
@@ -63,7 +63,7 @@ const Post = ({ book }: TypeProps) => {
 										/>
 									</div>
 								)}
-								<PostHeader post={book} dir={'books'} />
+								<AppHeader01 post={book} dir={'books'} />
 							</div>
 							<PostBody content={book.content} />
 						</article>
@@ -81,7 +81,7 @@ type Params = {
 		slug: string
 	}
 }
-import {BOOK_API_URL} from '@/lib/constants'
+import {BOOK_API_URL} from 'config/constants'
 const getBookData = async (isbn: string) => {
 	return await fetch(`${BOOK_API_URL}${isbn}`)
 }

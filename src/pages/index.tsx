@@ -1,17 +1,17 @@
 import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
-import PostCard from '@/components/post/card'
-import { TagItem } from '@/components/tag/item'
+import PostCard from '@/components/model/posts/card'
+import { TagItem } from '@/components/model/tags/item'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
-import { AppHead01 } from '@/components/head/AppHead01'
-import { Head02 } from '@/components/head/section-head02'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
+import { AppHead02 } from '@/components/ui/head/AppHead02'
 import { getAllPosts } from '@/lib/api'
-import { getTagsWithCount } from '@/lib/tags'
-import { TypePost } from '@/types/Post'
-import { PostBody } from '@/components/post/body'
-import PostBook from '@/components/post/book'
-import { AppBtn01 } from '@/components/button/AppBtn01'
-import { BLOG_DOMAIN } from '@/lib/constants'
+import { getTagsWithCount } from 'utils/tags'
+import { TypePost } from '@/components/model/posts/Post'
+import { PostBody } from '@/components/ui/content/AppContentBody'
+import PostBook from '@/components/model/books/book'
+import { AppBtn01 } from '@/components/ui/button/AppBtn01'
+import { BLOG_DOMAIN } from 'config/constants'
 type TypeProps = {
 	posts: TypePost[]
 	books: TypePost[]
@@ -23,7 +23,7 @@ type TypeProps = {
 
 import mdToHtml from '@/lib/markdownToHtml'
 import { getPostBySlug } from '@/lib/api'
-import { TagType } from '@/types/Tag'
+import { TagType } from '@/components/model/tags/Tag'
 const breadcrumb = [
 	{
 		name: 'TOP',
@@ -99,7 +99,7 @@ const Index = ({
 								)}
 								{tagsInPosts && (
 									<section>
-										<Head02 text="Tag" />
+										<AppHead02 text="Tag" />
 										{tagsInPosts.length > 0 && (
 											<ul className="flex flex-wrap mt-6 -mr-2 -mb-2">
 												{tagsInPosts.map((tag) => {
@@ -129,7 +129,7 @@ const Index = ({
 								</ul>
 								)}
 								<section>
-									<Head02 text="Tag" />
+									<AppHead02 text="Tag" />
 									{tagsInBooks && tagsInBooks.length > 0 && (
 										<ul className="flex flex-wrap mt-6 -mr-2 -mb-2">
 											{tagsInBooks.map((tag) => {
@@ -170,10 +170,10 @@ const Index = ({
 export default Index
 import { getPostSlugs } from '@/lib/api'
 import { createClient } from 'newt-client-js'
-import { TypeDiary } from '@/types/Diary'
-import { TypeBook } from '@/types/Book'
-import PostDiary from '@/components/post/diary'
-import {BOOK_API_URL} from '@/lib/constants'
+import { TypeDiary } from '@/components/model/diaries/type'
+import { TypeBook } from '@/components/model/books/type'
+import PostDiary from '@/components/model/diaries/diary'
+import {BOOK_API_URL} from 'config/constants'
 const getBookData = async (isbn: string) => {
 	return await fetch(`${BOOK_API_URL}${isbn}`)
 }

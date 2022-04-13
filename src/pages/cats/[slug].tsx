@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container } from '@/components/layout/Container'
-import { PostBody } from '@/components/post/body'
+import { PostBody } from '@/components/ui/content/AppContentBody'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import mdToHtml from '@/lib/markdownToHtml'
-import { TypePost } from '@/types/Post'
-import { PostHeader } from '@/components/post/header'
+import { TypePost } from '@/components/model/posts/Post'
+import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 type TypeProps = {
 	post: TypePost
 }
@@ -31,7 +31,7 @@ const Post = ({ post }: TypeProps) => {
 							pageUrl={url}
 						/>
 						<article>
-							<PostHeader post={post} dir={'cats'} className="mb-12" />
+							<AppHeader01 post={post} dir={'cats'} className="mb-12" />
 							<PostBody content={post.content} />
 						</article>
 					</>
