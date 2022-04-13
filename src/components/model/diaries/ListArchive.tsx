@@ -1,7 +1,7 @@
 type TypeProps = {
 	current?: string
 }
-import { generateIntegerArray } from "@/functions/generateIntegerArray";
+import { generateIntegerArray } from "utils/generateIntegerArray";
 import Link from 'next/link'
 import classNames from 'classnames'
 

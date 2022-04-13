@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-import { LineGradation } from "@/components/line/Gradation"
+import { AppGradationLine } from "@/components/ui/line/AppGradationLine"
 
 export type TypeAppHead01AllowElements = 'h1' | 'h2' | 'h3' | 'h4'
 export type TypeAppHead01OwnProps<E extends TypeAppHead01AllowElements> = {
@@ -19,7 +19,7 @@ export const AppHead01 = <E extends TypeAppHead01AllowElements>({
 	const TagName = as || 'h2'
 	return (
 		<header className={classNames(['grid gap-4 tracking-widest'])}>
-			<LineGradation />
+			<AppGradationLine />
 			<TagName
 				className={classNames([
 					'inline-block',

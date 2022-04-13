@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { DesignedDate } from '@/components/post/designed-date'
-import { TagItem } from '@/components/tag/item'
+import { TagItem } from '@/components/model/tags/item'
 
 type TypeProps = {
 	title: string

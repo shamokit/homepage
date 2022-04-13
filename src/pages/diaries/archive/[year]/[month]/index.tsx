@@ -1,10 +1,10 @@
 import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
-import PostDiary from '@/components/post/diary'
-import { AppHead01 } from '@/components/head/AppHead01'
+import PostDiary from '@/components/model/diaries/diary'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
 import {createClient} from 'newt-client-js'
-import {TypeDiary} from '@/types/Diary'
+import {TypeDiary} from '@/components/model/diaries/type'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
 
 type TypeProps = {
@@ -12,7 +12,7 @@ type TypeProps = {
 	month: number
 	allPosts: TypeDiary[]
 }
-import { BLOG_DOMAIN } from "@/lib/constants";
+import { BLOG_DOMAIN } from "config/constants";
 
 const Diary = ({ allPosts, year, month }: TypeProps) => {
 	const current = `${year}/${month}`
@@ -100,7 +100,7 @@ export const getStaticProps = async ({ params }: Params) => {
 		props: { allPosts, year: params.year, month: params.month },
 	}
 }
-import { generateIntegerArray } from '@/functions/generateIntegerArray'
+import { generateIntegerArray } from 'utils/generateIntegerArray'
 export async function getStaticPaths() {
 	const firstYear = 2022
 	const firstYearMonth = 3

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getTag } from '@/lib/tags'
+import { getTag } from 'utils/tags'
 const TagItem = ({
 	id,
 	dirName,

@@ -7,7 +7,7 @@ type Props = {
 }
 import Link from 'next/link'
 
-export const PagerList = ({dir, pager}:Props) => {
+export const AppPager = ({dir, pager}:Props) => {
 	const items = pager.pages.map((page) => {
 		if(page === pager.current) {
 			return (<li key={page} className={'mr-2 mb-2'}><span className="box-border grid place-items-center w-10 h-10 pl-0.5 gradation-r text-white rounded">{page}</span></li>)

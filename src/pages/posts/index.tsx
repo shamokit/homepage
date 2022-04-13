@@ -2,13 +2,13 @@ import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'
-import { TypePost } from '@/types/Post'
-import PostCard from '@/components/post/card'
-import { AppHead01 } from '@/components/head/AppHead01'
+import { TypePost } from '@/components/model/posts/Post'
+import PostCard from '@/components/model/posts/card'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
 type TypeProps = {
 	allPosts: TypePost[]
 }
-import { BLOG_DOMAIN } from '@/lib/constants'
+import { BLOG_DOMAIN } from 'config/constants'
 
 const breadcrumb = [
 	{

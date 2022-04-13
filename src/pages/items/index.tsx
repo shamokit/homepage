@@ -2,9 +2,9 @@ import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'
-import { TypePost } from '@/types/Post'
-import PostItem from '@/components/post/item'
-import { AppHead01 } from '@/components/head/AppHead01'
+import { TypePost } from '@/components/model/posts/Post'
+import PostItem from '@/components/model/items/item'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
 type TypeProps = {
 	allPosts: TypePost[]
 }

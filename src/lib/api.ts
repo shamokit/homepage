@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-import { getTagBySlug } from './tags'
+import { getTagBySlug } from '../utils/tags'
 const POST_DIRECTORY = join(process.cwd(), 'src/contents/')
 export function getPostDirectory() {
 	return POST_DIRECTORY
@@ -15,8 +15,8 @@ export function getPostSlugs() {
 	return result
 }
 
-import {TypePost, TypePostFieldKey} from '@/types/Post'
-import {TypeBook, TypeBookFieldKey} from '@/types/Book'
+import {TypePost, TypePostFieldKey} from '@/components/model/posts/Post'
+import {TypeBook, TypeBookFieldKey} from '@/components/model/books/type'
 export function getPostBySlug(
 	slug: string,
 	fields: (TypePostFieldKey | TypeBookFieldKey)[]

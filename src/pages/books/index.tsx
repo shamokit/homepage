@@ -2,13 +2,13 @@ import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'
-import { TypeBook } from '@/types/Book'
-import PostBook from '@/components/post/book'
-import { AppHead01 } from '@/components/head/AppHead01'
+import { TypeBook } from '@/components/model/books/type'
+import PostBook from '@/components/model/books/book'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
 type TypeProps = {
 	books: TypeBook[]
 }
-import { BLOG_DOMAIN } from "@/lib/constants";
+import { BLOG_DOMAIN } from "config/constants";
 const breadcrumb = [
 	{
 		name: 'TOP',
@@ -48,7 +48,7 @@ const Book = ({ books }: TypeProps) => {
 
 export default Book
 
-import {BOOK_API_URL} from '@/lib/constants'
+import {BOOK_API_URL} from 'config/constants'
 const getBookData = async (isbn: string) => {
 	return await fetch(`${BOOK_API_URL}${isbn}`)
 }

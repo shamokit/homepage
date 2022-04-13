@@ -3,7 +3,7 @@ import { AppProps } from 'next/app'
 import 'modern-css-reset/dist/reset.min.css'
 import '../styles/globals.css'
 import Head from 'next/head'
-import { BLOG_NAME } from '@/lib/constants'
+import { BLOG_NAME } from 'config/constants'
 /**
 	Next.js-hydration: ページのハイドレーションが開始から終了するまでにかかる時間(ミリ秒)
 	Next.js-route-change-to-render: ルーティング後、ページがレンダリングを開始するのにかかる時間(ミリ秒)

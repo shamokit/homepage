@@ -1,6 +1,6 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { Breadcrumb, TypeBreadcrumb } from '@/components/breadcrumb/Breadcrumb'
+import { Breadcrumb, TypeBreadcrumb } from '@/components/layout/Breadcrumb'
 import classNames from 'classnames'
 type TypeProps = {
 	children: React.ReactNode

@@ -3,13 +3,13 @@ import ErrorPage from 'next/error'
 import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
-import { TypeDiary } from '@/types/Diary'
+import { TypeDiary } from '@/components/model/diaries/type'
 import mdToHtml from '@/lib/markdownToHtml'
 import style from '@/styles/markdown-styles.module.css'
 import 'zenn-content-css'
 import classNames from 'classnames'
 
-import { PostHeader } from '@/components/post/header'
+import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 type TypeProps = {
 	post: TypeDiary & {formatDate: string}
 }
@@ -50,7 +50,7 @@ const Post = ({ post }: TypeProps) => {
 				<Container>
 					{
 						<article>
-							<PostHeader post={post} dir={'diaries'} className="mb-12" />
+							<AppHeader01 post={post} dir={'diaries'} className="mb-12" />
 							<div
 								className={classNames('znc', style['znc'])}
 								dangerouslySetInnerHTML={{ __html: post.content }}
@@ -76,7 +76,7 @@ type Params = {
 		slug: string
 	}
 }
-import { DateFormat } from '@/functions/common/date-format'
+import { DateFormat } from '@/lib/date-format'
 export async function getStaticProps({ params }: Params) {
 	const post = await client
 		.getContents<TypeDiary>({

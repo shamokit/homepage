@@ -1,7 +1,7 @@
 type TypeProps = {
 	className?: string
 }
-export const AppArrow01 = ({ className }: TypeProps) => (
+export const AppIcoArrow01 = ({ className }: TypeProps) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		height={24}

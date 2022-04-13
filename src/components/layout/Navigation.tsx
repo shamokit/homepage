@@ -1,15 +1,18 @@
-import Link from 'next/link'
+import Link, {LinkProps} from 'next/link'
 import classNames from 'classnames'
 
-import { LinkBase } from '@/types/LinkBase'
-import { SnsBtn } from '@/components/seo/share'
-type NavigationItem = LinkBase
+import { SnsBtn } from '@/components/ui/share/AppShare'
 type TypeProps = {
 	open: boolean
-	list: NavigationItem[]
 	closeButton: JSX.Element
 }
-const Navigation = ({ list, open, closeButton }: TypeProps) => {
+import { BLOG_DOMAIN } from 'config/constants'
+const cats = ['posts', 'books', 'diaries'] as const
+const list:(LinkProps & {name: typeof cats[number]})[] = cats.map((cat) => ({
+  name: cat,
+  href: `${BLOG_DOMAIN}/${cat}/`,
+}))
+const Navigation = ({ open, closeButton }: TypeProps) => {
 	const classOpen = open ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
 	return (
 		<>

@@ -1,4 +1,4 @@
-import { DateFormat } from '@/functions/common/date-format'
+import { DateFormat } from '@/lib/date-format'
 
 type TypeProps = {
 	pageSingle?: boolean
@@ -6,7 +6,7 @@ type TypeProps = {
 	className?: string
 }
 import classnames from 'classnames'
-export const PostDate = ({
+export const AppDate = ({
 	pageSingle = false,
 	dateString,
 	className,
@@ -27,5 +27,3 @@ export const PostDate = ({
 		</>
 	)
 }
-
-export default Date

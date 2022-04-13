@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { AppArrow01 } from '@/components/ico/arrow01'
+import { AppIcoArrow01 } from '@/components/ui/ico/AppIcoArrow01'
 import Link, { LinkProps } from 'next/link'
 type TypeProps = {
 	children: React.ReactNode
@@ -29,7 +29,7 @@ export const AppBtn01 = ({ children, href }: TypeProps) => {
 					])}
 				></div>
 				<span className="relative">{children}</span>
-				<AppArrow01
+				<AppIcoArrow01
 					className={classNames([
 						'absolute top-1/2 right-5',
 						'-translate-y-1/2',

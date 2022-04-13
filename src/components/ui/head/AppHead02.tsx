@@ -9,7 +9,7 @@ type OwnProps<E extends ListAllowElem> = {
 
 type TypeProps<E extends ListAllowElem> = OwnProps<E> &
 	Omit<React.ComponentProps<E>, keyof OwnProps<E>>
-export const Head02 = <E extends ListAllowElem>({
+export const AppHead02 = <E extends ListAllowElem>({
 	className,
 	as,
 	text,

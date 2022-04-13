@@ -3,7 +3,7 @@ type PropTypes = {
 	className?: string
 }
 import classnames from 'classnames'
-export const PostTitle = ({ title, className }: PropTypes) => {
+export const AppHead03 = ({ title, className }: PropTypes) => {
 	return (
 		<h1
 			className={classnames(

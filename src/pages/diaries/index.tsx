@@ -1,18 +1,18 @@
 import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
-import PostDiary from '@/components/post/diary'
-import { AppHead01 } from '@/components/head/AppHead01'
+import PostDiary from '@/components/model/diaries/diary'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
 import {createClient} from 'newt-client-js'
-import {TypeDiary} from '@/types/Diary'
-import { PagerList } from '@/components/pager/List'
+import {TypeDiary} from '@/components/model/diaries/type'
+import { AppPager } from '@/components/ui/pager/AppPager'
 
 type TypeProps = {
 	allPosts: TypeDiary[],
 	page_array: number[]
 }
-import { BLOG_DOMAIN } from "@/lib/constants";
+import { BLOG_DOMAIN } from "config/constants";
 const breadcrumb = [
 	{
 		name: 'TOP',
@@ -43,7 +43,7 @@ const Diary = ({ allPosts, page_array }: TypeProps) => {
 									return <PostDiary {...post} key={post.slug} />
 								})}
 							</ul>
-							<PagerList dir='/diaries' pager={{pages: [1, ...page_array], current: 1}} />
+							<AppPager dir='/diaries' pager={{pages: [1, ...page_array], current: 1}} />
 							</>
 						) : (
 							'記事はありません'
@@ -56,7 +56,7 @@ const Diary = ({ allPosts, page_array }: TypeProps) => {
 }
 
 export default Diary
-import { generateIntegerArray } from '@/functions/generateIntegerArray'
+import { generateIntegerArray } from 'utils/generateIntegerArray'
 
 export const getStaticProps = async () => {
 	const client = createClient({

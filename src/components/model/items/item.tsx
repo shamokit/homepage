@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { DesignedDate } from '@/components/post/designed-date'
-import { TagItem } from '@/components/tag/item'
+import { AppDesignedDate } from '@/components/ui/date/AppDesignedDate'
+import { TagItem } from '@/components/model/tags/item'
 
 type TypeProps = {
 	title: string
@@ -23,7 +23,7 @@ const PostItem = ({ title, date, slug, tags }: TypeProps) => {
 				<a className="group relative block max-w-full bg-base-color rounded text-white overflow-hidden">
 					<div className="absolute inset-0 scale-75 opacity-0 glass transition-all group-hover:opacity-100 group-hover:scale-100"></div>
 					<div className="pt-[46%]"></div>
-					<DesignedDate dateString={date} className="absolute top-4 left-4" />
+					<AppDesignedDate dateString={date} className="absolute top-4 left-4" />
 				</a>
 			</Link>
 			{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}

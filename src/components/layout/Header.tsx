@@ -3,17 +3,10 @@ import classNames from 'classnames'
 import { useState } from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/layout/Navigation'
-import { LinkBase } from '@/types/LinkBase'
-import { BLOG_DOMAIN } from '@/lib/constants'
 type TypeProps = {
 	className?: string
 }
-// const cats = ['posts', 'books', 'items', 'cats']
-const cats = ['posts', 'books', 'diaries']
-const list:LinkBase[] = cats.map((cat) => ({
-  name: cat,
-  href: `${BLOG_DOMAIN}/${cat}/`,//`/${cat}/`,
-}))
+
 const Header = ({ className }: TypeProps) => {
 	const [open, setOpen] = useState(false)
 	/**
@@ -107,7 +100,7 @@ const Header = ({ className }: TypeProps) => {
 					></span>
 					<span className="sr-only">menu</span>
 				</button>
-				<Navigation list={list} open={open} closeButton={<CloseButton />} />
+				<Navigation open={open} closeButton={<CloseButton />} />
 			</header>
 			<div
 				className={classNames([

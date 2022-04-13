@@ -1,19 +1,19 @@
 import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
-import PostDiary from '@/components/post/diary'
-import { AppHead01 } from '@/components/head/AppHead01'
+import PostDiary from '@/components/model/diaries/diary'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
 import {createClient} from 'newt-client-js'
-import {TypeDiary} from '@/types/Diary'
+import {TypeDiary} from '@/components/model/diaries/type'
 
 type TypeProps = {
 	year: string
 	allPosts: TypeDiary[]
 	page_array: number[]
 }
-import { BLOG_DOMAIN } from "@/lib/constants";
-import { PagerList } from '@/components/pager/List'
+import { BLOG_DOMAIN } from "config/constants";
+import { AppPager } from '@/components/ui/pager/AppPager'
 
 const Diary = ({ allPosts, year, page_array }: TypeProps) => {
 	const breadcrumb = [
@@ -50,7 +50,7 @@ const Diary = ({ allPosts, year, page_array }: TypeProps) => {
 										return <PostDiary {...post} key={post.slug} />
 									})}
 								</ul>
-								<PagerList dir={`/diaries/archive/${year}`} pager={{pages: [1, ...page_array], current: 1}} />
+								<AppPager dir={`/diaries/archive/${year}`} pager={{pages: [1, ...page_array], current: 1}} />
 							</>
 						) : (
 							'記事はありません'
@@ -103,7 +103,7 @@ export const getStaticProps = async ({ params }: Params) => {
 	}
 }
 
-import { generateIntegerArray } from '@/functions/generateIntegerArray'
+import { generateIntegerArray } from 'utils/generateIntegerArray'
 export async function getStaticPaths() {
 	const firstYear = 2022
 	const currentTime = new Date();

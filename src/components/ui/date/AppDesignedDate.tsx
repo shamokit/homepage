@@ -1,4 +1,4 @@
-import { DateFormat } from '@/functions/common/date-format'
+import { DateFormat } from '@/lib/date-format'
 import classNames from 'classnames'
 
 type TypeProps = {
@@ -6,7 +6,7 @@ type TypeProps = {
 	className?: string
 }
 
-export const DesignedDate = ({ dateString, className }: TypeProps) => {
+export const AppDesignedDate = ({ dateString, className }: TypeProps) => {
 	const dateText = DateFormat({ dateString })
 	const splitDate = dateText.split('-')
 	const year = splitDate[0]

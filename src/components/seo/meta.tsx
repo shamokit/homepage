@@ -4,7 +4,7 @@ import {
 	BLOG_NAME,
 	BLOG_DESCRIPTION,
 	DEFAULT_OGP_IMAGE,
-} from '@/lib/constants'
+} from 'config/constants'
 type Breadcrumb = {
 	name: string
 	url: string
@@ -55,6 +55,7 @@ export const Meta = ({
 		name: 'パンくずリスト',
 		itemListElement: jsonLdList,
 	})
+	// TODO:変数名変更
 	let blogPosting = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',

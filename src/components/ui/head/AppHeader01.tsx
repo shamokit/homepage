@@ -1,15 +1,15 @@
-import { TypePost } from '@/types/Post'
-import { TypeDiary } from '@/types/Diary'
+import { TypePost } from '@/components/model/posts/Post'
+import { TypeDiary } from '@/components/model/diaries/type'
 type PropTypes = {
 	post: TypePost | TypeDiary
 	className?: string
 	dir: string
 }
 import classnames from 'classnames'
-import { PostTitle } from '@/components/post/title'
-import { PostDate } from '@/components/post/date'
-import { TagItem } from '@/components/tag/item'
-export const PostHeader = ({ post, className , dir}: PropTypes) => {
+import { AppHead03 } from '@/components/ui/head/AppHead03'
+import { AppDate } from '@/components/ui/date/AppDate'
+import { TagItem } from '@/components/model/tags/item'
+export const AppHeader01 = ({ post, className , dir}: PropTypes) => {
 	const hasTags = ('tags' in post) && post.tags && post.tags.length > 0
 	return (
 		<header className={classnames('grid gap-2', className)}>
@@ -28,8 +28,8 @@ export const PostHeader = ({ post, className , dir}: PropTypes) => {
 					</ul>
 				)
 			}
-			<PostTitle title={post.title}></PostTitle>
-			<PostDate pageSingle={true} dateString={post.date}></PostDate>
+			<AppHead03 title={post.title}></AppHead03>
+			<AppDate pageSingle={true} dateString={post.date}></AppDate>
 		</header>
 	)
 }

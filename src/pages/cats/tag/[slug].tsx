@@ -3,11 +3,11 @@ import { Container } from '@/components/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getTagPosts } from '@/lib/api'
-import { tags, getTagBySlug } from '@/lib/tags'
-import { TypePost } from '@/types/Post'
-import PostCard from '@/components/post/card'
-import { AppHead01 } from '@/components/head/AppHead01'
-import { TagType } from '@/types/Tag'
+import { tags, getTagBySlug } from 'utils/tags'
+import { TypePost } from '@/components/model/posts/Post'
+import PostCard from '@/components/model/posts/card'
+import { AppHead01 } from '@/components/ui/head/AppHead01'
+import { TagType } from '@/components/model/tags/Tag'
 
 type PathParams = {
 	slug: string
