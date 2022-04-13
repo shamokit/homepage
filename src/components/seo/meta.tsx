@@ -5,17 +5,14 @@ import {
 	BLOG_DESCRIPTION,
 	DEFAULT_OGP_IMAGE,
 } from 'config/constants'
-type Breadcrumb = {
-	name: string
-	url: string
-}
+import {TypeBreadcrumb} from '@/components/ui/layout/Breadcrumb'
 type TypeMeta = {
 	isSingle?: boolean
 	pageTitle: string
 	pageDescription: string
 	pageUrl?: string
 	pageImg?: string
-	breadcrumb?: Breadcrumb[]
+	breadcrumb?: TypeBreadcrumb[]
 	datePublished?: string
 	dateModified?: string
 }

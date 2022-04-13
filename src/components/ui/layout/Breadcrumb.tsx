@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import classNames from 'classnames'
 
-import { Container } from '@/components/layout/Container'
+import { Container } from '@/components/ui/layout/Container'
 export type TypeBreadcrumb = {
 	name: string
 	url: string

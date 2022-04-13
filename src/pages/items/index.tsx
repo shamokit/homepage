@@ -1,4 +1,4 @@
-import { Container } from '@/components/layout/Container'
+import { Container } from '@/components/ui/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getAllPosts } from '@/lib/api'

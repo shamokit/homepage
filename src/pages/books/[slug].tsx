@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import { Container } from '@/components/layout/Container'
+import { Container } from '@/components/ui/layout/Container'
 import { PostBody } from '@/components/ui/content/AppContentBody'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'

@@ -1,8 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
 import { useState } from 'react'
+import classNames from 'classnames'
 import Link from 'next/link'
-import Navigation from '@/components/layout/Navigation'
+import Navigation from '@/components/ui/layout/Navigation'
 type TypeProps = {
 	className?: string
 }

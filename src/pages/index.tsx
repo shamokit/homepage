@@ -1,4 +1,4 @@
-import { Container } from '@/components/layout/Container'
+import { Container } from '@/components/ui/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import PostCard from '@/components/model/posts/card'
 import { TagItem } from '@/components/model/tags/item'
