@@ -64,8 +64,8 @@ const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 export default Tag
 
 import {getBookData} from '@/lib/api'
-export const getStaticProps: GetStaticProps = async (context) => {
-	const { slug } = context.params as PathParams
+export const getStaticProps: GetStaticProps = async ({params}) => {
+	const { slug } = params as PathParams
 	const tag = getTagBySlug(slug)
 	const allPosts: TypeBook[] = getTagPosts(
 		['title', 'date', 'slug', 'category', 'tags', 'isbn'],

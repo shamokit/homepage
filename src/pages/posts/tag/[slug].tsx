@@ -64,8 +64,8 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 
 export default Tag
 
-export const getStaticProps: GetStaticProps = async (context) => {
-	const { slug } = context.params as PathParams
+export const getStaticProps: GetStaticProps = async ({params}) => {
+	const { slug } = params as PathParams
 	const tag = getTagBySlug(slug)
 	const allPosts = getTagPosts(
 		['title', 'date', 'slug', 'category', 'tags'],
