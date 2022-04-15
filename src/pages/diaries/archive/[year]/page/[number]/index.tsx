@@ -123,8 +123,8 @@ export async function getStaticPaths() {
 	}
 	const postTotalNumber = await newtClient
 		.getContents<TypeDiary>(getPram)
-		.then((contents) => {
-			return contents.total
+		.then(({total}) => {
+			return total
 		})
 		.catch((err) => console.log(err));
 	const postCount = postTotalNumber ? postTotalNumber : 0
