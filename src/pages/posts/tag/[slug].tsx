@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticPaths, GetServerSidePropsContext } from 'next'
 import { Container } from '@/components/ui/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
@@ -9,9 +9,7 @@ import PostCard from '@/components/model/posts/card'
 import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { TagType } from '@/components/model/tags/Tag'
 
-type PathParams = {
-	slug: string
-}
+
 type TypeProps = {
 	tag: TagType
 	allPosts: TypePost[] | []
@@ -61,11 +59,13 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 		</>
 	)
 }
-
 export default Tag
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
-	const { slug } = params as PathParams
+type PathParams = {
+	slug: string
+}
+export const getStaticProps = async ({params}:GetServerSidePropsContext<PathParams>) => {
+	const slug = params?.slug!
 	const tag = getTagBySlug(slug)
 	const allPosts = getTagPosts(
 		['title', 'date', 'slug', 'category', 'tags'],

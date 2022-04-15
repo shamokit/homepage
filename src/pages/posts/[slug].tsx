@@ -1,3 +1,5 @@
+import { GetServerSidePropsContext } from 'next'
+
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container } from '@/components/ui/layout/Container'
@@ -64,14 +66,13 @@ const Post = ({ post }: TypeProps) => {
 
 export default Post
 
-type Params = {
-	params: {
-		slug: string
-	}
+type PathParams = {
+	slug: string
 }
 
-export async function getStaticProps({ params }: Params) {
-	const post = getPostBySlug(params.slug, [
+export async function getStaticProps({ params }: GetServerSidePropsContext<PathParams>) {
+	const slug = params?.slug!
+	const post = getPostBySlug(slug, [
 		'title',
 		'description',
 		'date',
@@ -82,7 +83,7 @@ export async function getStaticProps({ params }: Params) {
 		'content',
 	])
 	const postContent = post['content'] as string
-	const content = await mdToHtml(postContent! || '')
+	const content = mdToHtml(postContent! || '')
 
 	return {
 		props: {

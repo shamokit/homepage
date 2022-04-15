@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetServerSidePropsContext, GetStaticPaths } from 'next'
 import { Container } from '@/components/ui/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
@@ -64,8 +64,8 @@ const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 export default Tag
 
 import {getBookData} from '@/lib/api'
-export const getStaticProps: GetStaticProps = async ({params}) => {
-	const { slug } = params as PathParams
+export const getStaticProps = async ({params}:GetServerSidePropsContext<PathParams>) => {
+	const slug = params?.slug!
 	const tag = getTagBySlug(slug)
 	const allPosts: TypeBook[] = getTagPosts(
 		['title', 'date', 'slug', 'category', 'tags', 'isbn'],
