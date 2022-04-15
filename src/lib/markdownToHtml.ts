@@ -1,6 +1,6 @@
 import markdownToHtml from 'zenn-markdown-html'
 
-export default async function mdToHtml(markdown: string) {
-	const result = await markdownToHtml(markdown)
+export default function mdToHtml(markdown: string) {
+	const result = markdownToHtml(markdown)
 	return result.toString()
 }
