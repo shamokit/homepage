@@ -3,12 +3,9 @@ import { join } from 'path'
 import matter from 'gray-matter'
 import { getTagBySlug } from '../utils/tags'
 const POST_DIRECTORY = join(process.cwd(), 'src/contents/')
-export function getPostDirectory() {
-	return POST_DIRECTORY
-}
 
 export function getPostSlugs() {
-	const fileList = fs.readdirSync(getPostDirectory())
+	const fileList = fs.readdirSync(POST_DIRECTORY)
 	const result = fileList.filter((file) => {
 		return file.includes('.mdx')
 	})
@@ -21,7 +18,6 @@ export function getPostBySlug(
 	slug: string,
 	fields: (TypePostFieldKey | TypeBookFieldKey)[]
 ) {
-	let activeFields = fields
 	const fileSlug = slug.replace(/\.mdx$/, '')
 	const fullPath = join(POST_DIRECTORY, `${fileSlug}.mdx`)
 	const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -36,7 +32,7 @@ export function getPostBySlug(
 		private: false,
 	}
 
-	activeFields.forEach((field) => {
+	fields.forEach((field) => {
 		if (field === 'slug') {
 			item[field] = fileSlug
 		}
