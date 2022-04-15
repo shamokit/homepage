@@ -1,7 +1,7 @@
 import Link, {LinkProps} from 'next/link'
 import classNames from 'classnames'
 
-import { SnsBtn } from '@/components/ui/share/AppShare'
+import { SnsBtn } from '@/components/ui/share/AppSns'
 type TypeProps = {
 	open: boolean
 	closeButton: JSX.Element
