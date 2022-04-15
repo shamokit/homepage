@@ -1,3 +1,5 @@
+import { GetServerSidePropsContext } from 'next'
+
 import { Container } from '@/components/ui/layout/Container'
 import { Meta } from '@/components/seo/meta'
 import { LayoutBase } from '@/components/layouts/LayoutBase'
@@ -5,7 +7,6 @@ import PostDiary from '@/components/model/diaries/diary'
 import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { AppPager } from '@/components/ui/pager/AppPager'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
-import {createClient} from 'newt-client-js'
 import {TypeDiary} from '@/components/model/diaries/type'
 
 type TypeProps = {
@@ -15,11 +16,7 @@ type TypeProps = {
 	}
 	page_array: number[]
 }
-type Params = {
-	params: {
-		number: number
-	}
-}
+
 import { BLOG_DOMAIN } from "config/constants";
 const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 	const breadcrumb = [
@@ -68,12 +65,7 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 }
 
 export default DiaryPages
-
-const client = createClient({
-	spaceUid: 'shamokit',
-	token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '',
-	apiType: 'cdn'
-});
+import { newtClient } from '@/lib/newt'
 let requestPram = {
 	appUid: 'diary',
 	modelUid: 'article',
@@ -83,14 +75,17 @@ let requestPram = {
 	}
 }
 const posts_per_page = 10
-
-export const getStaticProps = async ({ params }:Params) => {
-	if(params.number !== 1) {
-		requestPram.query.skip = posts_per_page * (params.number - 1)
+type PathParams = {
+	number: string
+}
+export const getStaticProps = async ({ params }:GetServerSidePropsContext<PathParams>) => {
+	const number = params?.number!
+	if(Number(number) !== 1) {
+		requestPram.query.skip = posts_per_page * (Number(number) - 1)
 	}
 	let postTotalNumber = 0
 
-	const allPosts = await client
+	const allPosts = await newtClient
 		.getContents<TypeDiary>(requestPram)
 		.then((contents) => {
 			postTotalNumber = contents.total
@@ -113,7 +108,7 @@ export async function getStaticPaths() {
 			limit: 1,
 		}
 	}
-	const postTotalNumber = await client
+	const postTotalNumber = await newtClient
 		.getContents<TypeDiary>(getPram)
 		.then(({total}) => {
 			return total

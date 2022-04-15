@@ -71,15 +71,11 @@ type Params = {
 		month: string
 	}
 }
-const client = createClient({
-	spaceUid: 'shamokit',
-	token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '',
-	apiType: 'cdn'
-});
+import { newtClient } from '@/lib/newt'
 export const getStaticProps = async ({ params }: Params) => {
 	let year = Number(params.year)
 	let month = Number(params.month)
-	const allPosts = await client
+	const allPosts = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
 			modelUid: 'article',

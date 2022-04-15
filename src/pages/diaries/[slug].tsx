@@ -1,3 +1,5 @@
+import { GetServerSidePropsContext } from 'next'
+
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container } from '@/components/ui/layout/Container'
@@ -66,13 +68,12 @@ const Post = ({ post }: TypeProps) => {
 export default Post
 
 import { newtClient } from '@/lib/newt'
-type Params = {
-	params: {
-		slug: string
-	}
+type PathParams = {
+	slug: string
 }
 import { DateFormat } from '@/lib/date-format'
-export async function getStaticProps({ params }: Params) {
+export async function getStaticProps({ params }: GetServerSidePropsContext<PathParams>) {
+	const slug = params?.slug!
 	const post = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
@@ -80,7 +81,7 @@ export async function getStaticProps({ params }: Params) {
 			query: {
 				depth: 2,
 				limit: 1,
-				slug: params.slug,
+				slug: slug,
 				body: {
 					fmt: 'text',
 				},

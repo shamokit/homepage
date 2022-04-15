@@ -4,7 +4,6 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import PostDiary from '@/components/model/diaries/diary'
 import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
-import {createClient} from 'newt-client-js'
 import {TypeDiary} from '@/components/model/diaries/type'
 import { AppPager } from '@/components/ui/pager/AppPager'
 
@@ -57,16 +56,12 @@ const Diary = ({ allPosts, page_array }: TypeProps) => {
 
 export default Diary
 import { generateIntegerArray } from 'utils/generateIntegerArray'
+import { newtClient } from '@/lib/newt'
 
 export const getStaticProps = async () => {
-	const client = createClient({
-		spaceUid: 'shamokit',
-		token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '',
-		apiType: 'cdn'
-	});
 	let postCount = 0
-const posts_per_page = 10
-	const allPosts = await client
+	const posts_per_page = 10
+	const allPosts = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
 			modelUid: 'article',
