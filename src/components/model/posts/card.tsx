@@ -25,7 +25,10 @@ const PostCard = ({ title, date, slug, dir, category, tags }: TypeProps) => {
 				<a className="group relative block max-w-full bg-base-color rounded text-white overflow-hidden">
 					<div className="absolute inset-0 scale-75 opacity-0 glass transition-all group-hover:opacity-100 group-hover:scale-100"></div>
 					<div className="pt-[46%]"></div>
-					<AppDesignedDate dateString={date} className="absolute top-4 left-4" />
+					<AppDesignedDate
+						dateString={date}
+						className="absolute top-4 left-4"
+					/>
 				</a>
 			</Link>
 			{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}

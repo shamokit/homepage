@@ -1,4 +1,4 @@
-import Link, {LinkProps} from 'next/link'
+import Link, { LinkProps } from 'next/link'
 import classNames from 'classnames'
 
 import { SnsBtn } from '@/components/ui/share/AppSns'
@@ -8,9 +8,9 @@ type TypeProps = {
 }
 import { BLOG_DOMAIN } from 'config/constants'
 const cats = ['posts', 'books', 'diaries'] as const
-const list:(LinkProps & {name: typeof cats[number]})[] = cats.map((cat) => ({
-  name: cat,
-  href: `${BLOG_DOMAIN}/${cat}/`,
+const list: (LinkProps & { name: typeof cats[number] })[] = cats.map((cat) => ({
+	name: cat,
+	href: `${BLOG_DOMAIN}/${cat}/`,
 }))
 const Navigation = ({ open, closeButton }: TypeProps) => {
 	const classOpen = open ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
@@ -32,9 +32,18 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 					<ul className="flex flex-col md:flex-row md:justify-end gap-x-4 py-2 md:py-0 text-base">
 						{list.map((item) => {
 							return (
-								<li className="flex" key={item.name} itemProp="hasPart" itemScope itemType="http://schema.org/WebPage">
+								<li
+									className="flex"
+									key={item.name}
+									itemProp="hasPart"
+									itemScope
+									itemType="http://schema.org/WebPage"
+								>
 									<Link href={`${item.href}`}>
-										<a className="group relative flex items-center py-2 transition-all capitalize overflow-hidden" itemProp="url">
+										<a
+											className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
+											itemProp="url"
+										>
 											<span itemProp="name">{item.name}</span>
 											<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
 										</a>

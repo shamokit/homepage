@@ -27,7 +27,9 @@ const Item = ({ allPosts }: TypeProps) => {
 									return <PostItem {...post} key={post.slug} />
 								})}
 							</ul>
-						): '記事はありません'}
+						) : (
+							'記事はありません'
+						)}
 					</section>
 				</Container>
 			</LayoutBase>

@@ -13,7 +13,7 @@ import classNames from 'classnames'
 
 import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 type TypeProps = {
-	post: TypeDiary & {formatDate: string}
+	post: TypeDiary & { formatDate: string }
 }
 
 const Post = ({ post }: TypeProps) => {
@@ -72,7 +72,9 @@ type PathParams = {
 	slug: string
 }
 import { DateFormat } from '@/lib/date-format'
-export async function getStaticProps({ params }: GetServerSidePropsContext<PathParams>) {
+export async function getStaticProps({
+	params,
+}: GetServerSidePropsContext<PathParams>) {
 	const slug = params?.slug!
 	const post = await newtClient
 		.getContents<TypeDiary>({
@@ -91,8 +93,8 @@ export async function getStaticProps({ params }: GetServerSidePropsContext<PathP
 			let data = content.items[0]
 			let dateText = ''
 			const postContent = mdToHtml(data?.body! || '')
-			if(data) {
-				dateText = DateFormat({dateString: data.date})
+			if (data) {
+				dateText = DateFormat({ dateString: data.date })
 			}
 
 			return { ...data, content: postContent, formatDate: dateText } || null

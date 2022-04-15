@@ -31,7 +31,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 					sizes="180x180"
 					href="/favicon/apple-touch-icon.png"
 				/>
-				<link rel="icon" href="/favicon/favicon.svg" sizes="any" type="image/svg+xml" />
+				<link
+					rel="icon"
+					href="/favicon/favicon.svg"
+					sizes="any"
+					type="image/svg+xml"
+				/>
 				<link rel="icon" href="/favicon/favicon.png" />
 				<link rel="icon" href="/favicon/favicon.ico" />
 				<meta name="theme-color" content="#1b1e32" />

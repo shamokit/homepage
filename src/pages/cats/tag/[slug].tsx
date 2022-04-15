@@ -37,7 +37,9 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 									return <PostCard {...post} key={post.slug} dir="cats" />
 								})}
 							</ul>
-						): '記事はありません'}
+						) : (
+							'記事はありません'
+						)}
 					</section>
 				</Container>
 			</LayoutBase>
@@ -47,14 +49,10 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 
 export default Tag
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug } = params as PathParams
 	const tag = getTagBySlug(slug)
-	const allPosts = getTagPosts(
-		['title', 'date', 'slug', 'tags'],
-		slug,
-		'cats',
-	)
+	const allPosts = getTagPosts(['title', 'date', 'slug', 'tags'], slug, 'cats')
 
 	return {
 		props: { allPosts, tag },

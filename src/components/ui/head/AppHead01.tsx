@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-import { AppGradationLine } from "@/components/ui/line/AppGradationLine"
+import { AppGradationLine } from '@/components/ui/line/AppGradationLine'
 
 export type TypeAppHead01AllowElements = 'h1' | 'h2' | 'h3' | 'h4'
 export type TypeAppHead01OwnProps<E extends TypeAppHead01AllowElements> = {
@@ -8,8 +8,9 @@ export type TypeAppHead01OwnProps<E extends TypeAppHead01AllowElements> = {
 	text: React.ReactNode
 	lead?: string | JSX.Element
 }
-export type TypeAppHead01Props<E extends TypeAppHead01AllowElements> = TypeAppHead01OwnProps<E> &
-	Omit<React.ComponentProps<E>, keyof TypeAppHead01OwnProps<E>>
+export type TypeAppHead01Props<E extends TypeAppHead01AllowElements> =
+	TypeAppHead01OwnProps<E> &
+		Omit<React.ComponentProps<E>, keyof TypeAppHead01OwnProps<E>>
 
 export const AppHead01 = <E extends TypeAppHead01AllowElements>({
 	as,

@@ -6,10 +6,10 @@ import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { AppPager } from '@/components/ui/pager/AppPager'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
 import { newtClient } from '@/lib/newt'
-import {TypeDiary} from '@/components/model/diaries/type'
+import { TypeDiary } from '@/components/model/diaries/type'
 
 type TypeProps = {
-	allPosts: TypeDiary[],
+	allPosts: TypeDiary[]
 	params: {
 		year: string
 		number: string
@@ -22,7 +22,7 @@ type Params = {
 		number: string
 	}
 }
-import { BLOG_DOMAIN } from "config/constants";
+import { BLOG_DOMAIN } from 'config/constants'
 const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 	const breadcrumb = [
 		{
@@ -50,7 +50,7 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 			<LayoutBase sidebar={<Sidebar />} breadcrumb={breadcrumb}>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<AppHead01 as="h1" text={'Diaries'}lead={<p>日記です。</p>}  />
+						<AppHead01 as="h1" text={'Diaries'} lead={<p>日記です。</p>} />
 						{allPosts.length > 0 ? (
 							<>
 								<ul className="grid">
@@ -58,7 +58,13 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 										return <PostDiary {...post} key={post.slug} />
 									})}
 								</ul>
-								<AppPager dir={`/diaries/archive/${params.year}`} pager={{pages: [1, ...page_array], current: Number(params.number)}} />
+								<AppPager
+									dir={`/diaries/archive/${params.year}`}
+									pager={{
+										pages: [1, ...page_array],
+										current: Number(params.number),
+									}}
+								/>
 							</>
 						) : (
 							'記事はありません'
@@ -73,7 +79,7 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 export default DiaryPages
 
 const posts_per_page = 10
-export const getStaticProps = async ({ params }:Params) => {
+export const getStaticProps = async ({ params }: Params) => {
 	let year = Number(params.year)
 	let requestPram = {
 		appUid: 'diary',
@@ -84,11 +90,11 @@ export const getStaticProps = async ({ params }:Params) => {
 			date: {
 				gte: new Date(`${year.toString()}-1`).toISOString(),
 				lt: new Date(`${(year + 1).toString()}-1`).toISOString(),
-			}
-		}
+			},
+		},
 	}
 	const number = Number(params.number)
-	if( number !== 1) {
+	if (number !== 1) {
 		requestPram.query.skip = posts_per_page * (number - 1)
 	}
 	let postTotalNumber = 0
@@ -99,9 +105,12 @@ export const getStaticProps = async ({ params }:Params) => {
 			postTotalNumber = contents.total
 			return contents.items
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => console.log(err))
 	const postCount = postTotalNumber ? postTotalNumber : 0
-	const page_number = (postCount % posts_per_page == 0) ? (postCount / posts_per_page) : (Math.floor(postCount / posts_per_page) + 1)
+	const page_number =
+		postCount % posts_per_page == 0
+			? postCount / posts_per_page
+			: Math.floor(postCount / posts_per_page) + 1
 	const page_array = [...generateIntegerArray(2, page_number)]
 	return {
 		props: { allPosts, params, page_array },
@@ -110,7 +119,7 @@ export const getStaticProps = async ({ params }:Params) => {
 import { generateIntegerArray } from 'utils/generateIntegerArray'
 export async function getStaticPaths() {
 	const firstYear = 2022
-	const currentTime = new Date();
+	const currentTime = new Date()
 	const thisYear = currentTime.getFullYear()
 
 	let yearList = [...generateIntegerArray(firstYear, thisYear)]
@@ -119,28 +128,33 @@ export async function getStaticPaths() {
 		modelUid: 'article',
 		query: {
 			limit: 1,
-		}
+		},
 	}
 	const postTotalNumber = await newtClient
 		.getContents<TypeDiary>(getPram)
-		.then(({total}) => {
+		.then(({ total }) => {
 			return total
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => console.log(err))
 	const postCount = postTotalNumber ? postTotalNumber : 0
-	const page_number = (postCount % posts_per_page == 0) ? (postCount / posts_per_page) : (Math.floor(postCount / posts_per_page) + 1)
+	const page_number =
+		postCount % posts_per_page == 0
+			? postCount / posts_per_page
+			: Math.floor(postCount / posts_per_page) + 1
 	const page_array = [...generateIntegerArray(2, page_number)]
 	const paths = []
 	for (let index = 0; index < yearList.length; index++) {
-		const year = yearList[index];
-		paths.push(...page_array.map((number) => {
-			return {
-				params: {
-					year: `${year}`,
-					number: `${number}`,
-				},
-			}
-		}))
+		const year = yearList[index]
+		paths.push(
+			...page_array.map((number) => {
+				return {
+					params: {
+						year: `${year}`,
+						number: `${number}`,
+					},
+				}
+			})
+		)
 	}
 	return {
 		paths: [...paths],

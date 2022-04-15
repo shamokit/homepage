@@ -70,7 +70,9 @@ type PathParams = {
 	slug: string
 }
 
-export async function getStaticProps({ params }: GetServerSidePropsContext<PathParams>) {
+export async function getStaticProps({
+	params,
+}: GetServerSidePropsContext<PathParams>) {
 	const slug = params?.slug!
 	const post = getPostBySlug(slug, [
 		'title',

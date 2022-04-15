@@ -1,5 +1,5 @@
 import style from '@/styles/markdown-styles.module.css'
-import 'zenn-content-css';
+import 'zenn-content-css'
 import classNames from 'classnames'
 type TypeProps = {
 	content: string

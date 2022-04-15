@@ -77,11 +77,15 @@ const Index = ({
 							<section className="grid gap-8 md:gap-12 lg:gap-16">
 								<AppHead01 text="About" />
 								<p>
-									このサイトはしゃもきっとが運営しているブログサイトです。<br />
+									このサイトはしゃもきっとが運営しているブログサイトです。
+									<br />
 									作っている途中なのでコンテンツはほとんどないです。日記は毎日書いてます。
 								</p>
 								<p>
-									Next.js(SG)/Cloudflare Pages/TypeScriptを使ってます。<br />CMSにはNewtを使っていて、記事作成時WebhookでCloudflare Pagesにデプロイが走ります。便利。
+									Next.js(SG)/Cloudflare Pages/TypeScriptを使ってます。
+									<br />
+									CMSにはNewtを使っていて、記事作成時WebhookでCloudflare
+									Pagesにデプロイが走ります。便利。
 									{/* <br />
 									しゃもきっとに関して気になった人は
 									Profileページを見てみてください。 */}
@@ -123,10 +127,10 @@ const Index = ({
 								<AppHead01 text="Books" />
 								{books.length > 0 && (
 									<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
-									{books.map((book) => {
-										return <PostBook {...book} key={book.slug} />
-									})}
-								</ul>
+										{books.map((book) => {
+											return <PostBook {...book} key={book.slug} />
+										})}
+									</ul>
 								)}
 								<section>
 									<AppHead02 text="Tag" />
@@ -173,7 +177,7 @@ import { newtClient } from '@/lib/newt'
 import { TypeDiary } from '@/components/model/diaries/type'
 import { TypeBook } from '@/components/model/books/type'
 import PostDiary from '@/components/model/diaries/diary'
-import {getBookData} from '@/lib/api'
+import { getBookData } from '@/lib/api'
 export const getStaticProps = async () => {
 	const mainCopy = getPostBySlug('text', ['content'])
 	const mainCopyContent = mainCopy['content'] as string
@@ -184,12 +188,12 @@ export const getStaticProps = async () => {
 		'posts'
 	)
 	let bookPosts: TypeBook[] = getAllPosts(
-		['title', 'date', 'slug', 'tags', 'category','isbn'],
+		['title', 'date', 'slug', 'tags', 'category', 'isbn'],
 		'books'
 	)
-	bookPosts = bookPosts.slice(0,6)
+	bookPosts = bookPosts.slice(0, 6)
 	const bookPromises = bookPosts.map(async (book) => {
-		if(!book.isbn) return book
+		if (!book.isbn) return book
 		let bookData = Object.assign({}, book)
 		const thumbnailUrl = await getBookData(book.isbn).then(async (response) => {
 			const data = await response.json()

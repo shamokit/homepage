@@ -43,7 +43,7 @@ const Header = ({ className }: TypeProps) => {
 					'py-3 px-4 md:px-6 lg:px-8',
 					'!border-0',
 					'gradation-dark',
-					className
+					className,
 				])}
 			>
 				<p className="self-center w-8 md:w-10 lg:w-14">
@@ -55,7 +55,7 @@ const Header = ({ className }: TypeProps) => {
 								width={40}
 								height={40}
 								className="object-contain"
-								loading='lazy'
+								loading="lazy"
 							/>
 						</a>
 					</Link>
@@ -85,16 +85,12 @@ const Header = ({ className }: TypeProps) => {
 					</span>
 					<span
 						className={`block w-5 mb-0.5 border  transition-transform relative shadow-inner border-accent ${
-							open
-								? 'rotate-45 top-[3px]'
-								: 'rotate-0'
+							open ? 'rotate-45 top-[3px]' : 'rotate-0'
 						}`}
 					></span>
 					<span
 						className={`block w-5 mt-0.5 border  transition-transform relative shadow-inner border-accent ${
-							open
-								? '-rotate-45 -top-[3px]'
-								: 'rotate-0'
+							open ? '-rotate-45 -top-[3px]' : 'rotate-0'
 						}`}
 					></span>
 					<span className="sr-only">menu</span>

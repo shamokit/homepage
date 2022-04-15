@@ -28,7 +28,9 @@ const Cat = ({ allPosts }: TypeProps) => {
 									return <PostCard {...post} key={post.slug} dir="cats" />
 								})}
 							</ul>
-						): '記事はありません'}
+						) : (
+							'記事はありません'
+						)}
 					</section>
 				</Container>
 			</LayoutBase>

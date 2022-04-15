@@ -48,12 +48,11 @@ type PathParams = {
 	slug: string
 }
 
-export async function getStaticProps({ params }: GetServerSidePropsContext<PathParams>) {
+export async function getStaticProps({
+	params,
+}: GetServerSidePropsContext<PathParams>) {
 	const slug = params?.slug!
-	const post = getPostBySlug(
-		slug,
-		['title', 'date', 'slug', 'tags', 'content']
-	)
+	const post = getPostBySlug(slug, ['title', 'date', 'slug', 'tags', 'content'])
 	const postContent = post['content'] as string
 	const content = await mdToHtml(postContent! || '')
 

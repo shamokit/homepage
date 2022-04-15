@@ -22,8 +22,10 @@ export const SelectArchive = ({ current }: TypeProps) => {
 	const archiveList = yearList.map((year) => {
 		if (year === thisYear) {
 			let thisYearMonthList = [...generateIntegerArray(0, thisMonth)]
-			if(thisYear === firstYear) {
-				thisYearMonthList = [...generateIntegerArray(firstYearFirstMonth, thisMonth)]
+			if (thisYear === firstYear) {
+				thisYearMonthList = [
+					...generateIntegerArray(firstYearFirstMonth, thisMonth),
+				]
 			}
 			return {
 				year: thisYear,
@@ -47,7 +49,7 @@ export const SelectArchive = ({ current }: TypeProps) => {
 	let archiveListEl = archiveList.map((archive) => {
 		return archive.month.map((month) => {
 			let optionValue = `${archive.year}/${month}`
-			if(month === 0) {
+			if (month === 0) {
 				optionValue = `${archive.year}`
 			}
 			return (

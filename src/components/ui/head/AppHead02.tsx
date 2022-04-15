@@ -19,7 +19,7 @@ export const AppHead02 = <E extends ListAllowElem>({
 		<TagName
 			className={classNames([
 				'pl-2 md:pl-4 border-l-4 border-accent',
-				className
+				className,
 			])}
 		>
 			{text}

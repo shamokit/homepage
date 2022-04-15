@@ -1,4 +1,4 @@
-import {getPostSlugs,getPostBySlug} from '@/lib/api'
+import { getPostSlugs, getPostBySlug } from '@/lib/api'
 import { TagType } from '@/components/model/tags/Tag'
 export const tags = [
 	{
@@ -119,7 +119,7 @@ export const getTagBySlug = (slug: string) => {
 /**
  * タグに紐づく記事の件数も含めたタグデータを返す
  */
-import {TypePost} from '@/components/model/posts/Post'
+import { TypePost } from '@/components/model/posts/Post'
 export function getTagsWithCount(posts: TypePost[], category: string) {
 	let tagDataWithCount = tags.map((tag) => {
 		return { ...tag, count: 0 }
@@ -130,7 +130,7 @@ export function getTagsWithCount(posts: TypePost[], category: string) {
 		if (!post) return
 		const postTags = post['tags']
 		const postCategory = post['category']
-		if(postCategory && postCategory !== category) continue
+		if (postCategory && postCategory !== category) continue
 		if (Array.isArray(postTags)) {
 			const postTagsLength = postTags.length
 			for (let tagIndex = 0; tagIndex < postTagsLength; tagIndex++) {

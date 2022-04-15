@@ -12,7 +12,7 @@ import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 type TypeProps = {
 	book: TypeBook
 }
-import { BLOG_DOMAIN } from "config/constants";
+import { BLOG_DOMAIN } from 'config/constants'
 
 const Post = ({ book }: TypeProps) => {
 	const router = useRouter()
@@ -59,7 +59,7 @@ const Post = ({ book }: TypeProps) => {
 											src={book.thumbnail}
 											className="absolute inset-0 w-full h-full object-contain transition-opacity group-hover:opacity-90"
 											alt=""
-											loading='lazy'
+											loading="lazy"
 										/>
 									</div>
 								)}
@@ -81,7 +81,7 @@ type Params = {
 		slug: string
 	}
 }
-import {getBookData} from '@/lib/api'
+import { getBookData } from '@/lib/api'
 export async function getStaticProps({ params }: Params) {
 	const post = getPostBySlug(params.slug, [
 		'title',
@@ -95,7 +95,7 @@ export async function getStaticProps({ params }: Params) {
 	const postContent = post.content
 	const content = await mdToHtml(postContent! || '')
 	const bookDataPromise = async () => {
-		if(!post.isbn) return post
+		if (!post.isbn) return post
 		const thumbnailUrl = await getBookData(post.isbn).then(async (response) => {
 			const data = await response.json()
 			const thumbnail = data[0]['summary']['cover']

@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 .theme-engineer {
-  --color-base-color: 12 34 51;
-  --color-main: 6 84 113;
-  --color-sub: 10 145 171;
-  --color-accent: 255 192 69;
-  --color-white: 255 255 255;
-  --color-transparent: 'transparent';
+	--color-base-color: 12 34 51;
+	--color-main: 6 84 113;
+	--color-sub: 10 145 171;
+	--color-accent: 255 192 69;
+	--color-white: 255 255 255;
+	--color-transparent: 'transparent';
 }
 
 .setting {
@@ -50,6 +50,10 @@ a:not([class]):hover {
 .znc .code-block-container {
 	margin: 0 !important;
 }
-h1,h2,h3,h4,h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
 	@apply font-medium leading-tight tracking-normal;
 }

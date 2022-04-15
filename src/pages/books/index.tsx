@@ -8,7 +8,7 @@ import { AppHead01 } from '@/components/ui/head/AppHead01'
 type TypeProps = {
 	books: TypeBook[]
 }
-import { BLOG_DOMAIN } from "config/constants";
+import { BLOG_DOMAIN } from 'config/constants'
 const breadcrumb = [
 	{
 		name: 'TOP',
@@ -31,14 +31,26 @@ const Book = ({ books }: TypeProps) => {
 			<LayoutBase breadcrumb={breadcrumb}>
 				<Container>
 					<section className="grid gap-10 md:gap-12 lg:gap-16">
-						<AppHead01 as="h1" text="Books" lead={<p>読んだ本の感想やメモなどを残しています。<br />読んでいる途中の本には途中タグをつけています。</p>} />
+						<AppHead01
+							as="h1"
+							text="Books"
+							lead={
+								<p>
+									読んだ本の感想やメモなどを残しています。
+									<br />
+									読んでいる途中の本には途中タグをつけています。
+								</p>
+							}
+						/>
 						{books && books.length > 0 ? (
 							<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
 								{books.map((book) => {
 									return <PostBook {...book} key={book.slug} />
 								})}
 							</ul>
-						): '記事はありません'}
+						) : (
+							'記事はありません'
+						)}
 					</section>
 				</Container>
 			</LayoutBase>
@@ -48,11 +60,14 @@ const Book = ({ books }: TypeProps) => {
 
 export default Book
 
-import {getBookData} from '@/lib/api'
+import { getBookData } from '@/lib/api'
 export const getStaticProps = async () => {
-	let allPosts: TypeBook[] = getAllPosts(['title', 'date', 'slug', 'category', 'tags', 'isbn'], 'books')
+	let allPosts: TypeBook[] = getAllPosts(
+		['title', 'date', 'slug', 'category', 'tags', 'isbn'],
+		'books'
+	)
 	const bookPromises = allPosts.map(async (book) => {
-		if(!book.isbn) return book
+		if (!book.isbn) return book
 		let bookData = Object.assign({}, book)
 		const thumbnailUrl = await getBookData(book.isbn).then(async (response) => {
 			const data = await response.json()

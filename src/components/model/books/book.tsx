@@ -28,7 +28,7 @@ const PostBook = ({ title, date, slug, tags, thumbnail }: TypeProps) => {
 								src={thumbnail}
 								alt={`${title} サムネイル画像`}
 								className="transition-opacity group-hover:opacity-90"
-								loading='lazy'
+								loading="lazy"
 							/>
 						</a>
 					</Link>
@@ -42,7 +42,9 @@ const PostBook = ({ title, date, slug, tags, thumbnail }: TypeProps) => {
 							</a>
 						</Link>
 					</p>
-					{tagList && <ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>}
+					{tagList && (
+						<ul className="flex flex-wrap gap-2 text-xs">{tagList}</ul>
+					)}
 				</div>
 			</div>
 		</li>

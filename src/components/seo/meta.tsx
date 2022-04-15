@@ -5,7 +5,7 @@ import {
 	BLOG_DESCRIPTION,
 	DEFAULT_OGP_IMAGE,
 } from 'config/constants'
-import {TypeBreadcrumb} from '@/components/ui/layout/Breadcrumb'
+import { TypeBreadcrumb } from '@/components/ui/layout/Breadcrumb'
 type TypeMeta = {
 	isSingle?: boolean
 	pageTitle: string

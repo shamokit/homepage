@@ -17,7 +17,7 @@ type TypeProps = {
 	allBooks: TypeBook[] | []
 	slug: string
 }
-import { BLOG_DOMAIN } from 'config/constants'
+import { BLOG_DOMAIN } from "config/constants";
 
 const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 	const url = `/books/tag/${slug}/`
@@ -46,26 +46,14 @@ const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 			<LayoutBase breadcrumb={breadcrumb}>
 				<Container>
 					<section className="grid gap-4 md:gap-8 lg:gap-12">
-						<AppHead01
-							as="h1"
-							text={`#${tag.name}`}
-							lead={
-								<p>
-									読んだ本の感想やメモなどを残しています。
-									<br />
-									読んでいる途中の本には途中タグをつけています。
-								</p>
-							}
-						/>
+						<AppHead01 as="h1" text={`#${tag.name}`} lead={<p>読んだ本の感想やメモなどを残しています。<br />読んでいる途中の本には途中タグをつけています。</p>} />
 						{allBooks.length > 0 ? (
 							<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
 								{allBooks.map((post) => {
 									return <PostBook {...post} key={post.slug} />
 								})}
 							</ul>
-						) : (
-							'記事はありません'
-						)}
+						): '記事はありません'}
 					</section>
 				</Container>
 			</LayoutBase>
@@ -75,19 +63,17 @@ const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 
 export default Tag
 
-import { getBookData } from '@/lib/api'
-export const getStaticProps = async ({
-	params,
-}: GetServerSidePropsContext<PathParams>) => {
+import {getBookData} from '@/lib/api'
+export const getStaticProps = async ({params}:GetServerSidePropsContext<PathParams>) => {
 	const slug = params?.slug!
 	const tag = getTagBySlug(slug)
 	const allPosts: TypeBook[] = getTagPosts(
 		['title', 'date', 'slug', 'category', 'tags', 'isbn'],
 		slug,
-		'books'
+		'books',
 	)
 	const bookPromises = allPosts.map(async (book) => {
-		if (!book.isbn) return book
+		if(!book.isbn) return book
 		let bookData = Object.assign({}, book)
 		const thumbnailUrl = await getBookData(book.isbn).then(async (response) => {
 			const data = await response.json()

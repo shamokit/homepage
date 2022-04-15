@@ -37,7 +37,9 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 									return <PostItem {...post} key={post.slug} />
 								})}
 							</ul>
-						): '記事はありません'}
+						) : (
+							'記事はありません'
+						)}
 					</section>
 				</Container>
 			</LayoutBase>
@@ -47,14 +49,12 @@ const Tag = ({ allPosts, tag, slug }: TypeProps) => {
 
 export default Tag
 
-export const getStaticProps = async ({params}: GetServerSidePropsContext<PathParams>) => {
+export const getStaticProps = async ({
+	params,
+}: GetServerSidePropsContext<PathParams>) => {
 	const slug = params?.slug!
 	const tag = getTagBySlug(slug)
-	const allPosts = getTagPosts(
-		['title', 'date', 'slug', 'tags'],
-		slug,
-		'items',
-	)
+	const allPosts = getTagPosts(['title', 'date', 'slug', 'tags'], slug, 'items')
 
 	return {
 		props: { allPosts, tag },

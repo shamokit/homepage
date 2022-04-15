@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { AppDate } from '@/components/ui/date/AppDate'
 import { TagItem } from '@/components/model/tags/item'
 
-import {TypeDiary} from '@/components/model/diaries/type'
+import { TypeDiary } from '@/components/model/diaries/type'
 
 const PostDiary = ({ title, slug, date }: TypeDiary) => {
 	return (

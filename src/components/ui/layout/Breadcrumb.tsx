@@ -30,8 +30,8 @@ export const Breadcrumb = ({ items }: TypeProps) => {
 								alt="TOPページ"
 								width={30}
 								height={30}
-								className='object-contain'
-								loading='lazy'
+								className="object-contain"
+								loading="lazy"
 							/>
 						) : (
 							item.name
@@ -46,7 +46,7 @@ export const Breadcrumb = ({ items }: TypeProps) => {
 			<Container>
 				<ol
 					className={classNames([
-						'flex items-center flex-wrap -mr-3 py-2 md:py-4 text-xs leading-tight'
+						'flex items-center flex-wrap -mr-3 py-2 md:py-4 text-xs leading-tight',
 					])}
 				>
 					{breadcrumbList}

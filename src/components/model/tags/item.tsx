@@ -15,14 +15,15 @@ const TagItem = ({
 	if (!tagData) return null
 	const { slug, name } = tagData
 	if (link) {
-		const directory = dirName? `/${dirName}` : ''
+		const directory = dirName ? `/${dirName}` : ''
 		return (
 			<Link href={`${directory}/tag/${slug}/`}>
 				<a className="relative group flex place-items-center px-3 py-2  rounded gradation-r text-xs text-white leading-tight overflow-hidden shadow-sm">
 					<div className="absolute inset-0 bg-base-color opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-					<span className="relative"># {name}{
-						count ? ` (${count})` : ''
-					}</span>
+					<span className="relative">
+						# {name}
+						{count ? ` (${count})` : ''}
+					</span>
 				</a>
 			</Link>
 		)

@@ -12,8 +12,8 @@ export function getPostSlugs() {
 	return result
 }
 
-import {TypePost, TypePostFieldKey} from '@/components/model/posts/Post'
-import {TypeBook, TypeBookFieldKey} from '@/components/model/books/type'
+import { TypePost, TypePostFieldKey } from '@/components/model/posts/Post'
+import { TypeBook, TypeBookFieldKey } from '@/components/model/books/type'
 export function getPostBySlug(
 	slug: string,
 	fields: (TypePostFieldKey | TypeBookFieldKey)[]
@@ -48,12 +48,15 @@ export function getPostBySlug(
 	return item
 }
 
-export function getAllPosts(fields: (TypePostFieldKey | TypeBookFieldKey)[], dirName?: string) {
+export function getAllPosts(
+	fields: (TypePostFieldKey | TypeBookFieldKey)[],
+	dirName?: string
+) {
 	const slugs = getPostSlugs()
 	let posts = slugs
 		.map((slug) => getPostBySlug(slug, fields))
 		.sort((post1, post2) => (post1['date']! > post2['date']! ? -1 : 1))
-	if(dirName) {
+	if (dirName) {
 		posts = posts.filter((post) => {
 			return post['category'] === dirName
 		})
@@ -67,7 +70,7 @@ export function getAllPosts(fields: (TypePostFieldKey | TypeBookFieldKey)[], dir
 export function getTagPosts(
 	fields: (TypePostFieldKey | TypeBookFieldKey)[] = [],
 	tagSlug: string,
-	category?: string,
+	category?: string
 ) {
 	const slugs = getPostSlugs()
 	const tag = getTagBySlug(tagSlug)
@@ -86,7 +89,7 @@ export function getTagPosts(
 		.filter((post) => {
 			return post['private'] !== true
 		})
-	if(category) {
+	if (category) {
 		posts = posts.filter((post) => {
 			return post['category'] === category
 		})
@@ -94,7 +97,7 @@ export function getTagPosts(
 	return posts
 }
 
-import {BOOK_API_URL} from 'config/constants'
+import { BOOK_API_URL } from 'config/constants'
 export const getBookData = async (isbn: string) => {
 	return await fetch(`${BOOK_API_URL}${isbn}`)
 }
