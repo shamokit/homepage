@@ -173,14 +173,11 @@ import { createClient } from 'newt-client-js'
 import { TypeDiary } from '@/components/model/diaries/type'
 import { TypeBook } from '@/components/model/books/type'
 import PostDiary from '@/components/model/diaries/diary'
-import {BOOK_API_URL} from 'config/constants'
-const getBookData = async (isbn: string) => {
-	return await fetch(`${BOOK_API_URL}${isbn}`)
-}
+import {getBookData} from '@/lib/api'
 export const getStaticProps = async () => {
 	const mainCopy = getPostBySlug('text', ['content'])
 	const mainCopyContent = mainCopy['content'] as string
-	const mainCopyContentHtml = await mdToHtml(mainCopyContent || '')
+	const mainCopyContentHtml = mdToHtml(mainCopyContent || '')
 
 	const posts = getAllPosts(
 		['title', 'date', 'slug', 'tags', 'category'],

@@ -62,10 +62,8 @@ const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 }
 
 export default Tag
-import {BOOK_API_URL} from 'config/constants'
-const getBookData = async (isbn: string) => {
-	return await fetch(`${BOOK_API_URL}${isbn}`)
-}
+
+import {getBookData} from '@/lib/api'
 export const getStaticProps: GetStaticProps = async (context) => {
 	const { slug } = context.params as PathParams
 	const tag = getTagBySlug(slug)

@@ -48,10 +48,7 @@ const Book = ({ books }: TypeProps) => {
 
 export default Book
 
-import {BOOK_API_URL} from 'config/constants'
-const getBookData = async (isbn: string) => {
-	return await fetch(`${BOOK_API_URL}${isbn}`)
-}
+import {getBookData} from '@/lib/api'
 export const getStaticProps = async () => {
 	let allPosts: TypeBook[] = getAllPosts(['title', 'date', 'slug', 'category', 'tags', 'isbn'], 'books')
 	const bookPromises = allPosts.map(async (book) => {

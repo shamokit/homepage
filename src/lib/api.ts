@@ -93,3 +93,8 @@ export function getTagPosts(
 	}
 	return posts
 }
+
+import {BOOK_API_URL} from 'config/constants'
+export const getBookData = async (isbn: string) => {
+	return await fetch(`${BOOK_API_URL}${isbn}`)
+}

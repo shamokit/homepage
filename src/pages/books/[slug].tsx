@@ -81,10 +81,7 @@ type Params = {
 		slug: string
 	}
 }
-import {BOOK_API_URL} from 'config/constants'
-const getBookData = async (isbn: string) => {
-	return await fetch(`${BOOK_API_URL}${isbn}`)
-}
+import {getBookData} from '@/lib/api'
 export async function getStaticProps({ params }: Params) {
 	const post = getPostBySlug(params.slug, [
 		'title',
