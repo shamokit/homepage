@@ -65,12 +65,7 @@ const Post = ({ post }: TypeProps) => {
 
 export default Post
 
-import { createClient } from 'newt-client-js'
-const client = createClient({
-	spaceUid: 'shamokit',
-	token: 'pvFwQWwMw8VZi2lwuG5can3yhaLKW23nssvOLk6NEyc',
-	apiType: 'cdn',
-})
+import { newtClient } from '@/lib/newt'
 type Params = {
 	params: {
 		slug: string
@@ -78,7 +73,7 @@ type Params = {
 }
 import { DateFormat } from '@/lib/date-format'
 export async function getStaticProps({ params }: Params) {
-	const post = await client
+	const post = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
 			modelUid: 'article',
@@ -94,7 +89,7 @@ export async function getStaticProps({ params }: Params) {
 		.then(async (content) => {
 			let data = content.items[0]
 			let dateText = ''
-			const postContent = await mdToHtml(data?.body! || '')
+			const postContent = mdToHtml(data?.body! || '')
 			if(data) {
 				dateText = DateFormat({dateString: data.date})
 			}
@@ -112,7 +107,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-	const allPosts = await client
+	const allPosts = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
 			modelUid: 'article',

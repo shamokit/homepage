@@ -5,7 +5,7 @@ import PostDiary from '@/components/model/diaries/diary'
 import { AppHead01 } from '@/components/ui/head/AppHead01'
 import { AppPager } from '@/components/ui/pager/AppPager'
 import { Sidebar } from '@/components/model/diaries/Sidebar'
-import {createClient} from 'newt-client-js'
+import { newtClient } from '@/lib/newt'
 import {TypeDiary} from '@/components/model/diaries/type'
 
 type TypeProps = {
@@ -72,13 +72,7 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 
 export default DiaryPages
 
-const client = createClient({
-	spaceUid: 'shamokit',
-	token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '',
-	apiType: 'cdn'
-});
 const posts_per_page = 10
-
 export const getStaticProps = async ({ params }:Params) => {
 	let year = Number(params.year)
 	let requestPram = {
@@ -99,7 +93,7 @@ export const getStaticProps = async ({ params }:Params) => {
 	}
 	let postTotalNumber = 0
 
-	const allPosts = await client
+	const allPosts = await newtClient
 		.getContents<TypeDiary>(requestPram)
 		.then((contents) => {
 			postTotalNumber = contents.total
@@ -127,7 +121,7 @@ export async function getStaticPaths() {
 			limit: 1,
 		}
 	}
-	const postTotalNumber = await client
+	const postTotalNumber = await newtClient
 		.getContents<TypeDiary>(getPram)
 		.then((contents) => {
 			return contents.total

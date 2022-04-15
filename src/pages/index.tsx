@@ -169,7 +169,7 @@ const Index = ({
 
 export default Index
 import { getPostSlugs } from '@/lib/api'
-import { createClient } from 'newt-client-js'
+import { newtClient } from '@/lib/newt'
 import { TypeDiary } from '@/components/model/diaries/type'
 import { TypeBook } from '@/components/model/books/type'
 import PostDiary from '@/components/model/diaries/diary'
@@ -212,12 +212,7 @@ export const getStaticProps = async () => {
 	const tagsInPosts = getTagsWithCount(postsForTags, 'posts')
 	const tagsInBooks = getTagsWithCount(postsForTags, 'books')
 
-	const client = createClient({
-		spaceUid: 'shamokit',
-		token: process.env['NEWT_API_KEY'] ? process.env['NEWT_API_KEY']: '' ,
-		apiType: 'cdn',
-	})
-	const allDiaries = await client
+	const allDiaries = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
 			modelUid: 'article',
