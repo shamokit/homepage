@@ -1,6 +1,7 @@
 ---
 title: '実践TypeScript BFFとNext.js&Nuxt.jsの型定義'
 date: '2022-03-24'
+dateModified: '2022-04-16'
 tags: [1,4,7,11]
 private: false
 category: 'books'
@@ -9,3 +10,64 @@ isbn: '978-4-8399-6937-0'
 ## 読んだ記録
 
 - 262ページまで読んだ痕跡がある。ピザのはがきが挟んであった。
+- 2022-04-16 最初から再度読み始める
+
+## 第一章
+### VSCode TypeScriptの設定
+デフォルトで最新の安定バージョンが適応される。
+
+別のバージョンのTypeScript Language Serverを使用する場合はtsserver.jsファイルを含むディレクトリをtypescript.tsdkに設定する。
+
+```json
+{
+	"typescript.tsdk": "./node_modules/typescript/lib"
+}
+```
+
+TypeScriptのインストール場所は
+
+```bash
+npm list -g typescript
+```
+
+で確認できる。
+
+### TypeScriptのインストール
+
+```bash
+npm i -g typescript
+```
+
+安定版よりも新しいバージョンを使いたい場合は
+
+```bash
+npm i -g typescript@next
+```
+
+### トランスパイル
+
+```bash
+tsc
+```
+
+### strict: true
+
+有効になるのは以下
+
+- noImplictAny
+- noImplictThis
+- alwaisStrict
+- strict始まりのオプション
+
+### 出力先の変更
+
+```json
+{
+	"compilerOptions" : {
+		"outDir": "dist" //出力先のディレクトリ
+	},
+	"include": [
+		"src/**/*" //どこのファイルをトランスパイルするか
+	]
+}
+```
