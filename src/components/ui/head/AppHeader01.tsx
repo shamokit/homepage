@@ -14,11 +14,11 @@ export const AppHeader01 = ({ post, className, dir }: PropTypes) => {
 	return (
 		<header className={classnames('grid gap-2', className)}>
 			{hasTags && (
-				<ul className="flex gap-2">
+				<ul className="flex flex-wrap -mr-2 -mb-2">
 					{post.tags
 						? post.tags.map((tag) => {
 								return (
-									<li key={tag}>
+									<li key={tag} className="mr-2 mb-2">
 										<TagItem id={tag} dirName={dir} />
 									</li>
 								)

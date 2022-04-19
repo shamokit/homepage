@@ -18,7 +18,7 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 		<>
 			<nav
 				className={classNames(
-					'fixed md:static top-0 right-0 flex flex-col md:flex-row md:items-center w-48 md:w-auto h-screen md:h-auto overflow-auto md:ml-auto pt-14 pb-5 md:py-0 pl-4 md:pl-0 bg-base-color transition-transform',
+					'fixed md:static top-0 right-0 overflow-hidden flex flex-col md:flex-row md:items-center w-48 md:w-auto h-screen md:h-auto overflow-auto md:ml-auto pt-14 pb-5 md:py-0 pl-4 md:pl-0 bg-base-color transition-transform',
 					classOpen
 				)}
 				role="navigation"
@@ -29,11 +29,11 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 					<div className="order-1 md:order-none mt-6 md:mt-0 md:mr-6">
 						<SnsBtn />
 					</div>
-					<ul className="flex flex-col md:flex-row md:justify-end gap-x-4 py-2 md:py-0 text-base">
+					<ul className="flex flex-col md:flex-row md:justify-end -mr-4 py-2 md:py-0 text-base">
 						{list.map((item) => {
 							return (
 								<li
-									className="flex"
+									className="flex mr-4"
 									key={item.name}
 									itemProp="hasPart"
 									itemScope

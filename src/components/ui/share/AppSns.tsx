@@ -1,7 +1,7 @@
 export const SnsBtn = () => {
 	return (
-		<ul className="flex items-center gap-4">
-			<li>
+		<ul className="flex items-center -mr-4 -mb-4">
+			<li className="mr-4 mb-4">
 				<a
 					href="https://twitter.com/shamokit_y2323"
 					target="_blank"
@@ -15,7 +15,7 @@ export const SnsBtn = () => {
 					/>
 				</a>
 			</li>
-			<li>
+			<li className="mr-4 mb-4">
 				<a
 					href="https://github.com/shamokit"
 					target="_blank"
