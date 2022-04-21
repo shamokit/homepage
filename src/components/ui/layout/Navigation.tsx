@@ -7,7 +7,7 @@ type TypeProps = {
 	closeButton: JSX.Element
 }
 import { BLOG_DOMAIN } from 'config/constants'
-const cats = ['posts', 'books', 'diaries'] as const
+const cats = ['profile', 'posts', 'books', 'diaries'] as const
 const list: (LinkProps & { name: typeof cats[number] })[] = cats.map((cat) => ({
 	name: cat,
 	href: `${BLOG_DOMAIN}/${cat}/`,
