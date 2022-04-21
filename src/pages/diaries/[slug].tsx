@@ -15,8 +15,11 @@ import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 type TypeProps = {
 	post: TypeDiary & { formatDate: string }
 }
-
+import { useEffect } from "react";
 const Post = ({ post }: TypeProps) => {
+	useEffect(() => {
+		import("zenn-embed-elements");
+	}, []);
 	const router = useRouter()
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />
