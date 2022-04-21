@@ -84,13 +84,12 @@ const Index = ({
 								<p>
 									Next.js(SG)/Cloudflare Pages/TypeScriptを使ってます。
 									<br />
-									CMSにはNewtを使っていて、記事作成時WebhookでCloudflare
-									Pagesにデプロイが走ります。便利。
-									{/* <br />
+									CMSにはNewtを使っています。
+									<br />
 									しゃもきっとに関して気になった人は
-									Profileページを見てみてください。 */}
+									Profileページを見てみてください。
 								</p>
-								{/* <AppBtn01 href="/profile/" text="Profile" /> */}
+								<AppBtn01 href="/profile/">Profile</AppBtn01>
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
 								<AppHead01 text="Posts" />
