@@ -181,7 +181,7 @@ let name: string = 'test' //"test",`test ${hoge}`
 
 ```ts
 let list: string[] = ['test']
-let list: Array<number> = [10]
+let list: Array<number> = [10] //こっちの書き方は使わんかも
 ```
 
 ### tuple型
@@ -196,7 +196,7 @@ list = [10, 'test'] //error
 
 ```ts
 const certainlyNumbers: number[] = ["0"] //error
-const maybeNumbers: any[] = ["0"] //ok　←危険
+const maybeNumbers: any[] = ["0"]
 //Number.prototype.toFixed()
 maybeNumbers[0].toFixed() //ok　←危険
 const probablyNumbers: unknown[] = ["0"] //ok　←危険
@@ -245,7 +245,7 @@ objectType = true //error
 
 ### Intersection Types(交差型)
 
-複数の型を結合する。
+複数の型を結合する。よく使う。
 
 ```ts
 type Post {
@@ -448,6 +448,8 @@ type User = {
 
 ### 読み込み専用プロパティ
 
+プロパティごとに```readonly```にしたい場合はキー名の前に```readonly```をつける。
+
 ```ts
 type User = {
 	readonly name: string
@@ -457,7 +459,8 @@ const me: User = {
 }
 me.name = "test" //error
 ```
-プロパティごとに```readonly```にしたい場合はキー名の前に```readonly```をつける。
+
+全てのプロパティを読み込み専用にしたい場合は```Readonly```型で一括```readonly```にできる。
 
 ---
 ```ts
@@ -471,8 +474,6 @@ const state: Readonly<State> = {
 }
 state.id = 100 //error
 ```
-
-全てのプロパティを読み込み専用にしたい場合は```Readonly```型で一括```readonly```にできる。
 
 ```readonly```はあくまでの型情報なので、実際JavaScriptで変更は可能。
 書き換えられないようにするには
@@ -570,8 +571,8 @@ const user: User = {
 		time_of_sleeping: 'B'
 	}
 }
-const x = user.enquete['test'] //存在しないプロパティがAnswerに型推論されてしまう
-const y = user.enquete['exercise_habits'] //undefinedなのにAnswerに推論される
+const x = user.enquete['test'] //存在しないプロパティ(undefined)だがAnswerに型推論されている
+const y = user.enquete['exercise_habits']
 ```
 ---
 ```ts
