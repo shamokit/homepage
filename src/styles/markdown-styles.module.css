@@ -16,6 +16,9 @@
 .znc h3 {
 	@apply !mb-[1em] pb-2 md:pb-4 border-b-4 border-accent;
 }
+.znc h4 {
+	@apply before:content-["◆"] font-semibold;
+}
 .znc pre > code {
 	@apply font-sans tracking-tight leading-normal;
 }
