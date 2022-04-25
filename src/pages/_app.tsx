@@ -12,8 +12,11 @@ import { BLOG_NAME } from 'config/constants'
 // export const reportWebVitals = (metric: ReportHandler) => {
 // 	console.log(metric)
 // }
-
+import { useEffect } from "react";
 const MyApp = ({ Component, pageProps }: AppProps) => {
+	useEffect(() => {
+		import("zenn-embed-elements");
+	}, []);
 	return (
 		<>
 			<Head>

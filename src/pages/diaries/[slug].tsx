@@ -15,20 +15,7 @@ import { AppHeader01 } from '@/components/ui/head/AppHeader01'
 type TypeProps = {
 	post: TypeDiary & { formatDate: string }
 }
-import { useEffect } from "react";
-//@ts-ignore
-import initTwitterScriptInner from 'zenn-embed-elements/lib/init-twitter-script-inner';
 const Post = ({ post }: TypeProps) => {
-	useEffect(() => {
-		import("zenn-embed-elements");
-	}, []);
-	return (
-		<script
-			dangerouslySetInnerHTML={{
-					__html: initTwitterScriptInner
-			}}
-		/>
-	)
 	const router = useRouter()
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />

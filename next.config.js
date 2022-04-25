@@ -1,4 +1,3 @@
-const withOptimizedImages = require('next-optimized-images')
 /**
  * @type { import("next").NextConfig}
  */
@@ -12,7 +11,4 @@ module.exports = {
 		esmExternals: true,
 		swcLoader: true,
 	},
-	images: {
-    domains: ['cover.openbd.jp'],
-  },
 }
