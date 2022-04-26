@@ -13,6 +13,7 @@ isbn: '978-4-8399-6937-0'
 - 2022-04-16 最初から再度読み始める。
 - 2022-04-24 第四章を読み終わった。
 - 2022-04-25 第五章を読み終わった。
+- 2022-04-26 第六章6-2まで読み終わった。
 
 ## 第一章 開発環境と設定
 ### VSCode TypeScriptの設定
@@ -767,3 +768,165 @@ const worker = users.filter((user: UserA | UserB): user is UserB => {
 ## 第五章 TypeScriptの型システム
 
 interfaceとtypeのちがいなど
+
+## 第六章 TypeScriptの高度な型
+
+### Generics
+
+型の決定を遅延できる。
+
+```ts
+type Box<T> = {
+	value: T
+}
+const box:Box<string> = {
+	value: "test"
+}
+```
+
+これでvalueにstring以外を入れたときエラーになる。
+Tの部分はTUKなどがよくつかわれる。
+
+Genericsには以下のように初期値も設定できる。
+
+```ts
+type Box<T = string> = {
+	value: T
+}
+```
+
+#### extends
+
+Genericsにextendsシグネチャを付与すると指定可能な型を制約できる。
+
+```ts
+type Box<T extends string | number> = {
+	value: T
+}
+```
+
+これでTにはstringもしくはnumberだけしか入れられないようになる。
+
+#### 関数のGenerics
+
+関数にもGenericsを利用できる。
+
+```ts
+const ComponentX = <T>(props: T) => {
+  return ({
+    width: props
+  })
+}
+const componentX = ComponentX(100)
+const componentY = ComponentX("100px")
+```
+
+extendsも使える。
+
+```ts
+const ComponentX = <T extends number>(props: T) => {
+  return ({
+    width: props
+  })
+}
+const componentX = ComponentX(100) // ok
+const componentY = ComponentX("100px") // error
+```
+
+#### 複数のGenerics
+
+```ts
+const pick = <T, K extends keyof T>(props: T, key: K) => {
+  return props[key]
+}
+const cat = {
+  name: "ほっけ",
+  age: 7,
+  vaccinated: true,
+}
+const catName = pick(cat, "name") //string
+const catAge = pick(cat, "age") //number
+const catVaccinated = pick(cat, "vaccinated") //boolean
+const catTest = pick(cat, "test") //error
+```
+
+### Cinditional Types
+
+条件分岐で型推論を導出できる。
+構文は以下。
+
+```ts
+T extends X ? Y : Z
+```
+---
+```ts
+type isType<T, U> = T extends U ? true : false
+type isString<T> = isType<T, string>
+type isStringA = isString<"AAA"> //true
+type isStringB = isString<0> //false
+
+type Animal = {
+  name: string
+  [k: string]: string | number
+}
+type Cat = {
+  name: string
+  age: number
+}
+type isAnimal<T> = T extends Animal ? true : false
+type isCat = isAnimal<Cat> // true
+```
+
+#### 条件に一致した型を抽出する型
+
+```ts
+type Person = {
+  name: string
+  age: number
+  vaccinated: boolean
+  hobby: string[]
+}
+type Filter<T, U> = {
+  [K in keyof T]: T[K] extends U ? K : never
+}[keyof T] //[keyof T]がないとPersonの各キーに型推論されたものが返る。
+type StringKeys = Filter<Person, string> //name
+type NumberKeys = Filter<Person, number> //age
+type BooleanKeys = Filter<Person, boolean> //vaccinated
+type StringArrayKeys = Filter<Person, string[]> //hobby
+type ArrayKeys = Filter<Person, []> // never
+const person:Pick<Person, StringKeys> = {
+  name: "しゃもきっと",
+  age: 29, // error
+  vaccinated: true, // error
+  hobby: ["fishing"] // error
+}
+```
+
+#### 部分的な型抽出
+
+```infer``` 推測する
+
+```ts
+const greet = (name: string, genuine: boolean) => `Hello! ${name} ${genuine ? '!' : '?'}`
+const greet1 = () => `Hello!`
+
+// 引数の一つ目の型を返す
+type Return1<T> = T extends (...args: [infer U, ...any[]]) => any ? U : never
+type Return1Test1 = Return1<typeof greet> //string
+type Return1Test2 = Return1<typeof greet1> //unknown
+
+// 引数の二つ目の型を返す
+type Return2<T> = T extends (...args: [any, infer U, ...any[]]) => any ? U : never
+type Return2Test1 = Return2<typeof greet> //boolean
+type Return2Test2 = Return2<typeof greet1> //boolean
+
+// 引数全ての型を返す
+type Return3<T> = T extends (...args: infer U) => any ? U : never
+type Return3Test1 = Return3<typeof greet> //[name: string, genuine: boolean]
+type Return3Test2 = Return3<typeof greet1> //[]
+
+// 返り値の型を返す
+type Return4<T> = T extends (...args: any[]) => infer U ? U : never
+type Return4Test1 = Return4<typeof greet> //string
+type Return4Test2 = Return4<typeof greet1> //string
+```
