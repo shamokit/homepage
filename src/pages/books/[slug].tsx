@@ -56,7 +56,7 @@ const Post = ({ book }: TypeProps) => {
 				<Container>
 					{
 						<article>
-							<header className="grid grid-cols-4 gap-5 mb-12 md:grid-flow-row">
+							<header className="grid grid-cols-4 gap-5 mb-12 md:grid-rows-[auto_auto_1fr]">
 								{book.thumbnail && (
 									<div className="relative col-span-1 md:col-start-1 md:row-start-1 md:row-end-4">
 										<img
