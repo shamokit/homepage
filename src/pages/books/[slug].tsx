@@ -13,6 +13,9 @@ type TypeProps = {
 	book: TypeBook
 }
 import { BLOG_DOMAIN } from 'config/constants'
+import { TagItem } from '@/components/model/tags/item'
+import { AppHead03 } from '@/components/ui/head/AppHead03'
+import { AppDate } from '@/components/ui/date/AppDate'
 
 const Post = ({ book }: TypeProps) => {
 	const router = useRouter()
@@ -38,6 +41,7 @@ const Post = ({ book }: TypeProps) => {
 			url: `${BLOG_DOMAIN}${url}`,
 		},
 	]
+	const hasTags = 'tags' in book && book.tags && book.tags.length > 0
 	return (
 		<>
 			<Meta
@@ -52,19 +56,35 @@ const Post = ({ book }: TypeProps) => {
 				<Container>
 					{
 						<article>
-							<div className="flex items-start mb-12">
+							<header className="grid grid-cols-4 gap-5 mb-12 md:grid-flow-row">
 								{book.thumbnail && (
-									<div className="relative w-32 min-h-[160px] flex-shrink-0 mr-10">
+									<div className="relative col-span-1 md:col-start-1 md:row-start-1 md:row-end-4">
 										<img
 											src={book.thumbnail}
-											className="absolute inset-0 w-full h-full object-contain transition-opacity group-hover:opacity-90"
+											className=" transition-opacity group-hover:opacity-90"
 											alt=""
 											loading="lazy"
 										/>
 									</div>
 								)}
-								<AppHeader01 post={book} dir={'books'} />
-							</div>
+								{hasTags && (
+									<div className="col-span-3 md:col-start-2 md:row-start-1 md:col-span-3">
+										<ul className="flex flex-wrap -mr-2 -mb-2">
+											{book.tags
+												? book.tags.map((tag) => {
+														return (
+															<li key={tag} className="mr-2 mb-2">
+																<TagItem id={tag} dirName="books" />
+															</li>
+														)
+													})
+												: ''}
+										</ul>
+									</div>
+								)}
+								<AppHead03 title={book.title} className="col-span-full md:col-start-2 md:row-start-2 md:col-span-3"></AppHead03>
+								<AppDate pageSingle={true} dateString={book.date} className="col-span-full md:col-start-2 md:row-start-3 md:col-span-3"></AppDate>
+							</header>
 							<PostBody content={book.content} />
 						</article>
 					}
