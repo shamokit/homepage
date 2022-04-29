@@ -41,6 +41,10 @@
 	/* backdrop-filter: blur(1px); */
 	@apply backdrop-blur-sm bg-base-color text-white bg-opacity-90;
 }
+
+body {
+	word-break: break-word;
+}
 a:not([class]) {
 	@apply text-main underline;
 }
