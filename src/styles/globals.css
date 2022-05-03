@@ -45,6 +45,17 @@
 body {
 	word-break: break-word;
 }
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-base-color
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-sub rounded-md
+}
 a:not([class]) {
 	@apply text-main underline;
 }
@@ -61,7 +72,9 @@ h4,
 h5 {
 	@apply font-medium leading-tight tracking-normal;
 }
-
+img {
+	image-rendering: -webkit-optimize-contrast;
+}
 .safe-area {
 	height: env(safe-area-inset-bottom);
 }
