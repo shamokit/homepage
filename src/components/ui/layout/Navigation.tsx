@@ -12,8 +12,7 @@ const list: (LinkProps & { name: typeof cats[number] })[] = cats.map((cat) => ({
 	name: cat,
 	href: `${BLOG_DOMAIN}/${cat}/`,
 }))
-const Navigation = React.forwardRef(
-	function Navigation({ open, closeButton }: TypeProps, ref) {
+const Navigation = ({ open, closeButton }: TypeProps) => {
 	const classOpen = open ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
 	return (
 		<>
@@ -60,6 +59,6 @@ const Navigation = React.forwardRef(
 			</nav>
 		</>
 	)
-})
+}
 
 export default Navigation
