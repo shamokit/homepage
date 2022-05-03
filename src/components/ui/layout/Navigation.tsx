@@ -1,6 +1,6 @@
+import React from 'react';
 import Link, { LinkProps } from 'next/link'
 import classNames from 'classnames'
-
 import { SnsBtn } from '@/components/ui/share/AppSns'
 type TypeProps = {
 	open: boolean
@@ -12,13 +12,15 @@ const list: (LinkProps & { name: typeof cats[number] })[] = cats.map((cat) => ({
 	name: cat,
 	href: `${BLOG_DOMAIN}/${cat}/`,
 }))
-const Navigation = ({ open, closeButton }: TypeProps) => {
+const Navigation = React.forwardRef(
+	function Navigation({ open, closeButton }: TypeProps, ref) {
 	const classOpen = open ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
 	return (
 		<>
 			<nav
+				id="navigation"
 				className={classNames(
-					'fixed md:static top-0 right-0 overflow-hidden flex flex-col md:flex-row md:items-center w-48 md:w-auto h-screen md:h-auto md:ml-auto pt-14 pb-5 md:py-0 pl-4 md:pl-0 bg-base-color transition-transform',
+					'fixed md:static top-0 right-0 overflow-auto flex flex-col md:flex-row md:items-center w-48 md:w-auto h-screen md:h-auto md:ml-auto pt-14 pb-5 md:py-0 pl-4 md:pl-0 bg-base-color transition-transform',
 					classOpen
 				)}
 				role="navigation"
@@ -54,9 +56,10 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 					</ul>
 				</div>
 				<div className="md:hidden mt-auto">{closeButton}</div>
+				<div className="safe-area"></div>
 			</nav>
 		</>
 	)
-}
+})
 
 export default Navigation

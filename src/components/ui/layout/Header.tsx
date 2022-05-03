@@ -1,24 +1,42 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 import classNames from 'classnames'
 import Link from 'next/link'
 import Navigation from '@/components/ui/layout/Navigation'
 type TypeProps = {
 	className?: string
 }
-
+import {
+	disableBodyScroll,
+	enableBodyScroll,
+} from 'body-scroll-lock'
 const Header = ({ className }: TypeProps) => {
 	const [open, setOpen] = useState(false)
+	let navigation:HTMLElement | null = null
+	if (typeof document !== 'undefined') {
+		navigation = document.getElementById('navigation');
+	}
+	const handleOnDisable = () => {
+		if(!navigation) return
+		disableBodyScroll(navigation)
+	}
+
+	const handleOnEnable = () => {
+		enableBodyScroll(navigation)
+	}
+
 	/**
 	 * ナビ開閉
 	 */
 	const toggleOpen = () => {
 		setOpen(!open)
+		open === true ? handleOnEnable() : handleOnDisable()
 	}
 	/**
 	 * ナビを閉じる
 	 */
 	const close = () => {
 		setOpen(false)
+		handleOnEnable();
 	}
 
 	const CloseButton = () => {

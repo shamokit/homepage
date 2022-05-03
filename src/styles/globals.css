@@ -61,3 +61,7 @@ h4,
 h5 {
 	@apply font-medium leading-tight tracking-normal;
 }
+
+.safe-area {
+	height: env(safe-area-inset-bottom);
+}
