@@ -20,7 +20,7 @@ const Navigation = React.forwardRef(
 			<nav
 				id="navigation"
 				className={classNames(
-					'fixed md:static top-0 right-0 overflow-auto flex flex-col md:flex-row md:items-center w-48 md:w-auto h-screen md:h-auto md:ml-auto pt-14 pb-5 md:py-0 pl-4 md:pl-0 bg-base-color transition-transform',
+					'fixed md:static top-0 right-0 overflow-auto md:overflow-hidden flex flex-col md:flex-row md:items-center w-48 md:w-auto h-screen md:h-auto md:ml-auto pt-14 pb-5 md:py-0 pl-4 md:pl-0 bg-base-color transition-transform',
 					classOpen
 				)}
 				role="navigation"
