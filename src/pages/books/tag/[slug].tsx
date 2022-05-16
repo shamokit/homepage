@@ -38,6 +38,7 @@ const Tag = ({ allBooks, tag, slug }: TypeProps) => {
 	return (
 		<>
 			<Meta
+				noindex
 				pageTitle={`${tag.name}タグ | Books`}
 				pageDescription={`${tag.name}関連で読んだ本の感想やメモなどを残しています。`}
 				pageUrl={`${url}`}

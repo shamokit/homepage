@@ -40,6 +40,7 @@ const Post = ({ post }: TypeProps) => {
 	return (
 		<>
 			<Meta
+				noindex
 				pageTitle={title}
 				pageDescription={''}
 				pageImg={`/assets/diary/ogp_${post.formatDate.replaceAll('-', '')}.png`}

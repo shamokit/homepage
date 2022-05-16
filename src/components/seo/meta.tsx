@@ -7,6 +7,7 @@ import {
 } from 'config/constants'
 import { TypeBreadcrumb } from '@/components/ui/layout/Breadcrumb'
 type TypeMeta = {
+	noindex?: boolean
 	isSingle?: boolean
 	pageTitle: string
 	pageDescription: string
@@ -17,6 +18,7 @@ type TypeMeta = {
 	dateModified?: string
 }
 export const Meta = ({
+	noindex = false,
 	isSingle = false,
 	pageTitle,
 	pageDescription,
@@ -85,7 +87,9 @@ export const Meta = ({
 			<meta property="og:type" content={isSingle ? 'article' : 'website'} />
 			<meta property="og:description" content={description} />
 			<meta property="og:image" content={imgUrl} />
-
+			{
+				noindex && <meta name="robots" content="noindex" />
+			}
 			<link rel="canonical" href={url} />
 			{breadcrumb && breadcrumb.length > 0 && (
 				<script

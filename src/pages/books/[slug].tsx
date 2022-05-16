@@ -45,6 +45,7 @@ const Post = ({ book }: TypeProps) => {
 	return (
 		<>
 			<Meta
+				noindex
 				pageTitle={`${title} | Books`}
 				pageDescription={description}
 				pageUrl={url}

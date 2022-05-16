@@ -36,6 +36,7 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 	return (
 		<>
 			<Meta
+				noindex
 				pageTitle={`Diaries Page${params.number}`}
 				pageDescription={'日記です。'}
 				pageUrl={`/diaries/page/${params.number}/`}

@@ -23,6 +23,7 @@ const Book = ({ books }: TypeProps) => {
 	return (
 		<>
 			<Meta
+				noindex
 				pageTitle={'Books'}
 				pageDescription={'読んだ本の感想やメモなどを残しています。'}
 				pageUrl={'/books/'}

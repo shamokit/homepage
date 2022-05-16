@@ -37,6 +37,7 @@ const Diary = ({ allPosts, year, month }: TypeProps) => {
 	return (
 		<>
 			<Meta
+				noindex
 				pageTitle={`Diaries/${current}`}
 				pageDescription={`${current}の日記です。`}
 				pageUrl={`/diaries/archive/${year}/${month}/`}
