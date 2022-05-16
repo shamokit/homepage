@@ -9,7 +9,7 @@ const MyDocument = () => {
 				/>
 			</Head>
 			<body
-				className="theme-engineer setting font-sans text-base md:text-lg lg:text-xl leading-loose font-medium tracking-wider bg-white text-base-color"
+				className="theme-engineer setting font-sans text-base md:text-lg lg:text-xl leading-loose font-medium tracking-wider bg-white text-base-color scroll-smooth"
 				itemScope
 				itemType="http://schema.org/WebPage"
 			>
