@@ -41,7 +41,7 @@ const Index = ({
 	return (
 		<>
 			<Meta
-				pageTitle={'しゃもきっとの技術ブログ'}
+				pageTitle={''}
 				pageDescription={''}
 				pageUrl={''}
 				pageImg={''}

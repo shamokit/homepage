@@ -1,5 +1,5 @@
 export const AUTHOR_NAME = 'しゃもきっと'
-export const BLOG_NAME = 'SK Sites'
+export const BLOG_NAME = 'しゃもきっとの技術ブログ'
 export const BLOG_DOMAIN = 'https://shamokit.com'
 // export const BLOG_DOMAIN = 'http://localhost:3000'
 // export const BLOG_DOMAIN = ''
