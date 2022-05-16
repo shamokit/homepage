@@ -2,7 +2,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "(if exist .next rd /s /q .next 2>nul) && next",
-		"postbuild": "next-sitemap --config next-sitemap.config.js",
+		"postbuild": "next-sitemap",
 		"build": "next build && next export",
 		"start": "next start",
 		"type_check": "tsc",
