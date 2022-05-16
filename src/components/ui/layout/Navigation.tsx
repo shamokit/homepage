@@ -26,7 +26,7 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 				itemProp="hasPart"
 				itemType="http://www.schema.org/SiteNavigationElement"
 			>
-				<div className="flex flex-col md:flex-row md:items-center px-6 md:py-2">
+				<div className="flex flex-col md:flex-row md:items-center px-4 md:py-2">
 					<div className="order-1 md:order-none mt-6 md:mt-0 md:mr-6">
 						<SnsBtn />
 					</div>

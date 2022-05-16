@@ -3,13 +3,27 @@ export const SnsBtn = () => {
 		<ul className="flex items-center -mr-4 -mb-4">
 			<li className="mr-4 mb-4">
 				<a
+					href="https://www.instagram.com/hokke_to_unagi/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
+				>
+					<img
+						src="/assets/svg/instagram.svg"
+						className="absolute inset-0 w-full h-full object-contain"
+						alt="ほっけとうなぎのinstagramアカウント"
+					/>
+				</a>
+			</li>
+			<li className="mr-4 mb-4">
+				<a
 					href="https://twitter.com/shamokit_y2323"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
 				>
 					<img
-						src="/logo/twitter.svg"
+						src="/assets/svg/twitter.svg"
 						className="absolute inset-0 w-full h-full object-contain"
 						alt="しゃもキットのtwitterアカウント"
 					/>
@@ -23,7 +37,7 @@ export const SnsBtn = () => {
 					className="relative block w-8 h-8 leading-none transition-opacity hover:opacity-80"
 				>
 					<img
-						src="/logo/gitHub.png"
+						src="/assets/img/gitHub.png"
 						className="absolute inset-0 w-full h-full object-contain"
 						alt="しゃもキットのgitHubアカウント"
 					/>
