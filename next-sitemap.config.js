@@ -1,5 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://shamokit.com',
+	exclude: ['/diaries/*', '/books/*'],
   generateRobotsTxt: true,
 }
