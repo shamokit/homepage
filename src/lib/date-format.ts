@@ -1,12 +1,11 @@
-import { parseISO, format } from 'date-fns'
-
+import { format } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
 type TypeProps = {
 	dateString: string | Date
 }
 
 export const DateFormat = ({ dateString }: TypeProps) => {
-	const date =
-		typeof dateString === 'string' ? parseISO(dateString) : dateString
-	const dateText = format(date, 'YYY-MM-dd')
+	const date = new Date(dateString)
+	const dateText = format(utcToZonedTime(date, 'Asia/Tokyo'), 'yyyy-MM-dd')
 	return dateText
 }

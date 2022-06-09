@@ -23,6 +23,7 @@ const Post = ({ post }: TypeProps) => {
 	const title = `${post.title}`
 	const url = `/diaries/${post.slug}/`
 	const date = `${post.date}/`
+
 	const breadcrumb = [
 		{
 			name: 'TOP',
@@ -42,7 +43,7 @@ const Post = ({ post }: TypeProps) => {
 			<Meta
 				noindex
 				pageTitle={title}
-				pageDescription={''}
+				pageDescription={`${post.formatDate}の日記です。`}
 				pageImg={`/assets/diary/ogp_${post.formatDate.replaceAll('-', '')}.png`}
 				pageUrl={`${url}`}
 				isSingle={true}
