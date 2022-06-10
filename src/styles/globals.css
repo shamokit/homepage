@@ -45,7 +45,7 @@ body {
 	word-break: break-word;
 }
 ::-webkit-scrollbar {
-	width: 8px;
+	@apply w-2 h-2;
 }
 
 ::-webkit-scrollbar-track {
