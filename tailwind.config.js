@@ -84,7 +84,7 @@ module.exports = {
 			fontFamily: {
 				sans: [
 					'Fira Code',
-					'Zen Kaku Gothic New',
+					'BIZ UDGothic',
 					'Hiragino Sans',
 					'Hiragino Kaku Gothic ProN',
 					'Meiryo',
