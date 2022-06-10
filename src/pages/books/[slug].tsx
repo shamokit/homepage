@@ -7,7 +7,8 @@ import { LayoutBase } from '@/components/layouts/LayoutBase'
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import mdToHtml from '@/lib/markdownToHtml'
 import { TypeBook } from '@/components/model/books/type'
-import { AppHeader01 } from '@/components/ui/head/AppHeader01'
+import classNames from 'classnames'
+
 
 type TypeProps = {
 	book: TypeBook
@@ -57,7 +58,8 @@ const Post = ({ book }: TypeProps) => {
 				<Container>
 					{
 						<article>
-							<header className="grid grid-cols-4 gap-5 mb-12 md:grid-rows-[auto_auto_1fr]">
+							<header className={classNames(
+								book.thumbnail ? 'grid-cols-4' : 'grid-cols-3', 'grid gap-5 mb-12 md:grid-rows-[auto_auto_1fr]')}>
 								{book.thumbnail && (
 									<div className="relative col-span-1 md:col-start-1 md:row-start-1 md:row-end-4">
 										<img
@@ -69,7 +71,7 @@ const Post = ({ book }: TypeProps) => {
 									</div>
 								)}
 								{hasTags && (
-									<div className="col-span-3 md:col-start-2 md:row-start-1 md:col-span-3">
+									<div className={classNames(book.thumbnail ? 'md:col-start-2 md:row-start-1' : '','col-span-3 md:col-span-3')}>
 										<ul className="flex flex-wrap -mr-2 -mb-2">
 											{book.tags
 												? book.tags.map((tag) => {
@@ -83,8 +85,8 @@ const Post = ({ book }: TypeProps) => {
 										</ul>
 									</div>
 								)}
-								<AppHead03 title={book.title} className="col-span-full md:col-start-2 md:row-start-2 md:col-span-3"></AppHead03>
-								<AppDate pageSingle={true} dateString={book.date} className="col-span-full md:col-start-2 md:row-start-3 md:col-span-3"></AppDate>
+								<AppHead03 title={book.title} className={classNames(book.thumbnail ? 'md:col-start-2 md:row-start-2' : '', 'col-span-full md:col-span-3')}></AppHead03>
+								<AppDate pageSingle={true} dateString={book.date} className={classNames(book.thumbnail ? 'md:col-start-2 md:row-start-3' : '', 'col-span-full md:col-span-3')}></AppDate>
 							</header>
 							<PostBody content={book.content} />
 						</article>
