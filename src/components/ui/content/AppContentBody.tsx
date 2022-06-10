@@ -1,5 +1,5 @@
-import style from '@/styles/markdown-styles.module.css'
 import 'zenn-content-css'
+import style from '@/styles/markdown-styles.module.css'
 import classNames from 'classnames'
 type TypeProps = {
 	content: string
@@ -9,7 +9,7 @@ type TypeProps = {
 export const PostBody = ({ content, className }: TypeProps) => {
 	return (
 		<div
-			className={classNames('znc', style['znc'], { className: className })}
+			className={classNames(style['znc'], 'znc', { className: className })}
 			dangerouslySetInnerHTML={{ __html: content }}
 		/>
 	)

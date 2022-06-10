@@ -38,7 +38,6 @@
 	@apply bg-gradient-to-r from-base-color to-main;
 }
 .gradation-dark {
-	/* backdrop-filter: blur(1px); */
 	@apply backdrop-blur-sm bg-base-color text-white bg-opacity-90;
 }
 
@@ -57,10 +56,10 @@ body {
 	@apply bg-sub rounded-md
 }
 a:not([class]) {
-	@apply text-main underline;
+	@apply text-main;
 }
 a:not([class]):hover {
-	@apply no-underline;
+	@apply decoration-0
 }
 .znc .code-block-container {
 	margin: 0 !important;
@@ -70,7 +69,7 @@ h2,
 h3,
 h4,
 h5 {
-	@apply font-medium leading-tight tracking-normal;
+	@apply leading-tight tracking-wide;
 }
 img {
 	image-rendering: -webkit-optimize-contrast;
