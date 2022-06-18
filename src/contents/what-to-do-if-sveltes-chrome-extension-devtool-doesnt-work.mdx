@@ -20,7 +20,7 @@ description: 'svelteのchrome拡張devtoolが動かないときの対処法'
 
 ___
 ## 起こったこと
-chrome拡張の(Svelte Devtools)[https://chrome.google.com/webstore/detail/svelte-devtools/ckolcbmkjpjmangdbmnkpjigpkddpogn]が上記の環境で動きませんでした。
+chrome拡張の[https://chrome.google.com/webstore/detail/svelte-devtools/ckolcbmkjpjmangdbmnkpjigpkddpogn](Svelte Devtools)が上記の環境で動きませんでした。
 
 正確に言うと動いてはいるのですが、
 
@@ -34,17 +34,17 @@ Firefoxの拡張は確認したところ動いていたので、一番早い対�
 
 ## 対処法
 
-## Chrome拡張のアンインストール
+### Chrome拡張のアンインストール
 まずChrome拡張をアンインストールします。
 
-(chrome://extensions/)[chrome://extensions/]にアクセスすると「Svelte Devtools」があると思うので削除します。
+chrome://extensions/にアクセスすると「Svelte Devtools」があると思うので削除します。
 
-## 拡張をgitからcloneする
-(https://github.com/RedHatter/svelte-devtools#chrome)[https://github.com/RedHatter/svelte-devtools#chrome]
+### 拡張をgitからcloneする
+[https://github.com/RedHatter/svelte-devtools#chrome](https://github.com/RedHatter/svelte-devtools#chrome)
 
 僕は特にこだわりがなかったので C:\Users\ユーザー名 で
 
-```
+```sh
 git clone https://github.com/RedHatter/svelte-devtools.git
 cd svelte-devtools
 npm install
@@ -52,19 +52,19 @@ npm install
 
 こちらを実行しました。
 
-## 記述を一部書き換える
+### 記述を一部書き換える
 先ほどの操作でsvelte-devtoolsディレクトリに移動しているはずです。
 
 srcディレクトリにbackground.jsがあるのでエディタで開きます。
 4行目に以下のコードがあるので、
 
-```
+```js
 if (port.sender.url == chrome.runtime.getURL('/devtools/panel.html')) {
 ```
 
 こちらを
 
-```
+```js
 if (port.sender.url.replace('//devtools', '/devtools') == chrome.runtime.getURL('/devtools/panel.html')) {
 ```
 
@@ -78,13 +78,13 @@ npm run package:chrome
 
 を実行してビルドします。
 こちらを参考にしました。
-(https://github.com/RedHatter/svelte-devtools/pull/70/commits/7edf051cf204e4c9d7b780681aa07cb73e4c3d77)[https://github.com/RedHatter/svelte-devtools/pull/70/commits/7edf051cf204e4c9d7b780681aa07cb73e4c3d77]
+[https://github.com/RedHatter/svelte-devtools/pull/70/commits/7edf051cf204e4c9d7b780681aa07cb73e4c3d77](https://github.com/RedHatter/svelte-devtools/pull/70/commits/7edf051cf204e4c9d7b780681aa07cb73e4c3d77)
 
 2022/06/18時点ではまだマスターにマージされていないようです。
 これであとはこの拡張をChromeに読み込ませるだけです。
 
-## Chrome拡張として読み込ませる
-(chrome://extensions/)[chrome://extensions/]に戻ります。
+### Chrome拡張として読み込ませる
+chrome://extensions/に戻ります。
 
 パッケージ化されていない拡張機能を読み込む というボタンがあるので、それをクリックします。
 どのディレクトリを見るのか聞かれるので、さっきビルドで作成されたdestディレクトリを選択します。
