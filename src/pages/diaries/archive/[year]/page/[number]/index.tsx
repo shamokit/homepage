@@ -45,7 +45,6 @@ const DiaryPages = ({ allPosts, params, page_array }: TypeProps) => {
 				pageTitle={`Diaries ${params.year}/Page${params.number}`}
 				pageDescription={'日記です。'}
 				pageUrl={`/diaries/${params.year}/page/${params.number}/`}
-				pageImg={`/assets/diary/ogp_${params.year}.png`}
 				breadcrumb={breadcrumb}
 			/>
 			<LayoutBase sidebar={<Sidebar />} breadcrumb={breadcrumb}>

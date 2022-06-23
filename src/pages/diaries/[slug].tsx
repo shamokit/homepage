@@ -44,7 +44,6 @@ const Post = ({ post }: TypeProps) => {
 				noindex
 				pageTitle={title}
 				pageDescription={`${post.formatDate}の日記です。`}
-				pageImg={`/assets/diary/ogp_${post.formatDate.replaceAll('-', '')}.png`}
 				pageUrl={`${url}`}
 				isSingle={true}
 				datePublished={date}

@@ -41,9 +41,6 @@ const Diary = ({ allPosts, year, month }: TypeProps) => {
 				pageTitle={`Diaries/${current}`}
 				pageDescription={`${current}の日記です。`}
 				pageUrl={`/diaries/archive/${year}/${month}/`}
-				pageImg={`/assets/diary/ogp_${year}${
-					month < 10 ? '0' + month : month
-				}.png`}
 				breadcrumb={breadcrumb}
 			/>
 			<LayoutBase
