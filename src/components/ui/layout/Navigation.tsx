@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Link, { LinkProps } from 'next/link'
 import classNames from 'classnames'
 import { SnsBtn } from '@/components/ui/share/AppSns'
@@ -12,16 +12,10 @@ const list: (LinkProps & { name: typeof cats[number] })[] = cats.map((cat) => ({
 	name: cat,
 	href: `${BLOG_DOMAIN}/${cat}/`,
 }))
-import {
-	enableBodyScroll,
-} from 'body-scroll-lock'
-	let navigation:HTMLElement | null = null
-	if (typeof document !== 'undefined') {
-		navigation = document.getElementById('navigation');
-	}
-	const handleOnEnable = () => {
-		enableBodyScroll(navigation)
-	}
+let navigation: HTMLElement | null = null
+if (typeof document !== 'undefined') {
+	navigation = document.getElementById('navigation')
+}
 const Navigation = ({ open, closeButton }: TypeProps) => {
 	const classOpen = open ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
 	return (
@@ -54,7 +48,6 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 										<a
 											className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
 											itemProp="url"
-											onClick={handleOnEnable}
 										>
 											<span itemProp="name">{item.name}</span>
 											<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>

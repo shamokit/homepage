@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
-import classNames from 'classnames'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
+import classNames from 'classnames'
 import Navigation from '@/components/ui/layout/Navigation'
 type TypeProps = {
 	className?: string
 }
-import {
-	disableBodyScroll,
-	enableBodyScroll,
-} from 'body-scroll-lock'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 const Header = ({ className }: TypeProps) => {
+	const router = useRouter()
 	const [open, setOpen] = useState(false)
-	let navigation:HTMLElement | null = null
+	let navigation: HTMLElement | null = null
 	if (typeof document !== 'undefined') {
-		navigation = document.getElementById('navigation');
+		navigation = document.getElementById('navigation')
 	}
+
+	useEffect(() => {
+		router.events.on('routeChangeStart', handleOnEnable)
+	}, [])
+
 	const handleOnDisable = () => {
-		if(!navigation) return
+		if (!navigation) return
 		disableBodyScroll(navigation)
 	}
 
@@ -36,7 +40,7 @@ const Header = ({ className }: TypeProps) => {
 	 */
 	const close = () => {
 		setOpen(false)
-		handleOnEnable();
+		handleOnEnable()
 	}
 
 	const CloseButton = () => {
