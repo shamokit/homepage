@@ -152,7 +152,7 @@ const Index = ({
 								<AppBtn01 href="/books/">Books</AppBtn01>
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
-								<AppHead01 text="Diaries" />
+								<AppHead01 text="Diaries" lead="shamokit/diaries" />
 								{allDiaries.length > 0 && (
 									<ul className="grid">
 										{allDiaries.map((post) => {
@@ -160,7 +160,7 @@ const Index = ({
 										})}
 									</ul>
 								)}
-								<AppBtn01 href="/diaries/">Diaries</AppBtn01>
+								<AppBtn01 href="/diaries/" outerLink>Diaries</AppBtn01>
 							</section>
 						</div>
 					</Container>

@@ -7,9 +7,30 @@ type TypeProps = {
 	closeButton: JSX.Element
 }
 import { BLOG_DOMAIN } from 'config/constants'
-const cats = ['profile', 'posts', 'books', 'diaries'] as const
-const list: (LinkProps & { name: typeof cats[number] })[] = cats.map((cat) => ({
-	name: cat,
+const cats = [
+	{
+		name: 'profile',
+		outerLink: false,
+	},
+	{
+		name: 'posts',
+		outerLink: false,
+	},
+	{
+		name: 'books',
+		outerLink: false,
+	},
+	{
+		name: 'diaries',
+		outerLink: true,
+	},
+] as const
+const list: (LinkProps & {
+	name: typeof cats[number]['name']
+	outerLink: boolean
+})[] = cats.map((cat) => ({
+	name: cat.name,
+	outerLink: cat.outerLink,
 	href: `${BLOG_DOMAIN}/${cat}/`,
 }))
 let navigation: HTMLElement | null = null
@@ -44,15 +65,27 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 									itemScope
 									itemType="http://schema.org/WebPage"
 								>
-									<Link href={`${item.href}`}>
-										<a
-											className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
-											itemProp="url"
-										>
-											<span itemProp="name">{item.name}</span>
-											<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
-										</a>
-									</Link>
+									{item.outerLink
+									?
+									<a
+										className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
+										itemProp="url"
+										href={`${item.href}`}
+									>
+										<span itemProp="name">{item.name}</span>
+										<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
+									</a>
+									:
+										<Link href={`${item.href}`}>
+											<a
+												className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
+												itemProp="url"
+											>
+												<span itemProp="name">{item.name}</span>
+												<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
+											</a>
+										</Link>
+									}
 								</li>
 							)
 						})}
