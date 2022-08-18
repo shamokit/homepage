@@ -31,7 +31,7 @@ const list: (LinkProps & {
 })[] = cats.map((cat) => ({
 	name: cat.name,
 	outerLink: cat.outerLink,
-	href: `${BLOG_DOMAIN}/${cat}/`,
+	href: `${BLOG_DOMAIN}/${cat.name}/`,
 }))
 let navigation: HTMLElement | null = null
 if (typeof document !== 'undefined') {
@@ -76,7 +76,7 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 										<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
 									</a>
 									:
-										<Link href={item.href.toString()}>
+										<Link href={item.href}>
 											<a
 												className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
 												itemProp="url"
