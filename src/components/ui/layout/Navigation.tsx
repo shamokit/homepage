@@ -70,13 +70,13 @@ const Navigation = ({ open, closeButton }: TypeProps) => {
 									<a
 										className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
 										itemProp="url"
-										href={`${item.href}`}
+										href={item.href.toString()}
 									>
 										<span itemProp="name">{item.name}</span>
 										<span className="absolute left-0 bottom-1 right-0 h-[1px] bg-accent scale-0 origin-bottom-right transition-transform ease-in-out duration-300 border-current text-current group-hover:scale-100 group-hover:origin-bottom-left will-change-transform"></span>
 									</a>
 									:
-										<Link href={`${item.href}`}>
+										<Link href={item.href.toString()}>
 											<a
 												className="group relative flex items-center py-2 transition-all capitalize overflow-hidden"
 												itemProp="url"

@@ -21,6 +21,7 @@ export const AppBtn01 = ({ children, href, outerLink }: TypeProps) => {
 						'transition-colors ease-out',
 						'gradation-r',
 					])}
+					href={href.toString()}
 				>
 					<div
 						className={classNames([
@@ -39,7 +40,7 @@ export const AppBtn01 = ({ children, href, outerLink }: TypeProps) => {
 					/>
 				</a>
 			) : (
-				<Link href={href}>
+				<Link href={href.toString()}>
 					<a
 						className={classNames([
 							'group',
