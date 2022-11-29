@@ -14,7 +14,6 @@ import { AppBtn01 } from '@/components/ui/button/AppBtn01'
 import { BLOG_DOMAIN } from 'config/constants'
 type TypeProps = {
 	posts: TypePost[]
-	books: TypePost[]
 	allDiaries: TypeDiary[]
 	mainCopyContentHtml: any
 	tagsInPosts: (TagType & { count: number })[]
@@ -32,7 +31,6 @@ const breadcrumb = [
 ]
 const Index = ({
 	posts,
-	books,
 	allDiaries,
 	mainCopyContentHtml,
 	tagsInPosts,
@@ -121,35 +119,6 @@ const Index = ({
 									</section>
 								)}
 								<AppBtn01 href="/posts/">Posts</AppBtn01>
-							</section>
-							<section className="grid gap-8 md:gap-12 lg:gap-20">
-								<AppHead01 text="Books" />
-								{books.length > 0 && (
-									<ul className="grid lg:grid-cols-2 gap-2 lg:gap-4">
-										{books.map((book) => {
-											return <PostBook {...book} key={book.slug} />
-										})}
-									</ul>
-								)}
-								<section>
-									<AppHead02 text="Tag" />
-									{tagsInBooks && tagsInBooks.length > 0 && (
-										<ul className="flex flex-wrap mt-6 -mr-2 -mb-2">
-											{tagsInBooks.map((tag) => {
-												return (
-													<li key={tag.id} className="mr-2 mb-2">
-														<TagItem
-															id={tag.id}
-															dirName="books"
-															count={tag.count}
-														/>
-													</li>
-												)
-											})}
-										</ul>
-									)}
-								</section>
-								<AppBtn01 href="/books/">Books</AppBtn01>
 							</section>
 							<section className="grid gap-8 md:gap-12 lg:gap-20">
 								<AppHead01 text="Diaries" lead="shamokit/diaries" />
