@@ -86,6 +86,8 @@ import { newtClient } from '@/lib/newt'
 export const getStaticProps = async ({ params }: Params) => {
 	let year = Number(params.year)
 	let month = Number(params.month)
+	let gte = new Date(`${year.toString()}-${month.toString()}`).toISOString()
+	let lt = month === 12 ? new Date(`${(year + 1).toString()}-${"1"}`.toString()).toISOString() : new Date(`${year.toString()}-${(month + 1).toString()}`.toString()).toISOString()
 	const allPosts = await newtClient
 		.getContents<TypeDiary>({
 			appUid: 'diary',
@@ -94,10 +96,8 @@ export const getStaticProps = async ({ params }: Params) => {
 				depth: 2,
 				limit: 62,
 				date: {
-					gte: new Date(`${year.toString()}-${month.toString()}`).toISOString(),
-					lt: new Date(
-						`${year.toString()}-${(month + 1).toString()}`.toString()
-					).toISOString(),
+					gte,
+					lt,
 				},
 			},
 		})
