@@ -27,7 +27,7 @@
 </script>
 
 <header
-	class="fixed top-0 left-0 right-0 flex items-center h-[var(--header-height)] px-2 lg:px-10 bg-blend-overlay shadow-sm backdrop-blur-sm"
+	class="fixed top-0 left-0 right-0 flex items-center h-[var(--header-height)] px-2 lg:px-10 bg-blend-overlay backdrop-blur-sm bg-surface-100"
 >
 	<h1 class="relative z-10">
 		<a
