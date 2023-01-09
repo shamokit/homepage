@@ -94,7 +94,7 @@
 		@mixin mq-up lg {
 			--base--font-size: var(--base--font-size--lg);
 		}
-		--text-xxxs: calc(var(--text-xxxs) - 1px);
+		--text-xxxs: calc(var(--text-xxs) - 1px);
 		--text-xxs: calc(var(--text-xs) - 1px);
 		--text-xs: calc(var(--text-sm) - 2px);
 		--text-sm: calc(var(--text-md) - 2px);
