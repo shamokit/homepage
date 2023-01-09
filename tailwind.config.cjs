@@ -74,6 +74,7 @@ module.exports = {
 			sm: 'var(--border-radius-sm)',
 			md: 'var(--border-radius-md)',
 			lg: 'var(--border-radius-lg)',
+			full: 'var(--border-radius-full)',
 		},
 		opacity: {
 			'0': '0',
@@ -126,7 +127,7 @@ module.exports = {
 			'accent-700': withOpacityValue('--color-accent-700'),
 			'accent-800': withOpacityValue('--color-accent-800'),
 			'accent-900': withOpacityValue('--color-accent-900'),
-			currentColor: 'currentColor',
+			current: 'currentColor',
 			transparent: 'transparent',
 		},
 		extend: {
