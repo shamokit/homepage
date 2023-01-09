@@ -11,6 +11,12 @@
 		}
 	}
 	onMount(() => {
+		windowWidth = document.body.getBoundingClientRect().width
+		if(windowWidth >= BREAK_POINTS.lg) {
+			open = true
+		} else {
+			open = false
+		}
 		const resizeObserver = new ResizeObserver((entries) => {
 			const entry = entries.at(0);
 			if (!entry) return;
