@@ -118,5 +118,9 @@
 		--border-radius-lg: 6px;
 		--border-radius-full: 999px;
 
+		--header-height: 60px;
+		@mixin mq-up lg {
+			--header-height: 110px;
+		}
 	}
 }
