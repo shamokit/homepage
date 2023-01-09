@@ -12,8 +12,7 @@
 	}
 	export { className as class };
 </script>
-
-<nav id="globalNavigation" class={className ?? undefined} aria-hidden={!open}>
+<nav id="globalNavigation" class={className ?? undefined} aria-hidden={open ? null : 'true'}>
 	<ul
 		class="flex flex-col lg:flex-row lg:justify-end lg:items-center py-5 lg:py-0 px-5 lg:px-0 gap-5 font-bold"
 	>
@@ -21,7 +20,7 @@
 			<li>
 				<a
 					href={link.slug}
-					class="flex items-center gap-1.5 py-1 lg:py-3 transition-all hover:text-accent-500 hover:underline-offset-8 hover:underline"
+					class="flex items-center gap-1.5 py-1 lg:py-3 transition-all hover:text-secondary-500 hover:underline-offset-8 hover:underline"
 					aria-current={$page.url.pathname === link.slug ? 'page' : undefined}
 					on:click={onClick}
 				>
@@ -37,6 +36,6 @@
 
 <style>
 	[aria-current] {
-		@apply text-accent-500 underline-offset-8 underline;
+		@apply text-secondary-500 underline-offset-8 underline;
 	}
 </style>
