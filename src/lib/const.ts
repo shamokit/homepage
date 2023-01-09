@@ -32,3 +32,26 @@ export const BREAK_POINTS = {
 	xl: 1280,
 	xlx: 1536,
 } as const
+
+export const contactList = {
+	qiita: {
+		name: 'Qiita',
+		url: 'https://qiita.com/shamokit'
+	},
+	zenn: {
+		name: 'Zenn',
+		url: 'https://zenn.dev/shamokit'
+	},
+	instagram: {
+		name: 'Instagram',
+		url: 'https://www.instagram.com/hokke_to_unagi/'
+	},
+	twitter: {
+		name: 'Twitter',
+		url: 'https://twitter.com/shamokit_y2323'
+	},
+	github: {
+		name: 'GitHub',
+		url: 'https://github.com/shamokit'
+	},
+ } as const
