@@ -139,6 +139,7 @@ module.exports = {
 			fontFamily: {
 				base: [
 					'Arial',
+					'Zen Kaku Gothic New',
 					'Hiragino Kaku Gothic ProN',
 					'Hiragino Sans',
 					'Meiryo',
