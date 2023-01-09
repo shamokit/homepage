@@ -11,7 +11,12 @@ module.exports = {
 	content: [
 		'./src/**/*.{html,js,ts,svelte}',
 	],
+
 	theme: {
+		container: {
+			center: true,
+			padding: 'var(--container-side-padding)'
+		},
 		fontSize: {
 			xxxs: ['var(--text-xxxs)', {
 				lineHeight: 'var(--line-height-xs)',
@@ -62,7 +67,7 @@ module.exports = {
 		screens: {
 			sm: '640px',
 			md: '768px',
-			lg: '1024px',
+			lg: '1120px',
 			xl: '1280px',
 		},
 		letterSpacing: {
