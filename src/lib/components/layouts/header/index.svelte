@@ -67,7 +67,7 @@
 			class={`absolute lg:static top-0 left-0 right-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] lg:pt-0 transition-opacity bg-surface-100 lg:bg-transparent ${
 				open ? 'visible opacity-100' : 'invisible opacity-0'
 			}`}
-			open={!open}
+			open={open}
 			on:menuClose={closeMenu}
 		/>
 	</div>
