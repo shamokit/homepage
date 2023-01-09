@@ -1,0 +1,122 @@
+@import './mixin/_mediaQuery.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+	/* Typograpy */
+	body {
+		@apply text-md text-primary-500;
+	}
+
+	* {
+		@apply tracking-md;
+	}
+
+	/* Image */
+	img {
+		@apply object-cover;
+	}
+
+	/* a11y */
+	input,
+	select,
+	textarea {
+		@apply border border-solid border-primary-500;
+	}
+
+	:is(a,
+	input,
+	select,
+	textarea,
+	button,
+	details,
+	[tabindex]):focus-visible {
+		outline: 2px solid rgb(var(--color--focus));
+	}
+
+	[aria-current] {
+		@apply font-bold;
+	}
+
+	summary {
+		@apply block;
+	}
+
+	summary,
+	button {
+		@apply cursor-pointer;
+	}
+
+	:root {
+		--color-surface-100: 255 255 255;
+		--color-surface-300: 250 250 248;
+		--color-surface-500: 244 244 237;
+		--color-surface-700: 238 238 226;
+		--color-surface-900: 231 231 216;
+
+		--color-primary-100: 49 84 101;
+		--color-primary-200: 44 75 89;
+		--color-primary-300: 38 65 78;
+		--color-primary-400: 33 56 66;
+		--color-primary-500: 27 46 55;
+		--color-primary-600: 21 36 44;
+		--color-primary-700: 16 27 32;
+		--color-primary-800: 10 17 21;
+		--color-primary-900: 5 8 9;
+
+		--color-secondary-100: 20 126 166;
+		--color-secondary-200: 19 115 150;
+		--color-secondary-300: 17 103 135;
+		--color-secondary-400: 15 92 120;
+		--color-secondary-500: 13 80 105;
+		--color-secondary-600: 11 68 90;
+		--color-secondary-700: 9 57 75;
+		--color-secondary-800: 7 45 60;
+		--color-secondary-900: 6 34 44;
+
+		--color-accent-100: 127 200 246;
+		--color-accent-200: 111 193 245;
+		--color-accent-300: 95 187 244;
+		--color-accent-400: 79 180 243;
+		--color-accent-500: 63 173 242;
+		--color-accent-600: 47 166 241;
+		--color-accent-700: 31 159 240;
+		--color-accent-800: 16 152 238;
+		--color-accent-900: 15 142 222;
+
+		--base--font-size--sm: calc(1.4rem / 1.6);
+		--base--font-size--md: calc(1.4rem / 1.6);
+		--base--font-size--lg: calc(1.6rem / 1.6);
+		--base--font-size: var(--base--font-size--sm);
+		@mixin mq-up md {
+			--base--font-size: var(--base--font-size--md);
+		}
+		@mixin mq-up lg {
+			--base--font-size: var(--base--font-size--lg);
+		}
+		--text-xxxs: calc(var(--text-xxxs) - 1px);
+		--text-xxs: calc(var(--text-xs) - 1px);
+		--text-xs: calc(var(--text-sm) - 2px);
+		--text-sm: calc(var(--text-md) - 2px);
+		--text-md: var(--base--font-size);
+		--text-lg: calc(var(--text-md) + 2px);
+		--text-xl: calc(var(--text-lg) + 2px);
+		--text-xxl: calc(var(--text-xl) + 4px);
+		--text-xxxl: calc(var(--text-xxl) + 2px);
+
+		--line-height-xs: 1.1;
+		--line-height-sm: 1.5;
+		--line-height-md: 1.8;
+		--line-height-lg: 2;
+
+		--letter-spacing-sm: .01em;
+		--letter-spacing-md: .05em;
+		--letter-spacing-lg: .1em;
+
+		--border-radius-sm: 2px;
+		--border-radius-md: 3px;
+		--border-radius-lg: 6px;
+		--border-radius-full: 999px;
+
+	}
+}
