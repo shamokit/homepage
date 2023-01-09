@@ -28,7 +28,7 @@ export const BREAK_POINTS = {
 	min: 375,
 	sm: 600,
 	md: 768,
-	lg: 1024,
+	lg: 1120,
 	xl: 1280,
 	xlx: 1536,
 } as const
