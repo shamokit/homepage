@@ -4,7 +4,7 @@
 	import Header from '$lib/components/layouts/header/index.svelte'
 </script>
 <Svg />
-<div class="pt-[var(--header-height)]">
+<div class="pt-[var(--header-height)] bg-surface-300">
 	<Header />
 	<slot />
 </div>
