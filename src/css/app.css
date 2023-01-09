@@ -123,7 +123,7 @@
 			--header-height: 110px;
 		}
 
-		--container-side-padding: 1em;
+		--container-side-padding: 1.5em;
 		@mixin mq-up lg {
 			--container-side-padding: 2em;
 		}
