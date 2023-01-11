@@ -33,12 +33,12 @@
 </script>
 
 <header
-	class="fixed top-0 left-0 right-0 flex items-center h-[var(--header-height)] px-2 lg:px-10 bg-blend-overlay backdrop-blur-sm bg-surface-100"
+	class="fixed top-0 left-0 right-0 z-10 flex items-center h-[var(--header-height)] px-2 lg:px-5 bg-blend-overlay backdrop-blur-sm bg-surface-100"
 >
 	<h1 class="relative z-10">
 		<a
 			href="/"
-			class="flex items-center gap-2 text-primary-500 text-sm lg:text-md transition-colors hover:text-accent-500"
+			class="flex items-center gap-2 lg:pl-2.5 lg:pr-5 text-primary-500 text-sm lg:text-md transition-colors rounded-full hover:text-accent-500"
 			on:click={closeMenu}
 		>
 			<span class="block w-10 lg:w-14 shrink-0 p-1 lg:p-2"><Logo /></span>
@@ -70,7 +70,7 @@
 			/>
 		</button>
 		<Navigation
-			class={`absolute lg:static top-0 left-0 right-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] lg:pt-0 transition-opacity bg-surface-100 lg:bg-transparent ${
+			class={`absolute lg:static top-0 left-0 right-0 min-h-screen lg:min-h-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] lg:pt-0 transition-opacity bg-surface-100 lg:bg-transparent ${
 				open ? 'visible opacity-100' : 'invisible opacity-0'
 			}`}
 			open={open}
