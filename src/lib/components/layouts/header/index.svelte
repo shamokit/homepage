@@ -12,7 +12,7 @@
 	}
 	onMount(() => {
 		windowWidth = document.body.getBoundingClientRect().width
-		if(windowWidth >= BREAK_POINTS.lg) {
+		if(windowWidth >= BREAK_POINTS.md) {
 			open = true
 		} else {
 			open = false
@@ -21,7 +21,7 @@
 			const entry = entries.at(0);
 			if (!entry) return;
 			windowWidth = entry.contentBoxSize[0].inlineSize;
-			if (windowWidth >= BREAK_POINTS.lg) {
+			if (windowWidth >= BREAK_POINTS.md) {
 				if (!open) {
 					open = true;
 				}
@@ -33,22 +33,22 @@
 </script>
 
 <header
-	class="fixed top-0 left-0 right-0 z-10 flex items-center h-[var(--header-height)] px-2 lg:px-5 bg-blend-overlay backdrop-blur-sm bg-surface-100"
+	class="fixed top-0 left-0 right-0 z-10 flex items-center h-[var(--header-height)] px-2 md:px-5 bg-blend-overlay backdrop-blur-sm bg-surface-100"
 >
 	<h1 class="relative z-10">
 		<a
 			href="/"
-			class="flex items-center gap-2 lg:pl-2.5 lg:pr-5 text-primary-500 text-sm lg:text-md transition-colors rounded-full hover:text-accent-500"
+			class="flex items-center gap-2 md:pl-2.5 md:pr-5 text-primary-500 text-sm md:text-md transition-colors rounded-full hover:text-accent-500"
 			on:click={closeMenu}
 		>
-			<span class="block w-10 lg:w-14 shrink-0 p-1 lg:p-2"><Logo /></span>
+			<span class="block w-10 md:w-14 shrink-0 p-1 md:p-2"><Logo /></span>
 			<span class="font-bold">しゃもきっとブログ</span>
 		</a>
 	</h1>
 	<div class="ml-auto">
 		<button
 			type="button"
-			class="absolute z-10 top-1/2 -translate-y-1/2 right-2 grid place-items-center grid-cols-[1fr_12px_1fr] grid-rows-[1fr_2px_1fr] rounded-full bg-surface-500 lg:hidden w-10 h-10 text-primary-500"
+			class="absolute z-10 top-1/2 -translate-y-1/2 right-2 grid place-items-center grid-cols-[1fr_12px_1fr] grid-rows-[1fr_2px_1fr] rounded-full bg-surface-500 md:hidden w-10 h-10 text-primary-500"
 			on:click={() => (open = !open)}
 			aria-expanded={open}
 			aria-controls="globalNavigation"
@@ -70,7 +70,7 @@
 			/>
 		</button>
 		<Navigation
-			class={`absolute lg:static top-0 left-0 right-0 min-h-screen lg:min-h-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] lg:pt-0 transition-opacity bg-surface-100 lg:bg-transparent ${
+			class={`absolute md:static top-0 left-0 right-0 min-h-screen md:min-h-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] md:pt-0 transition-opacity bg-surface-100 md:bg-transparent ${
 				open ? 'visible opacity-100' : 'invisible opacity-0'
 			}`}
 			open={open}
