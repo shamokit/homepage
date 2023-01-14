@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>しゃもきっとブログ</title>
+	<title>{data.page.title}｜しゃもきっとブログ</title>
 	<meta name="description" content="しゃもきっとのエンジニアブログ" />
 </svelte:head>
 <Breadcrumbs breadcrumbs={[{
@@ -41,7 +41,7 @@
 						{#if childSection.fieldId === 'content' && childSection.content}
 							<div class="grid gap-[1.8em]">{@html childSection.content.replace(/\r?\n/g, '<br />')}</div>
 						{/if}
-						{#if childSection.toggle}
+						{#if childSection.fieldId === 'section' && childSection.toggle}
 							<details class="bg-surface-100 shadow-sm rounded-md overflow-hidden">
 								<summary
 									class="group flex items-center gap-5 py-3 px-5 bg-primary-500 text-surface-100 font-bold"
@@ -54,27 +54,27 @@
 										<span class="block group-open:hidden"><Ico name="add" /></span>
 									</span>
 								</summary>
-								<div class="p-8">
+								<div class="py-4 px-6">
 									{#if childSection.fieldId === 'section'}
 										{#each childSection.body as childSectionBody}
 											{#if childSectionBody.fieldId === 'histories'}
-												<table class="w-full">
-													<tbody>
-														{#each childSectionBody.history as history}
-															<tr
-																class="border-b border-primary-500 last-of-type:border-0 align-top"
-															>
-																<td class="w-16 py-4"
+												<ul>
+													{#each childSectionBody.history as history}
+														<li
+															class="py-4 border-b border-primary-500 last-of-type:border-0 align-top"
+														>
+															<div class="flex items-center">
+																<div class="mr-2 lg:mr-4"
 																	><span
-																		class="block w-7 h-7 border border-secondary-500 rounded-full"
-																	/></td
+																		class="block w-5 h-5 lg:w-7 lg:h-7 border border-secondary-500 rounded-full"
+																	/></div
 																>
-																<th class="w-32 py-4 font-normal text-left">{history.day}</th>
-																<td class="py-4">{@html history.content}</td>
-															</tr>
-														{/each}
-													</tbody>
-												</table>
+																<p class="text-sm font-normal text-left">{history.day}</p>
+															</div>
+															<p class="mt-2 lg:mt-4 text-sm">{@html history.content}</p>
+														</li>
+													{/each}
+												</ul>
 											{/if}
 										{/each}
 									{/if}

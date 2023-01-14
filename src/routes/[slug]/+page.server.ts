@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { client } from '$lib/functions/microcms';
-import type { StaticPageResponse } from '$lib/schema/staticPage';
+import { client } from '$lib/libs/microcms';
+import type { StaticPageResponse } from '$lib/schema/staticPage/staticPage';
 export const load = (async ({params}) => {
 	const pages = await client.getList<StaticPageResponse>({
 		endpoint: 'static_page',
@@ -12,10 +12,9 @@ export const load = (async ({params}) => {
 	})
 	const page = pages.contents[0]
 	if (page) {
-		console.log(page)
 		return {
 			page
 		};
 	}
-	throw error(400, 'エラー');
+	throw error(400, '記事を取得できませんでした。');
 }) satisfies PageServerLoad;
