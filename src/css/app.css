@@ -87,7 +87,7 @@
 
 		--base--font-size--sm: calc(1.4rem / 1.6);
 		--base--font-size--md: calc(1.4rem / 1.6);
-		--base--font-size--lg: calc(1.6rem / 1.7);
+		--base--font-size--lg: calc(1.4rem / 1.6 + 2px);
 		--base--font-size: var(--base--font-size--sm);
 		@mixin mq-up md {
 			--base--font-size: var(--base--font-size--md);
