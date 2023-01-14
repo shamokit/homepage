@@ -13,27 +13,27 @@
 		<div class="flex flex-col gap-3 md:flex-row md:items-end">
 			<ul class="flex gap-x-3 md:order-1 -mx-1">
 				<li>
-					<a href={contactList.qiita.url} target="_blank" rel="noopener noreferrer" class="block w-7 p-1 md:w-12 rounded-full transition-opacity hover:opacity-80"
+					<a href={contactList.qiita.url} target="_blank" rel="noopener noreferrer" class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={qiita} alt={contactList.qiita.name} width="40" height="40" /></a
 					>
 				</li>
 				<li>
-					<a href={contactList.zenn.url} target="_blank" rel="noopener noreferrer" class="block w-7 p-1 md:w-12 rounded-full transition-opacity hover:opacity-80"
+					<a href={contactList.zenn.url} target="_blank" rel="noopener noreferrer" class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={zenn} alt={contactList.zenn.name} width="40" height="40" /></a
 					>
 				</li>
 				<li>
-					<a href={contactList.instagram.url} target="_blank" rel="noopener noreferrer" class="block w-7 p-1 md:w-12 rounded-full transition-opacity hover:opacity-80"
+					<a href={contactList.instagram.url} target="_blank" rel="noopener noreferrer" class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={instagram} alt={contactList.instagram.name} width="40" height="40" /></a
 					>
 				</li>
 				<li>
-					<a href={contactList.twitter.url} target="_blank" rel="noopener noreferrer" class="block w-7 p-1 md:w-12 rounded-full transition-opacity hover:opacity-80"
+					<a href={contactList.twitter.url} target="_blank" rel="noopener noreferrer" class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={twitter} alt={contactList.twitter.name} width="40" height="40" /></a
 					>
 				</li>
 				<li>
-					<a href={contactList.github.url} target="_blank" rel="noopener noreferrer" class="block w-7 p-1 md:w-12 rounded-full transition-opacity hover:opacity-80"
+					<a href={contactList.github.url} target="_blank" rel="noopener noreferrer" class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={github} alt={contactList.github.name} width="40" height="40" /></a
 					>
 				</li>
