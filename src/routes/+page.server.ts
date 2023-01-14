@@ -17,10 +17,12 @@ export const load = (async () => {
 	}>(instagramUrl);
 
 	const parser = new Parser<{
-		id: string,
-		link: string,
-		title: string,
-		isoDate: string,
+		items: {
+			id: string,
+			link: string,
+			title: string,
+			isoDate: string,
+		}[]
 	}>();
 	const qiita = await parser.parseURL('https://qiita.com/shamokit/feed.atom');
 	const zenn = await parser.parseURL('https://zenn.dev/shamokit/feed');
