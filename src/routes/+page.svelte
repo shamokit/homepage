@@ -2,7 +2,7 @@
 	import Head01 from '$lib/components/heading/head01/index.svelte';
 	import Head02 from '$lib/components/heading/head02/index.svelte';
 	import LinkButton from '$lib/components/button/linkButton/index.svelte';
-	import Post from '$lib/components/post/index.svelte';
+	import Posts from '$lib/components/post/posts.svelte';
 	import { contactList } from '$lib/const';
 	import type { PageData } from './$types';
 	import zenn from '$lib/assets/zenn.png';
@@ -30,13 +30,7 @@
 							<LinkButton href={contactList.zenn.url}>Zenn記事一覧</LinkButton>
 						</svelte:fragment>
 					</Head02>
-					<ul class="grid gap-3">
-						{#each data.zenn as post}
-							<li>
-								<Post url={post.link} title={post.title} date={post.isoDate} />
-							</li>
-						{/each}
-					</ul>
+					<Posts posts={data.zenn} />
 				</section>
 			{/if}
 			{#if data.qiita.length > 0}
@@ -49,13 +43,7 @@
 							<LinkButton href={contactList.qiita.url}>Qiita記事一覧</LinkButton>
 						</svelte:fragment>
 					</Head02>
-					<ul class="grid gap-3">
-						{#each data.qiita as post}
-							<li>
-								<Post url={post.link} title={post.title} date={post.isoDate} />
-							</li>
-						{/each}
-					</ul>
+					<Posts posts={data.qiita} />
 				</section>
 			{/if}
 		</div>
