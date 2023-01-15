@@ -6,7 +6,7 @@
 	let windowWidth: number = 0;
 	$: open = false;
 	const closeMenu = () => {
-		if (windowWidth < BREAK_POINTS.lg) {
+		if (windowWidth < BREAK_POINTS.md) {
 			open = false
 		}
 	}
