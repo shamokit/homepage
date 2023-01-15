@@ -1,0 +1,19 @@
+<script lang="ts">
+	import Head01 from '$lib/components/heading/head01/index.svelte';
+	import Thinkings from '$lib/components/thinking/thinkings.svelte';
+	import type { PageData } from './$types';
+	export let data: PageData;
+</script>
+
+<svelte:head>
+	<title>Thinking｜しゃもきっとブログ</title>
+	<meta name="description" content="本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。" />
+</svelte:head>
+<section>
+	<div class="grid gap-8 container py-16 lg:py-28">
+		<Head01 title="Thinking">
+			<p>本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。</p>
+		</Head01>
+		<Thinkings thinkings={data.thinkings.contents} />
+	</div>
+</section>

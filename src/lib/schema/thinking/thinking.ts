@@ -8,4 +8,5 @@ export type ThinkingResponse = {
 	sections: ({ fieldId: 'section' } & Section)[];
 	meta?: ({ fieldId: "meta" } & Meta);
 	tag?: Tag;
+	relations?: ThinkingResponse[];
 } & MicroCMSListContent;
