@@ -9,7 +9,7 @@
 	import qiita from '$lib/assets/qiita.png';
   import Thinkings from '$lib/components/thinking/thinkings.svelte';
   import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
-	import { env } from '$env/dynamic/private';
+	import { SITE_URL } from '$lib/const';
 	export let data: PageData;
 </script>
 
@@ -17,8 +17,8 @@
 	<title>しゃもきっとブログ</title>
 	<meta name="description" content="しゃもきっとのエンジニアブログ" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content={env.SITE_URL} />
-	<meta name="og:image" content={`${env.SITE_URL}/ogpImage.png`} />
+	<meta property="og:url" content={SITE_URL} />
+	<meta name="og:image" content={`${SITE_URL}/ogpImage.png`} />
 	<meta name="og:title" content="しゃもきっとブログ" />
 	<meta name="og:description" content="しゃもきっとのエンジニアブログ" />
 </svelte:head>

@@ -4,6 +4,7 @@ export type Link = {
 	slug: string;
 	iconName?: IconNames[number];
 }
+export const SITE_URL = "https://shamokit.com"
 export const links: Link[] = [
 	{
 		name: 'Home',
