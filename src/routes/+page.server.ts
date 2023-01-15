@@ -2,7 +2,6 @@ import { error } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import type { PageServerLoad } from './$types';
 import axios from 'axios';
-import Parser from "rss-parser"
 import { client } from '$lib/libs/microcms';
 
 export const load = (async () => {
@@ -18,16 +17,16 @@ export const load = (async () => {
 		};
 	}>(instagramUrl);
 
-	const parser = new Parser<{
+	type Posts = {
 		items: {
 			id: string,
 			link: string,
 			title: string,
 			isoDate: string,
 		}[]
-	}>();
-	const qiita = await parser.parseURL('https://qiita.com/shamokit/feed.atom');
-	const zenn = await parser.parseURL('https://zenn.dev/shamokit/feed');
+	}
+	const qiita = await axios.get<Posts>('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fqiita.com%2Fshamokit%2Ffeed.atom');
+	const zenn = await axios.get<Posts>('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fzenn.dev%2Fshamokit%2Ffeed');
 	const postNum = 4;
 
 	const thinkings = await client.getList({
@@ -40,8 +39,8 @@ export const load = (async () => {
 		return {
 			thinkings: thinkings,
 			photos: photos.data.media,
-			zenn: zenn.items.slice(0, postNum),
-			qiita: qiita.items.slice(0, postNum),
+			zenn: zenn.data.items.slice(0, postNum),
+			qiita: qiita.data.items.slice(0, postNum),
 		};
 	}
 	throw error(400, 'エラー');
