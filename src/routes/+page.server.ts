@@ -3,7 +3,7 @@ import { env } from '$env/dynamic/private';
 import type { PageServerLoad } from './$types';
 import axios from 'axios';
 import { client } from '$lib/libs/microcms';
-
+export const prerender = true
 export const load = (async () => {
 	const { INSTAGRAM_BUSINESS_ACCOUNT_ID, INSTAGRAM_ACCESS_TOKEN } = env;
 	const instagramUrl = `https://graph.facebook.com/v15.0/${INSTAGRAM_BUSINESS_ACCOUNT_ID}?fields=name,media.limit(12){media_url,permalink}&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
