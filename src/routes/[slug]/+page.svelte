@@ -2,26 +2,35 @@
 	import Breadcrumbs from '$lib/components/layouts/breadcrumbs/index.svelte'
 	import MailVisual from '$lib/components/layouts/mainVisual/index.svelte';
 	import Section from '$lib/components/staticPage/section.svelte';
+	import { SITE_URL } from '$lib/const';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
 
 <svelte:head>
 	<title>{data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`}</title>
-	<meta name="description" content={data.page.meta?.description ?? `${data.page.title}ページ｜しゃもきっとブログ`} />
+	<meta name="description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content={`${SITE_URL}/thinking`} />
+	<meta name="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta name="og:title" content={data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`} />
+	<meta name="og:description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
+	<link rel="canonical" href={`${SITE_URL}/${data.page.slug}`}>
 </svelte:head>
 <Breadcrumbs breadcrumbs={[{
 	name: data.page.title,
 	slug: `/${data.page.slug}`
 }]} />
-<article>
-	<div class="h-8 md:h-14 lg:h-28" />
-	<MailVisual title={data.page.title} lead={data.page.lead.lead} />
-	<div class="h-4 md:h-8 lg:h-16" />
-	<div class="container">
-		{#each data.page.body.body as section}
-			<Section section={section} />
-		{/each}
-	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
-</article>
+<main>
+	<article>
+		<div class="h-8 md:h-14 lg:h-28" />
+		<MailVisual title={data.page.title} lead={data.page.lead.lead} />
+		<div class="h-4 md:h-8 lg:h-16" />
+		<div class="container">
+			{#each data.page.body.body as section}
+				<Section section={section} />
+			{/each}
+		</div>
+		<div class="h-8 md:h-14 lg:h-28" />
+	</article>
+</main>
