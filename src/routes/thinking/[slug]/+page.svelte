@@ -25,56 +25,58 @@
 	name: data.thinking.title,
 	slug: `/thinking/${data.thinking.slug}`
 }]} />
-<article>
-	<div class="h-8 md:h-14 lg:h-28" />
-	<div class="grid grid-cols-1 gap-10 md:gap-12 lg:gap-16 container">
-		<header class="grid grid-cols-1 gap-2.5">
-			<h1 class="text-xxl">{data.thinking.title}</h1>
-			<Dates publishedDate={data.thinking.publishedAt} updatedDate={data.thinking.updatedAt} />
-		</header>
-		<div class="py-8 px-6 md:p-8 lg:p-10 rounded-md bg-surface-100">
-			{#each data.thinking.sections as section}
-				<section>
-					<h2 class="text-xxl">{section.title}</h2>
-					<div class="h-6 lg:h-8"></div>
-					{#each section.contents as content}
-						{#if content.fieldId === 'contents'}
-							{@html content.body}
-						{/if}
-						{#if content.fieldId === 'section'}
-							<section class="py-10 last-of-type:pb-0">
-								<h3 class="text-xl">{content.title}</h3>
-								<div class="h-3 lg:h-5"></div>
-								{#each content.contents as childContent}
-									{#if childContent.fieldId === 'contents'}
-										{@html childContent.body}
-									{/if}
-									{#if childContent.fieldId === 'section'}
-										<section class="py-6 lg:py-8 last-of-type:pb-0">
-											<div class="pt-[1em]">
-												<div class="px-6 pb-6 bg-surface-500 rounded-md">
-													<h4 class="translate-y-[-1em] w-fit mb-[0.5em] py-1 px-4 rounded-md text-md bg-secondary-500 text-surface-100">{childContent.title}</h4>
-													<div class="grid grid-cols-1 gap-[1em]">
-														{#each childContent.contents as grandChildContent}
-															{#if grandChildContent.fieldId === 'contents'}
-																<Wysiwyg content={grandChildContent.body} />
-															{/if}
-														{/each}
+<main>
+	<article>
+		<div class="h-8 md:h-14 lg:h-28" />
+		<div class="grid grid-cols-1 gap-10 md:gap-12 lg:gap-16 container">
+			<header class="grid grid-cols-1 gap-2.5">
+				<h1 class="text-xxl">{data.thinking.title}</h1>
+				<Dates publishedDate={data.thinking.publishedAt} updatedDate={data.thinking.updatedAt} />
+			</header>
+			<div class="py-8 px-6 md:p-8 lg:p-10 rounded-md bg-surface-100">
+				{#each data.thinking.sections as section}
+					<section>
+						<h2 class="text-xxl">{section.title}</h2>
+						<div class="h-6 lg:h-8"></div>
+						{#each section.contents as content}
+							{#if content.fieldId === 'contents'}
+								{@html content.body}
+							{/if}
+							{#if content.fieldId === 'section'}
+								<section class="py-10 last-of-type:pb-0">
+									<h3 class="text-xl">{content.title}</h3>
+									<div class="h-3 lg:h-5"></div>
+									{#each content.contents as childContent}
+										{#if childContent.fieldId === 'contents'}
+											{@html childContent.body}
+										{/if}
+										{#if childContent.fieldId === 'section'}
+											<section class="py-6 lg:py-8 last-of-type:pb-0">
+												<div class="pt-[1em]">
+													<div class="px-6 pb-6 bg-surface-500 rounded-md">
+														<h4 class="translate-y-[-1em] w-fit mb-[0.5em] py-1 px-4 rounded-md text-md bg-secondary-500 text-surface-100">{childContent.title}</h4>
+														<div class="grid grid-cols-1 gap-[1em]">
+															{#each childContent.contents as grandChildContent}
+																{#if grandChildContent.fieldId === 'contents'}
+																	<Wysiwyg content={grandChildContent.body} />
+																{/if}
+															{/each}
+														</div>
 													</div>
 												</div>
-											</div>
-										</section>
-									{/if}
-								{/each}
-							</section>
-						{/if}
-					{/each}
-				</section>
-			{/each}
+											</section>
+										{/if}
+									{/each}
+								</section>
+							{/if}
+						{/each}
+					</section>
+				{/each}
+			</div>
 		</div>
-	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
-</article>
+		<div class="h-8 md:h-14 lg:h-28" />
+	</article>
+</main>
 {#if data.thinking.relations}
 	<section class="grid gap-5 bg-surface-500">
 		<div class="h-10 md:h-12 lg:h-16"></div>
