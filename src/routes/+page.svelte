@@ -22,9 +22,9 @@
 	<meta name="description" content="しゃもきっとのエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={SITE_URL} />
-	<meta name="og:image" content={`${SITE_URL}/ogpImage.png`} />
-	<meta name="og:title" content="しゃもきっとブログ" />
-	<meta name="og:description" content="しゃもきっとのエンジニアブログ" />
+	<meta property="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta property="og:title" content="しゃもきっとブログ" />
+	<meta property="og:description" content="しゃもきっとのエンジニアブログ" />
 	<link rel="canonical" href={SITE_URL}>
 </svelte:head>
 <main>

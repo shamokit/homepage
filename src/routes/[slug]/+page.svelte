@@ -12,9 +12,9 @@
 	<meta name="description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking`} />
-	<meta name="og:image" content={`${SITE_URL}/ogpImage.png`} />
-	<meta name="og:title" content={data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`} />
-	<meta name="og:description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
+	<meta property="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta property="og:title" content={data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`} />
+	<meta property="og:description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<link rel="canonical" href={`${SITE_URL}/${data.page.slug}`}>
 </svelte:head>
 <Breadcrumbs breadcrumbs={[{

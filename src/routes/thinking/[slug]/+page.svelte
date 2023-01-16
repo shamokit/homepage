@@ -13,9 +13,9 @@
 	<meta name="description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking/${data.thinking.slug}`} />
-	<meta name="og:image" content={`${SITE_URL}/ogpImage.png`} />
-	<meta name="og:title" content={data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
-	<meta name="og:description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
+	<meta property="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta property="og:title" content={data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
+	<meta property="og:description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
 	<link rel="canonical" href={`${SITE_URL}/thinking/${data.thinking.slug}`}>
 </svelte:head>
 <Breadcrumbs breadcrumbs={[{
