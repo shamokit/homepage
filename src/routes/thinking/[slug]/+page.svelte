@@ -3,13 +3,20 @@
 	import Dates from '$lib/components/date/dates.svelte';
 	import Thinkings from '$lib/components/thinking/thinkings.svelte';
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
+	import { SITE_URL } from '$lib/const';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
 
 <svelte:head>
-	<title>{data.thinking.title}｜Thinking｜しゃもきっとブログ</title>
-	<meta name="description" content="しゃもきっとのエンジニアブログ" />
+	<title>{data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`}</title>
+	<meta name="description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content={`${SITE_URL}/thinking/${data.thinking.slug}`} />
+	<meta name="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta name="og:title" content={data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
+	<meta name="og:description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
+	<link rel="canonical" href={`${SITE_URL}/thinking/${data.thinking.slug}`}>
 </svelte:head>
 <Breadcrumbs breadcrumbs={[{
 	name: 'Thinking',
