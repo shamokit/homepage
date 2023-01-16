@@ -22,13 +22,13 @@ export const load = (async () => {
 			id: string,
 			link: string,
 			title: string,
-			isoDate: string,
+			pubDate: string,
 		}[]
 	}
 	const qiita = await axios.get<Posts>('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fqiita.com%2Fshamokit%2Ffeed.atom');
 	const zenn = await axios.get<Posts>('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fzenn.dev%2Fshamokit%2Ffeed');
 	const postNum = 4;
-
+	console.log(qiita.data.items)
 	const thinkings = await client.getList({
 		endpoint: 'thinking',
 		queries: {

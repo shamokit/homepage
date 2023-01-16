@@ -3,7 +3,7 @@
 		id: string,
 		link: string,
 		title: string,
-		isoDate: string,
+		pubDate: string,
 	}[]
 	import Post from '$lib/components/post/index.svelte';
 </script>

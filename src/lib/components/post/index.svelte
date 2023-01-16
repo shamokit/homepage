@@ -6,7 +6,7 @@
 		id: string,
 		link: string,
 		title: string,
-		isoDate: string,
+		pubDate: string,
 	}
 	$: blank = !post.link.startsWith('https://shamokit.com')
 </script>
@@ -18,7 +18,7 @@
 		<div class="grid gap-1">
 			<p class="font-bold text-xs">@shamokit</p>
 			<div class="font-bold text-xxxs">
-				<Date date={post.isoDate} tag="p" hasIco={false} />
+				<Date date={post.pubDate} tag="p" hasIco={false} />
 			</div>
 		</div>
 		<p class="text-sm font-bold group-hover:text-secondary-500">{post.title}</p>
