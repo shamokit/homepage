@@ -89,7 +89,7 @@
 							class="group block overflow-hidden rounded-lg"
 							><ImageLazyLoad
 								src={photo.media_url}
-								alt={`うなぎとほっけの写真${index}`}
+								alt={photo.caption}
 								class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125"
 								width={600}
 								height={600}
