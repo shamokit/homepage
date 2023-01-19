@@ -1,7 +1,9 @@
 import satori from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
-import font from '$lib/assets/ZenKakuGothicNew-Regular.ttf';
+import fs from 'fs';
+import path from 'path';
+const font = fs.readFileSync(path.resolve('src/lib/assets/ZenKakuGothicNew-Regular.ttf'));
 const width = 1200;
 const height = 630;
 
