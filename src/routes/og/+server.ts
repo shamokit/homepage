@@ -1,9 +1,6 @@
 import satori from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
-import fs from 'fs';
-import path from 'path';
-const font = fs.readFileSync(path.resolve('src/lib/assets/ZenKakuGothicNew-Regular.ttf'));
 const width = 1200;
 const height = 630;
 
@@ -43,7 +40,7 @@ export const GET = async ({ url }: { url: URL }) => {
 		fonts: [
 			{
 				name: 'Zen Kaku Gothic New',
-				data: Buffer.from(font),
+				data: Buffer.from('https://shamokit.com/ZenKakuGothicNew-Regular.ttf'),
 				style: 'normal'
 			}
 		],
