@@ -40,7 +40,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@resvg/resvg-js": "^2.2.0",
+		"budoux": "^0.4.1",
 		"dayjs": "^1.11.7",
-		"microcms-js-sdk": "^2.3.2"
+		"microcms-js-sdk": "^2.3.2",
+		"satori": "^0.1.1",
+		"satori-html": "^0.3.2"
 	}
 }

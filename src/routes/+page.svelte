@@ -22,7 +22,7 @@
 	<meta name="description" content="しゃもきっとのエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={SITE_URL} />
-	<meta property="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta property="og:image" content={`${SITE_URL}/og?message=${encodeURIComponent('しゃもきっとブログ')}`} />
 	<meta property="og:title" content="しゃもきっとブログ" />
 	<meta property="og:description" content="しゃもきっとのエンジニアブログ" />
 	<link rel="canonical" href={SITE_URL}>
