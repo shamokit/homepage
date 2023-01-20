@@ -1,6 +1,7 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-import { convert } from 'convert-svg-to-png'
+import convertSvgToPng from 'convert-svg-to-png'
+const { convert } = convertSvgToPng
 const width = 1200;
 const height = 630;
 function chunk(str: string, size: number) {
