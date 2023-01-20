@@ -1,6 +1,6 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-import sharp from 'sharp'
+// import sharp from 'sharp'
 const width = 1200;
 const height = 630;
 
@@ -48,9 +48,9 @@ export const GET = async ({ url }: { url: URL }) => {
 		width
 	});
 
-	const image = await sharp(Buffer.from(svg)).png().toBuffer()
+	// const image = await sharp(Buffer.from(svg)).png().toBuffer()
 
-	return new Response(image, {
+	return new Response(svg, {
 		headers: {
 			'content-type': 'image/png'
 		}
