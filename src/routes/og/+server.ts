@@ -3,7 +3,7 @@ import { html } from 'satori-html';
 // import sharp from 'sharp'
 const width = 1200;
 const height = 630;
-
+const font = await fetch("https://shamokit.com/ZenKakuGothicNew-Regular.ttf").then((resp) => resp.arrayBuffer());
 function chunk(str: string, size: number) {
 	const numChunks = Math.ceil(str.length / size);
 	const chunks = new Array(numChunks);
@@ -40,7 +40,7 @@ export const GET = async ({ url }: { url: URL }) => {
 		fonts: [
 			{
 				name: 'Zen Kaku Gothic New',
-				data: Buffer.from('https://shamokit.com/ZenKakuGothicNew-Regular.ttf'),
+				data: font,
 				style: 'normal'
 			}
 		],
@@ -52,7 +52,7 @@ export const GET = async ({ url }: { url: URL }) => {
 
 	return new Response(svg, {
 		headers: {
-			'content-type': 'image/png'
+			'content-type': 'image/svg+xml'
 		}
 	});
 };
