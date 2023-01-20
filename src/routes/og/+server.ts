@@ -1,7 +1,5 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-import convertSvgToPng from 'convert-svg-to-png'
-const { convert } = convertSvgToPng
 const width = 1200;
 const height = 630;
 function chunk(str: string, size: number) {
@@ -50,11 +48,9 @@ export const GET = async ({ url }: { url: URL }) => {
 		width
 	});
 
-	const image = await convert(svg)
-
-	return new Response(image, {
+	return new Response(svg, {
 		headers: {
-			'content-type': 'image/png'
+			'content-type': 'image/svg+xml'
 		}
 	});
 };
