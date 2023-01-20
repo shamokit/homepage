@@ -1,6 +1,6 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-// import sharp from 'sharp'
+import sharp from 'sharp'
 const width = 1200;
 const height = 630;
 function chunk(str: string, size: number) {
@@ -49,11 +49,11 @@ export const GET = async ({ url }: { url: URL }) => {
 		width
 	});
 
-	// const image = await sharp(Buffer.from(svg)).png().toBuffer()
+	const image = await sharp(Buffer.from(svg)).png().toBuffer()
 
-	return new Response(svg, {
+	return new Response(image, {
 		headers: {
-			'content-type': 'image/svg+xml'
+			'content-type': 'image/png'
 		}
 	});
 };
