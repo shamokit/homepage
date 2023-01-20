@@ -1,6 +1,6 @@
 import satori from 'satori';
 import { html } from 'satori-html';
-import sharp from 'sharp'
+import { convert } from 'convert-svg-to-png'
 const width = 1200;
 const height = 630;
 function chunk(str: string, size: number) {
@@ -49,7 +49,7 @@ export const GET = async ({ url }: { url: URL }) => {
 		width
 	});
 
-	const image = await sharp(Buffer.from(svg)).png().toBuffer()
+	const image = await convert(svg)
 
 	return new Response(image, {
 		headers: {

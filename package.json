@@ -43,10 +43,10 @@
 	"dependencies": {
 		"@resvg/resvg-js": "^2.2.0",
 		"budoux": "^0.4.1",
+		"convert-svg-to-png": "^0.6.4",
 		"dayjs": "^1.11.7",
 		"microcms-js-sdk": "^2.3.2",
 		"satori": "^0.1.1",
-		"satori-html": "^0.3.2",
-		"sharp": "^0.31.3"
+		"satori-html": "^0.3.2"
 	}
 }
