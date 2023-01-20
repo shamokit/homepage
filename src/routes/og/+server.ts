@@ -3,7 +3,6 @@ import { html } from 'satori-html';
 // import sharp from 'sharp'
 const width = 1200;
 const height = 630;
-const font = await fetch("https://shamokit.com/ZenKakuGothicNew-Regular.ttf").then((resp) => resp.arrayBuffer());
 function chunk(str: string, size: number) {
 	const numChunks = Math.ceil(str.length / size);
 	const chunks = new Array(numChunks);
@@ -14,6 +13,8 @@ function chunk(str: string, size: number) {
 }
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ url }: { url: URL }) => {
+	const font = await fetch("https://shamokit.com/ZenKakuGothicNew-Regular.ttf").then((resp) => resp.arrayBuffer());
+
 	const message = url.searchParams.get('message') ?? 'しゃもきっとブログ';
 	const chunkMessage = chunk(message, 13)
 	const chunkMessageWithBr = chunkMessage.join('\n')
