@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"budoux": "^0.4.1",
 		"dayjs": "^1.11.7",
 		"microcms-js-sdk": "^2.3.2"
 	}

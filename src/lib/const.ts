@@ -5,6 +5,7 @@ export type Link = {
 	iconName?: IconNames[number];
 }
 export const SITE_URL = "https://shamokit.com"
+export const OG_IMAGE_URL="https://shamokit-ogimage.shamokit.workers.dev"
 export const links: Link[] = [
 	{
 		name: 'Home',

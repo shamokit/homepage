@@ -2,7 +2,7 @@
 	import Breadcrumbs from '$lib/components/layouts/breadcrumbs/index.svelte'
 	import MailVisual from '$lib/components/layouts/mainVisual/index.svelte';
 	import Section from '$lib/components/staticPage/section.svelte';
-	import { SITE_URL } from '$lib/const';
+	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
@@ -12,7 +12,7 @@
 	<meta name="description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking`} />
-	<meta property="og:image" content={`${SITE_URL}/ogpImage.png`} />
+	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(data.page.title)}`} />
 	<meta property="og:title" content={data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<meta property="og:description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<link rel="canonical" href={`${SITE_URL}/${data.page.slug}`}>
