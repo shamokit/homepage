@@ -11,7 +11,7 @@
 	<meta name="description" content="本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking`} />
-	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=Thinking`} />
+	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=Thinking｜本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。`} />
 	<meta property="og:title" content="Thinking｜しゃもきっとブログ" />
 	<meta property="og:description" content="本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。" />
 	<link rel="canonical" href={`${SITE_URL}/thinking`}>

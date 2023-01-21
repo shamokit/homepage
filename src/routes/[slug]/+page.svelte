@@ -12,7 +12,7 @@
 	<meta name="description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking`} />
-	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(data.page.title)}`} />
+	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(`${data.page.title}｜${data.page.lead.lead}`)}`} />
 	<meta property="og:title" content={data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<meta property="og:description" content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`} />
 	<link rel="canonical" href={`${SITE_URL}/${data.page.slug}`}>
