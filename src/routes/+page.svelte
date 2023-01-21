@@ -10,7 +10,7 @@
 	import qiita from '$lib/assets/qiita.png';
   import Thinkings from '$lib/components/thinking/thinkings.svelte';
   import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
-	import { SITE_URL } from '$lib/const';
+	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	export let data: PageData;
 	onMount(() => {
 		document.head.setAttribute('prefix', 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#')
@@ -22,7 +22,7 @@
 	<meta name="description" content="しゃもきっとのエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={SITE_URL} />
-	<meta property="og:image" content={`${SITE_URL}/og?message=${encodeURIComponent('しゃもきっとブログ')}`} />
+	<meta property="og:image" content={`${OG_IMAGE_URL}`} />
 	<meta property="og:title" content="しゃもきっとブログ" />
 	<meta property="og:description" content="しゃもきっとのエンジニアブログ" />
 	<link rel="canonical" href={SITE_URL}>

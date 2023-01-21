@@ -3,7 +3,7 @@
 	import Dates from '$lib/components/date/dates.svelte';
 	import Thinkings from '$lib/components/thinking/thinkings.svelte';
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
-	import { SITE_URL } from '$lib/const';
+	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
@@ -13,7 +13,7 @@
 	<meta name="description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking/${data.thinking.slug}`} />
-	<meta property="og:image" content={`${SITE_URL}/og?message=${encodeURIComponent(data.thinking.title)}`} />
+	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(data.thinking.title)}`} />
 	<meta property="og:title" content={data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
 	<meta property="og:description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
 	<link rel="canonical" href={`${SITE_URL}/thinking/${data.thinking.slug}`}>
