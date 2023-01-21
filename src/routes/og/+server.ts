@@ -1,7 +1,7 @@
 import satori, { init } from 'satori/wasm';
 import initYoga from 'yoga-wasm-web';
 import { Resvg, initWasm } from '@resvg/resvg-wasm';
-import yogaWasm from './../../vender/yoga.wasm';
+import yogaWasm from 'yoga-wasm-web/dist/yoga.wasm';
 import resvgWasm from './../../vender/index_bg.wasm';
 const genModuleInit = () => {
 	let isInit = false;
