@@ -2,7 +2,9 @@ import satori, { init } from 'satori/wasm';
 import initYoga from 'yoga-wasm-web';
 import { Resvg, initWasm } from '@resvg/resvg-wasm';
 import yogaWasm from '$lib/wasm/yoga.wasm';
-import resvgWasm from '$lib/wasm/index_bg.wasm';
+import resvgWasm from '$lib/wasm/resvg.wasm';
+import { html } from 'satori-html';
+
 const genModuleInit = () => {
 	let isInit = false;
 	return async () => {
@@ -14,8 +16,6 @@ const genModuleInit = () => {
 		isInit = true;
 	};
 };
-const moduleInit = genModuleInit();
-import { html } from 'satori-html';
 const width = 1200;
 const height = 630;
 function chunk(str: string, size: number) {
@@ -28,6 +28,7 @@ function chunk(str: string, size: number) {
 }
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ url }: { url: URL }) => {
+	const moduleInit = genModuleInit();
 	await moduleInit();
 	const font = await fetch('https://shamokit.com/ZenKakuGothicNew-Regular.ttf').then((resp) =>
 		resp.arrayBuffer()
