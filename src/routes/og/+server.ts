@@ -1,4 +1,21 @@
-import satori from 'satori';
+import satori, { init } from 'satori/wasm'
+import initYoga from 'yoga-wasm-web'
+import { Resvg, initWasm } from '@resvg/resvg-wasm'
+import yogaWasm from '../../vender/yoga.wasm';
+import resvgWasm from '../../vender/resvg.wasm';
+const genModuleInit = () => {
+  let isInit = false;
+  return async () => {
+    if (isInit) {
+      return;
+    }
+
+    init(await initYoga(yogaWasm));
+    await initWasm(resvgWasm);
+    isInit = true;
+  };
+};
+const moduleInit = genModuleInit();
 import { html } from 'satori-html';
 const width = 1200;
 const height = 630;
@@ -6,12 +23,13 @@ function chunk(str: string, size: number) {
 	const numChunks = Math.ceil(str.length / size);
 	const chunks = new Array(numChunks);
 	for (let i = 0, x = 0; i < numChunks; ++i, x += size) {
-		chunks[i] = str.substr(x, size);
+		chunks[i] = str.substring(x, size);
 	}
 	return chunks;
 }
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ url }: { url: URL }) => {
+	await moduleInit();
 	const font = await fetch("https://shamokit.com/ZenKakuGothicNew-Regular.ttf").then((resp) => resp.arrayBuffer());
 
 	const message = url.searchParams.get('message') ?? 'しゃもきっとブログ';
@@ -47,10 +65,12 @@ export const GET = async ({ url }: { url: URL }) => {
 		height,
 		width
 	});
-
-	return new Response(svg, {
+  const resvg = new Resvg(svg);
+  const pngData = resvg.render();
+  const pngBuffer = pngData.asPng();
+	return new Response(pngBuffer, {
 		headers: {
-			'content-type': 'image/svg+xml'
+			'content-type': 'image/png'
 		}
 	});
 };
