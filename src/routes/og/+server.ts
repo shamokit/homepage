@@ -1,19 +1,18 @@
-import satori, { init } from 'satori/wasm'
-import initYoga from 'yoga-wasm-web'
-import { Resvg, initWasm } from '@resvg/resvg-wasm'
+import satori, { init } from 'satori/wasm';
+import initYoga from 'yoga-wasm-web';
+import { Resvg, initWasm } from '@resvg/resvg-wasm';
 import yogaWasm from '../../vender/yoga.wasm';
 import resvgWasm from '../../vender/resvg.wasm';
 const genModuleInit = () => {
-  let isInit = false;
-  return async () => {
-    if (isInit) {
-      return;
-    }
-
-    init(await initYoga(yogaWasm));
-    await initWasm(resvgWasm);
-    isInit = true;
-  };
+	let isInit = false;
+	return async () => {
+		if (isInit) {
+			return;
+		}
+		init(await initYoga(yogaWasm));
+		await initWasm(resvgWasm);
+		isInit = true;
+	};
 };
 const moduleInit = genModuleInit();
 import { html } from 'satori-html';
@@ -30,11 +29,13 @@ function chunk(str: string, size: number) {
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ url }: { url: URL }) => {
 	await moduleInit();
-	const font = await fetch("https://shamokit.com/ZenKakuGothicNew-Regular.ttf").then((resp) => resp.arrayBuffer());
+	const font = await fetch('https://shamokit.com/ZenKakuGothicNew-Regular.ttf').then((resp) =>
+		resp.arrayBuffer()
+	);
 
 	const message = url.searchParams.get('message') ?? 'しゃもきっとブログ';
-	const chunkMessage = chunk(message, 13)
-	const chunkMessageWithBr = chunkMessage.join('\n')
+	const chunkMessage = chunk(message, 13);
+	const chunkMessageWithBr = chunkMessage.join('\n');
 	const markup = html`
 		<div
 			style="position: relative; display: flex; text-align: center; align-items: center; justify-content: center; box-sizing: border-box; width: 1200px; height: 630px; padding: 80px; background: #0B445A; color: #fff; "
@@ -50,7 +51,9 @@ export const GET = async ({ url }: { url: URL }) => {
 				</div>
 				<p style="font-size: 22px;">しゃもきっとブログ</p>
 			</div>
-			<p style="font-size: 60px; word-break: break-all; white-space: pre-wrap;">${chunkMessageWithBr}</p>
+			<p style="font-size: 60px; word-break: break-all; white-space: pre-wrap;">
+				${chunkMessageWithBr}
+			</p>
 			<p style="position: absolute; bottom: 16px; right: 30px; font-size: 28px;">@shamokit</p>
 		</div>
 	`;
@@ -65,9 +68,9 @@ export const GET = async ({ url }: { url: URL }) => {
 		height,
 		width
 	});
-  const resvg = new Resvg(svg);
-  const pngData = resvg.render();
-  const pngBuffer = pngData.asPng();
+	const resvg = new Resvg(svg);
+	const pngData = resvg.render();
+	const pngBuffer = pngData.asPng();
 	return new Response(pngBuffer, {
 		headers: {
 			'content-type': 'image/png'
