@@ -33,11 +33,11 @@
 				<h1 class="text-xxl">{data.thinking.title}</h1>
 				<Dates publishedDate={data.thinking.publishedAt} updatedDate={data.thinking.updatedAt} />
 			</header>
-			<div class="py-8 px-6 md:p-8 lg:p-10 rounded-md bg-surface-100">
+			<div class="grid grid-cols-1 gap-20 py-8 px-6 md:p-8 lg:p-10 rounded-md bg-surface-100">
 				{#each data.thinking.sections as section}
 					<section>
-						<h2 class="text-xxl">{section.title}</h2>
-						<div class="h-6 lg:h-8"></div>
+						<h2 class="p-4 bg-primary-500 text-surface-100 text-xxl rounded-md">{section.title}</h2>
+						<div class="h-6 lg:h-10"></div>
 						{#each section.contents as content}
 							{#if content.fieldId === 'contents'}
 								{@html content.body}
