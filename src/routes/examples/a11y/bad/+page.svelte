@@ -59,7 +59,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="tabcontents grid gap-3 grid gap-4">
+		<div class="tabcontents grid gap-4">
 			<h2 class="text-xl">動物</h2>
 			<div class="tablist flex border-b border-primary-500">
 				<div
