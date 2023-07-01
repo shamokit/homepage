@@ -30,9 +30,9 @@
 		<h1 class="text-xxl">キーボード操作できない例</h1>
 		<div class="link grid gap-4">
 			<h2 class="text-xl">リンク</h2>
-			TOPページは<a class="underline hover:no-underline" on:click={() => (window.location = '/')}
+			<p>TOPページは<a class="underline hover:no-underline" on:click={() => (window.location = '/')}
 				>こちら</a
-			>
+			></p>
 		</div>
 		<div class="button grid gap-4">
 			<h2 class="text-xl">ボタン</h2>
@@ -61,7 +61,7 @@
 		</div>
 		<div class="tabcontents grid gap-3 grid gap-4">
 			<h2 class="text-xl">動物</h2>
-			<div class="tablist flex">
+			<div class="tablist flex border-b border-primary-500">
 				<div
 					class="tab p-2{activeTab === 1 ? ' bg-primary-500 text-surface-100' : ''}"
 					on:click={() => (activeTab = 1)}
