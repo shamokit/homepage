@@ -13,12 +13,12 @@
 			{#each [{ name: 'Home', slug: '/' }, ...breadcrumbs] as breadcrumb, index}
 				<li class="flex gap-2">
 					{#if index !== 0}
-						<span aria-hidden={true} class="inline-flex w-3"><Ico name="next" /></span>
+						<span aria-hidden={true} class="inline-flex w-3 h-3"><Ico name="next" /></span>
 					{/if}
 					<a
 						href={breadcrumb.slug}
 						aria-current={$page.url.pathname === breadcrumb.slug ? 'page' : undefined}
-						class={$page.url.pathname === breadcrumb.slug ? 'text-secondary-500 font-bold' : undefined}
+						class={$page.url.pathname === breadcrumb.slug ? 'flex items-center text-secondary-500 font-bold' : 'flex items-center'}
 					>{breadcrumb.name}</a
 					>
 				</li>
