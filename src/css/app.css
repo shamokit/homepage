@@ -40,7 +40,10 @@
 	}
 
 	summary {
-		@apply block;
+		@apply block list-none;
+	}
+	summary::-webkit-details-marker {
+		@apply hidden;
 	}
 
 	summary,
