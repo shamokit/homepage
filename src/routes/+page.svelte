@@ -80,23 +80,29 @@
 				<p>うちのねこたちの写真です。</p>
 			</Head01>
 			<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-				{#each data.photos.data as photo, index}
-					<li>
-						<a
-							href={photo.permalink}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group block overflow-hidden rounded-lg"
-							><ImageLazyLoad
-								src={photo.media_url}
-								alt={photo.caption}
-								class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125"
-								width={600}
-								height={600}
-							/></a
-						>
-					</li>
-				{/each}
+				{#await data.streamed.photos}
+					{#each [...Array(12)].map((_, i) => i) as _}
+						<li style="padding-top: 100%;" class="bg-surface-700 rounded-lg animate-pulse"><div class="sr-only">画像取得中…</div></li>
+					{/each}
+				{:then photos}
+						{#each photos as photo}
+							<li>
+								<a
+									href={photo.permalink}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="group block overflow-hidden rounded-lg"
+									><ImageLazyLoad
+										src={photo.media_url}
+										alt={photo.caption}
+										class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125"
+										width={600}
+										height={600}
+									/></a
+								>
+							</li>
+						{/each}
+				{/await}
 			</ul>
 			<LinkButton href={contactList.instagram.url} blank={true}>Instagramへ</LinkButton>
 		</div>
