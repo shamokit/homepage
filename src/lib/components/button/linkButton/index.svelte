@@ -12,7 +12,7 @@
 		class="flex items-center gap-2 w-fit pt-[13px] pb-3 px-6 bg-primary-500 border border-primary-500 text-surface-100 font-bold rounded-full transition-colors will-change-colors duration-300 ease-in-out hover:shadow-sm hover:bg-surface-100 hover:text-primary-100"
 	>
 		<slot />
-		<span class="inline-flex w-4 flex-shrink-0 flex-grow-0"
+		<span class="inline-flex w-4 h-4 flex-shrink-0 flex-grow-0"
 			><Ico name="blank" /><span class="sr-only">外部サイトに移動します</span></span
 		>
 	</a>

@@ -10,7 +10,7 @@
 	export let hasIco: boolean = true;
 </script>
 
-<svelte:element this={tag} class="flex gap-1">
+<svelte:element this={tag} class="flex items-center gap-1">
 	{#if hasIco}
 		<span class="block flex-shrink-0 w-3"><Ico name={type} /></span>
 	{/if}
