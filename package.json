@@ -13,8 +13,6 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",
-		"postcss-mixins": "^9.0.4",
-		"postcss-simple-vars": "^7.0.1",
 		"svelte-intersection-observer": "^0.10.0"
 	},
 	"type": "module",
@@ -31,7 +29,6 @@
 		"eslint-plugin-svelte": "^2.32.2",
 		"microcms-js-sdk": "^2.5.0",
 		"postcss": "^8.4.24",
-		"postcss-custom-properties": "^13.2.0",
 		"postcss-nested": "^6.0.1",
 		"postcss-preset-env": "^9.0.0",
 		"prettier": "^2.8.8",
