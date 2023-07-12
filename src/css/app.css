@@ -1,4 +1,3 @@
-@import './mixin/_mediaQuery.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -123,12 +122,12 @@
 		--border-radius-full: 999px;
 
 		--header-height: 60px;
-		@mixin mq-up lg {
+		@media (min-width: 1120px) {
 			--header-height: 110px;
 		}
 
 		--container-side-padding: 1.5em;
-		@mixin mq-up lg {
+		@media (min-width: 1120px) {
 			--container-side-padding: 2em;
 		}
 	}
