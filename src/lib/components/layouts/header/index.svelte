@@ -30,6 +30,35 @@
 		resizeObserver.observe(document.body);
 		return () => resizeObserver.unobserve(document.body);
 	});
+
+	const focusableElementsSelector =
+  'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+	let navigation: HTMLDivElement | null = null
+	$: getFocusableElements = () => {
+		if (!navigation) return [];
+		return Array.from(navigation.querySelectorAll(focusableElementsSelector));
+	};
+	$: focusableElements = getFocusableElements()
+	$: focusableFirstItem = focusableElements[0]
+	$: focusableLastItem = focusableElements[focusableElements.length - 1]
+	const focusLastAtMobile = (e: KeyboardEvent) => {
+		if(!open || windowWidth >= BREAK_POINTS.md) return
+		if (e.key === 'Tab' && e.shiftKey) {
+			e.preventDefault();
+			if (focusableLastItem) {
+				(focusableLastItem as HTMLElement).focus();
+			}
+		}
+	};
+	const focusFirstAtMobile = ({detail: e}: CustomEvent<KeyboardEvent>) => {
+		if(!open || windowWidth >= BREAK_POINTS.md) return
+		if (e.key === 'Tab' && !e.shiftKey) {
+			e.preventDefault();
+			if (focusableFirstItem) {
+				(focusableFirstItem as HTMLElement).focus();
+			}
+		}
+	};
 </script>
 
 <header
@@ -45,7 +74,7 @@
 			<span class="font-bold">しゃもきっとブログ</span>
 		</a>
 	</h1>
-	<div class="ml-auto">
+	<div class="ml-auto" bind:this={navigation}>
 		<button
 			type="button"
 			class="absolute z-10 top-1/2 -translate-y-1/2 right-2 grid place-items-center grid-cols-[1fr_12px_1fr] grid-rows-[1fr_2px_1fr] rounded-full bg-surface-500 md:hidden w-10 h-10 text-primary-500"
@@ -53,6 +82,7 @@
 			aria-expanded={open}
 			aria-controls="globalNavigation"
 			aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
+			on:keydown={focusLastAtMobile}
 		>
 			<span
 				class="flex col-[2_/_3] row-[2_/_3] w-3 border-b-2 border-current transition-all"
@@ -75,6 +105,7 @@
 			}`}
 			open={open}
 			on:menuClose={closeMenu}
+			on:focusLast={focusFirstAtMobile}
 		/>
 	</div>
 </header>
