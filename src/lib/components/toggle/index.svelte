@@ -2,9 +2,9 @@
 	import Ico from '$lib/components/svg/ico.svelte';
 	export let title: string;
 </script>
-<details class="bg-surface-100 shadow-sm rounded-md">
+<details class="group bg-surface-100 shadow-sm rounded-md">
 	<summary
-		class="group flex items-center gap-5 py-3 px-5 bg-primary-500 text-surface-100 font-bold"
+		class="flex items-center gap-5 py-3 px-5 bg-primary-500 text-surface-100 font-bold"
 	>
 		<span class="mr-auto">{title}</span>
 		<span
