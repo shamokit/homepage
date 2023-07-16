@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import type { PageServerLoad } from './$types';
 import axios from 'axios';
-import { client } from '$lib/libs/microcms';
+import { client } from '$lib/libs/microcms.server';
 export const prerender = true
 export const load = (async () => {
 	const { INSTAGRAM_BUSINESS_ACCOUNT_ID, INSTAGRAM_ACCESS_TOKEN } = env;
