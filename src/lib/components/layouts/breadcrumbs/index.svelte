@@ -13,7 +13,7 @@
 			{#each [{ name: 'Home', slug: '/' }, ...breadcrumbs] as breadcrumb, index}
 				<li class="flex gap-2">
 					{#if index !== 0}
-						<span aria-hidden={true} class="inline-flex w-3 h-3"><Ico name="next" /></span>
+						<span class="inline-flex w-3 h-3"><Ico name="next" /></span>
 					{/if}
 					<a
 						href={breadcrumb.slug}
