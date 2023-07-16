@@ -4,8 +4,10 @@
 	import { BREAK_POINTS } from '$lib/const';
 	import { globalMenuStore } from './store/globalMenu.store';
 
+	export let isHome: boolean = false;
 	let windowWidth: number = 0;
 	$: isMobile = windowWidth < BREAK_POINTS.md;
+	$: tag = isHome ? 'h1' : 'p';
 
 	const { setClose } = globalMenuStore();
 	const closeMenu = () => {
@@ -17,7 +19,7 @@
 <header
 	class="fixed top-0 left-0 right-0 z-10 flex items-center h-[var(--header-height)] px-2 md:px-5 bg-blend-overlay backdrop-blur-sm bg-surface-100"
 >
-	<h1 class="relative z-10">
+	<svelte:element this={tag} class="relative z-10">
 		<a
 			href="/"
 			class="flex items-center gap-2 md:pl-2.5 md:pr-5 text-primary-500 text-sm md:text-md transition-colors rounded-full hover:text-accent-500"
@@ -26,6 +28,6 @@
 			<span class="block w-10 md:w-14 shrink-0 p-1 md:p-2"><Logo /></span>
 			<span class="font-bold">しゃもきっとブログ</span>
 		</a>
-	</h1>
+	</svelte:element>
 	<Navigation />
 </header>

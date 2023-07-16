@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title: string = ''
-	export let headingLevel: 2 | 3 = 2
+	export let headingLevel: 1 | 2 | 3 = 2
 	$: tagName = `h${headingLevel}`
 </script>
 <header class="flex flex-col gap-2.5">

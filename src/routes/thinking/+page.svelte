@@ -19,7 +19,7 @@
 <main>
 	<section>
 		<div class="grid gap-8 container py-16 lg:py-28">
-			<Head01 title="Thinking">
+			<Head01 title="Thinking" headingLevel={1}>
 				<p>本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。</p>
 			</Head01>
 			<Thinkings thinkings={data.thinkings.contents} />
