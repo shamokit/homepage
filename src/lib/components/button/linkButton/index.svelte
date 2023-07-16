@@ -13,7 +13,7 @@
 	>
 		<slot />
 		<span class="inline-flex w-4 h-4 flex-shrink-0 flex-grow-0"
-			><Ico name="blank" /><span class="sr-only">外部サイトに移動します</span></span
+			><Ico name="blank" ariaLabel="外部サイトに移動します" /></span
 		>
 	</a>
 </p>

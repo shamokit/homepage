@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { client } from '$lib/libs/microcms';
+import { client } from '$lib/libs/microcms.server';
 import type { StaticPageResponse } from '$lib/schema/staticPage/staticPage';
 export const load = (async ({params}) => {
 	const pages = await client.getList<StaticPageResponse>({

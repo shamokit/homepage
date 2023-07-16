@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { client } from '$lib/libs/microcms';
+import { client } from '$lib/libs/microcms.server';
 export const load = (async () => {
 	const thinkings = await client.getList({
 		endpoint: 'thinking',

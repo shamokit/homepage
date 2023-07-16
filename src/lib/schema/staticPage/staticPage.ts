@@ -1,7 +1,7 @@
 import type { Mv } from './mv';
 import type { Contents } from './content';
 import type { Meta } from './meta';
-import type { MicroCMSListContent } from '$lib/libs/microcms';
+import type { MicroCMSListContent } from '$lib/libs/microcms.server';
 export type StaticPageResponse = {
 	title: string;
 	slug: string;
