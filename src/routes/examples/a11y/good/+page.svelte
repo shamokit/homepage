@@ -5,7 +5,6 @@
 	let accordion2Open = false;
 	let activeTab = 1;
 	const focusTab = (id: string) => {
-		console.log(id);
 		document.getElementById(id)?.focus();
 	};
 </script>
@@ -19,7 +18,7 @@
 		content="キーボード操作できない例の改善｜しゃもきっとのエンジニアブログ"
 	/>
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content={SITE_URL} />
+	<meta property="og:url" content={`${SITE_URL}/examples/a11y/good`} />
 	<meta
 		property="og:image"
 		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent('キーボード操作できない例の改善')}`}
@@ -32,7 +31,7 @@
 		property="og:description"
 		content="キーボード操作できない例の改善｜しゃもきっとのエンジニアブログ"
 	/>
-	<link rel="canonical" href={SITE_URL} />
+	<link rel="canonical" href={`${SITE_URL}/examples/a11y/good`} />
 </svelte:head>
 <div class="main">
 	<div class="h-8 md:h-14 lg:h-28" />

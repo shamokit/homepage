@@ -9,7 +9,7 @@
 	<title>キーボード操作できない例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title>
 	<meta name="description" content="キーボード操作できない例｜しゃもきっとのエンジニアブログ" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content={SITE_URL} />
+	<meta property="og:url" content={`${SITE_URL}/examples/a11y/bad`} />
 	<meta
 		property="og:image"
 		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent('キーボード操作できない例')}`}
@@ -22,7 +22,7 @@
 		property="og:description"
 		content="キーボード操作できない例｜しゃもきっとのエンジニアブログ"
 	/>
-	<link rel="canonical" href={SITE_URL} />
+	<link rel="canonical" href={`${SITE_URL}/examples/a11y/bad`} />
 </svelte:head>
 <div class="main">
 	<div class="h-8 md:h-14 lg:h-28" />
