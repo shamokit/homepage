@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>figureタグの読み上げ例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title>
+	<title>figureタグの読み上げ例｜しゃもきっとブログ</title>
 	<meta name="description" content="figureタグの読み上げ例｜しゃもきっとのエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/figure`} />
@@ -14,7 +14,7 @@
 	/>
 	<meta
 		property="og:title"
-		content="figureタグの読み上げ例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
+		content="figureタグの読み上げ例｜しゃもきっとブログ"
 	/>
 	<meta
 		property="og:description"
