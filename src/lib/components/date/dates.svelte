@@ -1,8 +1,8 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
 	dayjs.locale('ja');
-	export let publishedDate: string = '';
-	export let updatedDate: string = '';
+	export let publishedDate = '';
+	export let updatedDate = '';
 	import Date from '$lib/components/date/index.svelte';
 </script>
 

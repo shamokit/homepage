@@ -1,3 +1,3 @@
 export type Mv = {
-	lead: string
-}
+	lead: string;
+};

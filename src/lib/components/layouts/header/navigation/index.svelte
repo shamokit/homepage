@@ -7,10 +7,10 @@
 
 	$: linkLength = links.length;
 	const { menuOpen, openMenu, closeMenu, toggleMenu } = globalMenuStore();
-	$: if($isMobile) {
-		closeMenu($isMobile)
+	$: if ($isMobile) {
+		closeMenu($isMobile);
 	} else {
-		openMenu()
+		openMenu();
 	}
 
 	let navigationButton: HTMLButtonElement;

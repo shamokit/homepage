@@ -7,7 +7,7 @@ export const load = (async () => {
 		queries: {
 			limit: 9
 		}
-	})
+	});
 	if (thinkings) {
 		return {
 			thinkings

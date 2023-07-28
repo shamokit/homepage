@@ -12,10 +12,7 @@
 		property="og:image"
 		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent('figureタグの読み上げ例')}`}
 	/>
-	<meta
-		property="og:title"
-		content="figureタグの読み上げ例｜しゃもきっとブログ"
-	/>
+	<meta property="og:title" content="figureタグの読み上げ例｜しゃもきっとブログ" />
 	<meta
 		property="og:description"
 		content="figureタグの読み上げ例｜しゃもきっとのエンジニアブログ"
@@ -31,7 +28,7 @@
 			<table>
 				<thead>
 					<tr>
-						<th></th>
+						<th />
 						<th>1. figcaptionなし</th>
 						<th>2. figcaptionなし<br />+pタグ</th>
 						<th>3. figcaptionあり</th>
@@ -77,7 +74,7 @@
 					<tr>
 						<th>コード</th>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="" /&gt;
 		&lt;/figure&gt;
@@ -85,7 +82,7 @@
 </code></pre>
 						</td>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="" /&gt;
 		&lt;/figure&gt;
@@ -94,7 +91,7 @@
 </code></pre>
 						</td>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="" /&gt;
 			&lt;figcaption&gt;figcaptionタグテキスト&lt;/figcaption&gt;
@@ -103,7 +100,7 @@
 </code></pre>
 						</td>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="" /&gt;
 			&lt;figcaption&gt;figcaptionタグテキスト&lt;/figcaption&gt;
@@ -136,7 +133,7 @@
 			<table>
 				<thead>
 					<tr>
-						<th></th>
+						<th />
 						<th>1. figcaptionなし</th>
 						<th>2. figcaptionなし<br />+pタグ</th>
 						<th>3. figcaptionあり</th>
@@ -182,7 +179,7 @@
 					<tr>
 						<th>コード</th>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="altテキスト" /&gt;
 		&lt;/figure&gt;
@@ -190,7 +187,7 @@
 </code></pre>
 						</td>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="altテキスト" /&gt;
 		&lt;/figure&gt;
@@ -199,7 +196,7 @@
 </code></pre>
 						</td>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="altテキスト" /&gt;
 			&lt;figcaption&gt;figcaptionタグテキスト&lt;/figcaption&gt;
@@ -208,7 +205,7 @@
 </code></pre>
 						</td>
 						<td>
-<pre><code>	&lt;a href="/"&gt;
+							<pre><code>	&lt;a href="/"&gt;
 		&lt;figure&gt;
 			&lt;img src={ico} alt="altテキスト" /&gt;
 			&lt;figcaption&gt;figcaptionタグテキスト&lt;/figcaption&gt;
@@ -239,13 +236,15 @@
 	</div>
 	<div class="h-8 md:h-14 lg:h-28" />
 </main>
+
 <style>
 	table {
 		table-layout: fixed;
 		width: 100%;
 		background: #fff;
 	}
-	th, td {
+	th,
+	td {
 		width: 20%;
 		padding: 10px;
 		border: 1px solid;

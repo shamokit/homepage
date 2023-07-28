@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import Head01 from '$lib/components/heading/head01/index.svelte';
 </script>
+
 <svelte:head>
 	<title>Error！{$page.status}</title>
 </svelte:head>

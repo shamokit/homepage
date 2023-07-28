@@ -1,9 +1,9 @@
-import type { Section } from './section'
+import type { Section } from './section';
 export type Content = {
-	fieldId: "content"
-	content: string
-}
+	fieldId: 'content';
+	content: string;
+};
 export type Contents = {
-	fieldId: "contents"
-	body: Section[]
-}
+	fieldId: 'contents';
+	body: Section[];
+};

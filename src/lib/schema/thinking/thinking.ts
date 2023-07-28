@@ -6,7 +6,7 @@ export type ThinkingResponse = {
 	title: string;
 	slug: string;
 	sections: ({ fieldId: 'section' } & Section)[];
-	meta?: ({ fieldId: "meta" } & Meta);
+	meta?: { fieldId: 'meta' } & Meta;
 	tag?: Tag;
 	relations?: ThinkingResponse[];
 } & MicroCMSListContent;

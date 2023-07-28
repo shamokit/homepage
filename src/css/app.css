@@ -23,13 +23,7 @@
 		@apply border border-solid border-primary-500;
 	}
 
-	:is(a,
-	input,
-	select,
-	textarea,
-	button,
-	summary,
-	[tabindex]):focus-visible {
+	:is(a, input, select, textarea, button, summary, [tabindex]):focus-visible {
 		outline: 4px solid rgb(var(--color-primary-500));
 		outline-offset: 2px;
 	}
@@ -112,9 +106,9 @@
 		--line-height-md: 1.8;
 		--line-height-lg: 2;
 
-		--letter-spacing-sm: .01em;
-		--letter-spacing-md: .05em;
-		--letter-spacing-lg: .1em;
+		--letter-spacing-sm: 0.01em;
+		--letter-spacing-md: 0.05em;
+		--letter-spacing-lg: 0.1em;
 
 		--border-radius-sm: 2px;
 		--border-radius-md: 3px;

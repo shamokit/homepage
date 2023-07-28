@@ -1,5 +1,5 @@
 export type Row = {
-	fieldId: 'row'
-	title: string
-	body: string
-}
+	fieldId: 'row';
+	title: string;
+	body: string;
+};

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/layouts/breadcrumbs/index.svelte'
+	import Breadcrumbs from '$lib/components/layouts/breadcrumbs/index.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	let count = 0;
 	let accordionOpen = false;
@@ -24,13 +24,20 @@
 		property="og:title"
 		content="ランドマークの改善をした例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
 	/>
-	<meta property="og:description" content="ランドマークの改善をした例｜しゃもきっとのエンジニアブログ" />
+	<meta
+		property="og:description"
+		content="ランドマークの改善をした例｜しゃもきっとのエンジニアブログ"
+	/>
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/more-good`} />
 </svelte:head>
-<Breadcrumbs breadcrumbs={[{
-	name: 'ランドマークの改善をした例',
-	slug: '/examples/a11y/landmark'
-}]} />
+<Breadcrumbs
+	breadcrumbs={[
+		{
+			name: 'ランドマークの改善をした例',
+			slug: '/examples/a11y/landmark'
+		}
+	]}
+/>
 <main>
 	<div class="h-8 md:h-14 lg:h-28" />
 	<div class="grid gap-10 container">
@@ -130,13 +137,34 @@
 					鳥類
 				</button>
 			</div>
-			<div role="tabpanel" aria-labelledby="tab-1" id="tabpanel-1" class="tabpanel" tabindex="0" hidden={activeTab === 1 ? false : true}>
+			<div
+				role="tabpanel"
+				aria-labelledby="tab-1"
+				id="tabpanel-1"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 1 ? false : true}
+			>
 				猿、ゴリラ、一般人
 			</div>
-			<div role="tabpanel" aria-labelledby="tab-2" id="tabpanel-2" class="tabpanel" tabindex="0" hidden={activeTab === 2 ? false : true}>
+			<div
+				role="tabpanel"
+				aria-labelledby="tab-2"
+				id="tabpanel-2"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 2 ? false : true}
+			>
 				たい焼き
 			</div>
-			<div role="tabpanel" aria-labelledby="tab-3" id="tabpanel-3" class="tabpanel" tabindex="0" hidden={activeTab === 3 ? false : true}>
+			<div
+				role="tabpanel"
+				aria-labelledby="tab-3"
+				id="tabpanel-3"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 3 ? false : true}
+			>
 				ペンギン
 			</div>
 		</div>

@@ -1,8 +1,9 @@
 <script lang="ts">
-	export let title: string = ''
-	export let headingLevel: 3 | 4 = 3
-	$: tagName = `h${headingLevel}`
+	export let title: string;
+	export let headingLevel: 3 | 4 = 3;
+	$: tagName = `h${headingLevel}`;
 </script>
+
 <header class="flex flex-wrap items-center gap-5">
 	<div class="flex items-center gap-3">
 		{#if $$slots.ico}

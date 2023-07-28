@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/layouts/breadcrumbs/index.svelte'
+	import Breadcrumbs from '$lib/components/layouts/breadcrumbs/index.svelte';
 	import Dates from '$lib/components/date/dates.svelte';
 	import Thinkings from '$lib/components/thinking/thinkings.svelte';
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
@@ -9,22 +9,43 @@
 </script>
 
 <svelte:head>
-	<title>{data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`}</title>
-	<meta name="description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
+	<title
+		>{data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`}</title
+	>
+	<meta
+		name="description"
+		content={data.thinking.meta?.description ??
+			`${data.thinking.title}｜Thinking｜しゃもきっとブログ`}
+	/>
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking/${data.thinking.slug}`} />
-	<meta property="og:image" content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(data.thinking.title)}`} />
-	<meta property="og:title" content={data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
-	<meta property="og:description" content={data.thinking.meta?.description ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`} />
-	<link rel="canonical" href={`${SITE_URL}/thinking/${data.thinking.slug}`}>
+	<meta
+		property="og:image"
+		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(data.thinking.title)}`}
+	/>
+	<meta
+		property="og:title"
+		content={data.thinking.meta?.title ?? `${data.thinking.title}｜Thinking｜しゃもきっとブログ`}
+	/>
+	<meta
+		property="og:description"
+		content={data.thinking.meta?.description ??
+			`${data.thinking.title}｜Thinking｜しゃもきっとブログ`}
+	/>
+	<link rel="canonical" href={`${SITE_URL}/thinking/${data.thinking.slug}`} />
 </svelte:head>
-<Breadcrumbs breadcrumbs={[{
-	name: 'Thinking',
-	slug: `/thinking`
-},{
-	name: data.thinking.title,
-	slug: `/thinking/${data.thinking.slug}`
-}]} />
+<Breadcrumbs
+	breadcrumbs={[
+		{
+			name: 'Thinking',
+			slug: `/thinking`
+		},
+		{
+			name: data.thinking.title,
+			slug: `/thinking/${data.thinking.slug}`
+		}
+	]}
+/>
 <main>
 	<article>
 		<div class="h-8 md:h-14 lg:h-28" />
@@ -37,7 +58,7 @@
 				{#each data.thinking.sections as section}
 					<section>
 						<h2 class="p-4 bg-primary-500 text-surface-100 text-xxl rounded-md">{section.title}</h2>
-						<div class="h-6 lg:h-10"></div>
+						<div class="h-6 lg:h-10" />
 						{#each section.contents as content}
 							{#if content.fieldId === 'contents'}
 								{@html content.body}
@@ -45,7 +66,7 @@
 							{#if content.fieldId === 'section'}
 								<section class="py-10 last-of-type:pb-0">
 									<h3 class="text-xl">{content.title}</h3>
-									<div class="h-3 lg:h-5"></div>
+									<div class="h-3 lg:h-5" />
 									{#each content.contents as childContent}
 										{#if childContent.fieldId === 'contents'}
 											{@html childContent.body}
@@ -54,7 +75,11 @@
 											<section class="py-6 lg:py-8 last-of-type:pb-0">
 												<div class="pt-[1em]">
 													<div class="px-6 pb-6 bg-surface-500 rounded-md">
-														<h4 class="translate-y-[-1em] w-fit mb-[0.5em] py-1 px-4 rounded-md text-md bg-secondary-500 text-surface-100">{childContent.title}</h4>
+														<h4
+															class="translate-y-[-1em] w-fit mb-[0.5em] py-1 px-4 rounded-md text-md bg-secondary-500 text-surface-100"
+														>
+															{childContent.title}
+														</h4>
 														<div class="grid grid-cols-1 gap-[1em]">
 															{#each childContent.contents as grandChildContent}
 																{#if grandChildContent.fieldId === 'contents'}
@@ -79,7 +104,7 @@
 </main>
 {#if data.thinking.relations}
 	<section class="grid gap-5 bg-surface-500">
-		<div class="h-10 md:h-12 lg:h-16"></div>
+		<div class="h-10 md:h-12 lg:h-16" />
 		<div class="container grid gap-5">
 			<h2 class="text-xxl">関連記事</h2>
 			<Thinkings thinkings={data.thinking.relations} />

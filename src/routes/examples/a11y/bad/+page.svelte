@@ -30,9 +30,11 @@
 		<h1 class="text-xxl">キーボード操作できない例</h1>
 		<div class="link grid gap-4">
 			<h2 class="text-xl">リンク</h2>
-			<p>TOPページは<a class="underline hover:no-underline" on:click={() => (window.location = '/')}
-				>こちら</a
-			></p>
+			<p>
+				TOPページは<a class="underline hover:no-underline" on:click={() => (window.location = '/')}
+					>こちら</a
+				>
+			</p>
 		</div>
 		<div class="button grid gap-4">
 			<h2 class="text-xl">ボタン</h2>
@@ -55,7 +57,8 @@
 			</div>
 			<div class="grid {accordionOpen ? 'open' : 'close'}">
 				<div class="overflow-hidden">
-					このページ内のコンテンツは、キーボードで操作できないようにわざと悪い実装やマークアップをしているページです。<br />絶対に真似しないでください。
+					このページ内のコンテンツは、キーボードで操作できないようにわざと悪い実装やマークアップをしているページです。<br
+					/>絶対に真似しないでください。
 				</div>
 			</div>
 		</div>

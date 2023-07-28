@@ -1,16 +1,14 @@
 function withOpacityValue(variable) {
 	return ({ opacityValue }) => {
 		if (opacityValue === undefined) {
-			return `rgb(var(${variable}))`
+			return `rgb(var(${variable}))`;
 		}
-		return `rgb(var(${variable}) / ${opacityValue})`
-	}
+		return `rgb(var(${variable}) / ${opacityValue})`;
+	};
 }
 module.exports = {
 	mode: 'jit',
-	content: [
-		'./src/**/*.{html,js,ts,svelte}',
-	],
+	content: ['./src/**/*.{html,js,ts,svelte}'],
 
 	theme: {
 		container: {
@@ -18,86 +16,113 @@ module.exports = {
 			padding: 'var(--container-side-padding)'
 		},
 		fontSize: {
-			xxxs: ['var(--text-xxxs)', {
-				lineHeight: 'var(--line-height-xs)',
-				letterSpacing: 'var(--letter-spacing-sm)',
-				fontWeight: '400',
-			}],
-			xxs: ['var(--text-xxs)', {
-				lineHeight: 'var(--line-height-xs)',
-				letterSpacing: 'var(--letter-spacing-sm)',
-				fontWeight: '400',
-			}],
-			xs: ['var(--text-xs)', {
-				lineHeight: 'var(--line-height-xs)',
-				letterSpacing: 'var(--letter-spacing-sm)',
-				fontWeight: '400',
-			}],
-			sm: ['var(--text-sm)', {
-				lineHeight: 'var(--line-height-sm)',
-				letterSpacing: 'var(--letter-spacing-md)',
-				fontWeight: '400',
-			}],
-			md: ['var(--text-md)', {
-				lineHeight: 'var(--line-height-md)',
-				letterSpacing: 'var(--letter-spacing-md)',
-				fontWeight: '400',
-			}],
-			lg: ['var(--text-lg)', {
-				lineHeight: 'var(--line-height-sm)',
-				letterSpacing: 'var(--letter-spacing-md)',
-				fontWeight: '700',
-			}],
-			xl: ['var(--text-xl)', {
-				lineHeight: 'var(--line-height-xs)',
-				letterSpacing: 'var(--letter-spacing-lg)',
-				fontWeight: '700',
-			}],
-			xxl: ['var(--text-xxl)', {
-				lineHeight: 'var(--line-height-xs)',
-				letterSpacing: 'var(--letter-spacing-lg)',
-				fontWeight: '700',
-			}],
-			xxxl: ['var(--text-xxxl)', {
-				lineHeight: 'var(--line-height-xs)',
-				letterSpacing: 'var(--letter-spacing-lg)',
-				fontWeight: '700',
-			}],
+			xxxs: [
+				'var(--text-xxxs)',
+				{
+					lineHeight: 'var(--line-height-xs)',
+					letterSpacing: 'var(--letter-spacing-sm)',
+					fontWeight: '400'
+				}
+			],
+			xxs: [
+				'var(--text-xxs)',
+				{
+					lineHeight: 'var(--line-height-xs)',
+					letterSpacing: 'var(--letter-spacing-sm)',
+					fontWeight: '400'
+				}
+			],
+			xs: [
+				'var(--text-xs)',
+				{
+					lineHeight: 'var(--line-height-xs)',
+					letterSpacing: 'var(--letter-spacing-sm)',
+					fontWeight: '400'
+				}
+			],
+			sm: [
+				'var(--text-sm)',
+				{
+					lineHeight: 'var(--line-height-sm)',
+					letterSpacing: 'var(--letter-spacing-md)',
+					fontWeight: '400'
+				}
+			],
+			md: [
+				'var(--text-md)',
+				{
+					lineHeight: 'var(--line-height-md)',
+					letterSpacing: 'var(--letter-spacing-md)',
+					fontWeight: '400'
+				}
+			],
+			lg: [
+				'var(--text-lg)',
+				{
+					lineHeight: 'var(--line-height-sm)',
+					letterSpacing: 'var(--letter-spacing-md)',
+					fontWeight: '700'
+				}
+			],
+			xl: [
+				'var(--text-xl)',
+				{
+					lineHeight: 'var(--line-height-xs)',
+					letterSpacing: 'var(--letter-spacing-lg)',
+					fontWeight: '700'
+				}
+			],
+			xxl: [
+				'var(--text-xxl)',
+				{
+					lineHeight: 'var(--line-height-xs)',
+					letterSpacing: 'var(--letter-spacing-lg)',
+					fontWeight: '700'
+				}
+			],
+			xxxl: [
+				'var(--text-xxxl)',
+				{
+					lineHeight: 'var(--line-height-xs)',
+					letterSpacing: 'var(--letter-spacing-lg)',
+					fontWeight: '700'
+				}
+			]
 		},
 		screens: {
 			sm: '640px',
 			md: '768px',
 			lg: '1120px',
-			xl: '1280px',
+			xl: '1280px'
 		},
 		letterSpacing: {
 			sm: 'var(--letter-spacing-sm)',
 			md: 'var(--letter-spacing-md)',
-			lg: 'var(--letter-spacing-lg)',
+			lg: 'var(--letter-spacing-lg)'
 		},
 		borderRadius: {
 			sm: 'var(--border-radius-sm)',
 			md: 'var(--border-radius-md)',
 			lg: 'var(--border-radius-lg)',
-			full: 'var(--border-radius-full)',
+			full: 'var(--border-radius-full)'
 		},
 		opacity: {
-			'0': '0',
-			'10': '0.1',
-			'20': '0.2',
-			'30': '0.3',
-			'40': '0.4',
-			'50': '0.5',
-			'60': '0.6',
-			'70': '0.7',
-			'80': '0.8',
-			'90': '0.9',
-			'100': '1',
+			0: '0',
+			10: '0.1',
+			20: '0.2',
+			30: '0.3',
+			40: '0.4',
+			50: '0.5',
+			60: '0.6',
+			70: '0.7',
+			80: '0.8',
+			90: '0.9',
+			100: '1'
 		},
 		boxShadow: {
 			sm: '0 2px 4px 0 rgb(13 80 105 / 0.2)',
 			md: '0 4px 6px 0 rgb(13 80 105 / 0.2)',
-			lg: '0 6px 6px 0 rgb(13 80 105 / 0.2)',
+			lg: '0 6px 6px 0 rgb(13 80 105 / 0.2)'
 		},
 		colors: {
 			'surface-100': withOpacityValue('--color-surface-100'),
@@ -133,7 +158,7 @@ module.exports = {
 			'accent-800': withOpacityValue('--color-accent-800'),
 			'accent-900': withOpacityValue('--color-accent-900'),
 			current: 'currentColor',
-			transparent: 'transparent',
+			transparent: 'transparent'
 		},
 		extend: {
 			fontFamily: {
@@ -143,10 +168,10 @@ module.exports = {
 					'Hiragino Kaku Gothic ProN',
 					'Hiragino Sans',
 					'Meiryo',
-					'sans-serif',
-				],
-			},
-		},
+					'sans-serif'
+				]
+			}
+		}
 	},
-	plugins: [],
-}
+	plugins: []
+};

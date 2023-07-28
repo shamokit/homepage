@@ -1,9 +1,11 @@
 <script lang="ts">
-	export let content: string
+	export let content: string;
 </script>
+
 <div class="wysiwyg grid grid-cols-1 gap-[1em]">
 	{@html content.replace(/\r?\n/g, '<br />')}
 </div>
+
 <style lang="postcss">
 	.wysiwyg :global(a) {
 		@apply underline underline-offset-2;
