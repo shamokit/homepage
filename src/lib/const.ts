@@ -3,9 +3,9 @@ export type Link = {
 	name: string;
 	slug: string;
 	iconName?: IconNames[number];
-}
-export const SITE_URL = "https://shamokit.com"
-export const OG_IMAGE_URL="https://shamokit-ogimage.shamokit.workers.dev"
+};
+export const SITE_URL = 'https://shamokit.com';
+export const OG_IMAGE_URL = 'https://shamokit-ogimage.shamokit.workers.dev';
 export const links: Link[] = [
 	{
 		name: 'Home',
@@ -24,7 +24,7 @@ export const links: Link[] = [
 		slug: '/contact',
 		iconName: 'email'
 	}
-]
+];
 
 export const BREAK_POINTS = {
 	min: 375,
@@ -32,8 +32,8 @@ export const BREAK_POINTS = {
 	md: 768,
 	lg: 1120,
 	xl: 1280,
-	xlx: 1536,
-} as const
+	xlx: 1536
+} as const;
 
 export const contactList = {
 	qiita: {
@@ -55,5 +55,5 @@ export const contactList = {
 	github: {
 		name: 'GitHub',
 		url: 'https://github.com/shamokit'
-	},
- } as const
+	}
+} as const;

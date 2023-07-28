@@ -18,12 +18,13 @@
 					<a
 						href={breadcrumb.slug}
 						aria-current={$page.url.pathname === breadcrumb.slug ? 'page' : undefined}
-						class={$page.url.pathname === breadcrumb.slug ? 'flex items-center text-secondary-500 font-bold' : 'flex items-center'}
-					>{breadcrumb.name}</a
+						class={$page.url.pathname === breadcrumb.slug
+							? 'flex items-center text-secondary-500 font-bold'
+							: 'flex items-center'}>{breadcrumb.name}</a
 					>
 				</li>
 			{/each}
-			<li class="w-[2em] shrink-0" aria-hidden={true}></li>
+			<li class="w-[2em] shrink-0" aria-hidden={true} />
 		</ol>
 	</div>
 </nav>

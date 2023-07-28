@@ -67,7 +67,7 @@
 				</div>
 			</details>
 			<div>
-				<button class="font-bold" on:click={() => accordion2Open = !accordion2Open}>
+				<button class="font-bold" on:click={() => (accordion2Open = !accordion2Open)}>
 					buttonでの実装<span aria-hidden="true">{accordion2Open ? '▲' : '▼'}</span>
 				</button>
 				<div class="grid {accordion2Open ? 'open' : 'close'}">
@@ -109,28 +109,13 @@
 					鳥類
 				</button>
 			</div>
-			<div
-				id="tabpanel-1"
-				class="tabpanel"
-				tabindex="0"
-				hidden={activeTab === 1 ? false : true}
-			>
+			<div id="tabpanel-1" class="tabpanel" tabindex="0" hidden={activeTab === 1 ? false : true}>
 				猿、ゴリラ、一般人
 			</div>
-			<div
-				id="tabpanel-2"
-				class="tabpanel"
-				tabindex="0"
-				hidden={activeTab === 2 ? false : true}
-			>
+			<div id="tabpanel-2" class="tabpanel" tabindex="0" hidden={activeTab === 2 ? false : true}>
 				たい焼き
 			</div>
-			<div
-				id="tabpanel-3"
-				class="tabpanel"
-				tabindex="0"
-				hidden={activeTab === 3 ? false : true}
-			>
+			<div id="tabpanel-3" class="tabpanel" tabindex="0" hidden={activeTab === 3 ? false : true}>
 				ペンギン
 			</div>
 		</div>

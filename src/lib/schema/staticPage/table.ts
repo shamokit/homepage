@@ -1,4 +1,4 @@
-import type { Row } from './row'
+import type { Row } from './row';
 export type Table = {
-	row: Row[]
-}
+	row: Row[];
+};

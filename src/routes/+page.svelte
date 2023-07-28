@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
+	import { onMount } from 'svelte';
 	import Head01 from '$lib/components/heading/head01/index.svelte';
 	import Head02 from '$lib/components/heading/head02/index.svelte';
 	import LinkButton from '$lib/components/button/linkButton/index.svelte';
@@ -8,13 +8,16 @@
 	import type { PageData } from './$types';
 	import zenn from '$lib/assets/zenn.png';
 	import qiita from '$lib/assets/qiita.png';
-  import Thinkings from '$lib/components/thinking/thinkings.svelte';
-  import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
+	import Thinkings from '$lib/components/thinking/thinkings.svelte';
+	import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	export let data: PageData;
 	onMount(() => {
-		document.head.setAttribute('prefix', 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#')
-	})
+		document.head.setAttribute(
+			'prefix',
+			'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#'
+		);
+	});
 </script>
 
 <svelte:head>
@@ -25,13 +28,15 @@
 	<meta property="og:image" content={`${OG_IMAGE_URL}`} />
 	<meta property="og:title" content="しゃもきっとブログ" />
 	<meta property="og:description" content="しゃもきっとのエンジニアブログ" />
-	<link rel="canonical" href={SITE_URL}>
+	<link rel="canonical" href={SITE_URL} />
 </svelte:head>
 <main>
 	<section>
 		<div class="grid gap-12 container py-16 lg:py-28">
 			<Head01 title="Posts">
-				<p>Qiita{#if data.zenn.length > 0}とZenn{/if}に記事を投稿しています。</p>
+				<p>
+					Qiita{#if data.zenn.length > 0}とZenn{/if}に記事を投稿しています。
+				</p>
 			</Head01>
 			<div class="grid gap-10">
 				{#if data.zenn.length > 0}
@@ -82,26 +87,28 @@
 			<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
 				{#await data.streamed.photos}
 					{#each [...Array(12)].map((_, i) => i) as _}
-						<li style="padding-top: 100%;" class="bg-surface-700 rounded-lg animate-pulse"><div class="sr-only">画像取得中…</div></li>
+						<li style="padding-top: 100%;" class="bg-surface-700 rounded-lg animate-pulse">
+							<div class="sr-only">画像取得中…</div>
+						</li>
 					{/each}
 				{:then photos}
-						{#each photos as photo}
-							<li>
-								<a
-									href={photo.permalink}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="group block overflow-hidden rounded-lg"
-									><ImageLazyLoad
-										src={photo.media_url}
-										alt={photo.caption}
-										class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125"
-										width={600}
-										height={600}
-									/></a
-								>
-							</li>
-						{/each}
+					{#each photos as photo}
+						<li>
+							<a
+								href={photo.permalink}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group block overflow-hidden rounded-lg"
+								><ImageLazyLoad
+									src={photo.media_url}
+									alt={photo.caption}
+									class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125"
+									width={600}
+									height={600}
+								/></a
+							>
+						</li>
+					{/each}
 				{/await}
 			</ul>
 			<LinkButton href={contactList.instagram.url} blank={true}>Instagramへ</LinkButton>

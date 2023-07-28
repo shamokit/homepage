@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Ico from '$lib/components/svg/ico.svelte';
-	export let href: string = '';
-	export let blank: boolean = false;
+	export let href: string;
+	export let blank = false;
 </script>
 
 <p class="text-sm">

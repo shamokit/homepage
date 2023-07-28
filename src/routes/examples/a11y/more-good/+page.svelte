@@ -125,13 +125,34 @@
 					鳥類
 				</button>
 			</div>
-			<div role="tabpanel" aria-labelledby="tab-1" id="tabpanel-1" class="tabpanel" tabindex="0" hidden={activeTab === 1 ? false : true}>
+			<div
+				role="tabpanel"
+				aria-labelledby="tab-1"
+				id="tabpanel-1"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 1 ? false : true}
+			>
 				猿、ゴリラ、一般人
 			</div>
-			<div role="tabpanel" aria-labelledby="tab-2" id="tabpanel-2" class="tabpanel" tabindex="0" hidden={activeTab === 2 ? false : true}>
+			<div
+				role="tabpanel"
+				aria-labelledby="tab-2"
+				id="tabpanel-2"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 2 ? false : true}
+			>
 				たい焼き
 			</div>
-			<div role="tabpanel" aria-labelledby="tab-3" id="tabpanel-3" class="tabpanel" tabindex="0" hidden={activeTab === 3 ? false : true}>
+			<div
+				role="tabpanel"
+				aria-labelledby="tab-3"
+				id="tabpanel-3"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 3 ? false : true}
+			>
 				ペンギン
 			</div>
 		</div>

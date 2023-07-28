@@ -1,9 +1,9 @@
 import { onMount } from 'svelte';
-import { writable } from 'svelte/store'
+import { writable } from 'svelte/store';
 import type { Action } from 'svelte/action';
 import { BREAK_POINTS } from '$lib/const';
 
-export const isMobile = writable(true)
+export const isMobile = writable(true);
 export const mediaQueryAction: Action<Document> = () => {
 	const mediaQuery = window.matchMedia(`(max-width: ${BREAK_POINTS.md}px)`);
 	const handleMediaQuery = (matches: boolean) => {
