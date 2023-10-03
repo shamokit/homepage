@@ -35,7 +35,7 @@
 				<h2 class="text-xl">プレースホルダー</h2>
 				<section class="grid gap-3 p-6 bg-surface-300">
 					<h3 class="text-lg">悪い例</h3>
-					<div class="flex gap-4">
+					<div class="grid grid-cols-2 gap-4">
 						<input type="text" placeholder="山田" class="px-4 py-2" />
 						<input type="text" placeholder="太郎" class="px-4 py-2" />
 					</div>
@@ -196,7 +196,9 @@
 							<table>
 								<tbody>
 									<tr>
-										<th scope="row">補足<span aria-hidden="true">:</span></th>
+										<th scope="row" class="whitespace-nowrap align-top pr-2"
+											>補足<span aria-hidden="true">:</span></th
+										>
 										<td
 											>requiredやaria-requiredを追加でつけると、ラベル部分とrequired属性で、「必須」と2回読まれてしまいます。</td
 										>
@@ -222,7 +224,9 @@
 							<table>
 								<tbody>
 									<tr>
-										<th scope="row">補足<span aria-hidden="true">:</span></th>
+										<th scope="row" class="whitespace-nowrap align-top pr-2"
+											>補足<span aria-hidden="true">:</span></th
+										>
 										<td
 											>name属性にzipcodeを指定しているのでautocomplete属性なしでもサジェストされています。</td
 										>
@@ -252,7 +256,9 @@
 							<table>
 								<tbody>
 									<tr>
-										<th scope="row">補足<span aria-hidden="true">:</span></th>
+										<th scope="row" class="whitespace-nowrap align-top pr-2"
+											>補足<span aria-hidden="true">:</span></th
+										>
 										<td
 											>name属性にzipcode1を指定しているので本来サジェストされませんが、<br
 											/>autocompleteにpostal-codeを指定しているのでサジェストされています。</td
