@@ -31,32 +31,33 @@
 	<article class="grid gap-10 container">
 		<h1 class="text-xxl" id="form-name">フォームコントロール</h1>
 		<form class="grid gap-10" aria-labelledby="form-name">
-			<section class="grid gap-6 p-10 bg-surface-700">
+			<section class="grid gap-6 p-6 md:p-10 bg-surface-700">
 				<h2 class="text-xl">プレースホルダー</h2>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">悪い例</h3>
-					<div class="grid grid-cols-2 gap-4">
+					<div class="grid md:grid-cols-2 gap-4">
 						<input type="text" placeholder="山田" class="px-4 py-2" />
 						<input type="text" placeholder="太郎" class="px-4 py-2" />
 					</div>
 				</section>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">良い例</h3>
 					<div class="flex gap-4">
-						<div class="flex items-center gap-6">
+						<div class="md:flex items-center gap-6">
 							<label for="name" class="text-md leading-snug"
-								>名前<br /><span class="text-xs">(例: 山田 太郎)</span></label
+								>名前<br class="hidden md:block" /><span class="text-xs">(例: 山田 太郎)</span
+								></label
 							>
-							<input type="text" name="name" id="name" class="px-4 py-2" />
+							<input type="text" name="name" id="name" class="block px-4 py-2" />
 						</div>
 					</div>
 				</section>
 			</section>
-			<section class="grid gap-6 p-10 bg-surface-700">
+			<section class="grid gap-6 p-6 md:p-10 bg-surface-700">
 				<h2 class="text-xl">チェックボックス</h2>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">悪い例</h3>
-					<div class="grid gap-2 bg-surface-500 p-6">
+					<div class="grid gap-2 bg-surface-500 p-4 md:p-6">
 						<h4 class="text-md leading-snug font-bold">好きな動物</h4>
 						<ul class="text-sm">
 							<li>
@@ -82,9 +83,9 @@
 						</ul>
 					</div>
 				</section>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">良い例</h3>
-					<fieldset class="bg-surface-500 p-6">
+					<fieldset class="bg-surface-500 p-4 md:p-6">
 						<legend id="animal-head" class="text-md leading-snug font-bold">好きな動物</legend>
 						<ul class="text-sm" role="group" aria-labelledby="animal-head">
 							<li>
@@ -111,11 +112,11 @@
 					</fieldset>
 				</section>
 			</section>
-			<section class="grid gap-6 p-10 bg-surface-700">
+			<section class="grid gap-6 p-6 md:p-10 bg-surface-700">
 				<h2 class="text-xl">ラジオボタン</h2>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">悪い例</h3>
-					<div class="grid gap-2 bg-surface-500 p-6">
+					<div class="grid gap-2 bg-surface-500 p-4 md:p-6">
 						<h4 class="text-md leading-snug font-bold">今日の夕飯</h4>
 						<ul class="text-sm">
 							<li>
@@ -141,9 +142,9 @@
 						</ul>
 					</div>
 				</section>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">良い例</h3>
-					<fieldset class="bg-surface-500 p-6">
+					<fieldset class="bg-surface-500 p-4 md:p-6">
 						<legend id="dinner-head" class="text-md leading-snug font-bold">今日の夕飯</legend>
 						<ul class="text-sm" role="radiogroup" aria-labelledby="dinner-head">
 							<li>
@@ -170,27 +171,27 @@
 					</fieldset>
 				</section>
 			</section>
-			<section class="grid gap-6 p-10 bg-surface-700">
+			<section class="grid gap-6 p-6 md:p-10 bg-surface-700">
 				<h2 class="text-xl">必須</h2>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">悪い例</h3>
 					<div class="flex gap-4">
-						<div class="flex items-center gap-6">
-							<label for="pref" class="text-md leading-snug"
-								>都道府県<br /><span class="text-xs">※</span></label
+						<div class="md:flex items-center gap-6">
+							<label for="pref" class="text-md leading-snug whitespace-nowrap"
+								>都道府県<br class="hidden md:block" /><span class="text-xs">※</span></label
 							>
-							<input type="text" name="pref" id="pref" class="px-4 py-2" />
+							<input type="text" name="pref" id="pref" class="block px-4 py-2 flex-1" />
 						</div>
 					</div>
 				</section>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">良い例</h3>
 					<div class="grid gap-4">
-						<div class="flex items-center gap-6">
-							<label for="pref1" class="text-md leading-snug"
-								>都道府県<br /><span class="text-xs">(必須)</span></label
+						<div class="md:flex items-center gap-6">
+							<label for="pref1" class="text-md leading-snug whitespace-nowrap"
+								>都道府県<br class="hidden md:block" /><span class="text-xs">(必須)</span></label
 							>
-							<input type="text" name="pref1" id="pref1" class="px-4 py-2" />
+							<input type="text" name="pref1" id="pref1" class="block px-4 py-2 flex-1" />
 						</div>
 						<aside class="text-xs">
 							<table>
@@ -209,16 +210,16 @@
 					</div>
 				</section>
 			</section>
-			<section class="grid gap-6 p-10 bg-surface-700">
+			<section class="grid gap-6 p-6 md:p-10 bg-surface-700">
 				<h2 class="text-xl">autocomplete</h2>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">悪い例</h3>
 					<div class="grid gap-4">
-						<div class="flex items-center gap-6">
+						<div class="md:flex items-center gap-6">
 							<label for="zipcode" class="text-md leading-snug"
-								>郵便番号<br /><span class="text-xs">(必須)</span></label
+								>郵便番号<br class="hidden md:block" /><span class="text-xs">(必須)</span></label
 							>
-							<input type="number" name="zipcode" id="zipcode" class="px-4 py-2" />
+							<input type="number" name="zipcode" id="zipcode" class="block px-4 py-2" />
 						</div>
 						<aside class="text-xs">
 							<table>
@@ -236,18 +237,18 @@
 						</aside>
 					</div>
 				</section>
-				<section class="grid gap-3 p-6 bg-surface-300">
+				<section class="grid gap-3 p-4 md:p-6 bg-surface-300">
 					<h3 class="text-lg">良い例</h3>
 					<div class="grid gap-4">
-						<div class="flex items-center gap-6">
+						<div class="md:flex items-center gap-6">
 							<label for="zipcode1" class="text-md leading-snug"
-								>郵便番号<br /><span class="text-xs">(必須)</span></label
+								>郵便番号<br class="hidden md:block" /><span class="text-xs">(必須)</span></label
 							>
 							<input
 								type="text"
 								name="zipcode1"
 								id="zipcode1"
-								class="px-4 py-2"
+								class="block px-4 py-2"
 								inputmode="numeric"
 								autocomplete="postal-code"
 							/>
