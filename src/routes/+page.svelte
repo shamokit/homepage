@@ -91,7 +91,7 @@
 							<div class="sr-only">画像取得中…</div>
 						</li>
 					{/each}
-				{:then photos}
+				{:then { media: { data: photos } }}
 					{#each photos as photo}
 						<li>
 							<a
