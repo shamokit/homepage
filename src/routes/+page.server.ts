@@ -21,7 +21,7 @@ export const load = async ({ fetch }) => {
 		),
 		fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fzenn.dev%2Fshamokit%2Ffeed')
 	]);
-	const [zenn, qiita, thinkings] = (await Promise.all([
+	const [qiita, zenn, thinkings] = (await Promise.all([
 		qiitaResponse.json(),
 		zennResponse.json(),
 		client.getList<ThinkingResponse>({
