@@ -2,12 +2,12 @@
 	import type { Section } from '$lib/schema/staticPage/section';
 	import Toggle from '$lib/components/toggle/index.svelte';
 	import SectionContent from '$lib/components/staticPage/sectionContent.svelte';
-	export let section: Section;
-	export let level = 2;
-	$: headingTag = headingData({ level, field: 'tag' });
-	$: headingClass = headingData({ level, field: 'class' });
-	$: sectionTag = sectionData({ level, field: 'tag' });
-	$: sectionClass = sectionData({ level, field: 'class' });
+
+	let { section, level = 2 } = $props<{
+		section: Section;
+		level?: number;
+	}>();
+
 	const headingData = ({ level, field }: { level: number; field: 'class' | 'tag' }) => {
 		switch (level) {
 			case 2: {
@@ -47,6 +47,11 @@
 			}
 		}
 	};
+
+	let headingTag = $derived(headingData({ level, field: 'tag' }));
+	let headingClass = $derived(headingData({ level, field: 'class' }));
+	let sectionTag = $derived(sectionData({ level, field: 'tag' }));
+	let sectionClass = $derived(sectionData({ level, field: 'class' }));
 </script>
 
 {#if section.toggle && section.title}

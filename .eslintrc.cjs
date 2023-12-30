@@ -2,9 +2,9 @@ module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
 	extends: [
-		'plugin:svelte/recommended',
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:svelte/recommended',
 		'prettier'
 	],
 	plugins: ['@typescript-eslint'],
@@ -12,7 +12,6 @@ module.exports = {
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2020,
-		project: './tsconfig.json',
 		extraFileExtensions: ['.svelte']
 	},
 	overrides: [
@@ -22,7 +21,7 @@ module.exports = {
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
 			}
-		}
+		},
 	],
 	rules: {
 		'@typescript-eslint/no-unused-vars': [
@@ -40,5 +39,5 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
-	}
+	},
 };

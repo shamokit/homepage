@@ -4,8 +4,10 @@
 	import { globalMenuStore } from '$lib/components/layouts/header/navigation/globalMenu.store';
 	import { isMobile } from '$lib/functions/mediaQuery.store.action';
 
-	export let isHome = false;
-	$: tag = isHome ? 'h1' : 'p';
+	let { isHome = false } = $props<{
+		isHome: boolean;
+	}>();
+	let tag = $derived(isHome ? 'h1' : 'p');
 
 	const { closeMenu } = globalMenuStore();
 </script>

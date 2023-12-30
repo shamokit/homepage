@@ -16,5 +16,5 @@ export const load = (async ({ params }) => {
 			page
 		};
 	}
-	throw error(400, '記事を取得できませんでした。');
+	error(400, '記事を取得できませんでした。');
 }) satisfies PageServerLoad;

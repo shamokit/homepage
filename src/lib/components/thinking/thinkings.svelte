@@ -1,7 +1,10 @@
 <script lang="ts">
+	import type { ComponentProps } from 'svelte';
 	import Thinking from '$lib/components/thinking/index.svelte';
-	import type { ThinkingResponse } from '$lib/schema/thinking/thinking';
-	export let thinkings: ThinkingResponse[];
+
+	let { thinkings } = $props<{
+		thinkings: ComponentProps<Thinking>['thinking'][];
+	}>();
 </script>
 
 {#if thinkings.length > 0}

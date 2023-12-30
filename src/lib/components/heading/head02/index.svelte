@@ -1,7 +1,9 @@
 <script lang="ts">
-	export let title: string;
-	export let headingLevel: 3 | 4 = 3;
-	$: tagName = `h${headingLevel}`;
+	let { title, headingLevel = 3 } = $props<{
+		title: string;
+		headingLevel?: 3 | 4;
+	}>();
+	let tagName = $derived(`h${headingLevel}`);
 </script>
 
 <header class="flex flex-wrap items-center gap-5">

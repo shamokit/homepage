@@ -1,6 +1,12 @@
 <script lang="ts">
+	import type { PropsWithChildren } from 'svelte';
 	import Ico from '$lib/components/svg/ico.svelte';
-	export let title: string;
+	let { title, children } = $props<PropsWithChildren<{
+			title: string;
+			children: string
+		},
+		never
+	>>();
 </script>
 
 <details class="group bg-surface-100 shadow-sm rounded-md">
@@ -11,5 +17,5 @@
 			<span class="block group-open:hidden"><Ico name="add" /></span>
 		</span>
 	</summary>
-	<div class="py-4 px-6"><slot /></div>
+	<div class="py-4 px-6">{@render children()}</div>
 </details>

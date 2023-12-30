@@ -4,8 +4,11 @@
 	import Table from '$lib/components/table/index.svelte';
 	import Histories from '$lib/components/history/index.svelte';
 	import Section from '$lib/components/staticPage/section.svelte';
-	export let body: SectionProps['body'];
-	export let level = 2;
+
+	let { body, level = 2 } = $props<{
+		body: SectionProps['body'];
+		level?: number;
+	}>();
 </script>
 
 {#each body as childSectionBody}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../css/app.css';
 	import { page } from '$app/stores';
 	import Svg from '$lib/components/svg/index.svelte';

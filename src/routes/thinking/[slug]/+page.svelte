@@ -4,8 +4,7 @@
 	import Thinkings from '$lib/components/thinking/thinkings.svelte';
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
-	import type { PageData } from './$types';
-	export let data: PageData;
+	let { data } = $props();
 </script>
 
 <svelte:head>
