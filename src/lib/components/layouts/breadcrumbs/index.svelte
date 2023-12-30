@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Ico from '$lib/components/svg/ico.svelte';
-	export let breadcrumbs: {
-		name: string;
-		slug: string;
-	}[] = [];
+
+	let { breadcrumbs = [] } = $props<{
+		breadcrumbs: {
+			name: string;
+			slug: string;
+		}[];
+	}>();
 </script>
 
 <nav class="py-4 lg:py-5 whitespace-nowrap overflow-auto" aria-label="パンくずリスト">

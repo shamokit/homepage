@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let content: string;
+	let { content } = $props<{
+		content: string;
+	}>();
 </script>
 
 <div class="wysiwyg grid grid-cols-1 gap-[1em]">

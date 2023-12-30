@@ -83,9 +83,11 @@
 	</button>
 	<nav
 		id="globalNavigation"
-		class={`absolute md:static top-0 left-0 right-0 min-h-screen md:min-h-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] md:pt-0 transition-opacity bg-surface-100 md:bg-transparent ${
-			$menuOpen ? 'visible opacity-100' : 'invisible opacity-0'
-		}`}
+		class="absolute md:static top-0 left-0 right-0 min-h-screen md:min-h-0 max-h-screen overflow-auto overscroll-contain pt-[var(--header-height)] md:pt-0 transition-opacity bg-surface-100 md:bg-transparent"
+		class:visible={$menuOpen}
+		class:opacity-100={$menuOpen}
+		class:invisible={!$menuOpen}
+		class:opacity-0={!$menuOpen}
 		aria-hidden={$menuOpen ? null : 'true'}
 	>
 		<ul

@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
-	export let title: string;
-	export let body: string;
+
+	let { title, body } = $props<{
+		title: string;
+		body: string;
+	}>();
 </script>
 
 <tr class="border-b border-primary-100">

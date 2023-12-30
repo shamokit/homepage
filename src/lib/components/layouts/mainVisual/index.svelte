@@ -1,6 +1,8 @@
 <script lang="ts">
-	export let title = '';
-	export let lead: string | null = null;
+	let { title, lead } = $props<{
+		title: string;
+		lead?: string;
+	}>();
 </script>
 
 <header>

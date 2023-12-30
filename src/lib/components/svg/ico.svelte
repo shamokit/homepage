@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { icons, iconNames } from './const';
 	import { capitalize } from '$lib/functions/capitalize';
-	export let name: (typeof iconNames)[number] = 'edit';
-	export let ariaLabel: string | undefined = undefined;
-	$: icon = icons[name];
+	let { name = 'edit', ariaLabel } = $props<{
+		name: (typeof iconNames)[number];
+		ariaLabel?: string;
+	}>();
+	let icon = $derived(icons[name]);
 </script>
 
 <svg

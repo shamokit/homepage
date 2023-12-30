@@ -3,8 +3,7 @@
 	import MailVisual from '$lib/components/layouts/mainVisual/index.svelte';
 	import Section from '$lib/components/staticPage/section.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
-	import type { PageData } from './$types';
-	export let data: PageData;
+	let { data } = $props();
 </script>
 
 <svelte:head>

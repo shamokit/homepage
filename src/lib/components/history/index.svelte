@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
 	import type { History } from '$lib/schema/staticPage/history';
-	export let histories: History[] = [];
+	let { histories = [] } = $props<{
+		histories: History[];
+	}>();
 </script>
 
 <ul>

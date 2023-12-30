@@ -1,8 +1,11 @@
 <script lang="ts">
 	import type { ThinkingResponse } from '$lib/schema/thinking/thinking';
-	export let thinking: ThinkingResponse;
 	import Ico from '$lib/components/svg/ico.svelte';
 	import Dates from '$lib/components/date/dates.svelte';
+
+	let { thinking } = $props<{
+		thinking: ThinkingResponse;
+	}>();
 </script>
 
 <a
