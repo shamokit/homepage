@@ -13,5 +13,5 @@ export const load = (async () => {
 			thinkings
 		};
 	}
-	throw error(400, 'エラー');
+	error(400, 'エラー');
 }) satisfies PageServerLoad;
