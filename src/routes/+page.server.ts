@@ -37,17 +37,15 @@ export const load = async ({ fetch }) => {
 		zenn: zenn.items.slice(0, postNum),
 		qiita: qiita.items.slice(0, postNum),
 		thinkings,
-		streamed: {
-			photos: (await fetch(instagramUrl)).json() as Promise<{
-				media: {
-					data: {
-						id: string;
-						media_url: string;
-						permalink: string;
-						caption: string;
-					}[];
-				};
-			}>
-		}
+		photos: (await fetch(instagramUrl)).json() as Promise<{
+			media: {
+				data: {
+					id: string;
+					media_url: string;
+					permalink: string;
+					caption: string;
+				}[];
+			};
+		}>
 	};
 };

@@ -11,12 +11,6 @@
 	import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	let { data } = $props();
-	onMount(() => {
-		document.head.setAttribute(
-			'prefix',
-			'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#'
-		);
-	});
 </script>
 
 <svelte:head>
@@ -84,7 +78,7 @@
 				<p>うちのねこたちの写真です。</p>
 			</Head01>
 			<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-				{#await data.streamed.photos}
+				{#await data.photos}
 					{#each [...Array(12)].map((_, i) => i) as _}
 						<li style="padding-top: 100%;" class="bg-surface-700 rounded-lg animate-pulse">
 							<div class="sr-only">画像取得中…</div>
