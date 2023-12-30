@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PropsWithChildren } from 'svelte';
+	import type { PropsWithChildren } from 'svelte';
 	import '../css/app.css';
 	import { page } from '$app/stores';
 	import Svg from '$lib/components/svg/index.svelte';
