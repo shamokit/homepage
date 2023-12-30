@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import { CMS_API_KEY } from '$env/static/private';
 import {
 	createClient,
 	type GetRequest as GetRequestOriginal,
@@ -8,5 +8,5 @@ export type GetRequest = GetRequestOriginal;
 export type MicroCMSListContent = MicroCMSListContentOriginal;
 export const client = createClient({
 	serviceDomain: 'shamokit',
-	apiKey: env.CMS_API_KEY
+	apiKey: CMS_API_KEY
 });

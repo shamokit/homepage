@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/private';
+import { INSTAGRAM_BUSINESS_ACCOUNT_ID, INSTAGRAM_ACCESS_TOKEN } from '$env/static/private';
 import { client } from '$lib/libs/microcms.server';
 import type { ThinkingResponse } from '$lib/schema/thinking/thinking';
 import type { MicroCMSListResponse } from 'microcms-js-sdk';
@@ -32,7 +32,6 @@ export const load = async ({ fetch }) => {
 		})
 	])) as [Posts, Posts, MicroCMSListResponse<ThinkingResponse>];
 
-	const { INSTAGRAM_BUSINESS_ACCOUNT_ID, INSTAGRAM_ACCESS_TOKEN } = env;
 	const instagramUrl = `https://graph.facebook.com/v15.0/${INSTAGRAM_BUSINESS_ACCOUNT_ID}?fields=name,media.limit(12){media_url,permalink,caption}&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
 	return {
 		zenn: zenn.items.slice(0, postNum),
