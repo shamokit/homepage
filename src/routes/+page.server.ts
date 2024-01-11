@@ -33,19 +33,21 @@ export const load = async ({ fetch }) => {
 	])) as [Posts, Posts, MicroCMSListResponse<ThinkingResponse>];
 
 	const instagramUrl = `https://graph.facebook.com/v15.0/${INSTAGRAM_BUSINESS_ACCOUNT_ID}?fields=name,media.limit(12){media_url,permalink,caption}&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
+	const photosResponse = await fetch(instagramUrl);
+	const photos = (await photosResponse.json()) as {
+		media: {
+			data: {
+				id: string;
+				media_url: string;
+				permalink: string;
+				caption: string;
+			}[];
+		};
+	};
 	return {
 		zenn: zenn.items.slice(0, postNum),
 		qiita: qiita.items.slice(0, postNum),
 		thinkings,
-		photos: (await fetch(instagramUrl)).json() as Promise<{
-			media: {
-				data: {
-					id: string;
-					media_url: string;
-					permalink: string;
-					caption: string;
-				}[];
-			};
-		}>
+		photos
 	};
 };
