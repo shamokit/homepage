@@ -15,7 +15,7 @@
 </script>
 
 <svelte:document use:mediaQueryAction />
-<div class="flex flex-col min-h-screen pt-[var(--header-height)] bg-surface-300 first:hidden">
+<div class="flex flex-col min-h-screen pt-[var(--header-height)] bg-surface-300">
 	<Svg />
 	<Header isHome={$page.route.id === '/'} />
 	<div class="flex-1">
