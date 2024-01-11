@@ -72,20 +72,14 @@
 			</div>
 		</section>
 	{/if}
-	<section class:bg-surface-500={!(data.thinkings.contents.length > 0)}>
-		<div class="grid gap-8 container py-16 lg:py-28">
-			<Head01 title="Hokke to Unagi">
-				<p>うちのねこたちの写真です。</p>
-			</Head01>
-			<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-				{#await data.photos}
-					{#each [...Array(12)].map((_, i) => i) as _}
-						<li style="padding-top: 100%;" class="bg-surface-700 rounded-lg animate-pulse">
-							<div class="sr-only">画像取得中…</div>
-						</li>
-					{/each}
-				{:then { media: { data: photos } }}
-					{#each photos as photo}
+	{#if data.photos}
+		<section class:bg-surface-500={!(data.thinkings.contents.length > 0)}>
+			<div class="grid gap-8 container py-16 lg:py-28">
+				<Head01 title="Hokke to Unagi">
+					<p>うちのねこたちの写真です。</p>
+				</Head01>
+				<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+					{#each data.photos.media.data as photo}
 						<li>
 							<a
 								href={photo.permalink}
@@ -102,9 +96,9 @@
 							>
 						</li>
 					{/each}
-				{/await}
-			</ul>
-			<LinkButton href={contactList.instagram.url} blank={true}>Instagramへ</LinkButton>
-		</div>
-	</section>
+				</ul>
+				<LinkButton href={contactList.instagram.url} blank={true}>Instagramへ</LinkButton>
+			</div>
+		</section>
+	{/if}
 </main>
