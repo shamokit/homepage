@@ -79,7 +79,7 @@
 					<p>うちのねこたちの写真です。</p>
 				</Head01>
 				<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-					{#each data.photos.media.data as photo}
+					{#each data.photos as photo}
 						<li>
 							<a
 								href={photo.permalink}

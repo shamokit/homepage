@@ -48,6 +48,10 @@ export const load = async ({ fetch }) => {
 		zenn: zenn.items.slice(0, postNum),
 		qiita: qiita.items.slice(0, postNum),
 		thinkings,
-		photos
+		photos: photos.media.data.map(({ permalink, media_url, caption }) => ({
+			permalink,
+			media_url,
+			caption
+		}))
 	};
 };
