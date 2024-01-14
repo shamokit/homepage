@@ -1,12 +1,11 @@
 <script lang="ts">
-	import type { PropsWithChildren } from 'svelte';
+	import type { Snippet } from 'svelte';
 	import Ico from '$lib/components/svg/ico.svelte';
-	let { title, children } = $props<PropsWithChildren<{
+	let { title, children } = $props<{
 			title: string;
-			children: string
-		},
-		never
-	>>();
+			children: Snippet;
+		}
+	>();
 </script>
 
 <details class="group bg-surface-100 shadow-sm rounded-md">

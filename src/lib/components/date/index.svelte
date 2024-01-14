@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PropsWithChildren } from 'svelte';
 	import dayjs from 'dayjs';
 	dayjs.locale('ja');
 	import Ico from '$lib/components/svg/ico.svelte';
@@ -10,18 +9,13 @@
 		tag = 'li' as const,
 		timeTag = false,
 		hasIco = true
-	} = $props<
-		PropsWithChildren<
-			{
-				date: string;
-				type: 'edit' | 'updated';
-				tag: 'li' | 'p';
-				timeTag: boolean;
-				hasIco: boolean;
-			},
-			never
-		>
-	>();
+	} = $props<{
+		date: string;
+		type?: 'edit' | 'updated';
+		tag?: 'li' | 'p';
+		timeTag?: boolean;
+		hasIco?: boolean;
+	}>();
 	let formattedDate = $derived(dayjs(date).format('YYYY/MM/DD'));
 </script>
 

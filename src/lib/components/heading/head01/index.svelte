@@ -1,8 +1,13 @@
 <script lang="ts">
-	let { title, headingLevel = 2 } = $props<{
-		title: string;
-		headingLevel?: 1 | 2 | 3;
-	}>();
+	import type { Snippet } from 'svelte';
+
+	let { title, headingLevel = 2, children } = $props<
+			{
+				title: string;
+				headingLevel?: 1 | 2 | 3;
+				children: Snippet;
+			}
+	>();
 	let tagName = $derived(`h${headingLevel}`);
 </script>
 
@@ -10,5 +15,5 @@
 	<svelte:element this={tagName} class="text-xxl">
 		{title}
 	</svelte:element>
-	<slot />
+	{@render children()}
 </header>

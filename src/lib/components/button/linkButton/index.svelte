@@ -1,18 +1,17 @@
 <script lang="ts">
-	import type { PropsWithChildren } from 'svelte';
+	import type { Snippet } from 'svelte';
 	import Ico from '$lib/components/svg/ico.svelte';
 	let {
 		href,
 		blank = false,
 		children
-	} = $props<PropsWithChildren<
+	} = $props<
 	{
 		href: string;
 		blank?: boolean;
-		children: string;
-	}, never>>();
+		children: Snippet;
+	}>();
 </script>
-
 <p class="text-sm">
 	<a
 		{href}

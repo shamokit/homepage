@@ -1,17 +1,11 @@
 <script lang="ts">
 	import dayjs from 'dayjs';
 	dayjs.locale('ja');
-	import type { PropsWithChildren } from 'svelte';
 
-	let { publishedDate = '', updatedDate = '' } = $props<
-		PropsWithChildren<
-			{
-				publishedDate: string;
-				updatedDate: string;
-			},
-			never
-		>
-	>();
+	let { publishedDate = '', updatedDate = '' } = $props<{
+		publishedDate: string;
+		updatedDate: string;
+	}>();
 
 	import Date from '$lib/components/date/index.svelte';
 </script>

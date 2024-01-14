@@ -3,7 +3,7 @@
 	import Ico from '$lib/components/svg/ico.svelte';
 
 	let { breadcrumbs = [] } = $props<{
-		breadcrumbs: {
+		breadcrumbs?: {
 			name: string;
 			slug: string;
 		}[];

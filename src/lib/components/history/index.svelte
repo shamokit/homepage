@@ -2,7 +2,7 @@
 	import Wysiwyg from '$lib/components/wysiwyg/index.svelte';
 	import type { History } from '$lib/schema/staticPage/history';
 	let { histories = [] } = $props<{
-		histories: History[];
+		histories?: History[];
 	}>();
 </script>
 

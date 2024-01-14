@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PropsWithChildren } from 'svelte';
 	import '../css/app.css';
 	import { page } from '$app/stores';
 	import Svg from '$lib/components/svg/index.svelte';
@@ -7,11 +6,7 @@
 	import Footer from '$lib/components/layouts/footer/index.svelte';
 	import { mediaQueryAction } from '$lib/functions/mediaQuery.store.action';
 
-	let { children } = $props<
-		PropsWithChildren<{
-			children: string;
-		}, never>
-	>();
+	let { children } = $props();
 </script>
 
 <svelte:document use:mediaQueryAction />

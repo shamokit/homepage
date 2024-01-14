@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Head01 from '$lib/components/heading/head01/index.svelte';
 	import Head02 from '$lib/components/heading/head02/index.svelte';
 	import LinkButton from '$lib/components/button/linkButton/index.svelte';
