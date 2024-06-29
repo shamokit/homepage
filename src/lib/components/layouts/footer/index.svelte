@@ -2,7 +2,7 @@
 	import qiita from '$lib/assets/qiita.png';
 	import zenn from '$lib/assets/zenn.png';
 	import instagram from '$lib/assets/instagram.png';
-	import twitter from '$lib/assets/twitter.png';
+	import x from '$lib/assets/x.png';
 	import github from '$lib/assets/github.png';
 	import { links, contactList } from '$lib/const';
 	import Ico from '$lib/components/svg/ico.svelte';
@@ -41,11 +41,11 @@
 				</li>
 				<li>
 					<a
-						href={contactList.twitter.url}
+						href={contactList.x.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
-						><img src={twitter} alt={contactList.twitter.name} width="40" height="40" /></a
+						class="block w-8 md:w-10 lg:w-12 p-1.5 rounded-full transition-opacity hover:opacity-80"
+						><img src={x} alt={contactList.x.name} width="40" height="40" /></a
 					>
 				</li>
 				<li>

@@ -16,10 +16,6 @@ export const links: Link[] = [
 		slug: '/about'
 	},
 	{
-		name: 'Thinking',
-		slug: '/thinking'
-	},
-	{
 		name: 'Contact',
 		slug: '/contact',
 		iconName: 'email'
@@ -48,9 +44,9 @@ export const contactList = {
 		name: 'Instagram',
 		url: 'https://www.instagram.com/hokke_to_unagi/'
 	},
-	twitter: {
-		name: 'Twitter',
-		url: 'https://twitter.com/shamokit_y2323'
+	x: {
+		name: 'X',
+		url: 'https://x.com/shamokit_y2323'
 	},
 	github: {
 		name: 'GitHub',
