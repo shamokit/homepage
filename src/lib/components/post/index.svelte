@@ -33,7 +33,9 @@
 				<Date date={pubDate} tag="p" />
 			</div>
 		</div>
-		<p class="text-sm font-bold group-hover:text-secondary-500">{title}</p>
+		<p class="text-sm font-bold group-hover:text-secondary-500">
+			{@html title}
+		</p>
 	</div>
 	{#if blank}
 		<span class="absolute bottom-1 right-1 block w-3">
