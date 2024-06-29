@@ -6,7 +6,6 @@
 	import { contactList } from '$lib/const';
 	import zenn from '$lib/assets/zenn.png';
 	import qiita from '$lib/assets/qiita.png';
-	import Thinkings from '$lib/components/thinking/thinkings.svelte';
 	import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	let { data } = $props();
@@ -60,19 +59,8 @@
 			</div>
 		</div>
 	</section>
-	{#if data.thinkings.contents.length > 0}
-		<section class="bg-surface-500">
-			<div class="grid gap-8 container py-16 lg:py-28">
-				<Head01 title="Thinking">
-					<p>本から得た知識や仕事で得た知識のアウトプット、日頃考えていることを記録しています。</p>
-				</Head01>
-				<Thinkings thinkings={data.thinkings.contents} />
-				<LinkButton href="/thinking">Thinking一覧</LinkButton>
-			</div>
-		</section>
-	{/if}
 	{#if data.photos}
-		<section class:bg-surface-500={!(data.thinkings.contents.length > 0)}>
+		<section class:bg-surface-500={!(data.photos.length > 0)}>
 			<div class="grid gap-8 container py-16 lg:py-28">
 				<Head01 title="Hokke to Unagi">
 					<p>うちのねこたちの写真です。</p>
@@ -88,7 +76,7 @@
 								><ImageLazyLoad
 									src={photo.media_url}
 									alt={photo.caption}
-									class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125"
+									class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125 aspect-square"
 									width={600}
 									height={600}
 								/></a
