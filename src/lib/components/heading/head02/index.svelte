@@ -6,12 +6,12 @@
 		headingLevel = 3,
 		ico,
 		button
-	} = $props<{
+	}: {
 		title: string;
 		headingLevel?: 3 | 4;
 		ico: Snippet;
 		button: Snippet;
-	}>();
+	} = $props();
 	let tagName = $derived(`h${headingLevel}`);
 </script>
 

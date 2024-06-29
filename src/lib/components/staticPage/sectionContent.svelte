@@ -5,10 +5,13 @@
 	import Histories from '$lib/components/history/index.svelte';
 	import Section from '$lib/components/staticPage/section.svelte';
 
-	let { body, level = 2 } = $props<{
+	let {
+		body,
+		level = 2
+	}: {
 		body: SectionProps['body'];
 		level?: number;
-	}>();
+	} = $props();
 </script>
 
 {#each body as childSectionBody}

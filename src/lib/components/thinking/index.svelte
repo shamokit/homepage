@@ -3,9 +3,11 @@
 	import Ico from '$lib/components/svg/ico.svelte';
 	import Dates from '$lib/components/date/dates.svelte';
 
-	let { thinking } = $props<{
+	let {
+		thinking
+	}: {
 		thinking: ThinkingResponse;
-	}>();
+	} = $props();
 </script>
 
 <a
@@ -15,6 +17,8 @@
 	<span class="flex-shrink-0 block w-6 md:w-8 pt-0.5"><Ico name="note" /></span>
 	<div class="grid gap-2">
 		<p class="text-md font-bold group-hover:text-secondary-500">{thinking.title}</p>
-		<Dates publishedDate={thinking.publishedAt} updatedDate={thinking.updatedAt} />
+		{#if thinking.publishedAt}
+			<Dates publishedDate={thinking.publishedAt} updatedDate={thinking.updatedAt} />
+		{/if}
 	</div>
 </a>

@@ -2,12 +2,14 @@
 	import { page } from '$app/stores';
 	import Ico from '$lib/components/svg/ico.svelte';
 
-	let { breadcrumbs = [] } = $props<{
+	let {
+		breadcrumbs = []
+	}: {
 		breadcrumbs?: {
 			name: string;
 			slug: string;
 		}[];
-	}>();
+	} = $props();
 </script>
 
 <nav class="py-4 lg:py-5 whitespace-nowrap overflow-auto" aria-label="パンくずリスト">
@@ -27,7 +29,7 @@
 					>
 				</li>
 			{/each}
-			<li class="w-[2em] shrink-0" aria-hidden={true} />
+			<li class="w-[2em] shrink-0" aria-hidden={true}></li>
 		</ol>
 	</div>
 </nav>

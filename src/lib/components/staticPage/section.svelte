@@ -3,10 +3,13 @@
 	import Toggle from '$lib/components/toggle/index.svelte';
 	import SectionContent from '$lib/components/staticPage/sectionContent.svelte';
 
-	let { section, level = 2 } = $props<{
+	let {
+		section,
+		level = 2
+	}: {
 		section: Section;
 		level?: number;
-	}>();
+	} = $props();
 
 	const headingData = ({ level, field }: { level: number; field: 'class' | 'tag' }) => {
 		switch (level) {

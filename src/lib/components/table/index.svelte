@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Row from '$lib/components/table/row.svelte';
-	let { rows } = $props<{
+	let {
+		rows
+	}: {
 		rows: {
 			title: string;
 			body: string;
 		}[];
-	}>();
+	} = $props();
 </script>
 
 <table class="bg-surface-100">

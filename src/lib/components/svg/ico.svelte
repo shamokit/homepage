@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { icons, iconNames } from './const';
 	import { capitalize } from '$lib/functions/capitalize';
-	let { name = 'edit', ariaLabel } = $props<{
+	let {
+		name = 'edit',
+		ariaLabel
+	}: {
 		name: (typeof iconNames)[number];
 		ariaLabel?: string;
-	}>();
+	} = $props();
 	let icon = $derived(icons[name]);
 </script>
 

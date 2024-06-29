@@ -2,10 +2,13 @@
 	import dayjs from 'dayjs';
 	dayjs.locale('ja');
 
-	let { publishedDate = '', updatedDate = '' } = $props<{
+	let {
+		publishedDate = '',
+		updatedDate = ''
+	}: {
 		publishedDate: string;
 		updatedDate: string;
-	}>();
+	} = $props();
 
 	import Date from '$lib/components/date/index.svelte';
 </script>

@@ -4,9 +4,11 @@
 	import { globalMenuStore } from '$lib/components/layouts/header/navigation/globalMenu.store';
 	import { isMobile } from '$lib/functions/mediaQuery.store.action';
 
-	let { isHome = false } = $props<{
+	let {
+		isHome = false
+	}: {
 		isHome: boolean;
-	}>();
+	} = $props();
 	let tag = $derived(isHome ? 'h1' : 'p');
 
 	const { closeMenu } = globalMenuStore();
@@ -19,7 +21,7 @@
 		<a
 			href="/"
 			class="flex items-center gap-2 md:pl-2.5 md:pr-5 text-primary-500 text-sm md:text-md transition-colors rounded-full hover:text-accent-500"
-			on:click={() => closeMenu($isMobile)}
+			onclick={() => closeMenu($isMobile)}
 		>
 			<span class="block w-10 md:w-14 shrink-0 p-1 md:p-2"><Logo /></span>
 			<span class="font-bold">しゃもきっとブログ</span>

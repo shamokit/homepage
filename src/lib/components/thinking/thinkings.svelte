@@ -2,9 +2,11 @@
 	import type { ComponentProps } from 'svelte';
 	import Thinking from '$lib/components/thinking/index.svelte';
 
-	let { thinkings } = $props<{
+	let {
+		thinkings
+	}: {
 		thinkings: ComponentProps<Thinking>['thinking'][];
-	}>();
+	} = $props();
 </script>
 
 {#if thinkings.length > 0}

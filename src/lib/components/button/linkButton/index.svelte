@@ -5,13 +5,13 @@
 		href,
 		blank = false,
 		children
-	} = $props<
-	{
+	}: {
 		href: string;
 		blank?: boolean;
 		children: Snippet;
-	}>();
+	} = $props();
 </script>
+
 <p class="text-sm">
 	<a
 		{href}

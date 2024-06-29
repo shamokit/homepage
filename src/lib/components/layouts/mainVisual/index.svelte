@@ -1,8 +1,11 @@
 <script lang="ts">
-	let { title, lead } = $props<{
+	let {
+		title,
+		lead
+	}: {
 		title: string;
 		lead?: string;
-	}>();
+	} = $props();
 </script>
 
 <header>

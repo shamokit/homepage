@@ -1,13 +1,15 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	let { title, headingLevel = 2, children } = $props<
-			{
-				title: string;
-				headingLevel?: 1 | 2 | 3;
-				children: Snippet;
-			}
-	>();
+	let {
+		title,
+		headingLevel = 2,
+		children
+	}: {
+		title: string;
+		headingLevel?: 1 | 2 | 3;
+		children: Snippet;
+	} = $props();
 	let tagName = $derived(`h${headingLevel}`);
 </script>
 

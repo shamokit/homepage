@@ -1,9 +1,11 @@
 <script lang="ts">
 	import type { ComponentProps } from 'svelte';
 	import Post from '$lib/components/post/index.svelte';
-	let { posts } = $props<{
+	let {
+		posts
+	}: {
 		posts: ComponentProps<Post>[];
-	}>();
+	} = $props();
 </script>
 
 <ul class="grid gap-3">

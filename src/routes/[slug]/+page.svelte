@@ -40,14 +40,14 @@
 />
 <main>
 	<article>
-		<div class="h-8 md:h-14 lg:h-28" />
+		<div class="h-8 md:h-14 lg:h-28"></div>
 		<MailVisual title={data.page.title} lead={data.page.lead.lead} />
-		<div class="h-4 md:h-8 lg:h-16" />
+		<div class="h-4 md:h-8 lg:h-16"></div>
 		<div class="container">
 			{#each data.page.body.body as section}
 				<Section {section} />
 			{/each}
 		</div>
-		<div class="h-8 md:h-14 lg:h-28" />
+		<div class="h-8 md:h-14 lg:h-28"></div>
 	</article>
 </main>

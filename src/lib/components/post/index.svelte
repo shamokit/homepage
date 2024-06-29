@@ -3,12 +3,16 @@
 	import Ico from '$lib/components/svg/ico.svelte';
 	import Date from '$lib/components/date/index.svelte';
 	import { SITE_URL } from '$lib/const';
-	let { link, title, pubDate } = $props<{
+	let {
+		link,
+		title,
+		pubDate
+	}: {
 		id: string;
 		link: string;
 		title: string;
 		pubDate: string;
-	}>();
+	} = $props();
 
 	let blank = $derived(!link.startsWith(SITE_URL));
 </script>

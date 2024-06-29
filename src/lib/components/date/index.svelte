@@ -9,13 +9,13 @@
 		tag = 'li' as const,
 		timeTag = false,
 		hasIco = true
-	} = $props<{
+	}: {
 		date: string;
 		type?: 'edit' | 'updated';
 		tag?: 'li' | 'p';
 		timeTag?: boolean;
 		hasIco?: boolean;
-	}>();
+	} = $props();
 	let formattedDate = $derived(dayjs(date).format('YYYY/MM/DD'));
 </script>
 
