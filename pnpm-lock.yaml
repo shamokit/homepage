@@ -74,8 +74,8 @@ devDependencies:
     specifier: ^8.57.0
     version: 8.57.0
   eslint-plugin-svelte:
-    specifier: 2.41.0
-    version: 2.41.0(eslint@8.57.0)(svelte@5.0.0-next.208)
+    specifier: ^2.43.0
+    version: 2.43.0(eslint@8.57.0)(svelte@5.0.0-next.208)
 
 packages:
 
@@ -2066,12 +2066,12 @@ packages:
       eslint: 8.57.0
     dev: false
 
-  /eslint-plugin-svelte@2.41.0(eslint@8.57.0)(svelte@5.0.0-next.208):
-    resolution: {integrity: sha512-gjU9Q/psxbWG1VNwYbEb0Q6U4W5PBGaDpYmO2zlQ+zlAMVS3Qt0luAK0ACi/tMSwRK6JENiySvMyJbO0YWmXSg==}
+  /eslint-plugin-svelte@2.43.0(eslint@8.57.0)(svelte@5.0.0-next.208):
+    resolution: {integrity: sha512-REkxQWvg2pp7QVLxQNa+dJ97xUqRe7Y2JJbSWkHSuszu0VcblZtXkPBPckkivk99y5CdLw4slqfPylL2d/X4jQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0-0 || ^9.0.0-0
-      svelte: ^3.37.0 || ^4.0.0 || ^5.0.0-next.155
+      svelte: ^3.37.0 || ^4.0.0 || ^5.0.0-next.191
     peerDependenciesMeta:
       svelte:
         optional: true
@@ -2088,7 +2088,7 @@ packages:
       postcss-selector-parser: 6.1.1
       semver: 7.6.3
       svelte: 5.0.0-next.208
-      svelte-eslint-parser: 0.39.2(svelte@5.0.0-next.208)
+      svelte-eslint-parser: 0.41.0(svelte@5.0.0-next.208)
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -3768,11 +3768,11 @@ packages:
       - sugarss
     dev: false
 
-  /svelte-eslint-parser@0.39.2(svelte@5.0.0-next.208):
-    resolution: {integrity: sha512-87UwLuWTtDIuzWOhOi1zBL5wYVd07M5BK1qZ57YmXJB5/UmjUNJqGy3XSOhPqjckY1dATNV9y+mx+nI0WH6HPA==}
+  /svelte-eslint-parser@0.41.0(svelte@5.0.0-next.208):
+    resolution: {integrity: sha512-L6f4hOL+AbgfBIB52Z310pg1d2QjRqm7wy3kI1W6hhdhX5bvu7+f0R6w4ykp5HoDdzq+vGhIJmsisaiJDGmVfA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
-      svelte: ^3.37.0 || ^4.0.0 || ^5.0.0-next.115
+      svelte: ^3.37.0 || ^4.0.0 || ^5.0.0-next.191
     peerDependenciesMeta:
       svelte:
         optional: true
