@@ -44,7 +44,7 @@
 	]}
 />
 <main>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<div class="grid gap-10 container">
 		<h1 class="text-xxl">role=&quot;status&quot;とdialog</h1>
 		<section class="grid gap-4">
@@ -116,5 +116,5 @@
 			</dialog>
 		</section>
 	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </main>

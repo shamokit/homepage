@@ -22,7 +22,7 @@
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/aria-label`} />
 </svelte:head>
 <div class="main">
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<div class="grid gap-10 container">
 		<h1 class="text-xxl">aria-labelの使い方には注意しよう</h1>
 		<section>
@@ -94,5 +94,5 @@
 			>
 		</section>
 	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </div>

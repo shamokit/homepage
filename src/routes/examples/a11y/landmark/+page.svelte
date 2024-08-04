@@ -39,7 +39,7 @@
 	]}
 />
 <main>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<div class="grid gap-10 container">
 		<h1 class="text-xxl">ランドマークの改善をした例</h1>
 		<div class="link grid gap-4">
@@ -169,7 +169,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </main>
 
 <style>

@@ -34,7 +34,7 @@
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/good`} />
 </svelte:head>
 <div class="main">
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<div class="grid gap-10 container">
 		<h1 class="text-xxl">キーボード操作できない例の改善</h1>
 		<div class="link grid gap-4">
@@ -109,18 +109,36 @@
 					鳥類
 				</button>
 			</div>
-			<div id="tabpanel-1" class="tabpanel" tabindex="0" hidden={activeTab === 1 ? false : true}>
+			<div
+				id="tabpanel-1"
+				role="tabpanel"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 1 ? false : true}
+			>
 				猿、ゴリラ、一般人
 			</div>
-			<div id="tabpanel-2" class="tabpanel" tabindex="0" hidden={activeTab === 2 ? false : true}>
+			<div
+				id="tabpanel-2"
+				role="tabpanel"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 2 ? false : true}
+			>
 				たい焼き
 			</div>
-			<div id="tabpanel-3" class="tabpanel" tabindex="0" hidden={activeTab === 3 ? false : true}>
+			<div
+				id="tabpanel-3"
+				role="tabpanel"
+				class="tabpanel"
+				tabindex="0"
+				hidden={activeTab === 3 ? false : true}
+			>
 				ペンギン
 			</div>
 		</div>
 	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </div>
 
 <style>

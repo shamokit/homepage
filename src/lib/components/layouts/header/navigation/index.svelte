@@ -5,13 +5,15 @@
 	import { globalMenuStore } from './globalMenu.store';
 	import { isMobile } from '$lib/functions/mediaQuery.store.action';
 
-	$: linkLength = links.length;
+	const linkLength = links.length;
 	const { menuOpen, openMenu, closeMenu, toggleMenu } = globalMenuStore();
-	$: if ($isMobile) {
-		closeMenu($isMobile);
-	} else {
-		openMenu();
-	}
+	$effect(() => {
+		if ($isMobile) {
+			closeMenu($isMobile);
+		} else {
+			openMenu();
+		}
+	});
 
 	let navigationButton: HTMLButtonElement;
 	let focusableItems: HTMLAnchorElement[] = [];
@@ -63,23 +65,23 @@
 		aria-controls="globalNavigation"
 		aria-label={$menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
 		bind:this={navigationButton}
-		on:click={toggleMenu}
-		on:keydown={focusLastAtMobile}
+		onclick={toggleMenu}
+		onkeydown={focusLastAtMobile}
 	>
 		<span
 			class="flex col-[2_/_3] row-[2_/_3] w-3 border-b-2 border-current transition-all"
 			class:translate-y-1={!$menuOpen}
 			class:rotate-45={$menuOpen}
-		/>
+		></span>
 		<span
 			class="flex col-[2_/_3] row-[2_/_3] w-3 border-b-2 border-current transition-all"
 			class:opacity-0={$menuOpen}
-		/>
+		></span>
 		<span
 			class="flex col-[2_/_3] row-[2_/_3] w-3 border-b-2 border-current transition-all"
 			class:-translate-y-1={!$menuOpen}
 			class:-rotate-45={$menuOpen}
-		/>
+		></span>
 	</button>
 	<nav
 		id="globalNavigation"
@@ -101,8 +103,8 @@
 						href={link.slug}
 						class="flex items-center gap-1.5 py-1 md:py-2 px-0 md:px-2.5 transition-all rounded-full underline-offset-8 hover:text-secondary-500 hover:underline aria-[current=page]:text-secondary-500 aria-[current=page]:underline-offset-8 aria-[current=page]:underline"
 						aria-current={isCurrent ? 'page' : undefined}
-						on:click={() => closeMenu($isMobile)}
-						on:keydown={(e) => focusFirstAtMobile(e, isLast)}
+						onclick={() => closeMenu($isMobile)}
+						onkeydown={(e) => focusFirstAtMobile(e, isLast)}
 						bind:this={focusableItems[i]}
 					>
 						{#if link.iconName}

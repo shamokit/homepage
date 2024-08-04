@@ -30,19 +30,6 @@
 				</p>
 			</Head01>
 			<div class="grid gap-10">
-				{#if data.zenn.length > 0}
-					<section class="grid gap-5">
-						<Head02 title="Zenn">
-							{#snippet ico()}
-								<img src={zenn} alt="" width="40" height="40" aria-hidden="true" />
-							{/snippet}
-							{#snippet button()}
-								<LinkButton href={contactList.zenn.url}>Zenn記事一覧</LinkButton>
-							{/snippet}
-						</Head02>
-						<Posts posts={data.zenn} />
-					</section>
-				{/if}
 				{#if data.qiita.length > 0}
 					<section class="grid gap-5">
 						<Head02 title="Qiita">
@@ -54,6 +41,19 @@
 							{/snippet}
 						</Head02>
 						<Posts posts={data.qiita} />
+					</section>
+				{/if}
+				{#if data.zenn.length > 0}
+					<section class="grid gap-5">
+						<Head02 title="Zenn">
+							{#snippet ico()}
+								<img src={zenn} alt="" width="40" height="40" aria-hidden="true" />
+							{/snippet}
+							{#snippet button()}
+								<LinkButton href={contactList.zenn.url}>Zenn記事一覧</LinkButton>
+							{/snippet}
+						</Head02>
+						<Posts posts={data.zenn} />
 					</section>
 				{/if}
 			</div>

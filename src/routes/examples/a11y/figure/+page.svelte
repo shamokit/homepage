@@ -20,7 +20,7 @@
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/figure`} />
 </svelte:head>
 <main>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<div class="grid gap-10 container">
 		<h1 class="text-xxl">figureタグの読み上げ例</h1>
 		<section class="grid gap-4">
@@ -28,7 +28,7 @@
 			<table>
 				<thead>
 					<tr>
-						<th />
+						<th></th>
 						<th>1. figcaptionなし</th>
 						<th>2. figcaptionなし<br />+pタグ</th>
 						<th>3. figcaptionあり</th>
@@ -133,7 +133,7 @@
 			<table>
 				<thead>
 					<tr>
-						<th />
+						<th></th>
 						<th>1. figcaptionなし</th>
 						<th>2. figcaptionなし<br />+pタグ</th>
 						<th>3. figcaptionあり</th>
@@ -234,7 +234,7 @@
 			</table>
 		</section>
 	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </main>
 
 <style>

@@ -27,7 +27,7 @@
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/more-good`} />
 </svelte:head>
 <div class="main">
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<div class="grid gap-10 container">
 		<h1 class="text-xxl">読み上げ改善した例</h1>
 		<div class="link grid gap-4">
@@ -157,7 +157,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </div>
 
 <style>

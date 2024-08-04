@@ -27,7 +27,7 @@
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/form`} />
 </svelte:head>
 <main>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 	<article class="grid gap-10 container">
 		<h1 class="text-xxl" id="form-name">フォームコントロール</h1>
 		<form class="grid gap-10" aria-labelledby="form-name">
@@ -273,5 +273,5 @@
 			</section>
 		</form>
 	</article>
-	<div class="h-8 md:h-14 lg:h-28" />
+	<div class="h-8 md:h-14 lg:h-28"></div>
 </main>

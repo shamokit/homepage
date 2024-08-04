@@ -21,7 +21,7 @@ module.exports = {
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
 			}
-		},
+		}
 	],
 	rules: {
 		'@typescript-eslint/no-unused-vars': [
@@ -39,5 +39,5 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
-	},
+	}
 };
