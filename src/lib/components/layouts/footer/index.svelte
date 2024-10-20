@@ -1,9 +1,9 @@
 <script>
-	import qiita from '$lib/assets/qiita.png';
-	import zenn from '$lib/assets/zenn.png';
-	import instagram from '$lib/assets/instagram.png';
-	import x from '$lib/assets/x.png';
-	import github from '$lib/assets/github.png';
+	import qiita from '$lib/assets/qiita.webp';
+	import zenn from '$lib/assets/zenn.webp';
+	import instagram from '$lib/assets/instagram.webp';
+	import x from '$lib/assets/x.webp';
+	import github from '$lib/assets/github.webp';
 	import { links, contactList } from '$lib/const';
 	import Ico from '$lib/components/svg/ico.svelte';
 </script>
@@ -45,7 +45,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						class="block w-8 md:w-10 lg:w-12 p-1.5 rounded-full transition-opacity hover:opacity-80"
-						><img src={x} alt={contactList.x.name} width="40" height="40" /></a
+						><img src={x} alt={contactList.x.name} width="40" height="41" /></a
 					>
 				</li>
 				<li>

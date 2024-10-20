@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
-	import ico from '$lib/assets/icon.png';
+	import ico from '$lib/assets/icon.webp';
 </script>
 
 <svelte:head>

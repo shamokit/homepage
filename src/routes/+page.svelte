@@ -4,8 +4,8 @@
 	import LinkButton from '$lib/components/button/linkButton/index.svelte';
 	import Posts from '$lib/components/post/posts.svelte';
 	import { contactList } from '$lib/const';
-	import zenn from '$lib/assets/zenn.png';
-	import qiita from '$lib/assets/qiita.png';
+	import zenn from '$lib/assets/zenn.webp';
+	import qiita from '$lib/assets/qiita.webp';
 	import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	let { data } = $props();
