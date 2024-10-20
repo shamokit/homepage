@@ -34,7 +34,7 @@
 					<section class="grid gap-5">
 						<Head02 title="Qiita">
 							{#snippet ico()}
-								<img src={qiita} alt="" width="40" height="40" aria-hidden="true" />
+								<img src={qiita} alt="" width="40" height="40" />
 							{/snippet}
 							{#snippet button()}
 								<LinkButton href={contactList.qiita.url}>Qiita記事一覧</LinkButton>
@@ -47,7 +47,7 @@
 					<section class="grid gap-5">
 						<Head02 title="Zenn">
 							{#snippet ico()}
-								<img src={zenn} alt="" width="40" height="40" aria-hidden="true" />
+								<img src={zenn} alt="" width="40" height="40" />
 							{/snippet}
 							{#snippet button()}
 								<LinkButton href={contactList.zenn.url}>Zenn記事一覧</LinkButton>

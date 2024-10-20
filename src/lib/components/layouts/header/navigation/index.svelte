@@ -63,7 +63,7 @@
 		class="absolute z-10 top-1/2 -translate-y-1/2 right-2 grid place-items-center grid-cols-[1fr_12px_1fr] grid-rows-[1fr_2px_1fr] rounded-full bg-surface-500 md:hidden w-10 h-10 text-primary-500"
 		aria-expanded={$menuOpen}
 		aria-controls="globalNavigation"
-		aria-label={$menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+		aria-label="メニュー"
 		bind:this={navigationButton}
 		onclick={toggleMenu}
 		onkeydown={focusLastAtMobile}
@@ -91,6 +91,7 @@
 		class:invisible={!$menuOpen}
 		class:opacity-0={!$menuOpen}
 		aria-hidden={$menuOpen ? null : 'true'}
+		aria-label="グローバル"
 	>
 		<ul
 			class="flex flex-col md:flex-row md:justify-end md:items-center gap-3 py-5 md:py-2 px-5 md:px-2 font-bold"

@@ -12,31 +12,31 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"autoprefixer": "^10.4.20",
-		"eslint": "^8.57.1",
-		"eslint-plugin-svelte": "^2.44.1"
+		"eslint": "^9.13.0",
+		"eslint-plugin-svelte": "^2.45.1"
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-cloudflare": "^4.7.2",
-		"@sveltejs/kit": "^2.6.1",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
+		"@sveltejs/adapter-cloudflare": "^4.7.3",
+		"@sveltejs/kit": "^2.7.2",
+		"@typescript-eslint/eslint-plugin": "^8.10.0",
+		"@typescript-eslint/parser": "^8.10.0",
 		"budoux": "^0.6.2",
 		"dayjs": "^1.11.13",
 		"eslint-config-prettier": "^9.1.0",
-		"microcms-js-sdk": "^2.7.0",
+		"microcms-js-sdk": "^3.1.2",
 		"postcss": "^8.4.47",
 		"postcss-nested": "^6.2.0",
-		"postcss-preset-env": "^9.6.0",
+		"postcss-preset-env": "^10.0.7",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.7",
-		"svelte": "5.0.0-next.260",
-		"svelte-check": "^3.8.6",
+		"svelte": "^5.0.2",
+		"svelte-check": "^4.0.5",
 		"svelte-intersection-observer": "^1.0.0",
-		"tailwindcss": "^3.4.13",
-		"typescript": "^5.6.2",
-		"vite": "^5.4.8"
+		"tailwindcss": "^3.4.14",
+		"typescript": "^5.6.3",
+		"vite": "^5.4.9"
 	}
 }

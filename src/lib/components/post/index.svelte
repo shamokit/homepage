@@ -39,7 +39,7 @@
 	</div>
 	{#if blank}
 		<span class="absolute bottom-1 right-1 block w-3">
-			<Ico name="blank" ariaLabel="外部サイトに移動します" />
+			<Ico name="blank" />
 		</span>
 	{/if}
 </a>
