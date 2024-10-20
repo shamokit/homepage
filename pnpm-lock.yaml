@@ -50,9 +50,6 @@ dependencies:
   svelte-check:
     specifier: ^4.0.5
     version: 4.0.5(svelte@5.0.2)(typescript@5.6.3)
-  svelte-intersection-observer:
-    specifier: ^1.0.0
-    version: 1.0.0
   tailwindcss:
     specifier: ^3.4.14
     version: 3.4.14
@@ -3545,10 +3542,6 @@ packages:
       postcss-scss: 4.0.9(postcss@8.4.47)
       svelte: 5.0.2
     dev: true
-
-  /svelte-intersection-observer@1.0.0:
-    resolution: {integrity: sha512-AoxSog8fSt9sSN8ajMYM1I48ndq+rmPlaZSkJFCRbZ7I3KO8IPX6pl5mewWxdYL1JDI06hHu/7epn3h5tlJV9w==}
-    dev: false
 
   /svelte@5.0.2:
     resolution: {integrity: sha512-TIqp5kjyTMa45L0McUvVfjuvlF/hyxVolyAc9APY3/FeF5aqYpt+Y1PckPQ7DlsDkthxNeq2+ystop8GlIV3kw==}
