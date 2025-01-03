@@ -74,7 +74,7 @@
 						</li>
 					{/each}
 				</ul>
-				<p class="leading-none"><small class="text-xxs">©️2022-2024 shamokit</small></p>
+				<p class="leading-none"><small class="text-xxs">©️2022-2025 shamokit</small></p>
 			</div>
 		</div>
 	</div>
