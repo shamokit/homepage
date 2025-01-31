@@ -64,7 +64,7 @@
 					<p>うちのねこたちの写真です。</p>
 				</Head01>
 				<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-					{#each data.photos as photo}
+					{#each data.photos as photo, i}
 						<li>
 							<a
 								href={photo.permalink}
@@ -73,7 +73,7 @@
 								class="group block overflow-hidden rounded-lg"
 								><Image
 									src={photo.media_url}
-									alt={photo.caption}
+									alt={photo.caption || `ほっけとうなぎの写真${i}`}
 									class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125 aspect-square w-full"
 									width={600}
 									height={600}
