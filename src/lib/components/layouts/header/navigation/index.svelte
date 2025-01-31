@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Ico from '$lib/components/svg/ico.svelte';
 	import { links } from '$lib/const';
 	import { globalMenuStore } from './globalMenu.store';
@@ -98,7 +98,7 @@
 		>
 			{#each links as link, i}
 				{@const isLast = linkLength - 1 === i}
-				{@const isCurrent = $page.url.pathname === link.slug}
+				{@const isCurrent = page.url.pathname === link.slug}
 				<li class="md:py-1">
 					<a
 						href={link.slug}

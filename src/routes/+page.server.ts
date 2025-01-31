@@ -36,8 +36,10 @@ export const load = async ({ fetch }) => {
 		};
 	};
 	return {
-		zenn: zenn.items.slice(0, postNum),
-		qiita: qiita.items.slice(0, postNum),
+		posts: {
+			qiita: qiita.items.slice(0, postNum),
+			zenn: zenn.items.slice(0, postNum)
+		},
 		photos: photos.media.data.map(({ permalink, media_url, caption }) => ({
 			permalink,
 			media_url,

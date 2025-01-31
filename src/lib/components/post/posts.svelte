@@ -4,7 +4,7 @@
 	let {
 		posts
 	}: {
-		posts: ComponentProps<Post>[];
+		posts: ComponentProps<typeof Post>[];
 	} = $props();
 </script>
 

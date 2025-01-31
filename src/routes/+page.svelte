@@ -6,7 +6,7 @@
 	import { contactList } from '$lib/const';
 	import zenn from '$lib/assets/zenn.webp';
 	import qiita from '$lib/assets/qiita.webp';
-	import ImageLazyLoad from '$lib/components/image/lazyLoad.svelte';
+	import Image from '$lib/components/image/Image.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	let { data } = $props();
 </script>
@@ -25,12 +25,10 @@
 	<section>
 		<div class="grid gap-12 container py-16 lg:py-28">
 			<Head01 title="Posts">
-				<p>
-					Qiita{#if data.zenn.length > 0}とZenn{/if}に記事を投稿しています。
-				</p>
+				<p>QiitaとZennに記事を投稿しています。</p>
 			</Head01>
 			<div class="grid gap-10">
-				{#if data.qiita.length > 0}
+				{#if data.posts.qiita.length > 0}
 					<section class="grid gap-5">
 						<Head02 title="Qiita">
 							{#snippet ico()}
@@ -40,10 +38,10 @@
 								<LinkButton href={contactList.qiita.url}>Qiita記事一覧</LinkButton>
 							{/snippet}
 						</Head02>
-						<Posts posts={data.qiita} />
+						<Posts posts={data.posts.qiita} />
 					</section>
 				{/if}
-				{#if data.zenn.length > 0}
+				{#if data.posts.zenn.length > 0}
 					<section class="grid gap-5">
 						<Head02 title="Zenn">
 							{#snippet ico()}
@@ -53,7 +51,7 @@
 								<LinkButton href={contactList.zenn.url}>Zenn記事一覧</LinkButton>
 							{/snippet}
 						</Head02>
-						<Posts posts={data.zenn} />
+						<Posts posts={data.posts.zenn} />
 					</section>
 				{/if}
 			</div>
@@ -73,10 +71,10 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								class="group block overflow-hidden rounded-lg"
-								><ImageLazyLoad
+								><Image
 									src={photo.media_url}
 									alt={photo.caption}
-									class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125 aspect-square"
+									class="block transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-125 aspect-square w-full"
 									width={600}
 									height={600}
 								/></a

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Ico from '$lib/components/svg/ico.svelte';
 
 	let {
@@ -22,10 +22,12 @@
 					{/if}
 					<a
 						href={breadcrumb.slug}
-						aria-current={$page.url.pathname === breadcrumb.slug ? 'page' : undefined}
-						class={$page.url.pathname === breadcrumb.slug
-							? 'flex items-center text-secondary-500 font-bold'
-							: 'flex items-center'}>{breadcrumb.name}</a
+						aria-current={page.url.pathname === breadcrumb.slug ? 'page' : undefined}
+						class={[
+							'flex items-center',
+							page.url.pathname === breadcrumb.slug &&
+								'flex items-center text-secondary-500 font-bold'
+						]}>{breadcrumb.name}</a
 					>
 				</li>
 			{/each}
