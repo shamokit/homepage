@@ -16,7 +16,7 @@
 	});
 
 	let navigationButton: HTMLButtonElement;
-	let focusableItems: HTMLAnchorElement[] = [];
+	let focusableItems: HTMLAnchorElement[] = $state([]);
 
 	/**
 	 * グローバルナビゲーション内でEscキーを押したらメニューを閉じる
@@ -61,9 +61,9 @@
 	<button
 		type="button"
 		class="absolute z-10 top-1/2 -translate-y-1/2 right-2 grid place-items-center grid-cols-[1fr_12px_1fr] grid-rows-[1fr_2px_1fr] rounded-full bg-surface-500 md:hidden w-10 h-10 text-primary-500"
-		aria-expanded={$menuOpen}
+		aria-haspopup={!$menuOpen}
 		aria-controls="globalNavigation"
-		aria-label="メニュー"
+		aria-label="グローバルメニュー"
 		bind:this={navigationButton}
 		onclick={toggleMenu}
 		onkeydown={focusLastAtMobile}
@@ -90,7 +90,6 @@
 		class:opacity-100={$menuOpen}
 		class:invisible={!$menuOpen}
 		class:opacity-0={!$menuOpen}
-		aria-hidden={$menuOpen ? null : 'true'}
 		aria-label="グローバル"
 	>
 		<ul

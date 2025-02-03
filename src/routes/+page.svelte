@@ -58,7 +58,7 @@
 		</div>
 	</section>
 	{#if data.photos}
-		<section class:bg-surface-500={!(data.photos.length > 0)}>
+		<section class="bg-surface-500">
 			<div class="grid gap-8 container py-16 lg:py-28">
 				<Head01 title="Hokke to Unagi">
 					<p>うちのねこたちの写真です。</p>
