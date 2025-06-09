@@ -4,6 +4,7 @@
 	import instagram from '$lib/assets/instagram.webp';
 	import x from '$lib/assets/x.webp';
 	import github from '$lib/assets/github.webp';
+	import note from '$lib/assets/note.png';
 	import { links, contactList } from '$lib/const';
 	import Ico from '$lib/components/svg/ico.svelte';
 </script>
@@ -17,7 +18,7 @@
 						href={contactList.qiita.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
+						class="block w-8 lg:w-10 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={qiita} alt={contactList.qiita.name} width="40" height="40" /></a
 					>
 				</li>
@@ -26,8 +27,17 @@
 						href={contactList.zenn.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
+						class="block w-8 lg:w-10 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={zenn} alt={contactList.zenn.name} width="40" height="40" /></a
+					>
+				</li>
+				<li>
+					<a
+						href={contactList.note.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="block w-8 lg:w-10 rounded-full transition-opacity hover:opacity-80"
+						><img src={note} alt={contactList.note.name} width="40" height="40" /></a
 					>
 				</li>
 				<li>
@@ -35,7 +45,7 @@
 						href={contactList.instagram.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
+						class="block w-8 lg:w-10 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={instagram} alt={contactList.instagram.name} width="40" height="40" /></a
 					>
 				</li>
@@ -44,7 +54,7 @@
 						href={contactList.x.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-8 md:w-10 lg:w-12 p-1.5 rounded-full transition-opacity hover:opacity-80"
+						class="block w-8 lg:w-10 p-1.5 rounded-full transition-opacity hover:opacity-80"
 						><img src={x} alt={contactList.x.name} width="40" height="41" /></a
 					>
 				</li>
@@ -53,7 +63,7 @@
 						href={contactList.github.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-8 md:w-10 lg:w-12 p-1 rounded-full transition-opacity hover:opacity-80"
+						class="block w-8 lg:w-10 p-1 rounded-full transition-opacity hover:opacity-80"
 						><img src={github} alt={contactList.github.name} width="40" height="40" /></a
 					>
 				</li>

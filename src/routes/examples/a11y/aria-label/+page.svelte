@@ -9,16 +9,16 @@
 </script>
 
 <svelte:head>
-	<title>aria-labelの使い方には注意しよう｜しゃもきっとブログ</title>
-	<meta name="description" content="aria-labelの使い方には注意しよう｜しゃもきっとブログ" />
+	<title>aria-labelの使い方には注意しよう｜しゃもブログ</title>
+	<meta name="description" content="aria-labelの使い方には注意しよう｜しゃもブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/aria-label`} />
 	<meta
 		property="og:image"
 		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent('aria-labelの使い方には注意しよう')}`}
 	/>
-	<meta property="og:title" content="aria-labelの使い方には注意しよう｜しゃもきっとブログ" />
-	<meta property="og:description" content="aria-labelの使い方には注意しよう｜しゃもきっとブログ" />
+	<meta property="og:title" content="aria-labelの使い方には注意しよう｜しゃもブログ" />
+	<meta property="og:description" content="aria-labelの使い方には注意しよう｜しゃもブログ" />
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/aria-label`} />
 </svelte:head>
 <div class="main">

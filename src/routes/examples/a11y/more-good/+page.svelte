@@ -11,8 +11,8 @@
 </script>
 
 <svelte:head>
-	<title>読み上げ改善した例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title>
-	<meta name="description" content="読み上げ改善した例｜しゃもきっとのエンジニアブログ" />
+	<title>読み上げ改善した例｜ここから始めようWebアクセシビリティ｜しゃもブログ</title>
+	<meta name="description" content="読み上げ改善した例｜しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/more-good`} />
 	<meta
@@ -21,9 +21,9 @@
 	/>
 	<meta
 		property="og:title"
-		content="読み上げ改善した例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
+		content="読み上げ改善した例｜ここから始めようWebアクセシビリティ｜しゃもブログ"
 	/>
-	<meta property="og:description" content="読み上げ改善した例｜しゃもきっとのエンジニアブログ" />
+	<meta property="og:description" content="読み上げ改善した例｜しゃものエンジニアブログ" />
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/more-good`} />
 </svelte:head>
 <div class="main">

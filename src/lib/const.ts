@@ -40,6 +40,10 @@ export const contactList = {
 		name: 'Zenn',
 		url: 'https://zenn.dev/shamokit'
 	},
+	note: {
+		name: 'note',
+		url: 'https://note.com/shamokit_y2323'
+	},
 	instagram: {
 		name: 'Instagram',
 		url: 'https://www.instagram.com/hokke_to_unagi/'

@@ -3,10 +3,10 @@
 </script>
 
 <svelte:head>
-	<title>フォームコントロール｜Webアクセシビリティ｜しゃもきっとブログ</title>
+	<title>フォームコントロール｜Webアクセシビリティ｜しゃもブログ</title>
 	<meta
 		name="description"
-		content="フォームコントロール｜Webアクセシビリティ｜しゃもきっとのエンジニアブログ"
+		content="フォームコントロール｜Webアクセシビリティ｜しゃものエンジニアブログ"
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/form`} />
@@ -18,11 +18,11 @@
 	/>
 	<meta
 		property="og:title"
-		content="フォームコントロール｜Webアクセシビリティ｜しゃもきっとブログ"
+		content="フォームコントロール｜Webアクセシビリティ｜しゃもブログ"
 	/>
 	<meta
 		property="og:description"
-		content="フォームコントロール｜Webアクセシビリティ｜しゃもきっとのエンジニアブログ"
+		content="フォームコントロール｜Webアクセシビリティ｜しゃものエンジニアブログ"
 	/>
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/form`} />
 </svelte:head>

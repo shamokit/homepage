@@ -10,13 +10,8 @@
 </script>
 
 <svelte:head>
-	<title
-		>キーボード操作できない例の改善｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title
-	>
-	<meta
-		name="description"
-		content="キーボード操作できない例の改善｜しゃもきっとのエンジニアブログ"
-	/>
+	<title>キーボード操作できない例の改善｜ここから始めようWebアクセシビリティ｜しゃもブログ</title>
+	<meta name="description" content="キーボード操作できない例の改善｜しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/good`} />
 	<meta
@@ -25,11 +20,11 @@
 	/>
 	<meta
 		property="og:title"
-		content="キーボード操作できない例の改善｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
+		content="キーボード操作できない例の改善｜ここから始めようWebアクセシビリティ｜しゃもブログ"
 	/>
 	<meta
 		property="og:description"
-		content="キーボード操作できない例の改善｜しゃもきっとのエンジニアブログ"
+		content="キーボード操作できない例の改善｜しゃものエンジニアブログ"
 	/>
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/good`} />
 </svelte:head>

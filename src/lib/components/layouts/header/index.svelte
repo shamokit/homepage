@@ -20,11 +20,11 @@
 	<svelte:element this={tag} class="relative z-10">
 		<a
 			href="/"
-			class="flex items-center gap-2 md:pl-2.5 md:pr-5 text-primary-500 text-sm md:text-md transition-colors rounded-full hover:text-accent-500"
+			class="flex items-center gap-2 md:pl-2.5 md:pr-5 text-primary-500 text-sm md:text-md transition-colors rounded-full hover:text-secondary-500"
 			onclick={() => closeMenu($isMobile)}
 		>
-			<span class="block w-10 md:w-14 shrink-0 p-1 md:p-2"><Logo /></span>
-			<span class="font-bold">しゃもきっとブログ</span>
+			<span class="block w-8 shrink-0"><Logo /></span>
+			<span class="block font-bold pt-1">しゃもブログ</span>
 		</a>
 	</svelte:element>
 	<Navigation />

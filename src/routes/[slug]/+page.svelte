@@ -7,10 +7,10 @@
 </script>
 
 <svelte:head>
-	<title>{data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`}</title>
+	<title>{data.page.meta?.title ?? `${data.page.title}｜しゃもブログ`}</title>
 	<meta
 		name="description"
-		content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`}
+		content={data.page.meta?.description ?? `${data.page.title}｜しゃもブログ`}
 	/>
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={`${SITE_URL}/thinking`} />
@@ -20,13 +20,10 @@
 			`${data.page.title}｜${data.page.lead.lead}`
 		)}`}
 	/>
-	<meta
-		property="og:title"
-		content={data.page.meta?.title ?? `${data.page.title}｜しゃもきっとブログ`}
-	/>
+	<meta property="og:title" content={data.page.meta?.title ?? `${data.page.title}｜しゃもブログ`} />
 	<meta
 		property="og:description"
-		content={data.page.meta?.description ?? `${data.page.title}｜しゃもきっとブログ`}
+		content={data.page.meta?.description ?? `${data.page.title}｜しゃもブログ`}
 	/>
 	<link rel="canonical" href={`${SITE_URL}/${data.page.slug}`} />
 </svelte:head>

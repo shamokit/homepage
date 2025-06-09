@@ -14,11 +14,8 @@
 </script>
 
 <svelte:head>
-	<title>role="status"とdialog｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title>
-	<meta
-		name="description"
-		content="role=&quot;status&quot;とdialog｜しゃもきっとのエンジニアブログ"
-	/>
+	<title>role="status"とdialog｜ここから始めようWebアクセシビリティ｜しゃもブログ</title>
+	<meta name="description" content="role=&quot;status&quot;とdialog｜しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/role-status-dialog`} />
 	<meta
@@ -27,11 +24,11 @@
 	/>
 	<meta
 		property="og:title"
-		content="role=&quot;status&quot;とdialog｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
+		content="role=&quot;status&quot;とdialog｜ここから始めようWebアクセシビリティ｜しゃもブログ"
 	/>
 	<meta
 		property="og:description"
-		content="role=&quot;status&quot;とdialog｜しゃもきっとのエンジニアブログ"
+		content="role=&quot;status&quot;とdialog｜しゃものエンジニアブログ"
 	/>
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/more-good`} />
 </svelte:head>

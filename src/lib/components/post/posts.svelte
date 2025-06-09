@@ -8,10 +8,8 @@
 	} = $props();
 </script>
 
-<ul class="grid gap-3">
+<div class="grid gap-3">
 	{#each posts as post}
-		<li>
-			<Post {...post} />
-		</li>
+		<Post {...post} />
 	{/each}
-</ul>
+</div>

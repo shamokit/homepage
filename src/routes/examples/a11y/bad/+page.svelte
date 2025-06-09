@@ -6,8 +6,8 @@
 </script>
 
 <svelte:head>
-	<title>キーボード操作できない例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title>
-	<meta name="description" content="キーボード操作できない例｜しゃもきっとのエンジニアブログ" />
+	<title>キーボード操作できない例｜ここから始めようWebアクセシビリティ｜しゃもブログ</title>
+	<meta name="description" content="キーボード操作できない例｜しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/bad`} />
 	<meta
@@ -16,12 +16,9 @@
 	/>
 	<meta
 		property="og:title"
-		content="キーボード操作できない例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
+		content="キーボード操作できない例｜ここから始めようWebアクセシビリティ｜しゃもブログ"
 	/>
-	<meta
-		property="og:description"
-		content="キーボード操作できない例｜しゃもきっとのエンジニアブログ"
-	/>
+	<meta property="og:description" content="キーボード操作できない例｜しゃものエンジニアブログ" />
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/bad`} />
 </svelte:head>
 <div class="main">

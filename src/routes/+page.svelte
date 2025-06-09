@@ -6,26 +6,27 @@
 	import { contactList } from '$lib/const';
 	import zenn from '$lib/assets/zenn.webp';
 	import qiita from '$lib/assets/qiita.webp';
+	import note from '$lib/assets/note.png';
 	import Image from '$lib/components/image/Image.svelte';
 	import { SITE_URL, OG_IMAGE_URL } from '$lib/const';
 	let { data } = $props();
 </script>
 
 <svelte:head>
-	<title>しゃもきっとブログ</title>
-	<meta name="description" content="しゃもきっとのエンジニアブログ" />
+	<title>しゃもブログ</title>
+	<meta name="description" content="しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={SITE_URL} />
 	<meta property="og:image" content={`${OG_IMAGE_URL}`} />
-	<meta property="og:title" content="しゃもきっとブログ" />
-	<meta property="og:description" content="しゃもきっとのエンジニアブログ" />
+	<meta property="og:title" content="しゃもブログ" />
+	<meta property="og:description" content="しゃものエンジニアブログ" />
 	<link rel="canonical" href={SITE_URL} />
 </svelte:head>
 <main>
 	<section>
 		<div class="grid gap-12 container py-16 lg:py-28">
 			<Head01 title="Posts">
-				<p>QiitaとZennに記事を投稿しています。</p>
+				<p>QiitaとZennとnoteに記事を投稿しています。</p>
 			</Head01>
 			<div class="grid gap-10">
 				{#if data.posts.qiita.length > 0}
@@ -52,6 +53,19 @@
 							{/snippet}
 						</Head02>
 						<Posts posts={data.posts.zenn} />
+					</section>
+				{/if}
+				{#if data.posts.note.length > 0}
+					<section class="grid gap-5">
+						<Head02 title="note">
+							{#snippet ico()}
+								<img src={note} alt="" width="40" height="40" />
+							{/snippet}
+							{#snippet button()}
+								<LinkButton href={contactList.note.url}>note記事一覧</LinkButton>
+							{/snippet}
+						</Head02>
+						<Posts posts={data.posts.note} />
 					</section>
 				{/if}
 			</div>

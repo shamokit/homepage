@@ -4,19 +4,16 @@
 </script>
 
 <svelte:head>
-	<title>figureタグの読み上げ例｜しゃもきっとブログ</title>
-	<meta name="description" content="figureタグの読み上げ例｜しゃもきっとのエンジニアブログ" />
+	<title>figureタグの読み上げ例｜しゃもブログ</title>
+	<meta name="description" content="figureタグの読み上げ例｜しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/figure`} />
 	<meta
 		property="og:image"
 		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent('figureタグの読み上げ例')}`}
 	/>
-	<meta property="og:title" content="figureタグの読み上げ例｜しゃもきっとブログ" />
-	<meta
-		property="og:description"
-		content="figureタグの読み上げ例｜しゃもきっとのエンジニアブログ"
-	/>
+	<meta property="og:title" content="figureタグの読み上げ例｜しゃもブログ" />
+	<meta property="og:description" content="figureタグの読み上げ例｜しゃものエンジニアブログ" />
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/figure`} />
 </svelte:head>
 <main>

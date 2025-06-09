@@ -12,8 +12,8 @@
 </script>
 
 <svelte:head>
-	<title>ランドマークの改善をした例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ</title>
-	<meta name="description" content="ランドマークの改善をした例｜しゃもきっとのエンジニアブログ" />
+	<title>ランドマークの改善をした例｜ここから始めようWebアクセシビリティ｜しゃもブログ</title>
+	<meta name="description" content="ランドマークの改善をした例｜しゃものエンジニアブログ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`${SITE_URL}/examples/a11y/landmark`} />
 	<meta
@@ -22,12 +22,9 @@
 	/>
 	<meta
 		property="og:title"
-		content="ランドマークの改善をした例｜ここから始めようWebアクセシビリティ｜しゃもきっとブログ"
+		content="ランドマークの改善をした例｜ここから始めようWebアクセシビリティ｜しゃもブログ"
 	/>
-	<meta
-		property="og:description"
-		content="ランドマークの改善をした例｜しゃもきっとのエンジニアブログ"
-	/>
+	<meta property="og:description" content="ランドマークの改善をした例｜しゃものエンジニアブログ" />
 	<link rel="canonical" href={`${SITE_URL}/examples/a11y/more-good`} />
 </svelte:head>
 <Breadcrumbs
