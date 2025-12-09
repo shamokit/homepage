@@ -13,7 +13,7 @@
 		content={data.page.meta?.description ?? `${data.page.title}｜しゃもブログ`}
 	/>
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content={`${SITE_URL}/thinking`} />
+	<meta property="og:url" content={`${SITE_URL}/${data.page.slug}`} />
 	<meta
 		property="og:image"
 		content={`${OG_IMAGE_URL}/?message=${encodeURIComponent(
