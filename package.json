@@ -40,11 +40,6 @@
 		"svelte-check": "^4.3.4",
 		"tailwindcss": "^3.4.17",
 		"typescript": "^5.9.3",
-		"vite": "npm:rolldown-vite@^7.2.7"
-	},
-	"pnpm": {
-		"overrides": {
-			"vite": "npm:rolldown-vite@latest"
-		}
+		"vite": "^7.2.7"
 	}
 }
