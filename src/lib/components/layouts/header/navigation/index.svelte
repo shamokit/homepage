@@ -3,13 +3,15 @@
 	import Ico from '$lib/components/svg/ico.svelte';
 	import { links } from '$lib/const';
 	import { globalMenuStore } from './globalMenu.store';
-	import { isMobile } from '$lib/functions/mediaQuery.store.action';
+	import { useMediaQuery } from '$lib/functions/useMediaQuery.svelte';
 
+	const mediaQuery = useMediaQuery();
+	const isMobile = $derived(mediaQuery.isMobile);
 	const linkLength = links.length;
 	const { menuOpen, openMenu, closeMenu, toggleMenu } = globalMenuStore();
 	$effect(() => {
-		if ($isMobile) {
-			closeMenu($isMobile);
+		if (isMobile) {
+			closeMenu(isMobile);
 		} else {
 			openMenu();
 		}
@@ -26,7 +28,7 @@
 		if (e.key !== 'Escape' || !$menuOpen) return;
 		const target = e.target as HTMLElement;
 		if (target.closest('#navigation')) {
-			closeMenu($isMobile);
+			closeMenu(isMobile);
 			navigationButton.focus();
 		}
 	};
@@ -35,7 +37,7 @@
 	 * メニューを閉じたらナビゲーションボタンにフォーカスを戻す
 	 */
 	const focusFirstAtMobile = (e: KeyboardEvent, isLast: boolean) => {
-		if (!$menuOpen || !$isMobile) return;
+		if (!$menuOpen || !isMobile) return;
 		if (e.key === 'Tab' && !e.shiftKey && isLast) {
 			e.preventDefault();
 			navigationButton.focus();
@@ -103,7 +105,7 @@
 						href={link.slug}
 						class="flex items-center gap-1.5 py-1 md:py-2 px-0 md:px-2.5 transition-all rounded-full underline-offset-8 hover:text-secondary-500 hover:underline aria-[current=page]:text-secondary-500 aria-[current=page]:underline-offset-8 aria-[current=page]:underline"
 						aria-current={isCurrent ? 'page' : undefined}
-						onclick={() => closeMenu($isMobile)}
+						onclick={() => closeMenu(isMobile)}
 						onkeydown={(e) => focusFirstAtMobile(e, isLast)}
 						bind:this={focusableItems[i]}
 					>

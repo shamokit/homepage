@@ -2,16 +2,19 @@
 	import Logo from '$lib/components/logo/index.svelte';
 	import Navigation from '$lib/components/layouts/header/navigation/index.svelte';
 	import { globalMenuStore } from '$lib/components/layouts/header/navigation/globalMenu.store';
-	import { isMobile } from '$lib/functions/mediaQuery.store.action';
+	import { useMediaQuery } from '$lib/functions/useMediaQuery.svelte';
 
 	let {
 		isHome = false
 	}: {
 		isHome: boolean;
 	} = $props();
-	let tag = $derived(isHome ? 'h1' : 'p');
 
 	const { closeMenu } = globalMenuStore();
+	const mediaQuery = useMediaQuery();
+	const isMobile = $derived(mediaQuery.isMobile);
+
+	const tag = $derived(isHome ? 'h1' : 'p');
 </script>
 
 <header
@@ -21,7 +24,7 @@
 		<a
 			href="/"
 			class="flex items-center gap-2 md:pl-2.5 md:pr-5 text-primary-500 text-sm md:text-md transition-colors rounded-full hover:text-secondary-500"
-			onclick={() => closeMenu($isMobile)}
+			onclick={() => closeMenu(isMobile)}
 		>
 			<span class="block w-8 shrink-0"><Logo /></span>
 			<span class="block font-bold pt-1">しゃもブログ</span>
